@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import it.unisalento.pps.view.FormRegistrazione;
 import it.unisalento.pps.view.Homepage;
 import it.unisalento.pps.view.InfoDisciplina;
+import it.unisalento.pps.view.InfoDisciplinaTesserato;
 import it.unisalento.pps.view.IstruttoreInizio;
 
 
@@ -16,6 +17,11 @@ import it.unisalento.pps.view.IstruttoreInizio;
 		private JFrame frame;
 		
 	public AscoltatoreBackHome(InfoDisciplina frame) {
+		super();
+		this.frame = frame;
+	}
+	
+	public AscoltatoreBackHome(InfoDisciplinaTesserato frame) {
 		super();
 		this.frame = frame;
 	}
@@ -30,7 +36,6 @@ import it.unisalento.pps.view.IstruttoreInizio;
 		this.frame = frame;
 	}
 	
-
 
 	public void actionPerformed(ActionEvent e) {
 	

@@ -19,12 +19,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-
 import it.unisalento.pps.listener.AscoltatoreDisciplina;
+import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
 import it.unisalento.pps.listener.AscoltatoreReg;
 import it.unisalento.pps.listener.LoginBtnListener;
 
-public class Homepage extends JFrame {
+public class HomepageTesserato extends JFrame {
 	
 	JPanel nordPnl=new JPanel(new GridLayout(1,2));
 	JPanel centroPnl=new JPanel(new GridLayout(3,2));
@@ -38,12 +38,7 @@ public class Homepage extends JFrame {
 	JPanel norddestra= new JPanel(new GridLayout(2,2));	
 	JPanel vuoto1 = new JPanel();
 	JPanel login= new JPanel(new GridLayout(3,2));	
-	JLabel user = new JLabel("            Inserisci username");
-	public JTextField username = new JTextField();
-    JLabel psw = new JLabel("             Inserisci password");
-    public JPasswordField password = new JPasswordField();
-	JButton loginBtn = new JButton("Effettua login");
-	JButton registrazione = new JButton("Effettua registrazione");
+	JLabel nomeutente = new JLabel("nomeutente");
 	JPanel vuoto3 =new JPanel();
 	JPanel vuoto4 =new JPanel();
 	
@@ -57,25 +52,16 @@ public class Homepage extends JFrame {
 	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
-	AscoltatoreDisciplina ascoltatoreDisciplina = new AscoltatoreDisciplina(this);
+	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina = new AscoltatoreDisciplinaTesserato(this);
 	
-	public Homepage() {
+	public HomepageTesserato() {
 		super("Catalogo Centro Sportivo");
 		
 		
 		titolo.add(centrosportivo);
 		nordPnl.add(titolo);		
 		norddestra.add(vuoto1);
-		login.add(user);
-		login.add(username);
-		login.add(psw);
-		login.add(password);
-		password.addKeyListener(new LoginBtnListener (this));
-		login.add(loginBtn);
-		loginBtn.addActionListener(new LoginBtnListener(this));
-		loginBtn.addKeyListener(new LoginBtnListener (this));
-		login.add(registrazione);
-		registrazione.addActionListener(new AscoltatoreReg(this));
+		login.add(nomeutente);
 		norddestra.add(login);
 		norddestra.add(vuoto3);
 		norddestra.add(vuoto4);
@@ -118,8 +104,7 @@ public class Homepage extends JFrame {
 		this.setVisible(true);
 	}
 
-	public int getKeyCode() {
-		
+	public int getKeyCode() {		
 		return 0;
 	}
 	

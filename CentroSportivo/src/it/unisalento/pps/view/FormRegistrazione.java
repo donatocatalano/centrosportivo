@@ -27,12 +27,13 @@ import it.unisalento.pps.listener.AscoltatoreBackHome;
 public class FormRegistrazione extends JFrame {
 	
 	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout (6,0));
+	JPanel centroPnl=new JPanel(new GridLayout (3,3));
 	JPanel sudPnl=new JPanel();
 	
 	
 	JPanel paginareg= new JPanel(new FlowLayout());
 	JLabel compilaform= new JLabel("Inserisci i dati richiesti");
+	//paginareg.setFont(paginareg.getFont().deriveFont(Font.BOLD));
 	
 	
 	JPanel name= new JPanel(new FlowLayout());
