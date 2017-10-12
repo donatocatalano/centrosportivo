@@ -56,6 +56,5 @@ public class InfoDisciplinaTesserato extends JFrame{
 		this.setVisible(true);
 		//System.out.println(dim);
 	}
-
 }
 

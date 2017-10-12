@@ -42,14 +42,16 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				homepageWindow.dispose();
 			}
 			else if(utenteEsiste){
+				
 				boolean tesseratoEsiste = UtenteBusiness.getInstance().verificaLoginTesserato(username, password);
-					if (tesseratoEsiste) {
-						JOptionPane.showMessageDialog(null, "Benvenuto Utente Tesserato!");
-						new HomepageTesserato();
-						homepageWindow.dispose();
-					}
-					else
-						JOptionPane.showMessageDialog(null, "Registrazione in attesa di conferma");
+				
+				if (tesseratoEsiste){
+					JOptionPane.showMessageDialog(null, "Benvenuto Utente Tesserato!");
+					new HomepageTesserato();
+					homepageWindow.dispose();
+				}
+				else
+					JOptionPane.showMessageDialog(null, "Registrazione in attesa di conferma");
 			}
 			else //if (!responsabileEsiste & !istruttoreEsiste & !utenteEsiste)
 						JOptionPane.showMessageDialog(null, "Utente non riconosciuto");
@@ -77,29 +79,25 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 		
 				
 		if(responsabileEsiste)
-			{
 			JOptionPane.showMessageDialog(null, "Benvenuto Responsabile!");
-			 
-			}
-		    
-		else if(istruttoreEsiste)
-			{
+		else if(istruttoreEsiste){
 			JOptionPane.showMessageDialog(null, "Benvenuto Istruttore!");
 			new AreaIstruttore();
 			homepageWindow.dispose();
-			}
-		else if(utenteEsiste)
-				{
+		}
+		else if(utenteEsiste){
+			
 			boolean tesseratoEsiste = UtenteBusiness.getInstance().verificaLoginTesserato(username, password);
-				if (tesseratoEsiste) 
-					JOptionPane.showMessageDialog(null, "Benvenuto Utente Tesserato!");	
-				else
-					JOptionPane.showMessageDialog(null, "Registrazione in attesa di conferma");
-				}
+			
+			if (tesseratoEsiste){
+				JOptionPane.showMessageDialog(null, "Benvenuto Utente Tesserato!");
+				new HomepageTesserato();
+				homepageWindow.dispose();
+			}
+			else
+				JOptionPane.showMessageDialog(null, "Registrazione in attesa di conferma");
+		}
 		else //if (!responsabileEsiste & !istruttoreEsiste & !utenteEsiste)
 					JOptionPane.showMessageDialog(null, "Utente non riconosciuto");
 	}
-					
-		
 }
-

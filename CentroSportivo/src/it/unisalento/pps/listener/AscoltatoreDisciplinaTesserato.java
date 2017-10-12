@@ -41,5 +41,4 @@ public class AscoltatoreDisciplinaTesserato implements ActionListener {
 		new InfoDisciplinaTesserato();
 		frame.dispose();
 	}
-
 }
