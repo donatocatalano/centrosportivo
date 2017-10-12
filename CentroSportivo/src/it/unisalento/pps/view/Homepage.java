@@ -2,6 +2,7 @@ package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -36,6 +37,7 @@ public class Homepage extends JFrame {
 	
 	
 	JPanel norddestra= new JPanel(new GridLayout(2,2));	
+	
 	JPanel vuoto1 = new JPanel();
 	JPanel login= new JPanel(new GridLayout(3,2));	
 	JLabel user = new JLabel("            Inserisci username");
@@ -62,7 +64,8 @@ public class Homepage extends JFrame {
 	public Homepage() {
 		super("Catalogo Centro Sportivo");
 		
-		
+		centrosportivo.setFont(new Font("sansserif",Font.BOLD,75));
+		//titolo.setBackground( Color.RED );
 		titolo.add(centrosportivo);
 		nordPnl.add(titolo);		
 		norddestra.add(vuoto1);
@@ -76,6 +79,8 @@ public class Homepage extends JFrame {
 		loginBtn.addKeyListener(new LoginBtnListener (this));
 		login.add(registrazione);
 		registrazione.addActionListener(new AscoltatoreReg(this));
+		//loginBtn.setOpaque( true );
+		//loginBtn.setBackground( Color.BLUE );
 		norddestra.add(login);
 		norddestra.add(vuoto3);
 		norddestra.add(vuoto4);
@@ -84,18 +89,23 @@ public class Homepage extends JFrame {
 		
 		disciplina1.addActionListener(ascoltatoreDisciplina);
 		disciplina1.setActionCommand(AscoltatoreDisciplina.D1);
+		disciplina1.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina1);
 		disciplina2.addActionListener(ascoltatoreDisciplina);
 		disciplina2.setActionCommand(AscoltatoreDisciplina.D2);
+		disciplina2.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina2);
 		disciplina3.addActionListener(ascoltatoreDisciplina);
 		disciplina3.setActionCommand(AscoltatoreDisciplina.D3);
+		disciplina3.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina3);
 		disciplina4.addActionListener(ascoltatoreDisciplina);
 		disciplina4.setActionCommand(AscoltatoreDisciplina.D4);
+		disciplina4.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina4);
 		disciplina5.addActionListener(ascoltatoreDisciplina);
 		disciplina5.setActionCommand(AscoltatoreDisciplina.D5);
+		disciplina5.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina5);
 		centroPnl.add(disciplina6);
 		

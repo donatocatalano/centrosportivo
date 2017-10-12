@@ -1,5 +1,6 @@
 package it.unisalento.pps.listener;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -37,7 +38,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				homepageWindow.dispose();
 			}			    
 			else if(istruttoreEsiste){
-				JOptionPane.showMessageDialog(null, "<html><center>Benvenuto Istruttore\r\n");
+				JOptionPane.showMessageDialog(null, "<html><center>Benvenuto Istruttore!\r\n");
 				new AreaIstruttore();
 				homepageWindow.dispose();
 			}
@@ -51,10 +52,10 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 					homepageWindow.dispose();
 				}
 				else
-					JOptionPane.showMessageDialog(null, "Registrazione in attesa di conferma");
+					JOptionPane.showMessageDialog(null, "Registrazione in attesa di conferma!");
 			}
 			else //if (!responsabileEsiste & !istruttoreEsiste & !utenteEsiste)
-						JOptionPane.showMessageDialog(null, "Utente non riconosciuto");
+						JOptionPane.showMessageDialog(null, "Utente non riconosciuto!");
 		}
 	}
 		

@@ -26,44 +26,41 @@ import it.unisalento.pps.listener.AscoltatoreBackHome;
 
 public class FormRegistrazione extends JFrame {
 	
-	JPanel nordPnl=new JPanel();
+	Font myfont = new Font("sansserif",Font.PLAIN,20);  
+	Dimension mysize = new Dimension (200,30);
+	
+	JPanel nordPnl=new JPanel(new GridLayout (2,1));
 	JPanel centroPnl=new JPanel(new GridLayout (3,3));
 	JPanel sudPnl=new JPanel();
 	
 	
-	JPanel paginareg= new JPanel(new FlowLayout());
-	JLabel compilaform= new JLabel("Inserisci i dati richiesti");
-	//paginareg.setFont(paginareg.getFont().deriveFont(Font.BOLD));
+	JPanel paginareg= new JPanel();
+	JLabel compilaform= new JLabel("INSERISCI I DATI RICHIESTI");
+	JPanel vuoto= new JPanel();
 	
 	
 	JPanel name= new JPanel(new FlowLayout());
 	JLabel nome= new JLabel("NOME");
 	JTextField nome_field= new JTextField("                 ");
 	
-	
 	JPanel surname= new JPanel(new FlowLayout());
 	JLabel cognome= new JLabel("COGNOME");
 	JTextField cognome_field= new JTextField("                 ");
-			
 	
 	JPanel sex= new JPanel(new FlowLayout());
-	JLabel sesso= new JLabel("SESSO");
-	JLabel maschio= new JLabel("M");
+	JLabel sesso= new JLabel("SESSO  ");
+	JLabel maschio= new JLabel("M ");
 	JCheckBox m= new JCheckBox();
-	JLabel femmina= new JLabel("F");
+	JLabel femmina= new JLabel("F ");
 	JCheckBox f= new JCheckBox();
-	
-	
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato aaaa/mm/gg)");
 	JTextField data_field= new JTextField("                 ");
 	
-	
 	JPanel username= new JPanel(new FlowLayout());
 	JLabel user= new JLabel("USERNAME");
 	JTextField user_field= new JTextField("                 ");
-	
 	
 	JPanel password= new JPanel(new FlowLayout());
 	JLabel pass= new JLabel("PASSWORD");
@@ -77,43 +74,63 @@ public class FormRegistrazione extends JFrame {
 	public FormRegistrazione() {
 		super("Pagina di Registrazione");
 		
-		
+		compilaform.setFont(new Font("sansserif",Font.BOLD,34));
+		compilaform.setHorizontalAlignment(JLabel.CENTER);
+		paginareg.add(compilaform);
+		paginareg.add(vuoto);
 		nordPnl.add(paginareg);
-		nordPnl.add(compilaform);
 		
-		centroPnl.add(name);
+		
 		name.add(nome);
 		name.add(nome_field);
-		name.setBounds(10, 50, 100,100);
+		nome.setFont(new Font("sansserif",Font.BOLD,25));
+		//nome.setHorizontalAlignment(JLabel.CENTER);
+		nome_field.setPreferredSize(mysize);
+		nome_field.setFont(myfont);
+		//nome_field.setHorizontalAlignment(JTextField.CENTER);
+		nome_field.requestFocusInWindow();
+		centroPnl.add(name);
 		
-		centroPnl.add(surname);
 		surname.add(cognome);
 		surname.add(cognome_field);
-		surname.setBounds(10, 50, 100,100);
+		surname.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+		cognome.setFont(new Font("sansserif",Font.BOLD,25));
+		cognome_field.setPreferredSize(mysize);
+		cognome_field.setFont(myfont);
+		centroPnl.add(surname);
 		
-		centroPnl.add(sex);
 		sex.add(sesso);
 		sex.add(maschio);
 		sex.add(m);
 		sex.add(femmina);
 		sex.add(f);
+		sex.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+		sesso.setFont(new Font("sansserif",Font.BOLD,25));
+		maschio.setFont(new Font("sansserif",Font.BOLD,25));
+		femmina.setFont(new Font("sansserif",Font.BOLD,25));
+		centroPnl.add(sex);
 		
-		centroPnl.add(date);
 		date.add(data);
 		date.add(data_field);
-		date.setBounds(10, 50, 100,100);
+		data.setFont(new Font("sansserif",Font.BOLD,25));
+		data_field.setPreferredSize(mysize);
+		data_field.setFont(myfont);
+		centroPnl.add(date);
 		
-		centroPnl.add(username);
 		username.add(user);
 		username.add(user_field);
-		username.setBounds(10, 50, 100,100);
+		user.setFont(new Font("sansserif",Font.BOLD,25));
+		user_field.setPreferredSize(mysize);
+		user_field.setFont(myfont);
+		centroPnl.add(username);
 		
-		centroPnl.add(password);
 		password.add(pass);
 		password.add(pass_field);
-		password.setBounds(10, 50, 100,100);
-		
-		
+		pass.setFont(new Font("sansserif",Font.BOLD,25));
+		pass_field.setPreferredSize(mysize);
+		pass_field.setFont(myfont);
+		centroPnl.add(password);
+
 
 		indietro.addActionListener(new AscoltatoreBackHome(this));
 		sudPnl.add(indietro);

@@ -5,6 +5,7 @@ import java.awt.Button;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import javax.swing.JButton;
@@ -31,9 +32,9 @@ public class InfoDisciplina extends JFrame{
 	public InfoDisciplina() {
 		super("NOME DISCIPLINA");
 		
-	
-		nordPnl.add(titolo);
+		disciplina.setFont(new Font("sansserif",Font.BOLD,34));
 		titolo.add(disciplina);
+		nordPnl.add(titolo);
 		
 		indietro.addActionListener(new AscoltatoreBackHome(this));
 		

@@ -31,7 +31,7 @@ public class AreaIstruttore extends JFrame{
 	
 	
 	JLabel vuoto00 = new JLabel ("");
-	JLabel titolo = new JLabel ("                                                       DECIDI L'AREA DA GESTIRE");
+	JLabel titolo = new JLabel ("");
 	JLabel vuoto000 = new JLabel ("");
         
 	JPanel vuoto0 = new JPanel ();
@@ -66,8 +66,10 @@ public class AreaIstruttore extends JFrame{
 		centroPnl.add(vuoto3);
 		centroPnl.add(vuoto4);
 		corsi.addActionListener(new AscoltatoreCorsi(this));
+		corsi.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(corsi);
 		eventi.addActionListener(new AscoltatoreEventi(this));
+		eventi.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(eventi);
 		centroPnl.add(vuoto7);
 		centroPnl.add(vuoto8);

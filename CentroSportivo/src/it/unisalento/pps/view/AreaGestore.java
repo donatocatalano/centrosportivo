@@ -31,7 +31,7 @@ public class AreaGestore extends JFrame{
 	
 	
 	JLabel vuoto00 = new JLabel ("");
-	JLabel titolo = new JLabel ("                                                       DECIDI L'AREA DA GESTIRE");
+	JLabel titolo = new JLabel ("");
 	JLabel vuoto000 = new JLabel ("");
         
 	JPanel vuoto0 = new JPanel ();
@@ -65,8 +65,10 @@ public class AreaGestore extends JFrame{
 		centroPnl.add(vuoto3);
 		centroPnl.add(vuoto4);
 		catalogo.addActionListener(new AscoltatoreCatalogo(this));
+		catalogo.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(catalogo);
 		autorizzazioni.addActionListener(new AscoltatoreAutorizzazioni(this));
+		autorizzazioni.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(autorizzazioni);
 		centroPnl.add(vuoto7);
 		centroPnl.add(vuoto8);
