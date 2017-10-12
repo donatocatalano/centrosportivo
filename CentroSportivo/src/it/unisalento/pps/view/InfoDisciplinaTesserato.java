@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
+import it.unisalento.pps.listener.AscoltatoreDisciplina;
 
 public class InfoDisciplinaTesserato extends JFrame{
 	
@@ -28,6 +29,8 @@ public class InfoDisciplinaTesserato extends JFrame{
 	JButton indietro= new JButton("INDIETRO");
 	JButton iscrizione= new JButton("ISCRIVITI");
 	
+	AscoltatoreBackHome ascoltatoreBackHome = new AscoltatoreBackHome(this); 
+	
 	public InfoDisciplinaTesserato() {
 		super("NOME DISCIPLINA");
 		
@@ -35,8 +38,8 @@ public class InfoDisciplinaTesserato extends JFrame{
 		nordPnl.add(titolo);
 		titolo.add(disciplina);
 		
-		indietro.addActionListener(new AscoltatoreBackHome(this));
-		
+		indietro.addActionListener(ascoltatoreBackHome);
+		indietro.setActionCommand(AscoltatoreBackHome.D1);
 		sudPnl.add(indietro);
 		sudPnl.add(iscrizione);
 		

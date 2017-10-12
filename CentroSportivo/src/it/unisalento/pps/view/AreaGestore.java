@@ -47,7 +47,7 @@ public class AreaGestore extends JFrame{
 	JPanel vuoto10 = new JPanel ();
 	JPanel vuoto11 = new JPanel ();
 		
-	JButton indietro= new JButton("INDIETRO");
+	JButton indietro= new JButton("LOGOUT");
 		
 		
 		
