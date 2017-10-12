@@ -67,7 +67,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 
 
 	
-	public void actionPerformed(ActionEvent e) {		
+	public void actionPerformed(ActionEvent e){		
 
 		String username = homepageWindow.username.getText();
 		String password = homepageWindow.password.getText();
@@ -78,8 +78,11 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 		boolean utenteEsiste = UtenteBusiness.getInstance().verificaLogin(username, password);
 		
 				
-		if(responsabileEsiste)
+		if(responsabileEsiste){
 			JOptionPane.showMessageDialog(null, "Benvenuto Responsabile!");
+			new AreaGestore();
+			homepageWindow.dispose();
+		}
 		else if(istruttoreEsiste){
 			JOptionPane.showMessageDialog(null, "Benvenuto Istruttore!");
 			new AreaIstruttore();
