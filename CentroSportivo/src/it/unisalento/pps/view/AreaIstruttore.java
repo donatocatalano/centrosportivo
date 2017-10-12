@@ -39,8 +39,8 @@ public class AreaIstruttore extends JFrame{
 	JPanel vuoto2 = new JPanel ();
 	JPanel vuoto3 = new JPanel ();
 	JPanel vuoto4 = new JPanel ();
-	JButton corsi = new JButton("AREA CORSI");
-	JButton eventi = new JButton("AREA EVENTI");
+	JButton corsi = new JButton("<html><p align=\"center\"><b>GESTIONE</b><br>CORSI</p></html>");
+	JButton eventi = new JButton("<html><p align=\"center\"><b>GESTIONE</b><br>EVENTI</p></html>");
 	JPanel vuoto7 = new JPanel ();
 	JPanel vuoto8 = new JPanel ();
 	JPanel vuoto9 = new JPanel ();

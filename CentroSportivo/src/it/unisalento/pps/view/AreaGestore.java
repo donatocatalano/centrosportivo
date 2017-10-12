@@ -39,8 +39,8 @@ public class AreaGestore extends JFrame{
 	JPanel vuoto2 = new JPanel ();
 	JPanel vuoto3 = new JPanel ();
 	JPanel vuoto4 = new JPanel ();
-	JButton catalogo = new JButton("GESTIONE CATALOGO DISCIPLINE");
-	JButton autorizzazioni = new JButton("GESTIONE AUTORIZZAZIONI");
+	JButton catalogo = new JButton("<html><p align=\"center\"><b>GESTIONE</b><br>DISCIPLINE</p></html>");
+	JButton autorizzazioni = new JButton("<html><p align=\"center\"><b>GESTIONE</b><br>AUTORIZZAZIONI</p></html>");
 	JPanel vuoto7 = new JPanel ();
 	JPanel vuoto8 = new JPanel ();
 	JPanel vuoto9 = new JPanel ();

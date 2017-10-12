@@ -33,12 +33,12 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 			
 					
 			if(responsabileEsiste){
-				JOptionPane.showMessageDialog(null, "Benvenuto Responsabile!");
+				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO RESPONSABILE!</p></html>");
 				new AreaGestore();
 				homepageWindow.dispose();
 			}			    
 			else if(istruttoreEsiste){
-				JOptionPane.showMessageDialog(null, "<html><center>Benvenuto Istruttore!\r\n");
+				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO ISTRUTTORE!</p></html>");
 				new AreaIstruttore();
 				homepageWindow.dispose();
 			}
@@ -47,15 +47,15 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				boolean tesseratoEsiste = UtenteBusiness.getInstance().verificaLoginTesserato(username, password);
 				
 				if (tesseratoEsiste){
-					JOptionPane.showMessageDialog(null, "Benvenuto Utente Tesserato!");
+					JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO TESSERATO!</p></html>");
 					new HomepageTesserato();
 					homepageWindow.dispose();
 				}
 				else
-					JOptionPane.showMessageDialog(null, "Registrazione in attesa di conferma!");
+					JOptionPane.showMessageDialog(null, "<html><b>ATTENZIONE!!!</b><br>Registrazione in attesa di conferma!</html>");
 			}
 			else //if (!responsabileEsiste & !istruttoreEsiste & !utenteEsiste)
-						JOptionPane.showMessageDialog(null, "Utente non riconosciuto!");
+						JOptionPane.showMessageDialog(null, "<html><p align=\"center\">UTENTE NON RICONOSCIUTO!</p></html>");
 		}
 	}
 		
