@@ -37,6 +37,7 @@ public class InfoDisciplina extends JFrame{
 		titolo.add(disciplina);
 		
 		indietro.addActionListener(new AscoltatoreBackHome(this));
+		
 		sudPnl.add(indietro);
 		
 		
@@ -56,9 +57,5 @@ public class InfoDisciplina extends JFrame{
 		//System.out.println(dim);
 	}
 
-	public static void main(String[] args) {
-	
-		new InfoDisciplina();
-	}
 }
 

@@ -1,7 +1,5 @@
 package it.unisalento.pps.view;
 
-
-
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Container;
@@ -120,7 +118,7 @@ public class Homepage extends JFrame {
 
 
 	public int getKeyCode() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 	
