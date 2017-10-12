@@ -3,20 +3,17 @@ package it.unisalento.pps.listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unisalento.pps.view.IstruttoreInizio;
+import it.unisalento.pps.view.AreaIstruttore;
 
 public class AscoltatoreCorsi implements ActionListener {
 	
-private IstruttoreInizio istruttoreInizio;
+private AreaIstruttore istruttoreInizio;
 	
-	public AscoltatoreCorsi(IstruttoreInizio istruttoreInizio) {
+	public AscoltatoreCorsi(AreaIstruttore istruttoreInizio) {
 		super();
 		this.istruttoreInizio = istruttoreInizio;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		
-
 	}
-
 }

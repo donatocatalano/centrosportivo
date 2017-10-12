@@ -33,10 +33,12 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 					
 			if(responsabileEsiste){
 				JOptionPane.showMessageDialog(null, "Benvenuto Responsabile!");
+				new AreaGestore();
+				homepageWindow.dispose();
 			}			    
 			else if(istruttoreEsiste){
 				JOptionPane.showMessageDialog(null, "Benvenuto Istruttore!");
-				new IstruttoreInizio();
+				new AreaIstruttore();
 				homepageWindow.dispose();
 			}
 			else if(utenteEsiste){
@@ -83,7 +85,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 		else if(istruttoreEsiste)
 			{
 			JOptionPane.showMessageDialog(null, "Benvenuto Istruttore!");
-			new IstruttoreInizio();
+			new AreaIstruttore();
 			homepageWindow.dispose();
 			}
 		else if(utenteEsiste)

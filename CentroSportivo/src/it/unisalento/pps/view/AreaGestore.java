@@ -23,7 +23,7 @@ import java.util.*;
 import it.unisalento.pps.listener.*;
 
 
-public class IstruttoreInizio extends JFrame{
+public class AreaGestore extends JFrame{
 	
 	    JPanel nordPnl=new JPanel(new GridLayout(1,3));
         JPanel centroPnl=new JPanel(new GridLayout(3,4));
@@ -38,8 +38,8 @@ public class IstruttoreInizio extends JFrame{
         JPanel vuoto2 = new JPanel ();
         JPanel vuoto3 = new JPanel ();
         JPanel vuoto4 = new JPanel ();
-		JButton corsi = new JButton("AREA CORSI");
-		JButton eventi = new JButton("AREA EVENTI");
+		JButton corsi = new JButton("GESTIONE CATALOGO DISCIPLINE");
+		JButton eventi = new JButton("GESTIONE AUTORIZZAZIONI");
 		JPanel vuoto7 = new JPanel ();
 		JPanel vuoto8 = new JPanel ();
 		JPanel vuoto9 = new JPanel ();
@@ -50,8 +50,8 @@ public class IstruttoreInizio extends JFrame{
 		
 		
 		
-		public IstruttoreInizio(){
-			super("Area privata ISTRUTTORE");
+		public AreaGestore(){
+			super("Area privata GESTORE");
 			
 			
 			nordPnl.add(vuoto00);
@@ -64,9 +64,9 @@ public class IstruttoreInizio extends JFrame{
 			centroPnl.add(vuoto2);
 			centroPnl.add(vuoto3);
 			centroPnl.add(vuoto4);
-			corsi.addActionListener(new AscoltatoreCorsi(this));
+			corsi.addActionListener(new AscoltatoreCatalogo(this));
 			centroPnl.add(corsi);
-			eventi.addActionListener(new AscoltatoreEventi(this));
+			eventi.addActionListener(new AscoltatoreAutorizzazioni(this));
 			centroPnl.add(eventi);
 			centroPnl.add(vuoto7);
 			centroPnl.add(vuoto8);
