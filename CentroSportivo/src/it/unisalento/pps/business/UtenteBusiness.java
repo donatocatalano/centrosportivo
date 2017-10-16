@@ -1,5 +1,6 @@
 package it.unisalento.pps.business;
 
+import it.unisalento.pps.dao.UtenteDAO;
 import it.unisalento.pps.model.Utente;
 
 public class UtenteBusiness {
@@ -25,6 +26,16 @@ private static UtenteBusiness instance;
 	{
 		Utente u=new Utente(username, password);
 		return u.loginTesserato();
+	}
+
+	public String getNomeByUsername(String username) {
+		
+		return UtenteDAO.getInstance().getNomeByUsername(username);
+	}
+
+	public String getCognomeByUsername(String username) {
+		
+		return UtenteDAO.getInstance().getCognomeByUsername(username);
 	}
 
 }

@@ -17,6 +17,7 @@ import it.unisalento.pps.view.AreaIstruttore;
 	public class AscoltatoreBackHome implements ActionListener{
 	
 		private JFrame frame;
+		private String username;
 		public final static String D1="d1";
 		
 	public AscoltatoreBackHome(InfoDisciplina frame) {
@@ -29,9 +30,10 @@ import it.unisalento.pps.view.AreaIstruttore;
 		this.frame = frame;
 	}
 	
-	public AscoltatoreBackHome(HomepageTesserato frame) {
+	public AscoltatoreBackHome(HomepageTesserato frame,String username) {
 		super();
 		this.frame = frame;
+		this.username = username;
 	}
 	
 	public AscoltatoreBackHome(FormRegistrazione frame) {
@@ -62,7 +64,7 @@ import it.unisalento.pps.view.AreaIstruttore;
 	}
 	
 	private void d1launch() {
-		new HomepageTesserato();
+		new HomepageTesserato(username);
 		frame.dispose();
 	}
 }

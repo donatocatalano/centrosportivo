@@ -24,16 +24,20 @@ public class InfoDisciplina extends JFrame{
 	JPanel sudPnl=new JPanel();
 	
 	JPanel titolo= new JPanel(new FlowLayout());
-	JLabel disciplina= new JLabel("NOME DISCIPLINA SELEZIONATA");
+	JLabel nomeDisciplina= new JLabel();
+	JLabel costoMensile= new JLabel();
+	JLabel descrizioneDisciplina= new JLabel();
+	JLabel immagineDisciplina= new JLabel();
 	
 	JButton indietro= new JButton("INDIETRO");
 	
 	
-	public InfoDisciplina() {
-		super("NOME DISCIPLINA");
+	public InfoDisciplina(String nome) {
+		super(nome);
 		
-		disciplina.setFont(new Font("sansserif",Font.BOLD,34));
-		titolo.add(disciplina);
+		nomeDisciplina.setText(nome);
+		nomeDisciplina.setFont(new Font("sansserif",Font.BOLD,34));
+		titolo.add(nomeDisciplina);
 		nordPnl.add(titolo);
 		
 		indietro.addActionListener(new AscoltatoreBackHome(this));
