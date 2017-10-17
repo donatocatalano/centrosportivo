@@ -1,5 +1,8 @@
 package it.unisalento.pps.business;
 
+import it.unisalento.pps.dao.DisciplinaDAO;
+import it.unisalento.pps.model.Disciplina;
+
 public class DisciplinaBusiness {
 	
 private static DisciplinaBusiness instance;
@@ -11,6 +14,10 @@ private static DisciplinaBusiness instance;
 			instance = new DisciplinaBusiness();
 		}
 		return instance;
+	}
+	
+	public Disciplina getDisciplinaByNome(String nome) {
+		return DisciplinaDAO.getInstance().getNomeByNome(nome);
 	}
 	
 

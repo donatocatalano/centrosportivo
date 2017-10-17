@@ -10,7 +10,7 @@ public class Disciplina {
 
 	private int idDisciplina;
 	private String nome;
-	private float costoMensile;
+	private double costoMensile;
 	private String immagine;
 	private String descrizione;
 
@@ -21,7 +21,7 @@ public class Disciplina {
 		this.idDisciplina = idDisciplina;
 	}
 
-	public Disciplina(int idDisciplina, String nome, float costoMensile, String immagine, String descrizione) {
+	public Disciplina(int idDisciplina, String nome, double costoMensile, String immagine, String descrizione) {
 		this.idDisciplina = idDisciplina;
 		this.nome = nome;
 		this.costoMensile = costoMensile;
@@ -29,6 +29,7 @@ public class Disciplina {
 		this.descrizione = descrizione;
 	}
 
+	
 	public int getIdDisciplina() {
 		return this.idDisciplina;
 	}
@@ -45,7 +46,7 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
-	public float getCostoMensile() {
+	public double getCostoMensile() {
 		return this.costoMensile;
 	}
 

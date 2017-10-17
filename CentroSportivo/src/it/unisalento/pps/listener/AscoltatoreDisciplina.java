@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.view.Homepage;
 import it.unisalento.pps.view.InfoDisciplina;
 
@@ -17,6 +19,7 @@ public class AscoltatoreDisciplina implements ActionListener {
 	public final static String D4="Ginnastica Artistica";
 	public final static String D5="Ginnastica Ritmica";
 	private JFrame frame;
+	private Disciplina disciplina;
 	
 	public AscoltatoreDisciplina (Homepage frame) {
 		super();
@@ -41,7 +44,8 @@ public class AscoltatoreDisciplina implements ActionListener {
 	}
 	
 	private void d1launch(String nome) {
-		new InfoDisciplina(nome);
+		disciplina =  DisciplinaBusiness.getInstance().getDisciplinaByNome(nome);
+		new InfoDisciplina(disciplina);
 		frame.dispose();
 	}
 
