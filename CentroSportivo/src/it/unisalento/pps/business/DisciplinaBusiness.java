@@ -1,5 +1,7 @@
 package it.unisalento.pps.business;
 
+import it.unisalento.pps.model.Disciplina;
+
 public class DisciplinaBusiness {
 	
 private static DisciplinaBusiness instance;
@@ -12,6 +14,12 @@ private static DisciplinaBusiness instance;
 		}
 		return instance;
 	}
+	/*
+	public boolean restituiscidisciplina (String nome) 
+	{
+		Disciplina d = new Disciplina ();
+		return d.selezionadisciplina();
+	}*/
 	
 
 }
