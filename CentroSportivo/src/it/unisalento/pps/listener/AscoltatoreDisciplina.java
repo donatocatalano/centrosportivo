@@ -27,7 +27,8 @@ public class AscoltatoreDisciplina implements ActionListener {
 		JButton bottone = (JButton) e.getSource();
 		String nomeDisciplina = bottone.getText();
 		String com = e.getActionCommand();
-		if (com==D1)
+		d1launch(nomeDisciplina);
+		/*if (com==D1)
 			d1launch(nomeDisciplina);	
 		else if (com==D2)
 			d1launch(nomeDisciplina);	
@@ -36,7 +37,7 @@ public class AscoltatoreDisciplina implements ActionListener {
 		else if (com==D4)
 			d1launch(nomeDisciplina);	
 		else if (com==D5)
-			d1launch(nomeDisciplina);		
+			d1launch(nomeDisciplina);	*/	
 	}
 	
 	private void d1launch(String nome) {
