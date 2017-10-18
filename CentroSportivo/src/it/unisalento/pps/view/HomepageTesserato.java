@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
@@ -40,7 +41,7 @@ public class HomepageTesserato extends JFrame {
 	JPanel vuoto1 = new JPanel();
 	JPanel login= new JPanel(new GridLayout(2,2));	
 	JPanel vuoto00= new JPanel();
-	JLabel nomeutente = new JLabel("nomeutente");
+	JLabel nomeutente = new JLabel();
 	JPanel vuoto000= new JPanel();
 	JButton logout = new JButton("LOGOUT");	
 	JPanel vuoto3 =new JPanel();
@@ -54,11 +55,14 @@ public class HomepageTesserato extends JFrame {
 	JButton disciplina5= new JButton("Ginnastica Ritmica");
 	JButton disciplina6= new JButton("In lavorazione");
 	
+	String nome;
+	String cognome;
+	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
 	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina = new AscoltatoreDisciplinaTesserato(this);
 	
-	public HomepageTesserato() {
+	public HomepageTesserato(String username) {
 		super("Catalogo Centro Sportivo");
 		
 		
@@ -68,9 +72,13 @@ public class HomepageTesserato extends JFrame {
 		nordPnl.add(titolo);
 		norddestra.add(vuoto1);
 		login.add(vuoto00);
+		nome = UtenteBusiness.getInstance().getNomeByUsername(username);
+		cognome = UtenteBusiness.getInstance().getCognomeByUsername(username);
+		nomeutente.setText(nome+" "+cognome);
+		
 		login.add(nomeutente);
 		login.add(vuoto000);
-		logout.addActionListener(new AscoltatoreBackHome (this));
+		logout.addActionListener(new AscoltatoreBackHome (this,username));
 		login.add(logout);
 		norddestra.add(login);
 		norddestra.add(vuoto3);

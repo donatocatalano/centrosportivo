@@ -48,7 +48,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				
 				if (tesseratoEsiste){
 					JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO TESSERATO!</p></html>");
-					new HomepageTesserato();
+					new HomepageTesserato(username);
 					homepageWindow.dispose();
 				}
 				else
@@ -62,9 +62,9 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 	
 	
 	public void keyTyped(KeyEvent e) {
-	}
+		}
 	public void keyReleased(KeyEvent e) {
-	}
+		}
 
 
 	
@@ -95,7 +95,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 			
 			if (tesseratoEsiste){
 				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO TESSERATO!</p></html>");
-				new HomepageTesserato();
+				new HomepageTesserato(username);
 				homepageWindow.dispose();
 			}
 			else

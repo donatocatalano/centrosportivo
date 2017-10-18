@@ -3,6 +3,7 @@ package it.unisalento.pps.listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.view.Homepage;
@@ -10,11 +11,11 @@ import it.unisalento.pps.view.InfoDisciplina;
 
 public class AscoltatoreDisciplina implements ActionListener {
 	
-	public final static String D1="d1";
-	public final static String D2="d2";
-	public final static String D3="d3";
-	public final static String D4="d4";
-	public final static String D5="d5";
+	public final static String D1="Fitness";
+	public final static String D2="Pesistica";
+	public final static String D3="Nuoto";
+	public final static String D4="Ginnastica Artistica";
+	public final static String D5="Ginnastica Ritmica";
 	private JFrame frame;
 	
 	public AscoltatoreDisciplina (Homepage frame) {
@@ -23,22 +24,23 @@ public class AscoltatoreDisciplina implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		
+		JButton bottone = (JButton) e.getSource();
+		String nomeDisciplina = bottone.getText();
 		String com = e.getActionCommand();
 		if (com==D1)
-			d1launch();	
+			d1launch(nomeDisciplina);	
 		else if (com==D2)
-			d1launch();	
+			d1launch(nomeDisciplina);	
 		else if (com==D3)
-			d1launch();	
+			d1launch(nomeDisciplina);	
 		else if (com==D4)
-			d1launch();	
+			d1launch(nomeDisciplina);	
 		else if (com==D5)
-			d1launch();		
+			d1launch(nomeDisciplina);		
 	}
 	
-	private void d1launch() {
-		new InfoDisciplina();
+	private void d1launch(String nome) {
+		new InfoDisciplina(nome);
 		frame.dispose();
 	}
 
