@@ -63,11 +63,11 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 	}
 		
 	
+	
 	public void keyTyped(KeyEvent e) {
 		}
 	public void keyReleased(KeyEvent e) {
 		}
-
 
 
 	
@@ -83,12 +83,12 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 		
 				
 		if(responsabileEsiste){
-			JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">BENVENUTO RESPONSABILE!</p></html>");
+			JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO RESPONSABILE!</p></html>");
 			new AreaGestore();
 			homepageWindow.dispose();
-		}
+		}			    
 		else if(istruttoreEsiste){
-			JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">BENVENUTO ISTRUTTORE!</p></html>");
+			JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO ISTRUTTORE!</p></html>");
 			new AreaIstruttore();
 			homepageWindow.dispose();
 		}
@@ -97,15 +97,20 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 			boolean tesseratoEsiste = UtenteBusiness.getInstance().verificaLoginTesserato(username, password);
 			
 			if (tesseratoEsiste){
+<<<<<<< HEAD
 				JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">BENVENUTO TESSERATO!</p></html>");
 				tesserato = UtenteBusiness.getInstance().getUtenteByUsername(username);
 				new HomepageTesserato(tesserato);
+=======
+				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO TESSERATO!</p></html>");
+				new HomepageTesserato(username);
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 				homepageWindow.dispose();
 			}
 			else
 				JOptionPane.showMessageDialog(null, "<html><b>ATTENZIONE!!!</b><br>Registrazione in attesa di conferma!</html>");
 		}
 		else //if (!responsabileEsiste & !istruttoreEsiste & !utenteEsiste)
-					JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">UTENTE NON RICONOSCIUTO!</p></html>");
+			JOptionPane.showMessageDialog(null, "<html><p align=\"center\">UTENTE NON RICONOSCIUTO!</p></html>");
 	}
 }

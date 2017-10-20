@@ -1,7 +1,10 @@
 package it.unisalento.pps.dao;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Iterator;
+=======
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 
 import it.unisalento.pps.DbInterface.DbConnection;
 import it.unisalento.pps.model.Disciplina;
@@ -20,6 +23,7 @@ public class DisciplinaDAO {
 		}
 		return instance;
 	}
+<<<<<<< HEAD
 
 	public Disciplina getDisciplinaByNome(String nome) {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from disciplina where nome=\""+ nome +"\" ");
@@ -28,5 +32,22 @@ public class DisciplinaDAO {
 		disciplina=new Disciplina(Integer.parseInt(tupla[0]),tupla[1],Double.parseDouble(tupla[2]),tupla[3],tupla[4]);
 		return disciplina;
 	}
+=======
+	/*
+	public DisciplinaDAO restituiscidisciplina (String datidisc) {
+		
+		Disciplina d =new Disciplina();
+		
+		
+		//SINGLETON
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from disciplina");
+		
+		if(result.size() == 0) return null;
+		
+		return d;
+		
+		
+	}*/
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	
 }
