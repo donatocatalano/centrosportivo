@@ -12,6 +12,7 @@ import it.unisalento.pps.model.Utente;
 public class UtenteDAO {
 	
 	private static UtenteDAO instance;
+	private Utente tesserato;
 	
 	public static UtenteDAO getInstance()
 	{
@@ -48,7 +49,7 @@ public class UtenteDAO {
 		
 	}
 
-	public String getNomeByUsername(String username) {
+	/*public String getNomeByUsername(String username) {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
@@ -61,5 +62,14 @@ public class UtenteDAO {
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
 		return (tupla[2]);
+	}*/
+
+	public Utente getUtenteByUsername(String username) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		tesserato = new Utente(Integer.parseInt(tupla[0]),tupla[1],tupla[2],tupla[3]);
+		
+		return tesserato;
 	}
 }

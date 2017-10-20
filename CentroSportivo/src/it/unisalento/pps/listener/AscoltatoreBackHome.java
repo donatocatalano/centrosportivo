@@ -10,6 +10,7 @@ import it.unisalento.pps.view.Homepage;
 import it.unisalento.pps.view.HomepageTesserato;
 import it.unisalento.pps.view.InfoDisciplina;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
+import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaGestore;
 import it.unisalento.pps.view.AreaIstruttore;
 
@@ -17,7 +18,7 @@ import it.unisalento.pps.view.AreaIstruttore;
 	public class AscoltatoreBackHome implements ActionListener{
 	
 		private JFrame frame;
-		private String username;
+		private Utente tesserato;
 		public final static String D1="d1";
 		
 	public AscoltatoreBackHome(InfoDisciplina frame) {
@@ -30,10 +31,10 @@ import it.unisalento.pps.view.AreaIstruttore;
 		this.frame = frame;
 	}
 	
-	public AscoltatoreBackHome(HomepageTesserato frame,String username) {
+	public AscoltatoreBackHome(HomepageTesserato frame,Utente tesserato) {
 		super();
 		this.frame = frame;
-		this.username = username;
+		this.tesserato = tesserato;
 	}
 	
 	public AscoltatoreBackHome(FormRegistrazione frame) {
@@ -64,7 +65,7 @@ import it.unisalento.pps.view.AreaIstruttore;
 	}
 	
 	private void d1launch() {
-		new HomepageTesserato(username);
+		new HomepageTesserato(tesserato);
 		frame.dispose();
 	}
 }

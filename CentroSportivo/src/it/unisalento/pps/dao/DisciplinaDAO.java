@@ -21,7 +21,7 @@ public class DisciplinaDAO {
 		return instance;
 	}
 
-	public Disciplina getNomeByNome(String nome) {
+	public Disciplina getDisciplinaByNome(String nome) {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from disciplina where nome=\""+ nome +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();

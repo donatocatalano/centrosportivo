@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,7 +16,7 @@ import it.unisalento.pps.model.Disciplina;
 public class InfoDisciplina extends JFrame{
 	
 	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel();
+	JPanel centroPnl=new JPanel(new GridLayout(3,1));
 	JPanel sudPnl=new JPanel();
 	
 	JPanel titolo= new JPanel(new FlowLayout());
@@ -36,9 +37,14 @@ public class InfoDisciplina extends JFrame{
 		titolo.add(nomeDisciplina);
 		nordPnl.add(titolo);
 		
-		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "$");
+		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(costoMensile);
+		
+		
+		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
+		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
+		centroPnl.add(descrizioneDisciplina);
 		
 		
 		indietro.addActionListener(new AscoltatoreBackHome(this));

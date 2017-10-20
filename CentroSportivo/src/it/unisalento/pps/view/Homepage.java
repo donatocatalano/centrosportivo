@@ -88,23 +88,23 @@ public class Homepage extends JFrame {
 		
 		
 		disciplina1.addActionListener(ascoltatoreDisciplina);
-		disciplina1.setActionCommand(AscoltatoreDisciplina.D1);
+		//disciplina1.setActionCommand(AscoltatoreDisciplina.D1);
 		disciplina1.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina1);
 		disciplina2.addActionListener(ascoltatoreDisciplina);
-		disciplina2.setActionCommand(AscoltatoreDisciplina.D2);
+		//disciplina2.setActionCommand(AscoltatoreDisciplina.D2);
 		disciplina2.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina2);
 		disciplina3.addActionListener(ascoltatoreDisciplina);
-		disciplina3.setActionCommand(AscoltatoreDisciplina.D3);
+		//disciplina3.setActionCommand(AscoltatoreDisciplina.D3);
 		disciplina3.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina3);
 		disciplina4.addActionListener(ascoltatoreDisciplina);
-		disciplina4.setActionCommand(AscoltatoreDisciplina.D4);
+		//disciplina4.setActionCommand(AscoltatoreDisciplina.D4);
 		disciplina4.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina4);
 		disciplina5.addActionListener(ascoltatoreDisciplina);
-		disciplina5.setActionCommand(AscoltatoreDisciplina.D5);
+		//disciplina5.setActionCommand(AscoltatoreDisciplina.D5);
 		disciplina5.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina5);
 		centroPnl.add(disciplina6);

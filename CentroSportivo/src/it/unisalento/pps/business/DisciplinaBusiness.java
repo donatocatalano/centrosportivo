@@ -17,7 +17,7 @@ private static DisciplinaBusiness instance;
 	}
 	
 	public Disciplina getDisciplinaByNome(String nome) {
-		return DisciplinaDAO.getInstance().getNomeByNome(nome);
+		return DisciplinaDAO.getInstance().getDisciplinaByNome(nome);
 	}
 	
 

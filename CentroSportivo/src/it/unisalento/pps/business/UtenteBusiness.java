@@ -28,7 +28,7 @@ private static UtenteBusiness instance;
 		return u.loginTesserato();
 	}
 
-	public String getNomeByUsername(String username) {
+	/*public String getNomeByUsername(String username) {
 		
 		return UtenteDAO.getInstance().getNomeByUsername(username);
 	}
@@ -36,6 +36,11 @@ private static UtenteBusiness instance;
 	public String getCognomeByUsername(String username) {
 		
 		return UtenteDAO.getInstance().getCognomeByUsername(username);
+	}*/
+
+	public Utente getUtenteByUsername(String username) {
+		
+		return UtenteDAO.getInstance().getUtenteByUsername(username);
 	}
 
 }

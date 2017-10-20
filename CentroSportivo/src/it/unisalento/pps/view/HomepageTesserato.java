@@ -25,6 +25,7 @@ import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
 import it.unisalento.pps.listener.AscoltatoreReg;
 import it.unisalento.pps.listener.LoginBtnListener;
+import it.unisalento.pps.model.Utente;
 
 public class HomepageTesserato extends JFrame {
 	
@@ -55,14 +56,15 @@ public class HomepageTesserato extends JFrame {
 	JButton disciplina5= new JButton("Ginnastica Ritmica");
 	JButton disciplina6= new JButton("In lavorazione");
 	
-	String nome;
-	String cognome;
+	/*String nome;
+	String cognome;*/
+	Utente utenteTesserato;
 	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
 	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina = new AscoltatoreDisciplinaTesserato(this);
 	
-	public HomepageTesserato(String username) {
+	public HomepageTesserato(Utente tesserato) {
 		super("Catalogo Centro Sportivo");
 		
 		
@@ -72,13 +74,13 @@ public class HomepageTesserato extends JFrame {
 		nordPnl.add(titolo);
 		norddestra.add(vuoto1);
 		login.add(vuoto00);
-		nome = UtenteBusiness.getInstance().getNomeByUsername(username);
-		cognome = UtenteBusiness.getInstance().getCognomeByUsername(username);
-		nomeutente.setText(nome+" "+cognome);
+		//nome = UtenteBusiness.getInstance().getNomeByUsername(username);
+		//cognome = UtenteBusiness.getInstance().getCognomeByUsername(username);
+		nomeutente.setText(tesserato.getNome()+" "+tesserato.getCognome());
 		
 		login.add(nomeutente);
 		login.add(vuoto000);
-		logout.addActionListener(new AscoltatoreBackHome (this,username));
+		logout.addActionListener(new AscoltatoreBackHome (this,tesserato));
 		login.add(logout);
 		norddestra.add(login);
 		norddestra.add(vuoto3);
@@ -87,23 +89,23 @@ public class HomepageTesserato extends JFrame {
 		
 		
 		disciplina1.addActionListener(ascoltatoreDisciplina);
-		disciplina1.setActionCommand(AscoltatoreDisciplina.D1);
+		//disciplina1.setActionCommand(AscoltatoreDisciplina.D1);
 		disciplina1.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina1);
 		disciplina2.addActionListener(ascoltatoreDisciplina);
-		disciplina2.setActionCommand(AscoltatoreDisciplina.D2);
+		//disciplina2.setActionCommand(AscoltatoreDisciplina.D2);
 		disciplina2.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina2);
 		disciplina3.addActionListener(ascoltatoreDisciplina);
-		disciplina3.setActionCommand(AscoltatoreDisciplina.D3);
+		//disciplina3.setActionCommand(AscoltatoreDisciplina.D3);
 		disciplina3.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina3);
 		disciplina4.addActionListener(ascoltatoreDisciplina);
-		disciplina4.setActionCommand(AscoltatoreDisciplina.D4);
+		//disciplina4.setActionCommand(AscoltatoreDisciplina.D4);
 		disciplina4.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina4);
 		disciplina5.addActionListener(ascoltatoreDisciplina);
-		disciplina5.setActionCommand(AscoltatoreDisciplina.D5);
+		//disciplina5.setActionCommand(AscoltatoreDisciplina.D5);
 		disciplina5.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina5);
 		centroPnl.add(disciplina6);

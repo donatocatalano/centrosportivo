@@ -9,11 +9,13 @@ import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 
 import it.unisalento.pps.business.*;
+import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.*;
 
 public class LoginBtnListener implements ActionListener, KeyListener {
 
 	private Homepage homepageWindow;
+	private Utente tesserato;
 	
 	public LoginBtnListener(Homepage homepageWindow) {
 		super();
@@ -48,7 +50,8 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				
 				if (tesseratoEsiste){
 					JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO TESSERATO!</p></html>");
-					new HomepageTesserato(username);
+					tesserato = UtenteBusiness.getInstance().getUtenteByUsername(username);
+					new HomepageTesserato(tesserato);
 					homepageWindow.dispose();
 				}
 				else
@@ -95,7 +98,8 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 			
 			if (tesseratoEsiste){
 				JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">BENVENUTO TESSERATO!</p></html>");
-				new HomepageTesserato(username);
+				tesserato = UtenteBusiness.getInstance().getUtenteByUsername(username);
+				new HomepageTesserato(tesserato);
 				homepageWindow.dispose();
 			}
 			else

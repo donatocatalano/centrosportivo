@@ -41,7 +41,15 @@ public class Utente{
 		this.dataRegistrazione = dataRegistrazione;
 		this.tesserato = tesserato;
 	}
-
+	
+	public Utente(int idUtente, String nome, String cognome,  String sesso) {
+		this.idUtente = idUtente;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.sesso = sesso;
+		
+		}
+	
 	public Utente(String username, String password) 
 	{		
 		this.username = username;
