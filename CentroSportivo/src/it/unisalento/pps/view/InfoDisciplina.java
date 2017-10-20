@@ -6,6 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,8 +25,12 @@ public class InfoDisciplina extends JFrame{
 	JLabel nomeDisciplina= new JLabel();
 	JLabel costoMensile= new JLabel();
 	JLabel descrizioneDisciplina= new JLabel();
+	
+	ImageIcon immagine;
 	JLabel immagineDisciplina= new JLabel();
 	
+	
+		
 	JButton indietro= new JButton("INDIETRO");
 	
 	
@@ -40,6 +46,10 @@ public class InfoDisciplina extends JFrame{
 		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(costoMensile);
+		
+		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
+		immagineDisciplina.setIcon(immagine);
+		centroPnl.add(immagineDisciplina);
 		
 		
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
