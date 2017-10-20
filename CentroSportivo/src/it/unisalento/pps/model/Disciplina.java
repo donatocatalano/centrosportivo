@@ -10,11 +10,7 @@ public class Disciplina {
 
 	private int idDisciplina;
 	private String nome;
-<<<<<<< HEAD
 	private double costoMensile;
-=======
-	private String costoMensile;
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	private String immagine;
 	private String descrizione;
 
@@ -25,11 +21,9 @@ public class Disciplina {
 		this.idDisciplina = idDisciplina;
 	}
 
-<<<<<<< HEAD
+
 	public Disciplina(int idDisciplina, String nome, double costoMensile, String immagine, String descrizione) {
-=======
-	public Disciplina(int idDisciplina, String nome, String costoMensile, String immagine, String descrizione) {
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
+
 		this.idDisciplina = idDisciplina;
 		this.nome = nome;
 		this.costoMensile = costoMensile;
@@ -54,15 +48,13 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
-<<<<<<< HEAD
+
 	public double getCostoMensile() {
-=======
-	public String getCostoMensile() {
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
-		return this.costoMensile;
+
+			return this.costoMensile;
 	}
 
-	public void setCostoMensile(String costoMensile) {
+	public void setCostoMensile(double costoMensile) {
 		this.costoMensile = costoMensile;
 	}
 
@@ -81,9 +73,6 @@ public class Disciplina {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	/*
-	public static Corso findCorsoByCodice(String codCorso) {
-		return CorsoDAO.getInstance().findByCodice(codCorso);
-	}*/
+	
 
 }

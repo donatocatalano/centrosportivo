@@ -49,21 +49,7 @@ public class UtenteDAO {
 		
 	}
 
-	/*public String getNomeByUsername(String username) {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" ");
-		Iterator<String[]> iter = result.iterator();
-		String[] tupla = iter.next();
-		return (tupla[1]);
-		
-	}
-
-	public String getCognomeByUsername(String username) {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" ");
-		Iterator<String[]> iter = result.iterator();
-		String[] tupla = iter.next();
-		return (tupla[2]);
-	}*/
-
+	
 	public Utente getUtenteByUsername(String username) {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" ");
 		Iterator<String[]> iter = result.iterator();
