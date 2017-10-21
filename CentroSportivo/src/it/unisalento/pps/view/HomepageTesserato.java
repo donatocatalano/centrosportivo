@@ -62,7 +62,7 @@ public class HomepageTesserato extends JFrame {
 	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
-	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina = new AscoltatoreDisciplinaTesserato(this);
+	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina; 
 	
 	public HomepageTesserato(Utente tesserato) {
 		super("Catalogo Centro Sportivo");
@@ -87,7 +87,7 @@ public class HomepageTesserato extends JFrame {
 		norddestra.add(vuoto4);
 		nordPnl.add(norddestra);
 		
-		
+		ascoltatoreDisciplina = new AscoltatoreDisciplinaTesserato(this,tesserato);
 		disciplina1.addActionListener(ascoltatoreDisciplina);
 		//disciplina1.setActionCommand(AscoltatoreDisciplina.D1);
 		disciplina1.setFont(new Font("sansserif",Font.BOLD,34));

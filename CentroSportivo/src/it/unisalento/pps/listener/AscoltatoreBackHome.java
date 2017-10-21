@@ -26,9 +26,10 @@ import it.unisalento.pps.view.AreaIstruttore;
 		this.frame = frame;
 	}
 	
-	public AscoltatoreBackHome(InfoDisciplinaTesserato frame) {
+	public AscoltatoreBackHome(InfoDisciplinaTesserato frame,Utente tesserato) {
 		super();
 		this.frame = frame;
+		this.tesserato = tesserato;
 	}
 	
 	public AscoltatoreBackHome(HomepageTesserato frame,Utente tesserato) {

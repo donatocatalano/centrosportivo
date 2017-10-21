@@ -8,6 +8,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -17,29 +19,52 @@ import javax.swing.JTextField;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreDisciplina;
+import it.unisalento.pps.model.Disciplina;
+import it.unisalento.pps.model.Utente;
 
 public class InfoDisciplinaTesserato extends JFrame{
 	
 	JPanel nordPnl=new JPanel();
-	//JPanel centroPnl=new JPanel();
+	JPanel centroPnl=new JPanel(new GridLayout(3,1));
 	JPanel sudPnl=new JPanel();
 	
 	JPanel titolo= new JPanel(new FlowLayout());
-	JLabel disciplina= new JLabel("NOME DISCIPLINA SELEZIONATA");
+	JLabel nomeDisciplina= new JLabel();
+	JLabel costoMensile= new JLabel();
+	JLabel descrizioneDisciplina= new JLabel();
+
+	ImageIcon immagine;
+	JLabel immagineDisciplina= new JLabel();
 	
 	JButton indietro= new JButton("INDIETRO");
 	JButton iscrizione= new JButton("ISCRIVITI");
 	
-	AscoltatoreBackHome ascoltatoreBackHome = new AscoltatoreBackHome(this); 
+	AscoltatoreBackHome ascoltatoreBackHome; 
+	Utente tesserato;
 	
-	public InfoDisciplinaTesserato() {
-		super("NOME DISCIPLINA");
+	public InfoDisciplinaTesserato(Disciplina disciplina,Utente tesserato) {
+		super(disciplina.getNome());
 		
-		disciplina.setFont(new Font("sansserif",Font.BOLD,34));
-		titolo.add(disciplina);
+		nomeDisciplina.setText(disciplina.getNome());
+		nomeDisciplina.setFont(new Font("sansserif",Font.BOLD,34));
+		titolo.add(nomeDisciplina);
 		nordPnl.add(titolo);
 		
+		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
+		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
+		centroPnl.add(costoMensile);
 		
+		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
+		immagineDisciplina.setIcon(immagine);
+		centroPnl.add(immagineDisciplina);
+		
+		
+		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
+		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
+		centroPnl.add(descrizioneDisciplina);
+		
+		
+		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
 		sudPnl.add(indietro);
