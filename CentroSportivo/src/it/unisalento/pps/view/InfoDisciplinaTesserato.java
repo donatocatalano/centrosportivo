@@ -72,7 +72,7 @@ public class InfoDisciplinaTesserato extends JFrame{
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		//this.getContentPane().add(centroPnl,BorderLayout.CENTER);
+		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 	
