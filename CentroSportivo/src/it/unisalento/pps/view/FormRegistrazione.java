@@ -22,8 +22,6 @@ import javax.swing.*;
 import java.util.*;
 import it.unisalento.pps.listener.*;
 
-import it.unisalento.pps.listener.AscoltatoreBackHome;
-
 public class FormRegistrazione extends JFrame {
 	
 	Font myfont = new Font("sansserif",Font.PLAIN,20);  
@@ -41,11 +39,11 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel name= new JPanel(new FlowLayout());
 	JLabel nome= new JLabel("NOME");
-	JTextField nome_field= new JTextField("                 ");
+	public JTextField nome_field= new JTextField(15);
 	
 	JPanel surname= new JPanel(new FlowLayout());
 	JLabel cognome= new JLabel("COGNOME");
-	JTextField cognome_field= new JTextField("                 ");
+	JTextField cognome_field= new JTextField(15);
 	
 	JPanel sex= new JPanel(new FlowLayout());
 	JLabel sesso= new JLabel("SESSO  ");
@@ -60,11 +58,11 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel username= new JPanel(new FlowLayout());
 	JLabel user= new JLabel("USERNAME");
-	JTextField user_field= new JTextField("                 ");
+	JTextField user_field= new JTextField(15);
 	
 	JPanel password= new JPanel(new FlowLayout());
 	JLabel pass= new JLabel("PASSWORD");
-	JTextField pass_field= new JTextField("                 ");
+	JTextField pass_field= new JTextField(15);
 
 	
 	JButton indietro= new JButton("INDIETRO");
@@ -133,6 +131,7 @@ public class FormRegistrazione extends JFrame {
 
 
 		indietro.addActionListener(new AscoltatoreBackHome(this));
+		registrazione.addActionListener(new AscoltatoreConfermaRegistrazione(this));
 		sudPnl.add(indietro);
 		sudPnl.add(registrazione);
 		

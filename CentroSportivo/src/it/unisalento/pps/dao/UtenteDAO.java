@@ -58,4 +58,14 @@ public class UtenteDAO {
 		
 		return tesserato;
 	}
+
+	public boolean registraUtenteByNome(String nome) {
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from utente " );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idUtente = Integer.parseInt(tupla[0]);
+		
+		return DbConnection.getInstance().eseguiAggiornamento("insert into utente(ID_Utente,Nome) values(\""+(idUtente+1)+"\",\""+nome+"\")"); 
+		
+	}
 }
