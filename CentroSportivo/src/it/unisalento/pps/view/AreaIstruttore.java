@@ -21,6 +21,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 import it.unisalento.pps.listener.*;
+import it.unisalento.pps.model.Istruttore;
 
 
 public class AreaIstruttore extends JFrame{
@@ -51,8 +52,8 @@ public class AreaIstruttore extends JFrame{
 		
 		
 		
-	public AreaIstruttore(){
-		super("Area privata ISTRUTTORE");
+	public AreaIstruttore(Istruttore istruttore){
+		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
 			
 			
 		nordPnl.add(vuoto00);

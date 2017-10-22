@@ -11,7 +11,7 @@ import it.unisalento.pps.view.HomepageTesserato;
 import it.unisalento.pps.view.InfoDisciplina;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
 import it.unisalento.pps.model.Utente;
-import it.unisalento.pps.view.AreaGestore;
+import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.AreaIstruttore;
 
 
@@ -48,7 +48,7 @@ import it.unisalento.pps.view.AreaIstruttore;
 		this.frame = frame;
 	}
 	
-	public AscoltatoreBackHome(AreaGestore frame) {
+	public AscoltatoreBackHome(AreaResponsabile frame) {
 		super();
 		this.frame = frame;
 	}

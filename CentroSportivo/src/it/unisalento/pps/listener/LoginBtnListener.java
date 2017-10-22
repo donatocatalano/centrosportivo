@@ -9,6 +9,8 @@ import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 
 import it.unisalento.pps.business.*;
+import it.unisalento.pps.model.Istruttore;
+import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.*;
 
@@ -16,7 +18,9 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 
 	private Homepage homepageWindow;
 	private Utente tesserato;
-	//ciao
+	private Istruttore istruttore;
+	private Responsabile responsabile;
+	
 	public LoginBtnListener(Homepage homepageWindow) {
 		super();
 		this.homepageWindow = homepageWindow;
@@ -36,12 +40,14 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 					
 			if(responsabileEsiste){
 				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO RESPONSABILE!</p></html>");
-				new AreaGestore();
+				responsabile = ResponsabileBusiness.getInstance().getResponsabileByUsername(username);
+				new AreaResponsabile(responsabile);
 				homepageWindow.dispose();
 			}			    
 			else if(istruttoreEsiste){
 				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO ISTRUTTORE!</p></html>");
-				new AreaIstruttore();
+				istruttore = IstruttoreBusiness.getInstance().getIstruttoreByUsername(username);
+				new AreaIstruttore(istruttore);
 				homepageWindow.dispose();
 			}
 			else if(utenteEsiste){
@@ -57,7 +63,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				else
 					JOptionPane.showMessageDialog(null, "<html><b>ATTENZIONE!!!</b><br>Registrazione in attesa di conferma!</html>");
 			}
-			else //if (!responsabileEsiste & !istruttoreEsiste & !utenteEsiste)
+			else 
 						JOptionPane.showMessageDialog(null, "<html><p align=\"center\">UTENTE NON RICONOSCIUTO!</p></html>");
 		}
 	}
@@ -83,13 +89,15 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 		
 				
 		if(responsabileEsiste){
-			JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">BENVENUTO RESPONSABILE!</p></html>");
-			new AreaGestore();
+			JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO RESPONSABILE!</p></html>");
+			responsabile = ResponsabileBusiness.getInstance().getResponsabileByUsername(username);
+			new AreaResponsabile(responsabile);
 			homepageWindow.dispose();
 		}
 		else if(istruttoreEsiste){
 			JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">BENVENUTO ISTRUTTORE!</p></html>");
-			new AreaIstruttore();
+			istruttore = IstruttoreBusiness.getInstance().getIstruttoreByUsername(username);
+			new AreaIstruttore(istruttore);
 			homepageWindow.dispose();
 		}
 		else if(utenteEsiste){

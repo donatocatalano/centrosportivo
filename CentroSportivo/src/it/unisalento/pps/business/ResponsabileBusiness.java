@@ -1,5 +1,7 @@
 package it.unisalento.pps.business;
 
+import it.unisalento.pps.dao.IstruttoreDAO;
+import it.unisalento.pps.dao.ResponsabileDAO;
 import it.unisalento.pps.model.Responsabile;
 
 public class ResponsabileBusiness {
@@ -19,6 +21,11 @@ private static ResponsabileBusiness instance;
 	{
 		Responsabile r = new Responsabile (username, password);
 		return r.login();
+	}
+
+	public Responsabile getResponsabileByUsername(String username) {
+		// TODO Auto-generated method stub
+		return ResponsabileDAO.getInstance().getResponsabileByUsername(username);
 	}
 
 }

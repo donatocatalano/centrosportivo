@@ -20,6 +20,14 @@ public class Responsabile{
 	public Responsabile(int idResponsabile) {
 		this.idResponsabile = idResponsabile;
 	}
+	
+	
+	
+	public Responsabile(int idResponsabile, String nome, String cognome) {
+		this.idResponsabile = idResponsabile;
+		this.nome = nome;
+		this.cognome = cognome;
+	}
 
 	public Responsabile(int idResponsabile, String nome, String cognome, String username, String password) {
 		this.idResponsabile = idResponsabile;

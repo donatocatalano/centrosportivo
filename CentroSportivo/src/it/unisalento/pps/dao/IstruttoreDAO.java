@@ -1,13 +1,16 @@
 package it.unisalento.pps.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import it.unisalento.pps.DbInterface.DbConnection;
 import it.unisalento.pps.model.Istruttore;
+import it.unisalento.pps.model.Utente;
 
 public class IstruttoreDAO {
 	
 	private static IstruttoreDAO instance;
+	private Istruttore istruttore;
 	
 	public static IstruttoreDAO getInstance()
 	{
@@ -28,6 +31,15 @@ public class IstruttoreDAO {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore where username=\""+ username + "\" and password=\""+ password + "\"");
 		
 		return (result.size() == 1);
+	}
+
+	public Istruttore getIstruttoreByUsername(String username) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore where username=\""+ username +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		istruttore = new Istruttore(Integer.parseInt(tupla[0]),tupla[1],tupla[2]);
+		
+		return istruttore;
 	}
 	
 }

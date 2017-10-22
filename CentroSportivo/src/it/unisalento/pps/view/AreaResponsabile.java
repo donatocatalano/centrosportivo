@@ -21,9 +21,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 import it.unisalento.pps.listener.*;
+import it.unisalento.pps.model.Responsabile;
 
 
-public class AreaGestore extends JFrame{
+public class AreaResponsabile extends JFrame{
 	
 	JPanel nordPnl=new JPanel(new GridLayout(1,3));
 	JPanel centroPnl=new JPanel(new GridLayout(3,4));
@@ -51,8 +52,8 @@ public class AreaGestore extends JFrame{
 		
 		
 		
-	public AreaGestore(){
-		super("Area privata GESTORE");			
+	public AreaResponsabile(Responsabile responsabile){
+		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());			
 			
 		nordPnl.add(vuoto00);
 		nordPnl.add(titolo);

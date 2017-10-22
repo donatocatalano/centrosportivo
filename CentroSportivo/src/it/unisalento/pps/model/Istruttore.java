@@ -21,6 +21,14 @@ public class Istruttore  {
 	public Istruttore(int idIstruttore) {
 		this.idIstruttore = idIstruttore;
 	}
+	
+	
+
+	public Istruttore(int idIstruttore, String nome, String cognome) {
+		this.idIstruttore = idIstruttore;
+		this.nome = nome;
+		this.cognome = cognome;
+	}
 
 	public Istruttore(int idIstruttore, String nome, String cognome, String username, String password) {
 		this.idIstruttore = idIstruttore;
