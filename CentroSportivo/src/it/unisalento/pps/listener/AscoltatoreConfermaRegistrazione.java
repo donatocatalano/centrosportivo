@@ -19,14 +19,9 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 		this.frame = frame; 
 		
 	}
-
-
-
-	@Override
+	
 	public void actionPerformed(ActionEvent arg0) throws IllegalArgumentException{
 		JTextField nome = frame.nome_field;
 		boolean ok = UtenteBusiness.getInstance().registraUtenteByNome(nome.getText());
-
 	}
-
 }

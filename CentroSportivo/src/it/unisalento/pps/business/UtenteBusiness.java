@@ -30,8 +30,6 @@ private static UtenteBusiness instance;
 		return u.loginTesserato();
 	}
 
-	
-
 	public Utente getUtenteByUsername(String username) {
 		
 		return UtenteDAO.getInstance().getUtenteByUsername(username);

@@ -1,21 +1,5 @@
 package it.unisalento.pps.view;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Toolkit;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -47,10 +31,14 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel sex= new JPanel(new FlowLayout());
 	JLabel sesso= new JLabel("SESSO  ");
-	JLabel maschio= new JLabel("M ");
-	JCheckBox m= new JCheckBox();
-	JLabel femmina= new JLabel("F ");
-	JCheckBox f= new JCheckBox();
+	//JLabel maschio= new JLabel("M");
+	JRadioButton maschio= new JRadioButton();
+	
+	//JLabel femmina= new JLabel("F");
+	JRadioButton femmina= new JRadioButton();
+	
+	ButtonGroup group = new ButtonGroup();
+	
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato aaaa/mm/gg)");
@@ -98,10 +86,17 @@ public class FormRegistrazione extends JFrame {
 		centroPnl.add(surname);
 		
 		sex.add(sesso);
+		maschio.setText("M");
+		group.add(maschio);
 		sex.add(maschio);
-		sex.add(m);
+		//sex.add(m);
+		femmina.setText("F");
+		group.add(femmina);
 		sex.add(femmina);
-		sex.add(f);
+		//sex.add(f);
+		
+		
+		//centroPnl.add(group);
 		sex.setAlignmentX(JPanel.LEFT_ALIGNMENT);
 		sesso.setFont(new Font("sansserif",Font.BOLD,25));
 		maschio.setFont(new Font("sansserif",Font.BOLD,25));
@@ -151,5 +146,4 @@ public class FormRegistrazione extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	
 }
