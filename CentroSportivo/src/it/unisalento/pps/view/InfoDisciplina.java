@@ -17,23 +17,25 @@ import it.unisalento.pps.model.Disciplina;
 
 public class InfoDisciplina extends JFrame{
 	
-	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout(3,1));
-	JPanel sudPnl=new JPanel();
+	private JPanel nordPnl=new JPanel();
+	private JPanel centroPnl=new JPanel(new GridLayout(4,1));
+	private JPanel sudPnl=new JPanel();
 	
-	JPanel titolo= new JPanel(new FlowLayout());
-	JLabel nomeDisciplina= new JLabel();
-	JLabel costoMensile= new JLabel();
-	JLabel descrizioneDisciplina= new JLabel();
+	private JPanel titolo= new JPanel(new FlowLayout());
+	private JLabel nomeDisciplina= new JLabel();
+	private JLabel costoMensile= new JLabel();
+	private JLabel descrizioneDisciplina= new JLabel();
+	private JLabel testimonianza= new JLabel();
 	
-	ImageIcon immagine;
-	JLabel immagineDisciplina= new JLabel();
+	
+	private ImageIcon immagine;
+	private JLabel immagineDisciplina= new JLabel();
 	
 	
 		
-	JButton indietro= new JButton("INDIETRO");
+	private JButton indietro= new JButton("INDIETRO");
 	
-	
+	 
 	public InfoDisciplina(Disciplina disciplina) {
 		super(disciplina.getNome());
 		
@@ -43,6 +45,10 @@ public class InfoDisciplina extends JFrame{
 		titolo.add(nomeDisciplina);
 		nordPnl.add(titolo);
 		
+		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
+		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
+		centroPnl.add(descrizioneDisciplina);
+		
 		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(costoMensile);
@@ -51,10 +57,14 @@ public class InfoDisciplina extends JFrame{
 		immagineDisciplina.setIcon(immagine);
 		centroPnl.add(immagineDisciplina);
 		
+		testimonianza.setText(" TESTIMONIANZA "+disciplina.getCostoMensile()+ "€");
+		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
+		centroPnl.add(testimonianza);
 		
-		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
-		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(descrizioneDisciplina);
+		
+		
+		
+		
 		
 		
 		indietro.addActionListener(new AscoltatoreBackHome(this));

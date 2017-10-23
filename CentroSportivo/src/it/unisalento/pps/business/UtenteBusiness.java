@@ -1,5 +1,7 @@
 package it.unisalento.pps.business;
 
+import java.util.Date;
+
 import javax.swing.JTextField;
 
 import it.unisalento.pps.dao.UtenteDAO;
@@ -35,9 +37,9 @@ private static UtenteBusiness instance;
 		return UtenteDAO.getInstance().getUtenteByUsername(username);
 	}
 
-	public boolean registraUtenteByNome(String nome) {
+	public boolean registraUtente(String nome,String cognome,String username,String password,String sesso,Date data) {
 		
-		return UtenteDAO.getInstance().registraUtenteByNome(nome);
+		return UtenteDAO.getInstance().registraUtente(nome,cognome,username,password,sesso,data);
 	}
 
 }

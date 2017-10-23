@@ -1,6 +1,7 @@
 package it.unisalento.pps.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.swing.JOptionPane;
@@ -59,13 +60,20 @@ public class UtenteDAO {
 		return tesserato;
 	}
 
-	public boolean registraUtenteByNome(String nome) {
+	public boolean registraUtente(String nome,String cognome,String username,String password,String sesso,Date data) {
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from utente " );
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
 		int idUtente = Integer.parseInt(tupla[0]);
+		int anno = data.getYear();
+		int mese = data.getMonth();
+		int giorno = data.getDay();
+		String data_nascita ="anno-mese-giorno";
+		boolean ok_registrazione = false;
+		if(!(nome.isEmpty()||cognome.isEmpty()||username.isEmpty()||password.isEmpty()||sesso.isEmpty()))
+			ok_registrazione = DbConnection.getInstance().eseguiAggiornamento("insert into utente(ID_Utente,Nome,Cognome,Username,Password,Sesso,Tesserato) values(\""+(idUtente+1)+"\",\""+nome+"\",\""+cognome+"\",\""+username+"\",\""+password+"\",\""+sesso+"\",\""+0+"\")");
 		
-		return DbConnection.getInstance().eseguiAggiornamento("insert into utente(ID_Utente,Nome) values(\""+(idUtente+1)+"\",\""+nome+"\")"); 
+		return  ok_registrazione;
 		
 	}
 }

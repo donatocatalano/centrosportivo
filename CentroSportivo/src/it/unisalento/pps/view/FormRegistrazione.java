@@ -27,30 +27,30 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel surname= new JPanel(new FlowLayout());
 	JLabel cognome= new JLabel("COGNOME");
-	JTextField cognome_field= new JTextField(15);
+	public JTextField cognome_field= new JTextField(15);
 	
 	JPanel sex= new JPanel(new FlowLayout());
-	JLabel sesso= new JLabel("SESSO  ");
-	//JLabel maschio= new JLabel("M");
-	JRadioButton maschio= new JRadioButton();
+	JLabel sesso= new JLabel("SESSO");
 	
-	//JLabel femmina= new JLabel("F");
-	JRadioButton femmina= new JRadioButton();
+	public JRadioButton maschio= new JRadioButton();
+	
+	
+	public JRadioButton femmina= new JRadioButton();
 	
 	ButtonGroup group = new ButtonGroup();
 	
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato aaaa/mm/gg)");
-	JTextField data_field= new JTextField("                 ");
+	public JTextField data_field= new JTextField();
 	
 	JPanel username= new JPanel(new FlowLayout());
 	JLabel user= new JLabel("USERNAME");
-	JTextField user_field= new JTextField(15);
+	public JTextField user_field= new JTextField(15);
 	
 	JPanel password= new JPanel(new FlowLayout());
 	JLabel pass= new JLabel("PASSWORD");
-	JTextField pass_field= new JTextField(15);
+	public JTextField pass_field= new JTextField(15);
 
 	
 	JButton indietro= new JButton("INDIETRO");
