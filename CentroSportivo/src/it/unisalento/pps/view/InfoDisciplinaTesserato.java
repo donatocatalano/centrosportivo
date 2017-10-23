@@ -1,8 +1,6 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -11,14 +9,11 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
@@ -56,7 +51,7 @@ public class InfoDisciplinaTesserato extends JFrame{
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(descrizioneDisciplina);
-		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
+		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "0 €");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(costoMensile);
 		immagine = new ImageIcon("./img/"+disciplina.getImmagine());

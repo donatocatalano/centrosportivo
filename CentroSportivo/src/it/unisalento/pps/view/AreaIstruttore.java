@@ -22,6 +22,7 @@ import javax.swing.*;
 import java.util.*;
 import it.unisalento.pps.listener.*;
 import it.unisalento.pps.model.Istruttore;
+import it.unisalento.pps.model.Responsabile;
 
 
 public class AreaIstruttore extends JFrame{
@@ -50,7 +51,9 @@ public class AreaIstruttore extends JFrame{
 		
 	JButton indietro= new JButton("LOGOUT");
 		
-		
+	AscoltatoreEventi ascoltatoreEventi;
+	AscoltatoreCorsi ascoltatoreCorsi;
+	Istruttore istruttore;
 		
 	public AreaIstruttore(Istruttore istruttore){
 		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
@@ -66,10 +69,12 @@ public class AreaIstruttore extends JFrame{
 		centroPnl.add(vuoto2);
 		centroPnl.add(vuoto3);
 		centroPnl.add(vuoto4);
-		corsi.addActionListener(new AscoltatoreCorsi(this));
+		ascoltatoreCorsi = new AscoltatoreCorsi(this, istruttore);
+		corsi.addActionListener(ascoltatoreCorsi);
 		corsi.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(corsi);
-		eventi.addActionListener(new AscoltatoreEventi(this));
+		ascoltatoreEventi = new AscoltatoreEventi(this, istruttore);
+		eventi.addActionListener(ascoltatoreEventi);
 		eventi.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(eventi);
 		centroPnl.add(vuoto7);

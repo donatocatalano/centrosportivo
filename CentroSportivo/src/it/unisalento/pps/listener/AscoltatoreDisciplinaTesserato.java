@@ -15,11 +15,6 @@ import it.unisalento.pps.view.InfoDisciplinaTesserato;
 
 public class AscoltatoreDisciplinaTesserato implements ActionListener {
 	
-	/*public final static String D1="d1";
-	public final static String D2="d2";
-	public final static String D3="d3";
-	public final static String D4="d4";
-	public final static String D5="d5";*/
 	private JFrame frame;
 	Disciplina disciplina;
 	Utente tesserato;

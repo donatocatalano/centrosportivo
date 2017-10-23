@@ -6,22 +6,31 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Istruttore;
+import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AreaIstruttore;
+import it.unisalento.pps.view.ElencoCorsi;
 import it.unisalento.pps.view.ElencoEventi;
 
-public class AscoltatoreEventi implements ActionListener {
+public class AscoltatoreBackIst implements ActionListener {
 	
 	private JFrame frame;
 	private Istruttore istruttore;
 	
-	public AscoltatoreEventi(AreaIstruttore frame, Istruttore istruttore) {
+	
+	public AscoltatoreBackIst(ElencoCorsi frame, Istruttore istruttore) {
 		super();
 		this.frame = frame;
-		this.istruttore = istruttore;
+		this.istruttore=istruttore;
+	}
+	
+	public AscoltatoreBackIst(ElencoEventi frame, Istruttore istruttore) {
+		super();
+		this.frame = frame;
+		this.istruttore=istruttore;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		new ElencoEventi(istruttore);
+		new AreaIstruttore(istruttore);
 		frame.dispose();
 	}
 }

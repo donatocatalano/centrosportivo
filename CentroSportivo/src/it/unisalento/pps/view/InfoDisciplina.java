@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.model.Disciplina;
 
@@ -49,7 +50,7 @@ public class InfoDisciplina extends JFrame{
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(descrizioneDisciplina);
-		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
+		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "0 €");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(costoMensile);
 		immagine = new ImageIcon("./img/"+disciplina.getImmagine());

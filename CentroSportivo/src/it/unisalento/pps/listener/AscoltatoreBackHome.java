@@ -55,7 +55,6 @@ import it.unisalento.pps.view.AreaIstruttore;
 	
 
 	public void actionPerformed(ActionEvent e) {
-	
 		String com = e.getActionCommand();
 		if (com==D1)
 			d1launch();	

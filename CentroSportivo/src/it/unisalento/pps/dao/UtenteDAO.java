@@ -17,11 +17,9 @@ public class UtenteDAO {
 	
 	public static UtenteDAO getInstance()
 	{
-	
-	if (instance==null)
-	{
+		if (instance==null){
 		instance = new UtenteDAO();			
-	}
+		}
 	return instance;
 	}
 
@@ -33,10 +31,9 @@ public class UtenteDAO {
 		//SINGLETON
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" and password=\""+password+"\"");
 		
-		
 		return ((result.size() == 1));
-		
 	}
+	
 	public boolean userTesseratoExists(Utente u) {
 		
 		String username = u.getUsername();
@@ -45,9 +42,7 @@ public class UtenteDAO {
 		//SINGLETON
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" and password=\""+password+"\"");
 		
-		
 		return ((result.size() == 1)&(result.get(0)[9].equals("1")));
-		
 	}
 
 	

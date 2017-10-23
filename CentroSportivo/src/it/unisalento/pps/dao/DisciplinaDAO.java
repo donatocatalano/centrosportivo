@@ -1,5 +1,6 @@
 package it.unisalento.pps.dao;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import java.util.Iterator;
@@ -28,6 +29,8 @@ public class DisciplinaDAO {
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
 		disciplina=new Disciplina(Integer.parseInt(tupla[0]),tupla[1],Double.parseDouble(tupla[2]),tupla[3],tupla[4]);
+		//DecimalFormat df = new DecimalFormat("#.##"); // 2 cifre decimali
+		//df.format(tupla[2]);
 		return disciplina;
 	}
 

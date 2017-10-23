@@ -38,7 +38,7 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato aaaa/mm/gg)");
-	public JTextField data_field= new JTextField("                 ");
+	public JTextField data_field= new JTextField(15);
 	
 	JPanel username= new JPanel(new FlowLayout());
 	JLabel user= new JLabel("USERNAME");

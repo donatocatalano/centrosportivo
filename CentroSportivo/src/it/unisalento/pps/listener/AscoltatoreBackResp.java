@@ -7,22 +7,29 @@ import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AreaResponsabile;
+import it.unisalento.pps.view.CatalogoDiscipline;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 
-public class AscoltatoreAutorizzazioni implements ActionListener {
+public class AscoltatoreBackResp implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;
 	
 	
-	public AscoltatoreAutorizzazioni(AreaResponsabile frame, Responsabile responsabile) {
+	public AscoltatoreBackResp(ElencoAutorizzazioni frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile=responsabile;
+	}
+	
+	public AscoltatoreBackResp(CatalogoDiscipline frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		new ElencoAutorizzazioni(responsabile);
+		new AreaResponsabile(responsabile);
 		frame.dispose();
 	}
 }

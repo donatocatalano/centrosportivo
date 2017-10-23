@@ -50,7 +50,9 @@ public class AreaResponsabile extends JFrame{
 		
 	JButton indietro= new JButton("LOGOUT");
 		
-		
+	AscoltatoreCatalogoDiscipline ascoltatoreCatalogoDiscipline;
+	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
+	Responsabile responsabile;	
 		
 	public AreaResponsabile(Responsabile responsabile){
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());			
@@ -65,10 +67,12 @@ public class AreaResponsabile extends JFrame{
 		centroPnl.add(vuoto2);
 		centroPnl.add(vuoto3);
 		centroPnl.add(vuoto4);
-		catalogo.addActionListener(new AscoltatoreCatalogo(this));
+		ascoltatoreCatalogoDiscipline = new AscoltatoreCatalogoDiscipline(this, responsabile);
+		catalogo.addActionListener(ascoltatoreCatalogoDiscipline);
 		catalogo.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(catalogo);
-		autorizzazioni.addActionListener(new AscoltatoreAutorizzazioni(this));
+		ascoltatoreAutorizzazioni = new AscoltatoreAutorizzazioni(this, responsabile);
+		autorizzazioni.addActionListener(ascoltatoreAutorizzazioni);
 		autorizzazioni.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(autorizzazioni);
 		centroPnl.add(vuoto7);
