@@ -18,42 +18,29 @@ import it.unisalento.pps.model.Disciplina;
 
 public class InfoDisciplina extends JFrame{
 	
-<<<<<<< HEAD
+
 	private JPanel nordPnl=new JPanel();
 	private JPanel centroPnl=new JPanel(new GridLayout(4,1));
 	private JPanel sudPnl=new JPanel();
-=======
-	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout(4,1));
-	JPanel sudPnl=new JPanel();
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	
-<<<<<<< HEAD
+	
+	
+
 	private JPanel titolo= new JPanel(new FlowLayout());
 	private JLabel nomeDisciplina= new JLabel();
 	private JLabel costoMensile= new JLabel();
 	private JLabel descrizioneDisciplina= new JLabel();
 	private JLabel testimonianza= new JLabel();
-=======
-	
-	JPanel titolo= new JPanel(new FlowLayout());
-	JLabel nomeDisciplina= new JLabel();
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	
 	
-<<<<<<< HEAD
+
+	
+
 	private ImageIcon immagine;
 	private JLabel immagineDisciplina= new JLabel();
 	
 	
-=======
-	JLabel descrizioneDisciplina= new JLabel();
-	JLabel costoMensile= new JLabel();
-	ImageIcon immagine;
-	JLabel immagineDisciplina= new JLabel();
-	JLabel testimonianza= new JLabel();
 
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 		
 	private JButton indietro= new JButton("INDIETRO");
 	
@@ -67,7 +54,7 @@ public class InfoDisciplina extends JFrame{
 		titolo.add(nomeDisciplina);
 		nordPnl.add(titolo);
 		
-<<<<<<< HEAD
+
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(descrizioneDisciplina);
@@ -83,14 +70,7 @@ public class InfoDisciplina extends JFrame{
 		testimonianza.setText(" TESTIMONIANZA "+disciplina.getCostoMensile()+ "€");
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(testimonianza);
-=======
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
-		
-<<<<<<< HEAD
-		
-		
-		
-=======
+
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(descrizioneDisciplina);
@@ -103,7 +83,7 @@ public class InfoDisciplina extends JFrame{
 		testimonianza.setText(" TESTIMONIANZA : "+disciplina.getDescrizione() );
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(testimonianza);
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
+
 		
 		
 		
@@ -119,7 +99,7 @@ public class InfoDisciplina extends JFrame{
 	
 	
 		this.setSize(1500, 750);
-		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  // prende la dimensione(risoluzione) dello schermo
+		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  
 		this.setLocation((int)((dim.getWidth()-this.getWidth())/2),(int)((dim.getHeight()-this.getHeight())/2));
 	
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -25,34 +25,22 @@ public class FormRegistrazione extends JFrame {
 	JLabel nome= new JLabel("NOME");
 	public JTextField nome_field= new JTextField(15);
 	
-	JPanel surname= new JPanel(new FlowLayout());
-	JLabel cognome= new JLabel("COGNOME");
+	public JPanel surname= new JPanel(new FlowLayout());
+	public JLabel cognome= new JLabel("COGNOME");
 	public JTextField cognome_field= new JTextField(15);
-	
-	JPanel sex= new JPanel(new FlowLayout());
-<<<<<<< HEAD
-	JLabel sesso= new JLabel("SESSO");
-	
-	public JRadioButton maschio= new JRadioButton();
-	
-	
-	public JRadioButton femmina= new JRadioButton();
-	
-=======
-	JLabel sesso= new JLabel("SESSO  ");
+	public JPanel sex= new JPanel(new FlowLayout());
+	public JLabel sesso= new JLabel("SESSO");
 	public JRadioButton maschio= new JRadioButton();
 	public JRadioButton femmina= new JRadioButton();
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
+
 	ButtonGroup group = new ButtonGroup();
 	
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato aaaa/mm/gg)");
-<<<<<<< HEAD
-	public JTextField data_field= new JTextField();
-=======
+
 	public JTextField data_field= new JTextField(15);
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
+
 	
 	JPanel username= new JPanel(new FlowLayout());
 	JLabel user= new JLabel("USERNAME");
@@ -60,12 +48,9 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel password= new JPanel(new FlowLayout());
 	JLabel pass= new JLabel("PASSWORD");
-<<<<<<< HEAD
-	public JTextField pass_field= new JTextField(15);
-=======
-	public JPasswordField pass_field= new JPasswordField(15);
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 
+
+	public JPasswordField pass_field= new JPasswordField(15);
 	
 	JButton indietro= new JButton("INDIETRO");
 	JButton registrazione= new JButton("CONFERMA DATI INSERITI");
@@ -149,7 +134,7 @@ public class FormRegistrazione extends JFrame {
 		
 		
 		this.setSize(1500, 750);
-		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  // prende la dimensione(risoluzione) dello schermo
+		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  
 		this.setLocation((int)((dim.getWidth()-this.getWidth())/2),(int)((dim.getHeight()-this.getHeight())/2));
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
