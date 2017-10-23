@@ -50,7 +50,7 @@ public class Homepage extends JFrame {
 	JPanel vuoto4 =new JPanel();
 	
 	JPanel descrizione = new JPanel ();
-	JLabel info = new JLabel ("<html><p align=\\\"center\\\"><b>L’attivita' fisica e' alla base della Salute e del Benessere Psicofisico, per questo noi di Pinco Pallino,</b><br>che ci occupiamo del benessere e della salute delle persone a 360°, </b><br>mettiamo a disposizione dei nostri clienti una moderna Area Fitness attrezzata per l’allenamento individuale.</p></html>");
+	JLabel info = new JLabel ("<html><p align=\\\"center\\\"><b>L’attivita' fisica è alla base della Salute e del Benessere Psicofisico, per questo noi di Pinco Pallino,</b><br>che ci occupiamo del benessere e della salute delle persone a 360°, </b><br>mettiamo a disposizione dei nostri clienti una moderna Area Fitness attrezzata per l’allenamento individuale.</p></html>");
 	JPanel apertura = new JPanel();
 	JLabel orari = new JLabel ("<html><p align=\"center\"><b>ORARI DI APERTURA:</b><br>Lun - Ven: dalle 9.00 alle 22.00</b><br>Sab: dalle 14.30 alle 18.30</p></html>");
 	
