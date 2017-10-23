@@ -27,30 +27,26 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel surname= new JPanel(new FlowLayout());
 	JLabel cognome= new JLabel("COGNOME");
-	JTextField cognome_field= new JTextField(15);
+	public JTextField cognome_field= new JTextField(15);
 	
 	JPanel sex= new JPanel(new FlowLayout());
 	JLabel sesso= new JLabel("SESSO  ");
-	//JLabel maschio= new JLabel("M");
-	JRadioButton maschio= new JRadioButton();
-	
-	//JLabel femmina= new JLabel("F");
-	JRadioButton femmina= new JRadioButton();
-	
+	public JRadioButton maschio= new JRadioButton();
+	public JRadioButton femmina= new JRadioButton();
 	ButtonGroup group = new ButtonGroup();
 	
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato aaaa/mm/gg)");
-	JTextField data_field= new JTextField("                 ");
+	public JTextField data_field= new JTextField("                 ");
 	
 	JPanel username= new JPanel(new FlowLayout());
 	JLabel user= new JLabel("USERNAME");
-	JTextField user_field= new JTextField(15);
+	public JTextField user_field= new JTextField(15);
 	
 	JPanel password= new JPanel(new FlowLayout());
 	JLabel pass= new JLabel("PASSWORD");
-	JTextField pass_field= new JTextField(15);
+	public JPasswordField pass_field= new JPasswordField(15);
 
 	
 	JButton indietro= new JButton("INDIETRO");
@@ -79,7 +75,7 @@ public class FormRegistrazione extends JFrame {
 		
 		surname.add(cognome);
 		surname.add(cognome_field);
-		surname.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+		//surname.setAlignmentX(JPanel.LEFT_ALIGNMENT);
 		cognome.setFont(new Font("sansserif",Font.BOLD,25));
 		cognome_field.setPreferredSize(mysize);
 		cognome_field.setFont(myfont);
@@ -89,15 +85,10 @@ public class FormRegistrazione extends JFrame {
 		maschio.setText("M");
 		group.add(maschio);
 		sex.add(maschio);
-		//sex.add(m);
 		femmina.setText("F");
 		group.add(femmina);
 		sex.add(femmina);
-		//sex.add(f);
-		
-		
-		//centroPnl.add(group);
-		sex.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+		//sex.setAlignmentX(JPanel.LEFT_ALIGNMENT);
 		sesso.setFont(new Font("sansserif",Font.BOLD,25));
 		maschio.setFont(new Font("sansserif",Font.BOLD,25));
 		femmina.setFont(new Font("sansserif",Font.BOLD,25));
