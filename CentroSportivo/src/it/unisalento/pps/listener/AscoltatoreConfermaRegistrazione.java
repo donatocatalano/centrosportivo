@@ -6,6 +6,10 @@ import java.util.Date;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
+=======
+import javax.swing.JPasswordField;
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -29,6 +33,7 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 		JTextField nome = frame.nome_field;
 		JTextField cognome = frame.cognome_field;
 		JTextField username = frame.user_field;
+<<<<<<< HEAD
 		JTextField password = frame.pass_field;
 		JRadioButton maschio = frame.maschio;
 		JRadioButton femmina = frame.femmina;
@@ -47,5 +52,24 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 			}
 		else
 			JOptionPane.showMessageDialog(null, "Registrazione non completata.Riprova");
+=======
+		JPasswordField password = frame.pass_field;
+		JRadioButton maschio = frame.maschio;
+		JRadioButton femmina = frame.femmina;
+		
+		if (maschio.isSelected())
+			sesso = "m";
+		else
+			sesso = "f";		
+		
+		boolean ok = UtenteBusiness.getInstance().registraUtente(nome.getText(), cognome.getText(), username.getText(), password.getText(), sesso, new Date (1965,12,23));
+		
+		if (ok) {
+			JOptionPane.showMessageDialog(null, "<html><p align=\"center\">Dati inseriti correttamente! Registrazione in attesa di conferma...</p></html>");
+			new Homepage();
+			frame.dispose();
+		}else 
+			JOptionPane.showMessageDialog(null, "<html><p align=\"center\">REGISTRAZIONE NON COMPLETATA! RIPROVA!</p></html>");
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	}
 }

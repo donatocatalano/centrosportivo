@@ -37,9 +37,16 @@ private static UtenteBusiness instance;
 		return UtenteDAO.getInstance().getUtenteByUsername(username);
 	}
 
+<<<<<<< HEAD
 	public boolean registraUtente(String nome,String cognome,String username,String password,String sesso,Date data) {
+=======
+	public boolean registraUtente(String nome, String cognome, String username, String password, String sesso, Date data) {
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 		
+<<<<<<< HEAD
 		return UtenteDAO.getInstance().registraUtente(nome,cognome,username,password,sesso,data);
+=======
+		return UtenteDAO.getInstance().registraUtente(nome, cognome, username, password, sesso, data);
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	}
-
 }

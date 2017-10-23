@@ -1,8 +1,6 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -11,30 +9,29 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
 public class InfoDisciplinaTesserato extends JFrame{
 	
 	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout(3,1));
+	JPanel centroPnl=new JPanel(new GridLayout(4,1));
 	JPanel sudPnl=new JPanel();
+	
 	
 	JPanel titolo= new JPanel(new FlowLayout());
 	JLabel nomeDisciplina= new JLabel();
-	JLabel costoMensile= new JLabel();
+	
 	JLabel descrizioneDisciplina= new JLabel();
-
+	JLabel costoMensile= new JLabel();
 	ImageIcon immagine;
 	JLabel immagineDisciplina= new JLabel();
+	JLabel testimonianza = new JLabel();
 	
 	JButton indietro= new JButton("INDIETRO");
 	JButton iscrizione= new JButton("ISCRIVITI");
@@ -50,18 +47,19 @@ public class InfoDisciplinaTesserato extends JFrame{
 		titolo.add(nomeDisciplina);
 		nordPnl.add(titolo);
 		
-		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
-		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(costoMensile);
-		
-		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
-		immagineDisciplina.setIcon(immagine);
-		centroPnl.add(immagineDisciplina);
-		
 		
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(descrizioneDisciplina);
+		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "0 €");
+		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
+		centroPnl.add(costoMensile);
+		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
+		immagineDisciplina.setIcon(immagine);
+		centroPnl.add(immagineDisciplina);
+		testimonianza.setText(" TESTIMONIANZA : "+disciplina.getDescrizione() );
+		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
+		centroPnl.add(testimonianza);
 		
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
@@ -84,7 +82,6 @@ public class InfoDisciplinaTesserato extends JFrame{
 	
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
-		//System.out.println(dim);
 	}
 }
 

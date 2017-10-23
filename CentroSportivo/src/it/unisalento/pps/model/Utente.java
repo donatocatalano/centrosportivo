@@ -145,5 +145,4 @@ public class Utente{
 	{
 		return UtenteDAO.getInstance().userTesseratoExists(this);
 	}
-
 }

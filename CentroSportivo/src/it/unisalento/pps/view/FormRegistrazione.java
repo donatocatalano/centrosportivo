@@ -30,6 +30,7 @@ public class FormRegistrazione extends JFrame {
 	public JTextField cognome_field= new JTextField(15);
 	
 	JPanel sex= new JPanel(new FlowLayout());
+<<<<<<< HEAD
 	JLabel sesso= new JLabel("SESSO");
 	
 	public JRadioButton maschio= new JRadioButton();
@@ -37,12 +38,21 @@ public class FormRegistrazione extends JFrame {
 	
 	public JRadioButton femmina= new JRadioButton();
 	
+=======
+	JLabel sesso= new JLabel("SESSO  ");
+	public JRadioButton maschio= new JRadioButton();
+	public JRadioButton femmina= new JRadioButton();
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	ButtonGroup group = new ButtonGroup();
 	
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato aaaa/mm/gg)");
+<<<<<<< HEAD
 	public JTextField data_field= new JTextField();
+=======
+	public JTextField data_field= new JTextField(15);
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 	
 	JPanel username= new JPanel(new FlowLayout());
 	JLabel user= new JLabel("USERNAME");
@@ -50,7 +60,11 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel password= new JPanel(new FlowLayout());
 	JLabel pass= new JLabel("PASSWORD");
+<<<<<<< HEAD
 	public JTextField pass_field= new JTextField(15);
+=======
+	public JPasswordField pass_field= new JPasswordField(15);
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 
 	
 	JButton indietro= new JButton("INDIETRO");
@@ -79,7 +93,7 @@ public class FormRegistrazione extends JFrame {
 		
 		surname.add(cognome);
 		surname.add(cognome_field);
-		surname.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+		//surname.setAlignmentX(JPanel.LEFT_ALIGNMENT);
 		cognome.setFont(new Font("sansserif",Font.BOLD,25));
 		cognome_field.setPreferredSize(mysize);
 		cognome_field.setFont(myfont);
@@ -89,15 +103,10 @@ public class FormRegistrazione extends JFrame {
 		maschio.setText("M");
 		group.add(maschio);
 		sex.add(maschio);
-		//sex.add(m);
 		femmina.setText("F");
 		group.add(femmina);
 		sex.add(femmina);
-		//sex.add(f);
-		
-		
-		//centroPnl.add(group);
-		sex.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+		//sex.setAlignmentX(JPanel.LEFT_ALIGNMENT);
 		sesso.setFont(new Font("sansserif",Font.BOLD,25));
 		maschio.setFont(new Font("sansserif",Font.BOLD,25));
 		femmina.setFont(new Font("sansserif",Font.BOLD,25));

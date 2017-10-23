@@ -34,5 +34,4 @@ public class AscoltatoreDisciplina implements ActionListener {
 		new InfoDisciplina(disciplina);
 		frame.dispose();
 	}
-
 }
