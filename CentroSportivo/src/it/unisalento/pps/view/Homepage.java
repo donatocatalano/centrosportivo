@@ -27,7 +27,7 @@ import it.unisalento.pps.listener.LoginBtnListener;
 
 public class Homepage extends JFrame {
 	
-	JPanel nordPnl=new JPanel(new GridLayout(1,2));
+	JPanel nordPnl=new JPanel(new GridLayout(2,2));
 	JPanel centroPnl=new JPanel(new GridLayout(3,2));
 	JPanel sudPnl=new JPanel();
 	
@@ -48,6 +48,11 @@ public class Homepage extends JFrame {
 	JButton registrazione = new JButton("Effettua registrazione");
 	JPanel vuoto3 =new JPanel();
 	JPanel vuoto4 =new JPanel();
+	
+	JPanel descrizione = new JPanel ();
+	JLabel info = new JLabel ("<html><p align=\\\"center\\\"><b>L’attivita' fisica e' alla base della Salute e del Benessere Psicofisico, per questo noi di Pinco Pallino,</b><br>che ci occupiamo del benessere e della salute delle persone a 360°, </b><br>mettiamo a disposizione dei nostri clienti una moderna Area Fitness attrezzata per l’allenamento individuale.</p></html>");
+	JPanel apertura = new JPanel();
+	JLabel orari = new JLabel ("<html><p align=\"center\"><b>ORARI DI APERTURA:</b><br>Lun - Ven: dalle 9.00 alle 22.00</b><br>Sab: dalle 14.30 alle 18.30</p></html>");
 	
 	
 	JButton disciplina1= new JButton("Fitness");
@@ -85,6 +90,16 @@ public class Homepage extends JFrame {
 		norddestra.add(vuoto3);
 		norddestra.add(vuoto4);
 		nordPnl.add(norddestra);
+		
+		info.setFont(new Font("sansserif",Font.BOLD,22));
+		descrizione.add(info);
+		nordPnl.add(descrizione);
+		orari.setForeground(Color.BLUE);
+		orari.setFont(new Font("sansserif",Font.BOLD,22));
+		apertura.add(orari);
+		nordPnl.add(apertura);
+		
+		
 		
 		
 		disciplina1.addActionListener(ascoltatoreDisciplina);
