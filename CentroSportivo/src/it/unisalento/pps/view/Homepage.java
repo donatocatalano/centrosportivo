@@ -145,7 +145,6 @@ public class Homepage extends JFrame {
 	}
 
 	public int getKeyCode() {
-		
 		return 0;
 	}
 }

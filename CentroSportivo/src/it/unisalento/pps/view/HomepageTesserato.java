@@ -25,6 +25,7 @@ import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
+import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
 import it.unisalento.pps.listener.AscoltatoreReg;
 import it.unisalento.pps.listener.LoginBtnListener;
 import it.unisalento.pps.model.Utente;
@@ -40,15 +41,15 @@ public class HomepageTesserato extends JFrame {
 	JLabel centrosportivo= new JLabel("CENTRO SPORTIVO");
 	
 	
-	JPanel norddestra= new JPanel(new GridLayout(2,2));	
+	JPanel norddestra = new JPanel(new GridLayout(2,2));	
 	JPanel vuoto1 = new JPanel();
-	JPanel login= new JPanel(new GridLayout(2,2));	
-	JPanel vuoto00= new JPanel();
+	JPanel login = new JPanel(new GridLayout(2,2));	
+	JPanel vuoto00 = new JPanel();
 	JLabel nomeutente = new JLabel();
-	JPanel vuoto000= new JPanel();
+	JButton iscrizioni = new JButton("ISCRIZIONI");
 	JButton logout = new JButton("LOGOUT");	
-	JPanel vuoto3 =new JPanel();
-	JPanel vuoto4 =new JPanel();
+	JPanel vuoto3 = new JPanel();
+	JPanel vuoto4 = new JPanel();
 	
 	JPanel descrizione = new JPanel ();
 	String testoInfo="<html><p align=\"justify\" style=\"padding-left: 2cm\" ><b>L’attività fisica è alla base della Salute e del Benessere Psicofisico, per questo noi di Pinco Pallino, che ci occupiamo del benessere e della salute delle persone a 360°, mettiamo a disposizione dei nostri clienti una moderna Area Fitness attrezzata per</b><br>l’allenamento individuale.</p></html>";
@@ -70,6 +71,7 @@ public class HomepageTesserato extends JFrame {
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
 	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina; 
+	AscoltatoreIscrizioniTesserato ascoltatoreIscrizioni;
 	
 	public HomepageTesserato(Utente tesserato) {
 		super("Catalogo Centro Sportivo");
@@ -84,7 +86,9 @@ public class HomepageTesserato extends JFrame {
 		nomeutente.setText(tesserato.getNome()+" "+tesserato.getCognome());
 		
 		login.add(nomeutente);
-		login.add(vuoto000);
+		ascoltatoreIscrizioni = new AscoltatoreIscrizioniTesserato(this,tesserato);
+		iscrizioni.addActionListener(ascoltatoreIscrizioni);
+		login.add(iscrizioni);
 		logout.addActionListener(new AscoltatoreBackHome (this,tesserato));
 		login.add(logout);
 		norddestra.add(login);

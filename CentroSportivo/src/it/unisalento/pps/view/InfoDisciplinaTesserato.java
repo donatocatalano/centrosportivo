@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
+import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
@@ -24,20 +26,21 @@ public class InfoDisciplinaTesserato extends JFrame{
 	JPanel sudPnl=new JPanel();
 	
 	
-	JPanel titolo= new JPanel(new FlowLayout());
-	JLabel nomeDisciplina= new JLabel();
+	JPanel titolo = new JPanel(new FlowLayout());
+	JLabel nomeDisciplina = new JLabel();
 	
 	JLabel descrizioneDisciplina= new JLabel();
 	JLabel costoMensile= new JLabel();
 	ImageIcon immagine;
-	JLabel immagineDisciplina= new JLabel();
+	JLabel immagineDisciplina = new JLabel();
 	JLabel testimonianza = new JLabel();
 	
 	JButton indietro= new JButton("INDIETRO");
-	JButton iscrizione= new JButton("ISCRIVITI");
+	JButton feedback = new JButton("LASCIA FEEDBACK");
 	
 	
 	AscoltatoreBackHome ascoltatoreBackHome; 
+	AscoltatoreFeedback ascoltatoreFeedback;
 	Utente tesserato;
 	
 	public InfoDisciplinaTesserato(Disciplina disciplina,Utente tesserato) {
@@ -70,7 +73,9 @@ public class InfoDisciplinaTesserato extends JFrame{
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);	
 		sudPnl.add(indietro);
-		sudPnl.add(iscrizione);
+		ascoltatoreFeedback = new AscoltatoreFeedback(this,tesserato);
+		feedback.addActionListener(ascoltatoreFeedback);
+		sudPnl.add(feedback);
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
