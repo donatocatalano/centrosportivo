@@ -41,7 +41,7 @@ public class Homepage extends JFrame {
 	
 	JPanel vuoto1 = new JPanel();
 	JPanel login= new JPanel(new GridLayout(3,2));	
-	JLabel user = new JLabel("            Inserisci username");
+	JLabel user = new JLabel("             Inserisci username");
 	public JTextField username = new JTextField();
     JLabel psw = new JLabel("             Inserisci password");
     public JPasswordField password = new JPasswordField();
