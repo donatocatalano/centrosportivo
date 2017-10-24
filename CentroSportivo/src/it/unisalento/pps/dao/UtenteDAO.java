@@ -29,7 +29,7 @@ public class UtenteDAO {
 		String password = u.getPassword();
 		
 		//SINGLETON
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" and password=\""+password+"\"");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary username=\""+ username +"\" and binary password=\""+password+"\"");
 		
 		return ((result.size() == 1));
 	}
@@ -40,14 +40,14 @@ public class UtenteDAO {
 		String password = u.getPassword();
 		
 		//SINGLETON
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" and password=\""+password+"\"");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary username=\""+ username +"\" and binary password=\""+password+"\"");
 		
 		return ((result.size() == 1)&(result.get(0)[9].equals("1")));
 	}
 
 	
 	public Utente getUtenteByUsername(String username) {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where username=\""+ username +"\" ");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary username=\""+ username +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
 		tesserato = new Utente(Integer.parseInt(tupla[0]),tupla[1],tupla[2],tupla[3]);

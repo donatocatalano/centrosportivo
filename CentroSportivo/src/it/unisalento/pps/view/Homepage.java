@@ -135,7 +135,7 @@ public class Homepage extends JFrame {
 		this.pack();
 		
 		
-	
+		
 		this.setSize(1500, 750);
 		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  // prende la dimensione(risoluzione) dello schermo
 		this.setLocation((int)((dim.getWidth()-this.getWidth())/2),(int)((dim.getHeight()-this.getHeight())/2));

@@ -64,8 +64,7 @@ public class HomepageTesserato extends JFrame {
 	JButton disciplina5= new JButton("Ginnastica Ritmica");
 	JButton disciplina6= new JButton("In lavorazione");
 	
-	/*String nome;
-	String cognome;*/
+	
 	Utente utenteTesserato;
 	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
@@ -117,7 +116,6 @@ public class HomepageTesserato extends JFrame {
 		disciplina4.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina4);
 		disciplina5.addActionListener(ascoltatoreDisciplina);
-		//disciplina5.setActionCommand(AscoltatoreDisciplina.D5);
 		disciplina5.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(disciplina5);
 		centroPnl.add(disciplina6);

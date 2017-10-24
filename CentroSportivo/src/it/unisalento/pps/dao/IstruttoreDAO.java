@@ -28,13 +28,13 @@ public class IstruttoreDAO {
 		String password = i.getPassword();
 		
 		//SINGLETON
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore where username=\""+ username + "\" and password=\""+ password + "\"");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore where binary username=\""+ username + "\" and binary password=\""+ password + "\"");
 		
 		return (result.size() == 1);
 	}
 
 	public Istruttore getIstruttoreByUsername(String username) {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore where username=\""+ username +"\" ");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore where binary username=\""+ username +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
 		istruttore = new Istruttore(Integer.parseInt(tupla[0]),tupla[1],tupla[2]);

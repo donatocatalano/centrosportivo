@@ -28,13 +28,13 @@ public class ResponsabileDAO {
 		String password = r.getPassword();
 		
 		//SINGLETON
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from responsabile where username=\""+ username + "\" and password=\""+ password + "\"");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from responsabile where binary username=\""+ username + "\" and binary password=\""+ password + "\"");
 		
 		return (result.size() == 1);
 	}
 
 	public Responsabile getResponsabileByUsername(String username) {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from responsabile where username=\""+ username +"\" ");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from responsabile where binary username=\""+ username +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
 		responsabile = new Responsabile(Integer.parseInt(tupla[0]),tupla[1],tupla[2]);
