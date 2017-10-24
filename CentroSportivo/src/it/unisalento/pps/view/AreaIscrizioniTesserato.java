@@ -32,14 +32,14 @@ public class AreaIscrizioniTesserato extends JFrame{
 	
 	
 	public JPanel pagamento = new JPanel(new FlowLayout());
-	JLabel selPagamento = new JLabel("<html><p align=\"center\">SELEZIONA COME VUOI PAGARE</p></html>");
+	JLabel selPagamento = new JLabel("<html><p align=\"center\"><b>SELEZIONA METODO</b><br>DI PAGAMENTO</p></html>");
 	public JRadioButton carta = new JRadioButton();
 	public JRadioButton paypal = new JRadioButton();
 	public JRadioButton contanti = new JRadioButton();
 	ButtonGroup group = new ButtonGroup();
 	
 	JButton indietro = new JButton("INDIETRO");
-	JButton iscrizione = new JButton("INVIA ISCRIZIONE AI CORSI");
+	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
 
 	
 	
