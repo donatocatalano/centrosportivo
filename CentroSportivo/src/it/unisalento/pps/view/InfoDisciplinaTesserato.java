@@ -73,7 +73,7 @@ public class InfoDisciplinaTesserato extends JFrame{
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);	
 		sudPnl.add(indietro);
-		ascoltatoreFeedback = new AscoltatoreFeedback(this,tesserato);
+		ascoltatoreFeedback = new AscoltatoreFeedback(this, disciplina,tesserato);
 		feedback.addActionListener(ascoltatoreFeedback);
 		sudPnl.add(feedback);
 		
