@@ -22,8 +22,7 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 	
 
 	public AscoltatoreConfermaRegistrazione(FormRegistrazione frame) {
-		this.frame = frame; 
-		
+		this.frame = frame;
 	}
 	
 	public void actionPerformed(ActionEvent arg0) throws IllegalArgumentException{
@@ -36,7 +35,7 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 		JRadioButton femmina = frame.femmina;
 		
 		if(maschio.isSelected())
-			sesso="m";
+			sesso = "m";
 		else if (femmina.isSelected())
 			sesso = "f";
 		
@@ -54,7 +53,5 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 			sesso = "m";
 		else
 			sesso = "f";		
-		
-		
 	}
 }
