@@ -51,7 +51,7 @@ public class Homepage extends JFrame {
 	JPanel vuoto4 =new JPanel();
 	
 	JPanel descrizione = new JPanel ();
-	String testoInfo="<html><p align=\"justify\" style=\"padding-left: 2cm\" ><b>L’attività fisica è alla base della Salute e del Benessere Psicofisico, per questo noi di Pinco Pallino,che ci occupiamo del benessere e della salute delle persone a 360°,mettiamo a disposizione dei nostri clienti una moderna Area Fitness attrezzata per l’allenamento individuale.</p></html>";
+	String testoInfo="<html><p align=\"justify\" style=\"padding-left: 2cm\" ><b>L’attività fisica è alla base della Salute e del Benessere Psicofisico, per questo noi di Pinco Pallino, che ci occupiamo del benessere e della salute delle persone a 360°, mettiamo a disposizione dei nostri clienti una moderna Area Fitness attrezzata per</b><br>l’allenamento individuale.</p></html>";
 	JLabel info = new JLabel (testoInfo);
 	JPanel apertura = new JPanel();
 	JLabel orari = new JLabel ("<html><p align=\"center\"><b>ORARI DI APERTURA:</b><br>Lun - Ven: dalle 9.00 alle 22.00</b><br>Sab: dalle 14.30 alle 18.30</p></html>");
@@ -96,14 +96,11 @@ public class Homepage extends JFrame {
 		info.setFont(new Font("sansserif",Font.BOLD,22));
 		descrizione.setLayout(new BoxLayout(descrizione,BoxLayout.X_AXIS));
 		descrizione.add(info);
-		
 		nordPnl.add(descrizione);
 		orari.setForeground(Color.BLUE);
 		orari.setFont(new Font("sansserif",Font.BOLD,22));
 		apertura.add(orari);
 		nordPnl.add(apertura);
-		
-		
 		
 		
 		disciplina1.addActionListener(ascoltatoreDisciplina);
