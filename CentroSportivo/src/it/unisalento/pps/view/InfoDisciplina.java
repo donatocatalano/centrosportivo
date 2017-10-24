@@ -24,22 +24,14 @@ public class InfoDisciplina extends JFrame{
 	private JPanel sudPnl=new JPanel();
 	
 	
-	
 
 	private JPanel titolo= new JPanel(new FlowLayout());
 	private JLabel nomeDisciplina= new JLabel();
 	private JLabel costoMensile= new JLabel();
 	private JLabel descrizioneDisciplina= new JLabel();
 	private JLabel testimonianza= new JLabel();
-	
-	
-
-	
-
 	private ImageIcon immagine;
 	private JLabel immagineDisciplina= new JLabel();
-	
-	
 
 		
 	private JButton indietro= new JButton("INDIETRO");
@@ -55,36 +47,21 @@ public class InfoDisciplina extends JFrame{
 		nordPnl.add(titolo);
 		
 
-		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
+		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione());
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(descrizioneDisciplina);
 		
-		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "€");
-		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(costoMensile);
-		
-		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
-		immagineDisciplina.setIcon(immagine);
-		centroPnl.add(immagineDisciplina);
-		
-		testimonianza.setText(" TESTIMONIANZA "+disciplina.getCostoMensile()+ "€");
-		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(testimonianza);
-
-		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
-		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(descrizioneDisciplina);
 		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "0 €");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(costoMensile);
+		
 		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
 		immagineDisciplina.setIcon(immagine);
 		centroPnl.add(immagineDisciplina);
+		
 		testimonianza.setText(" TESTIMONIANZA : "+disciplina.getDescrizione() );
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(testimonianza);
-
-		
 		
 		
 		indietro.addActionListener(new AscoltatoreBackHome(this));

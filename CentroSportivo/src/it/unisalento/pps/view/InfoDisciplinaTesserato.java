@@ -36,6 +36,7 @@ public class InfoDisciplinaTesserato extends JFrame{
 	JButton indietro= new JButton("INDIETRO");
 	JButton iscrizione= new JButton("ISCRIVITI");
 	
+	
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	Utente tesserato;
 	
@@ -51,12 +52,15 @@ public class InfoDisciplinaTesserato extends JFrame{
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(descrizioneDisciplina);
+		
 		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "0 €");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(costoMensile);
+		
 		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
 		immagineDisciplina.setIcon(immagine);
 		centroPnl.add(immagineDisciplina);
+		
 		testimonianza.setText(" TESTIMONIANZA : "+disciplina.getDescrizione() );
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
 		centroPnl.add(testimonianza);
