@@ -45,7 +45,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				homepageWindow.dispose();
 			}			    
 			else if(istruttoreEsiste){
-				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">BENVENUTO ISTRUTTORE!</p></html>");
+				JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">BENVENUTO ISTRUTTORE!</p></html>");
 				istruttore = IstruttoreBusiness.getInstance().getIstruttoreByUsername(username);
 				new AreaIstruttore(istruttore);
 				homepageWindow.dispose();

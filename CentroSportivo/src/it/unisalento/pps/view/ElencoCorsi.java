@@ -8,14 +8,15 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.model.Istruttore;
 
 public class ElencoCorsi extends JFrame {
 	
-	JPanel nordPnl=new JPanel(new GridLayout(1,3));
-	JPanel centroPnl=new JPanel(new GridLayout(3,4));
+	JPanel nordPnl=new JPanel();
+	JScrollPane centroPnl=new JScrollPane();
 	JPanel sudPnl=new JPanel();
 	
 	
