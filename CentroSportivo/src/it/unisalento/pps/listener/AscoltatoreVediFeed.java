@@ -37,9 +37,11 @@ public class AscoltatoreVediFeed implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String com = e.getActionCommand();
 		if (com==D1) {
-			JButton bottone = (JButton) e.getSource();
+			/*JButton bottone = (JButton) e.getSource();
 			String nomeDisciplina = bottone.getText();
-			d1launch(nomeDisciplina);	
+			d1launch(nomeDisciplina);	*/
+			new FeedbackTesserato(disciplina, tesserato);
+			frame.dispose();
 		}
 		else {		
 			new Feedback(disciplina);
@@ -47,8 +49,8 @@ public class AscoltatoreVediFeed implements ActionListener {
 		}
 	}
 	
-	private void d1launch(String nome) {
+	/*private void d1launch(String nome) {
 		new FeedbackTesserato(disciplina, tesserato);
 		frame.dispose();
-	}
+	}*/
 }

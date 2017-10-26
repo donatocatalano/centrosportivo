@@ -4,25 +4,31 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unisalento.pps.business.TestimonianzaBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.model.Disciplina;
+import it.unisalento.pps.model.Testimonianza;
 import it.unisalento.pps.model.Utente;
 
 
 public class FeedbackTesserato extends JFrame{
 	
 	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout(4,1));
+	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
 	private JLabel testimonianza= new JLabel();
+	
+	
+	
 	
 	
 	JButton indietro= new JButton("TORNA ALL'HOMEPAGE");
@@ -33,10 +39,23 @@ public class FeedbackTesserato extends JFrame{
 	AscoltatoreFeedback ascoltatoreFeedback;
 	Disciplina disciplina;
 	Utente tesserato;
+	ArrayList<Testimonianza> testimonianze = new ArrayList<Testimonianza>();
 	
 	public FeedbackTesserato (Disciplina disciplina, Utente tesserato) {
 		super("Feedback " + disciplina.getNome());
 		
+		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
+		centroPnl.setLayout(new GridLayout(testimonianze.size(),1));
+		if(testimonianze.size()>0) {
+		for(int i=0;i<testimonianze.size();i++) {
+			JLabel contenuto = new JLabel(testimonianze.get(i).getContenuto());			  
+			centroPnl.add(contenuto);		
+				}
+			}
+		else {
+			JLabel contenuto = new JLabel("Nessuna Testimonianza");			  
+			centroPnl.add(contenuto);		
+		}
 		testimonianza.setText(" TESTIMONIANZE : "); // inserire collegamento a database
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
 		nordPnl.add(testimonianza);

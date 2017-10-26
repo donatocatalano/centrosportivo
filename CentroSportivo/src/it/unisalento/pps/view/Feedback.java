@@ -4,36 +4,52 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unisalento.pps.business.TestimonianzaBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.model.Disciplina;
+import it.unisalento.pps.model.Testimonianza;
 
 
 public class Feedback extends JFrame{
 	
-	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout(4,1));
-	JPanel sudPnl=new JPanel();
+	private JPanel nordPnl=new JPanel();
+	private JPanel centroPnl=new JPanel(new GridLayout(4,1));
+	private JPanel sudPnl=new JPanel();
 	
 	private JLabel testimonianza= new JLabel();
 	
 	
-	JButton indietro= new JButton("TORNA ALL'HOMEPAGE");
+	private JButton indietro= new JButton("TORNA ALL'HOMEPAGE");
 	
 	
-	AscoltatoreBackHome ascoltatoreBackHome; 
-	AscoltatoreFeedback ascoltatoreFeedback;
-	Disciplina disciplina;
+	//private AscoltatoreBackHome ascoltatoreBackHome; 
+	//private AscoltatoreFeedback ascoltatoreFeedback;
+	//private Disciplina disciplina;
+	ArrayList<Testimonianza> testimonianze = new ArrayList<Testimonianza>();
 	
 	public Feedback (Disciplina disciplina) {
 		super("Feedback " + disciplina.getNome());
 		
+		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
+		centroPnl.setLayout(new GridLayout(testimonianze.size(),1));
+		if(testimonianze.size()>0) {
+		for(int i=0;i<testimonianze.size();i++) {
+			JLabel contenuto = new JLabel(testimonianze.get(i).getContenuto());			  
+			centroPnl.add(contenuto);		
+				}
+			}
+		else {
+			JLabel contenuto = new JLabel("Nessuna Testimonianza");			  
+			centroPnl.add(contenuto);		
+		}
 		testimonianza.setText(" TESTIMONIANZE : "); // inserire collegamento a database
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
 		nordPnl.add(testimonianza);

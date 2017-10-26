@@ -21,6 +21,15 @@ public class Testimonianza{
 		this.idTestimonianza = idTestimonianza;
 	}
 
+	
+	
+	public Testimonianza(int idTestimonianza, String contenuto, int utente, int disciplina) {
+		this.idTestimonianza = idTestimonianza;
+		this.contenuto = contenuto;
+		this.utente = utente;
+		this.disciplina = disciplina;
+	}
+
 	public Testimonianza(int idTestimonianza, Date data, String contenuto, int utente, int disciplina) {
 		this.idTestimonianza = idTestimonianza;
 		this.data = data;

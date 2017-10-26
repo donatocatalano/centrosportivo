@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
+import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
@@ -62,15 +63,16 @@ public class InfoDisciplinaTesserato extends JFrame{
 		immagineDisciplina.setIcon(immagine);
 		centroPnl.add(immagineDisciplina);
 		
-		testimonianza.setText(" TESTIMONIANZA : "+disciplina.getDescrizione() );
+		/*testimonianza.setText(" TESTIMONIANZA : "+disciplina.getDescrizione() );
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(testimonianza);
+		centroPnl.add(testimonianza);*/
 		
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);	
 		sudPnl.add(indietro);
+		
 		ascoltatoreVediFeed = new AscoltatoreVediFeed(this, disciplina,tesserato);
 		feedback.setActionCommand(AscoltatoreVediFeed.D1);
 		feedback.addActionListener(ascoltatoreVediFeed);
