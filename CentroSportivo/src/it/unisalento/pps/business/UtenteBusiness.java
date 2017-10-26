@@ -1,9 +1,6 @@
 package it.unisalento.pps.business;
 
-import java.util.Date;
-
-import javax.swing.JTextField;
-
+import java.sql.Date;
 import it.unisalento.pps.dao.UtenteDAO;
 import it.unisalento.pps.model.Utente;
 

@@ -1,7 +1,7 @@
 package it.unisalento.pps.model;
 // Generated 26-set-2017 0.37.54 by Hibernate Tools 5.1.5.Final
 
-import java.util.Date;
+import java.sql.Date;
 
 import it.unisalento.pps.dao.UtenteDAO;
 
