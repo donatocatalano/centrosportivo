@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreFeedback;
+import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
@@ -36,11 +37,11 @@ public class InfoDisciplinaTesserato extends JFrame{
 	JLabel testimonianza = new JLabel();
 	
 	JButton indietro= new JButton("INDIETRO");
-	JButton feedback = new JButton("LASCIA FEEDBACK");
+	JButton feedback = new JButton("VEDI FEEDBACK");
 	
 	
 	AscoltatoreBackHome ascoltatoreBackHome; 
-	AscoltatoreFeedback ascoltatoreFeedback;
+	AscoltatoreVediFeed ascoltatoreVediFeed;
 	Utente tesserato;
 	
 	public InfoDisciplinaTesserato(Disciplina disciplina,Utente tesserato) {
@@ -73,8 +74,9 @@ public class InfoDisciplinaTesserato extends JFrame{
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);	
 		sudPnl.add(indietro);
-		ascoltatoreFeedback = new AscoltatoreFeedback(this, disciplina,tesserato);
-		feedback.addActionListener(ascoltatoreFeedback);
+		ascoltatoreVediFeed = new AscoltatoreVediFeed(this, disciplina,tesserato);
+		feedback.setActionCommand(AscoltatoreVediFeed.D1);
+		feedback.addActionListener(ascoltatoreVediFeed);
 		sudPnl.add(feedback);
 		
 		

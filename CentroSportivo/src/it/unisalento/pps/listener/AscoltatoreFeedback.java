@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
+import it.unisalento.pps.view.Feedback;
+import it.unisalento.pps.view.FeedbackTesserato;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
 
 public class AscoltatoreFeedback implements ActionListener{
@@ -19,6 +21,19 @@ public class AscoltatoreFeedback implements ActionListener{
 	private Disciplina disciplina;
 	
 	public AscoltatoreFeedback(InfoDisciplinaTesserato frame, Disciplina disciplina, Utente tesserato) {
+		super();
+		this.frame = frame;
+		this.tesserato = tesserato;
+		this.disciplina = disciplina;
+	}
+	
+	public AscoltatoreFeedback(Feedback frame, Disciplina disciplina, Utente tesserato) {
+		super();
+		this.frame = frame;
+		this.disciplina = disciplina;
+	}
+	
+	public AscoltatoreFeedback(FeedbackTesserato frame, Disciplina disciplina, Utente tesserato) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;

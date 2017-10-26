@@ -37,13 +37,14 @@ public class HomepageTesserato extends JFrame {
 	JPanel sudPnl=new JPanel();
 	
 	
-	JPanel titolo= new JPanel();
-	JLabel centrosportivo= new JLabel("CENTRO SPORTIVO");
+	JPanel titolo = new JPanel();
+	JLabel centrosportivo = new JLabel("CENTRO SPORTIVO");
 	
 	
-	JPanel norddestra = new JPanel(new GridLayout(2,2));	
+	JPanel norddestra = new JPanel(new GridLayout(2,2));
+	
 	JPanel vuoto1 = new JPanel();
-	JPanel login = new JPanel(new GridLayout(2,2));	
+	JPanel login = new JPanel(new GridLayout(3,2));	
 	JPanel vuoto00 = new JPanel();
 	JLabel nomeutente = new JLabel();
 	JButton iscrizioni = new JButton("ISCRIZIONI");
@@ -66,10 +67,11 @@ public class HomepageTesserato extends JFrame {
 	JButton disciplina6= new JButton("In lavorazione");
 	
 	
-	Utente utenteTesserato;
-	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
+	
+	
+	Utente utenteTesserato;	
 	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina; 
 	AscoltatoreIscrizioniTesserato ascoltatoreIscrizioni;
 	
