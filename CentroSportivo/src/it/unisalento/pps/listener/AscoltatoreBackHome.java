@@ -10,7 +10,6 @@ import it.unisalento.pps.view.Homepage;
 import it.unisalento.pps.view.HomepageTesserato;
 import it.unisalento.pps.view.InfoDisciplina;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
-import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.Feedback;

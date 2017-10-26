@@ -7,7 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.Feedback;

@@ -1,7 +1,6 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -14,7 +13,6 @@ import javax.swing.JPanel;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.model.Disciplina;
-import it.unisalento.pps.model.Utente;
 
 
 public class Feedback extends JFrame{
@@ -36,7 +34,7 @@ public class Feedback extends JFrame{
 	public Feedback (Disciplina disciplina) {
 		super("Feedback " + disciplina.getNome());
 		
-		testimonianza.setText(" TESTIMONIANZE : ");//+disciplina.getDescrizione() );
+		testimonianza.setText(" TESTIMONIANZE : "); // inserire collegamento a database
 		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
 		nordPnl.add(testimonianza);
 		

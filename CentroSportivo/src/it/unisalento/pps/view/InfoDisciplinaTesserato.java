@@ -1,12 +1,10 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
