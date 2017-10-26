@@ -133,9 +133,9 @@ public class FormRegistrazione extends JFrame {
 		
 		
 		
-		this.setSize(1500, 750);
-		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  
-		this.setLocation((int)((dim.getWidth()-this.getWidth())/2),(int)((dim.getHeight()-this.getHeight())/2));
+		int height=Toolkit.getDefaultToolkit().getScreenSize().getSize().height;  // prende la dimensione(risoluzione) dello schermo
+		int width=Toolkit.getDefaultToolkit().getScreenSize().getSize().width;  // prende la dimensione(risoluzione) dello schermo
+		this.setSize(width, height);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

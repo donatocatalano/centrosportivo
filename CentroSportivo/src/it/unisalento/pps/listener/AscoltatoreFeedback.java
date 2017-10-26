@@ -34,7 +34,7 @@ public class AscoltatoreFeedback implements ActionListener{
 		private void d1launch(String nome) {
 			String s = (String)JOptionPane.showInputDialog(frame,"Inserisci il tuo feedback:\n","FEEDBACK",JOptionPane.PLAIN_MESSAGE);
 			new InfoDisciplinaTesserato(disciplina, tesserato);
-			frame.dispose();			
+			frame.dispose();
 			//bisogna fare in modo che quando si preme ok il commento venga salvato nel database mentre se si preme annulla no
 			}
 	}
