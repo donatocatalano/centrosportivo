@@ -33,11 +33,11 @@ public class Homepage extends JFrame {
 	JPanel sudPnl=new JPanel();
 	
 	
-	JPanel titolo= new JPanel();
-	JLabel centrosportivo= new JLabel("CENTRO SPORTIVO");
+	JPanel titolo = new JPanel();
+	JLabel centrosportivo = new JLabel("CENTRO SPORTIVO");
 	
 	
-	JPanel norddestra= new JPanel(new GridLayout(2,2));	
+	JPanel norddestra = new JPanel(new GridLayout(2,2));	
 	
 	JPanel vuoto1 = new JPanel();
 	JPanel login= new JPanel(new GridLayout(3,2));	
@@ -63,6 +63,7 @@ public class Homepage extends JFrame {
 	JButton disciplina4= new JButton("Ginnastica Artistica");
 	JButton disciplina5= new JButton("Ginnastica Ritmica");
 	JButton disciplina6= new JButton("In lavorazione");
+	
 	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
@@ -136,9 +137,9 @@ public class Homepage extends JFrame {
 		
 		
 		
-		this.setSize(1500, 750);
-		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  // prende la dimensione(risoluzione) dello schermo
-		this.setLocation((int)((dim.getWidth()-this.getWidth())/2),(int)((dim.getHeight()-this.getHeight())/2));
+		int height=Toolkit.getDefaultToolkit().getScreenSize().getSize().height;  // prende la dimensione(risoluzione) dello schermo
+		int width=Toolkit.getDefaultToolkit().getScreenSize().getSize().width;  // prende la dimensione(risoluzione) dello schermo
+		this.setSize(width, height);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

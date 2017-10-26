@@ -1,12 +1,10 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreFeedback;
+import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
@@ -36,11 +34,11 @@ public class InfoDisciplinaTesserato extends JFrame{
 	JLabel testimonianza = new JLabel();
 	
 	JButton indietro= new JButton("INDIETRO");
-	JButton feedback = new JButton("LASCIA FEEDBACK");
+	JButton feedback = new JButton("VEDI FEEDBACK");
 	
 	
 	AscoltatoreBackHome ascoltatoreBackHome; 
-	AscoltatoreFeedback ascoltatoreFeedback;
+	AscoltatoreVediFeed ascoltatoreVediFeed;
 	Utente tesserato;
 	
 	public InfoDisciplinaTesserato(Disciplina disciplina,Utente tesserato) {
@@ -73,8 +71,9 @@ public class InfoDisciplinaTesserato extends JFrame{
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);	
 		sudPnl.add(indietro);
-		ascoltatoreFeedback = new AscoltatoreFeedback(this, disciplina,tesserato);
-		feedback.addActionListener(ascoltatoreFeedback);
+		ascoltatoreVediFeed = new AscoltatoreVediFeed(this, disciplina,tesserato);
+		feedback.setActionCommand(AscoltatoreVediFeed.D1);
+		feedback.addActionListener(ascoltatoreVediFeed);
 		sudPnl.add(feedback);
 		
 		
@@ -85,9 +84,9 @@ public class InfoDisciplinaTesserato extends JFrame{
 	
 	
 	
-		this.setSize(1500, 750);
-		Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();  // prende la dimensione(risoluzione) dello schermo
-		this.setLocation((int)((dim.getWidth()-this.getWidth())/2),(int)((dim.getHeight()-this.getHeight())/2));
+		int height=Toolkit.getDefaultToolkit().getScreenSize().getSize().height;  // prende la dimensione(risoluzione) dello schermo
+		int width=Toolkit.getDefaultToolkit().getScreenSize().getSize().width;  // prende la dimensione(risoluzione) dello schermo
+		this.setSize(width, height);
 	
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

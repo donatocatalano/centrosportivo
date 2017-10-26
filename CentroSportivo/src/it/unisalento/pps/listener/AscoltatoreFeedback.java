@@ -7,9 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
+import it.unisalento.pps.view.Feedback;
+import it.unisalento.pps.view.FeedbackTesserato;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
 
 public class AscoltatoreFeedback implements ActionListener{
@@ -25,6 +26,19 @@ public class AscoltatoreFeedback implements ActionListener{
 		this.disciplina = disciplina;
 	}
 	
+	public AscoltatoreFeedback(Feedback frame, Disciplina disciplina, Utente tesserato) {
+		super();
+		this.frame = frame;
+		this.disciplina = disciplina;
+	}
+	
+	public AscoltatoreFeedback(FeedbackTesserato frame, Disciplina disciplina, Utente tesserato) {
+		super();
+		this.frame = frame;
+		this.tesserato = tesserato;
+		this.disciplina = disciplina;
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		
 		JButton bottone = (JButton) e.getSource();
@@ -34,7 +48,7 @@ public class AscoltatoreFeedback implements ActionListener{
 		private void d1launch(String nome) {
 			String s = (String)JOptionPane.showInputDialog(frame,"Inserisci il tuo feedback:\n","FEEDBACK",JOptionPane.PLAIN_MESSAGE);
 			new InfoDisciplinaTesserato(disciplina, tesserato);
-			frame.dispose();			
+			frame.dispose();
 			//bisogna fare in modo che quando si preme ok il commento venga salvato nel database mentre se si preme annulla no
 			}
 	}
