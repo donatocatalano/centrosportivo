@@ -2,15 +2,20 @@ package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
+import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
+import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
 
 public class ElencoCorsi extends JFrame {
@@ -19,15 +24,33 @@ public class ElencoCorsi extends JFrame {
 	JScrollPane centroPnl=new JScrollPane();
 	JPanel sudPnl=new JPanel();
 	
+	JLabel titolo = new JLabel();
+	
 	
 	
 	JButton indietro= new JButton("INDIETRO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
 	Istruttore istruttore;
+	ArrayList<Evento> corsi = new ArrayList();
 
 	public ElencoCorsi(Istruttore istruttore) {
 		super("Elenco Corsi");
+		
+		titolo.setText(" ELENCO CORSI "); 
+		titolo.setFont(new Font("sansserif",Font.BOLD,20));
+		nordPnl.add(titolo);
+		
+		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
+		
+		for(int i=0;i<corsi.size();i++) {
+			JLabel corso = new JLabel(corsi.get(i).getTurno());
+			corso.setFont(new Font("sansserif",Font.BOLD,34));
+			centroPnl.add(corso);
+			//disciplina.addActionListener(ascoltatoreDisciplina);
+				}
+		
+		
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
