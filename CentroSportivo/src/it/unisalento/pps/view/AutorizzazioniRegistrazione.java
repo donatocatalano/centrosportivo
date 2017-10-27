@@ -34,27 +34,27 @@ public class AutorizzazioniRegistrazione extends JFrame{
 	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
 	Responsabile responsabile;	
-	ArrayList<Utente> registrazioni = new ArrayList<Utente>();
+	ArrayList<Utente> utentiDaAutorizzare = new ArrayList<Utente>();
 		
-	public AutorizzazioniRegistrazione(Responsabile responsabile, Utente utente){
+	public AutorizzazioniRegistrazione(Responsabile responsabile){
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
 		
 		titolo.setText("REGISTRAZIONI IN ATTESA DI CONFERMA"); 
 		titolo.setFont(new Font("sansserif",Font.BOLD,20));
 		nordPnl.add(titolo);
 		 
-		registrazioni = UtenteBusiness.getInstance().getUtenteByIdUtente(utente.getIdUtente());
-		centroPnl.setLayout(new GridLayout(registrazioni.size(),1));
+		utentiDaAutorizzare = UtenteBusiness.getInstance().getUtentiDaAutorizzare();
+		centroPnl.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
 		
-		if(registrazioni.size()>0) {
-			for(int i=0;i<registrazioni.size();i++) {
-			JLabel contenuto = new JLabel(registrazioni.get(i).getNome());		
-			contenuto.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(contenuto);		
+		if(utentiDaAutorizzare.size()>0) {
+			for(int i=0;i<utentiDaAutorizzare.size();i++) {
+			JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome());	//qui oltre al nome bisogna aggiungere cognome, username, password ...	
+			nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
+			centroPnl.add(nomeUtente);		
 			}
 		}
 		else {
-			JLabel contenuto = new JLabel("Nessuna Testimonianza");	
+			JLabel contenuto = new JLabel("Nessun Utente in attesa di autorizzazione all'Iscrizione");	
 			contenuto.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(contenuto);		
 		}			

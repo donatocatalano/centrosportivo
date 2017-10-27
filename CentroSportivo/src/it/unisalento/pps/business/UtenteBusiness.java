@@ -48,4 +48,9 @@ private static UtenteBusiness instance;
 	public ArrayList<Utente> getUtenteByIdUtente(int IdUtente) {
 		return UtenteDAO.getInstance().getUtenteByIdUtente(IdUtente);
 	}
+
+	public ArrayList<Utente> getUtentiDaAutorizzare() {
+		// TODO Auto-generated method stub
+		return UtenteDAO.getInstance().getUtentiDaAutorizzare();
+	}
 }

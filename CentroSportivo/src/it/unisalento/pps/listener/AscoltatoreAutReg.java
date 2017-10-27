@@ -23,7 +23,7 @@ public class AscoltatoreAutReg implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		new AutorizzazioniRegistrazione(responsabile, utente);
+		new AutorizzazioniRegistrazione(responsabile);
 		frame.dispose();
 	}
 }
