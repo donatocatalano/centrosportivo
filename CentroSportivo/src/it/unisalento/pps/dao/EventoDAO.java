@@ -76,7 +76,7 @@ public class EventoDAO {
 		return eventi;
 	}
 
-	public boolean registraEvento(Date datainizio, String turno, Date datafine) {
+	public boolean registraEvento(Date datainizio, String orario, Date datafine) {
 		
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
 		Iterator<String[]> iter = risultato.iterator();
@@ -84,8 +84,21 @@ public class EventoDAO {
 		int idEvento = Integer.parseInt(tupla[0]);
 		
 		boolean ok_inserimento = false;
-		if(!turno.isEmpty())
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+turno+"\",\""+datafine+"\")");
+		if(!orario.isEmpty())
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+orario+"\",\""+datafine+"\")");
+
+		return  ok_inserimento;
+	}
+
+	public boolean registraCorso(Date datainizio, String orario, Date datafine) {
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idEvento = Integer.parseInt(tupla[0]);
+		
+		boolean ok_inserimento = false;
+		if(!orario.isEmpty())
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+orario+"\",\""+datafine+"\")");
 
 		return  ok_inserimento;
 	}

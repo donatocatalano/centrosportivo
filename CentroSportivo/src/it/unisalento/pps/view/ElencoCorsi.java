@@ -29,7 +29,7 @@ public class ElencoCorsi extends JFrame {
 	
 	
 	JButton indietro = new JButton("INDIETRO");
-	JButton nuovocorso = new JButton("AGGIUNGI TURNO");
+	JButton nuovocorso = new JButton("AGGIUNGI CORSO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
 	AscoltatoreNuovoCorso ascoltatoreNuovoCorso;

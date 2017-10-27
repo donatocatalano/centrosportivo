@@ -30,7 +30,7 @@ public class FormCorso extends JFrame {
 	
 	
 	JPanel paginareg= new JPanel();
-	JLabel compilaform= new JLabel("INSERISCI I DATI RICHIESTI");
+	JLabel compilaform= new JLabel("INSERISCI NUOVO CORSO");
 	JPanel vuoto= new JPanel();
 	
 	
@@ -39,19 +39,19 @@ public class FormCorso extends JFrame {
 	public JTextField datainizio_field= new JTextField(15);
 	
 	JPanel turn= new JPanel(new FlowLayout());
-	JLabel turno= new JLabel("TURNO");
-	public JTextField turno_field= new JTextField(15);
+	JLabel orario= new JLabel("ORARIO");
+	public JTextField orario_field= new JTextField(15);
 	
 	JPanel spazio= new JPanel(new FlowLayout());
-	JLabel luogo= new JLabel("DOVE");
+	JLabel luogo= new JLabel("DOVE");   // trasformare in menù a tendina
 	public JTextField luogo_field= new JTextField(15);
 		
 	JPanel tipo= new JPanel(new FlowLayout());
-	JLabel tipoevento= new JLabel("TIPO EVENTO");
+	JLabel tipoevento= new JLabel("TIPO EVENTO");  // non c'è bisogno è una lezione
 	public JTextField tipoevento_field= new JTextField(15);
 	
 	JPanel appartenenza = new JPanel(new FlowLayout());
-	JLabel disciplina = new JLabel("DISCIPLINA");
+	JLabel disciplina = new JLabel("DISCIPLINA");   // menù a tendina
 	public JTextField disciplina_field = new JPasswordField(15);
 	
 	JPanel dateend= new JPanel(new FlowLayout());
@@ -79,11 +79,11 @@ public class FormCorso extends JFrame {
 		datainizio_field.setFont(myfont);
 		datainizio_field.setPreferredSize(mysize);
 		centroPnl.add(datestart);
-		turn.add(turno);
-		turno.setFont(new Font("sansserif",Font.BOLD,25));
-		turn.add(turno_field);
-		turno_field.setFont(myfont);
-		turno_field.setPreferredSize(mysize);
+		turn.add(orario);
+		orario.setFont(new Font("sansserif",Font.BOLD,25));
+		turn.add(orario_field);
+		orario_field.setFont(myfont);
+		orario_field.setPreferredSize(mysize);
 		centroPnl.add(turn);
 		spazio.add(luogo);
 		luogo.setFont(new Font("sansserif",Font.BOLD,25));
