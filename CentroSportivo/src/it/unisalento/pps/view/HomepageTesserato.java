@@ -138,6 +138,7 @@ public class HomepageTesserato extends JFrame {
 		
 		
 		int height=Toolkit.getDefaultToolkit().getScreenSize().getSize().height;  // prende la dimensione(risoluzione) dello schermo
+		
 		int width=Toolkit.getDefaultToolkit().getScreenSize().getSize().width;  // prende la dimensione(risoluzione) dello schermo
 		this.setSize(width, height);
 		

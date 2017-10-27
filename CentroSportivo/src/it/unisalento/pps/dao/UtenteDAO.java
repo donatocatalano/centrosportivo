@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 
 import it.unisalento.pps.DbInterface.DbConnection;
+import it.unisalento.pps.model.Testimonianza;
 import it.unisalento.pps.model.Utente;
 
 public class UtenteDAO {
@@ -69,7 +70,18 @@ public class UtenteDAO {
 			ok_registrazione = DbConnection.getInstance().eseguiAggiornamento("insert into utente(ID_Utente,Nome,Cognome,Username,Password,Sesso,Data_Nascita,Tesserato) values(\""+(idUtente+1)+"\",\""+nome+"\",\""+cognome+"\",\""+username+"\",\""+password+"\",\""+sesso+"\",\""+data+"\",\""+0+"\")");
 
 		return  ok_registrazione;
+	}
+	
+	public ArrayList<Utente> getUtenteByIdUtente(int IdUtente) {
 		
-
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary utente=\""+ IdUtente +"\"");
+				
+		ArrayList<Utente> registrazioni = new ArrayList<Utente>();
+		Utente utente;
+		for(int i=0;i<result.size();i++) {
+			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3],result.get(i)[4]);
+			registrazioni.add(utente);
+		}
+		return registrazioni;
 	}
 }

@@ -26,7 +26,7 @@ public class AscoltatoreFeedback implements ActionListener{
 		this.disciplina = disciplina;
 	}
 	
-	public AscoltatoreFeedback(Feedback frame, Disciplina disciplina, Utente tesserato) {
+	public AscoltatoreFeedback(Feedback frame, Disciplina disciplina) {
 		super();
 		this.frame = frame;
 		this.disciplina = disciplina;

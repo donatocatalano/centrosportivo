@@ -19,7 +19,6 @@ private static TestimonianzaBusiness instance;
 	}
 
 	public ArrayList<Testimonianza> getTestimonianzeByIdDisciplina(int IdDisciplina) {
-		// TODO Auto-generated method stub
 		return TestimonianzaDAO.getInstance().getTestimonianzeByDisciplina(IdDisciplina);
 	}
 	

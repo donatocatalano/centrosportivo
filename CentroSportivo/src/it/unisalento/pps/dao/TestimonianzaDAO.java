@@ -28,9 +28,7 @@ public class TestimonianzaDAO {
 		for(int i=0;i<result.size();i++) {
 			testimonianza = new Testimonianza(Integer.parseInt(result.get(i)[0]),result.get(i)[2],Integer.parseInt(result.get(i)[3]),Integer.parseInt(result.get(i)[4]));
 			testimonianze.add(testimonianza);
-			
 		}
 		return testimonianze;
 	}
-	
 }

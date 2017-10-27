@@ -64,7 +64,7 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 					JOptionPane.showMessageDialog(null, "<html><b>ATTENZIONE!!!</b><br>Registrazione in attesa di conferma!</html>");
 			}
 			else 
-						JOptionPane.showMessageDialog(null, "<html><p align=\"center\">UTENTE NON RICONOSCIUTO!</p></html>");
+				JOptionPane.showMessageDialog(null, "<html><p align=\"center\">UTENTE NON RICONOSCIUTO!</p></html>");
 		}
 	}
 		
@@ -114,6 +114,6 @@ public class LoginBtnListener implements ActionListener, KeyListener {
 				JOptionPane.showMessageDialog(null, "<html><b>ATTENZIONE!!!</b><br>Registrazione in attesa di conferma!</html>");
 		}
 		else //if (!responsabileEsiste & !istruttoreEsiste & !utenteEsiste)
-					JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">UTENTE NON RICONOSCIUTO!</p></html>");
+			JOptionPane.showMessageDialog(null, "<html><p align=\\\"center\\\">UTENTE NON RICONOSCIUTO!</p></html>");
 	}
 }

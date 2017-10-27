@@ -1,7 +1,11 @@
 package it.unisalento.pps.business;
 
 import java.sql.Date;
+import java.util.ArrayList;
+
+import it.unisalento.pps.dao.TestimonianzaDAO;
 import it.unisalento.pps.dao.UtenteDAO;
+import it.unisalento.pps.model.Testimonianza;
 import it.unisalento.pps.model.Utente;
 
 public class UtenteBusiness {
@@ -39,5 +43,9 @@ private static UtenteBusiness instance;
 
 		return UtenteDAO.getInstance().registraUtente(nome,cognome,username,password,sesso,data);
 
+	}
+	
+	public ArrayList<Utente> getUtenteByIdUtente(int IdUtente) {
+		return UtenteDAO.getInstance().getUtenteByIdUtente(IdUtente);
 	}
 }

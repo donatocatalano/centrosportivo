@@ -25,10 +25,7 @@ public class FeedbackTesserato extends JFrame{
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
-	private JLabel testimonianza= new JLabel();
-	
-	
-	
+	private JLabel titolo= new JLabel();
 	
 	
 	JButton indietro= new JButton("TORNA ALL'HOMEPAGE");
@@ -44,21 +41,26 @@ public class FeedbackTesserato extends JFrame{
 	public FeedbackTesserato (Disciplina disciplina, Utente tesserato) {
 		super("Feedback " + disciplina.getNome());
 		
+		
+		titolo.setText(" TESTIMONIANZE : "); 
+		titolo.setFont(new Font("sansserif",Font.BOLD,20));
+		nordPnl.add(titolo);
+		
+		
 		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
 		centroPnl.setLayout(new GridLayout(testimonianze.size(),1));
 		if(testimonianze.size()>0) {
 		for(int i=0;i<testimonianze.size();i++) {
-			JLabel contenuto = new JLabel(testimonianze.get(i).getContenuto());			  
+			JLabel contenuto = new JLabel(testimonianze.get(i).getContenuto());	
+			contenuto.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(contenuto);		
 				}
 			}
 		else {
-			JLabel contenuto = new JLabel("Nessuna Testimonianza");			  
+			JLabel contenuto = new JLabel("Nessuna Testimonianza");	
+			contenuto.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(contenuto);		
 		}
-		testimonianza.setText(" TESTIMONIANZE : "); // inserire collegamento a database
-		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
-		nordPnl.add(testimonianza);
 		
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);

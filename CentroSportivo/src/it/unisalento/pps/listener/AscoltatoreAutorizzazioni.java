@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Responsabile;
+import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaResponsabile;
+import it.unisalento.pps.view.AutorizzazioniIscrizioniCorso;
+import it.unisalento.pps.view.AutorizzazioniPagamento;
+import it.unisalento.pps.view.AutorizzazioniRegistrazione;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 
 public class AscoltatoreAutorizzazioni implements ActionListener {
@@ -16,6 +20,24 @@ public class AscoltatoreAutorizzazioni implements ActionListener {
 	
 	
 	public AscoltatoreAutorizzazioni(AreaResponsabile frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+	
+	public AscoltatoreAutorizzazioni(AutorizzazioniRegistrazione frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+	
+	public AscoltatoreAutorizzazioni(AutorizzazioniIscrizioniCorso frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+	
+	public AscoltatoreAutorizzazioni(AutorizzazioniPagamento frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;

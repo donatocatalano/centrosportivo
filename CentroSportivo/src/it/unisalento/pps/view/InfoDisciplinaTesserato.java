@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
@@ -21,21 +20,22 @@ import it.unisalento.pps.model.Utente;
 public class InfoDisciplinaTesserato extends JFrame{
 	
 	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout(4,1));
+	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
 	
 	JPanel titolo = new JPanel(new FlowLayout());
 	JLabel nomeDisciplina = new JLabel();
 	
-	JLabel descrizioneDisciplina= new JLabel();
-	JLabel costoMensile= new JLabel();
-	ImageIcon immagine;
-	JLabel immagineDisciplina = new JLabel();
-	JLabel testimonianza = new JLabel();
+	private JPanel sup = new JPanel(new GridLayout(2,1));
+	private JPanel inf = new JPanel(new GridLayout(2,1));
+	private JLabel costoMensile= new JLabel();
+	private JLabel descrizioneDisciplina= new JLabel();
+	private ImageIcon immagine;
+	private JLabel immagineDisciplina= new JLabel();
 	
-	JButton indietro= new JButton("INDIETRO");
-	JButton feedback = new JButton("VEDI FEEDBACK");
+	private JButton indietro= new JButton("INDIETRO");
+	private JButton feedback = new JButton("VEDI FEEDBACK");
 	
 	
 	AscoltatoreBackHome ascoltatoreBackHome; 
@@ -53,19 +53,17 @@ public class InfoDisciplinaTesserato extends JFrame{
 		
 		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione() );
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(descrizioneDisciplina);
+		sup.add(descrizioneDisciplina);
 		
 		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "0 €");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(costoMensile);
+		sup.add(costoMensile);
 		
 		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
 		immagineDisciplina.setIcon(immagine);
 		centroPnl.add(immagineDisciplina);
-		
-		/*testimonianza.setText(" TESTIMONIANZA : "+disciplina.getDescrizione() );
-		testimonianza.setFont(new Font("sansserif",Font.BOLD,20));
-		centroPnl.add(testimonianza);*/
+		centroPnl.add(sup);
+		centroPnl.add(inf);
 		
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);

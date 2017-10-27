@@ -24,12 +24,13 @@ public class InfoDisciplina extends JFrame{
 	private JPanel sudPnl=new JPanel();
 	
 	
-
+	
 	private JPanel titolo= new JPanel(new FlowLayout());
+	private JLabel nomeDisciplina= new JLabel();
+	
 	
 	private JPanel sup = new JPanel(new GridLayout(2,1));
 	private JPanel inf = new JPanel(new GridLayout(2,1));
-	private JLabel nomeDisciplina= new JLabel();
 	private JLabel costoMensile= new JLabel();
 	private JLabel descrizioneDisciplina= new JLabel();
 	private ImageIcon immagine;
