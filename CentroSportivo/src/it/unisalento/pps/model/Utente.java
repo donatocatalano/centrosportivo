@@ -47,13 +47,6 @@ public class Utente{
 		this.sesso = sesso;
 	}
 	
-	public Utente(int idUtente, String nome, String cognome,  String sesso, String contenuto) {
-		this.idUtente = idUtente;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.sesso = sesso;
-		this.contenuto = contenuto;
-	}
 	
 	public Utente(String username, String password) 
 	{		

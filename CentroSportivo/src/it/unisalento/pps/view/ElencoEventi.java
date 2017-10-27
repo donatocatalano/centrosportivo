@@ -30,20 +30,20 @@ public class ElencoEventi extends JFrame {
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
 	Istruttore istruttore;
-	ArrayList<Evento> eventi = new ArrayList();
+	ArrayList<Evento> eventi = new ArrayList<Evento>();
 
 	public ElencoEventi(Istruttore istruttore) {
 		super("Elenco Eventi");
 		
 		titolo.setText(" ELENCO EVENTI "); 
-		titolo.setFont(new Font("sansserif",Font.BOLD,20));
+		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
 		
 		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
 		
 		for(int i=0;i<eventi.size();i++) {
 			JLabel evento = new JLabel(eventi.get(i).getTurno());
-			evento.setFont(new Font("sansserif",Font.BOLD,34));
+			evento.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(evento);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
 				}

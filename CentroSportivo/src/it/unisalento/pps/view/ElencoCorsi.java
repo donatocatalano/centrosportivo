@@ -21,31 +21,30 @@ import it.unisalento.pps.model.Istruttore;
 public class ElencoCorsi extends JFrame {
 	
 	JPanel nordPnl=new JPanel();
-	JScrollPane centroPnl=new JScrollPane();
+	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
 	JLabel titolo = new JLabel();
-	
 	
 	
 	JButton indietro= new JButton("INDIETRO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
 	Istruttore istruttore;
-	ArrayList<Evento> corsi = new ArrayList();
+	ArrayList<Evento> corsi = new ArrayList<Evento>();
 
 	public ElencoCorsi(Istruttore istruttore) {
 		super("Elenco Corsi");
 		
 		titolo.setText(" ELENCO CORSI "); 
-		titolo.setFont(new Font("sansserif",Font.BOLD,20));
+		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
 		
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
 		
 		for(int i=0;i<corsi.size();i++) {
 			JLabel corso = new JLabel(corsi.get(i).getTurno());
-			corso.setFont(new Font("sansserif",Font.BOLD,34));
+			corso.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(corso);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
 				}

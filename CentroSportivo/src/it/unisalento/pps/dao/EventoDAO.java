@@ -43,9 +43,7 @@ public class EventoDAO {
 			Date data_fine = new Date(millisecondi_fine);
 			corso = new Evento(Integer.parseInt(result.get(i)[0]),data_inizio,data_fine,result.get(i)[2],idIstruttore,Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
 			corsi.add(corso);
-			
 		}
-		
 		return corsi;
 	}
 
@@ -72,10 +70,7 @@ public class EventoDAO {
 			evento = new Evento(Integer.parseInt(result.get(i)[0]),data_inizio,data_fine,result.get(i)[2],idIstruttore,Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
 			eventi.add(evento);
 			System.out.println(eventi.get(i).getTurno());
-				
 		}
-		
 		return eventi;
 	}
-	
 }

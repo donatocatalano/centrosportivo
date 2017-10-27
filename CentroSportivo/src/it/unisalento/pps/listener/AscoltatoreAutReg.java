@@ -14,16 +14,16 @@ public class AscoltatoreAutReg implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;
+	private Utente utente;
 	
 	public AscoltatoreAutReg(ElencoAutorizzazioni frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;
-		//this.utente = utente;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		new AutorizzazioniRegistrazione(responsabile);
+		new AutorizzazioniRegistrazione(responsabile, utente);
 		frame.dispose();
 	}
 }

@@ -1,7 +1,6 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -14,7 +13,6 @@ import javax.swing.JPanel;
 import it.unisalento.pps.listener.AscoltatoreAutIsc;
 import it.unisalento.pps.listener.AscoltatoreAutPag;
 import it.unisalento.pps.listener.AscoltatoreAutReg;
-import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
@@ -22,7 +20,7 @@ import it.unisalento.pps.model.Utente;
 public class ElencoAutorizzazioni extends JFrame {
 	
 	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel();
+	JPanel centroPnl=new JPanel(new GridLayout(3,3));
 	JPanel sudPnl=new JPanel();
 	
 	JPanel vuoto0 = new JPanel ();
@@ -45,14 +43,12 @@ public class ElencoAutorizzazioni extends JFrame {
 	Utente utente;
 
 	public ElencoAutorizzazioni(Responsabile responsabile) {
-		super("Elenco Autorizzazioni");
+		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());
 		
 		
 		centroPnl.add(vuoto0);
 		centroPnl.add(vuoto1);
 		centroPnl.add(vuoto2);
-		
-		
 		ascoltatoreAutReg = new AscoltatoreAutReg(this, responsabile);
 		registrazioni.addActionListener(ascoltatoreAutReg);
 		registrazioni.setFont(new Font("sansserif",Font.BOLD,34));
@@ -69,7 +65,7 @@ public class ElencoAutorizzazioni extends JFrame {
 		centroPnl.add(vuoto4);
 		centroPnl.add(vuoto5);
 		
-		titolo.setText(" AUTORIZZAZIONI PENDENTI : "); // inserire collegamento a database
+		titolo.setText(" AUTORIZZAZIONI PENDENTI "); 
 		titolo.setFont(new Font("sansserif",Font.BOLD,20));
 		nordPnl.add(titolo);
 		

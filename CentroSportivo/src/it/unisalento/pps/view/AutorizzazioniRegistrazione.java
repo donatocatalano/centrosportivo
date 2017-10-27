@@ -27,7 +27,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
-	
+	JLabel titolo = new JLabel();
 		
 	JButton indietro= new JButton("INDIETRO");
 		
@@ -37,13 +37,18 @@ public class AutorizzazioniRegistrazione extends JFrame{
 	ArrayList<Utente> registrazioni = new ArrayList<Utente>();
 		
 	public AutorizzazioniRegistrazione(Responsabile responsabile, Utente utente){
-		super("Registrazioni in attesa di conferma");	
+		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
+		
+		titolo.setText("REGISTRAZIONI IN ATTESA DI CONFERMA"); 
+		titolo.setFont(new Font("sansserif",Font.BOLD,20));
+		nordPnl.add(titolo);
 		 
 		registrazioni = UtenteBusiness.getInstance().getUtenteByIdUtente(utente.getIdUtente());
 		centroPnl.setLayout(new GridLayout(registrazioni.size(),1));
+		
 		if(registrazioni.size()>0) {
 			for(int i=0;i<registrazioni.size();i++) {
-			JLabel contenuto = new JLabel(registrazioni.get(i).getContenuto());		
+			JLabel contenuto = new JLabel(registrazioni.get(i).getNome());		
 			contenuto.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(contenuto);		
 			}

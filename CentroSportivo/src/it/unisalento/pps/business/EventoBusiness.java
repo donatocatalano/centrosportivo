@@ -20,12 +20,10 @@ private static EventoBusiness instance;
 	}
 
 	public ArrayList<Evento> getCorsiByIdIstruttore(int idIstruttore) {
-		// TODO Auto-generated method stub
 		return EventoDAO.getInstance().getCorsiByIdIstruttore(idIstruttore);
 	}
 
 	public ArrayList<Evento> getEventiByIdIstruttore(int idIstruttore) {
-		// TODO Auto-generated method stub
 		return EventoDAO.getInstance().getEventiByIdIstruttore(idIstruttore);
 	}
 	
