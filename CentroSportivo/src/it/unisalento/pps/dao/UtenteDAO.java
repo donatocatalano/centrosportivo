@@ -69,18 +69,7 @@ public class UtenteDAO {
 		return  ok_registrazione;
 	}
 	
-	/*public ArrayList<Utente> getUtenteByIdUtente(int IdUtente) {
-		
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary (utente=\""+ IdUtente +"\") and (tesserato = 0)");
-				
-		ArrayList<Utente> registrazioni = new ArrayList<Utente>();
-		Utente utente;
-		for(int i=0;i<result.size();i++) {
-			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3]);
-			registrazioni.add(utente);
-		}
-		return registrazioni;
-	}*/
+	
 
 	public ArrayList<Utente> getUtentiDaAutorizzare() {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary tesserato = 0");
