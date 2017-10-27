@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 
 import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
+import it.unisalento.pps.listener.AscoltatoreNuovoEvento;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
 
@@ -26,9 +27,11 @@ public class ElencoEventi extends JFrame {
 	
 	JLabel titolo = new JLabel();
 	
-	JButton indietro= new JButton("INDIETRO");
+	JButton indietro = new JButton("INDIETRO");
+	JButton nuovoevento = new JButton("AGGIUNGI EVENTO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
+	AscoltatoreNuovoEvento ascoltatoreNuovoEvento;
 	Istruttore istruttore;
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
 
@@ -52,7 +55,9 @@ public class ElencoEventi extends JFrame {
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
 		sudPnl.add(indietro);
-		
+		ascoltatoreNuovoEvento = new AscoltatoreNuovoEvento (this, istruttore);
+		nuovoevento.addActionListener(ascoltatoreNuovoEvento);
+		sudPnl.add(nuovoevento);
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
 		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
