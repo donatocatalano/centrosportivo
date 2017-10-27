@@ -15,14 +15,13 @@ import it.unisalento.pps.view.AreaIstruttore;
 import it.unisalento.pps.view.FormCorso;
 import it.unisalento.pps.view.FormEvento;
 
-public class AscoltatoreConfermaCorso implements ActionListener {
+public class AscoltatoreConfermaEvento implements ActionListener {
 	
-	private FormCorso frame;
-	private FormEvento frame1;
+	private FormEvento frame;
 	private Istruttore istruttore;
 	
 
-	public AscoltatoreConfermaCorso(FormCorso frame, Istruttore istruttore) {
+	public AscoltatoreConfermaEvento(FormEvento frame, Istruttore istruttore) {
 		this.frame = frame;
 		this.istruttore = istruttore;
 	}
@@ -38,9 +37,9 @@ public class AscoltatoreConfermaCorso implements ActionListener {
 		
 		//manipolazione data
 		
-		int anno_inizio = Integer.parseInt((datainizio.getText().substring(6,10)));   ///23-12-1965
-		int mese_inizio = Integer.parseInt(datainizio.getText().substring(3,5));
-		int giorno_inizio = Integer.parseInt(datainizio.getText().substring(0,2));
+		int anno_inizio = Integer.parseInt((datainizio.getText()+datafine.getText().substring(6,10)));   ///23-12-1965
+		int mese_inizio = Integer.parseInt(datainizio.getText()+datafine.getText().substring(3,5));
+		int giorno_inizio = Integer.parseInt(datainizio.getText()+datafine.getText().substring(0,2));
 		
 		int anno_fine = Integer.parseInt(datafine.getText().substring(6,10));   ///23-12-1965
 		int mese_fine = Integer.parseInt(datafine.getText().substring(3,5));
@@ -56,7 +55,7 @@ public class AscoltatoreConfermaCorso implements ActionListener {
 		
 		
 		
-		boolean ok = EventoBusiness.getInstance().registraCorso(dataInizio,turno.getText(),dataFine);
+		boolean ok = EventoBusiness.getInstance().registraEvento(dataInizio,turno.getText(),dataFine);
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 			new AreaIstruttore(istruttore);

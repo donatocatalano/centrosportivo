@@ -29,8 +29,13 @@ private static EventoBusiness instance;
 		return EventoDAO.getInstance().getEventiByIdIstruttore(idIstruttore);
 	}
 	
-	public boolean registraEvento(Date datainizio,String turno, Date datafine) {
+	public boolean registraEvento(Date datainizio,String orario, Date datafine) {
 
-		return EventoDAO.getInstance().registraEvento(datainizio,turno,datafine);
+		return EventoDAO.getInstance().registraEvento(datainizio,orario,datafine);
+	}
+
+	public boolean registraCorso(Date datainizio, String orario, Date datafine) {
+		
+		return EventoDAO.getInstance().registraCorso(datainizio,orario,datafine);
 	}
 }
