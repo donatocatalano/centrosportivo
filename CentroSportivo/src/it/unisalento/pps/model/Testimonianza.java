@@ -2,7 +2,6 @@ package it.unisalento.pps.model;
 
 import java.util.Date;
 
-
 public class Testimonianza{
 
 	private int idTestimonianza;
@@ -74,5 +73,4 @@ public class Testimonianza{
 	public void setDisciplina(Integer disciplina) {
 		this.disciplina = disciplina;
 	}
-
 }

@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import it.unisalento.pps.dao.UtenteDAO;
 
-
 public class Utente{
 
 	private int idUtente;
@@ -151,5 +150,4 @@ public class Utente{
 	{
 		return UtenteDAO.getInstance().userTesseratoExists(this);
 	}
-
 }
