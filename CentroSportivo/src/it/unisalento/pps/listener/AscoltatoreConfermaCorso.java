@@ -54,14 +54,12 @@ public class AscoltatoreConfermaCorso implements ActionListener {
 		Date dataFine = new Date(millisecondi_fine);
 		
 		
-		
-		
 		boolean ok = EventoBusiness.getInstance().registraCorso(dataInizio,turno.getText(),dataFine);
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 			new AreaIstruttore(istruttore);
 			frame.dispose();
-			}
+		}
 		else
 			JOptionPane.showMessageDialog(null, "C'è qualche errore.Riprova");	
 	}
