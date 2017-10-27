@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Istruttore;
-import it.unisalento.pps.view.AreaIstruttore;
 import it.unisalento.pps.view.ElencoCorsi;
 import it.unisalento.pps.view.FormCorso;
 

@@ -38,7 +38,6 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel date= new JPanel(new FlowLayout());
 	JLabel data= new JLabel("DATA (nel formato gg-mm-aaaa)");
-
 	public JTextField data_field= new JTextField(15);
 
 	
@@ -48,9 +47,8 @@ public class FormRegistrazione extends JFrame {
 	
 	JPanel password= new JPanel(new FlowLayout());
 	JLabel pass= new JLabel("PASSWORD");
-
-
 	public JPasswordField pass_field= new JPasswordField(15);
+
 	
 	JButton indietro= new JButton("INDIETRO");
 	JButton registrazione= new JButton("CONFERMA DATI INSERITI");

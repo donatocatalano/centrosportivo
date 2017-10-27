@@ -43,6 +43,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		titolo.setFont(new Font("sansserif",Font.BOLD,20));
 		nordPnl.add(titolo);
 		 
+		
 		utentiDaAutorizzare = UtenteBusiness.getInstance().getUtentiDaAutorizzare();
 		centroPnl.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
 		
@@ -54,9 +55,9 @@ public class AutorizzazioniRegistrazione extends JFrame{
 			}
 		}
 		else {
-			JLabel contenuto = new JLabel("Nessun Utente in attesa di autorizzazione all'Iscrizione");	
-			contenuto.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(contenuto);		
+			JLabel nomeUtente = new JLabel("Nessun Utente in attesa di autorizzazione all'Iscrizione");	
+			nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
+			centroPnl.add(nomeUtente);		
 		}			
 		
 			  

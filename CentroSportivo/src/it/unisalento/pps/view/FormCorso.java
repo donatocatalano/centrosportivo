@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 
 
 import it.unisalento.pps.listener.AscoltatoreBackIst;
+import it.unisalento.pps.listener.AscoltatoreConfermaCorso;
 import it.unisalento.pps.model.Istruttore;
 
 public class FormCorso extends JFrame {
@@ -41,8 +42,8 @@ public class FormCorso extends JFrame {
 	JLabel turno= new JLabel("TURNO");
 	public JTextField turno_field= new JTextField(15);
 	
-	public JPanel spazio= new JPanel(new FlowLayout());
-	public JLabel luogo= new JLabel("DOVE");
+	JPanel spazio= new JPanel(new FlowLayout());
+	JLabel luogo= new JLabel("DOVE");
 	public JTextField luogo_field= new JTextField(15);
 		
 	JPanel tipo= new JPanel(new FlowLayout());
@@ -50,8 +51,8 @@ public class FormCorso extends JFrame {
 	public JTextField tipoevento_field= new JTextField(15);
 	
 	JPanel appartenenza = new JPanel(new FlowLayout());
-	JLabel disciplina = new JLabel("PASSWORD");
-	public JPasswordField disciplina_field = new JPasswordField(15);
+	JLabel disciplina = new JLabel("DISCIPLINA");
+	public JTextField disciplina_field = new JPasswordField(15);
 	
 	JPanel dateend= new JPanel(new FlowLayout());
 	JLabel datafine= new JLabel("DATA FINE (nel formato gg-mm-aaaa)");
@@ -59,7 +60,7 @@ public class FormCorso extends JFrame {
 	
 	
 	JButton indietro= new JButton("INDIETRO");
-	JButton registrazione= new JButton("CONFERMA DATI INSERITI");
+	JButton inserimento= new JButton("CONFERMA DATI INSERITI");
 	
 	
 	public FormCorso(Istruttore istruttore) {
@@ -111,9 +112,9 @@ public class FormCorso extends JFrame {
 
 
 		indietro.addActionListener(new AscoltatoreBackIst(this, istruttore));
-		//registrazione.addActionListener(new AscoltatoreConfermaRegistrazione(this));
+		inserimento.addActionListener(new AscoltatoreConfermaCorso(this, istruttore));
 		sudPnl.add(indietro);
-		sudPnl.add(registrazione);
+		sudPnl.add(inserimento);
 		
 		
 		

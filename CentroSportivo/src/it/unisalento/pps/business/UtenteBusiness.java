@@ -46,7 +46,6 @@ private static UtenteBusiness instance;
 	}
 	
 	public ArrayList<Utente> getUtentiDaAutorizzare() {
-		// TODO Auto-generated method stub
 		return UtenteDAO.getInstance().getUtentiDaAutorizzare();
 	}
 }

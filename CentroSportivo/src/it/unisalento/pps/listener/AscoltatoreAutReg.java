@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AutorizzazioniRegistrazione;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 
@@ -14,7 +13,6 @@ public class AscoltatoreAutReg implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;
-	private Utente utente;
 	
 	public AscoltatoreAutReg(ElencoAutorizzazioni frame, Responsabile responsabile) {
 		super();

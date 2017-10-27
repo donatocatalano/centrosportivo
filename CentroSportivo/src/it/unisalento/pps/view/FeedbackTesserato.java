@@ -49,6 +49,7 @@ public class FeedbackTesserato extends JFrame{
 		
 		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
 		centroPnl.setLayout(new GridLayout(testimonianze.size(),1));
+		
 		if(testimonianze.size()>0) {
 		for(int i=0;i<testimonianze.size();i++) {
 			JLabel contenuto = new JLabel(testimonianze.get(i).getContenuto());	

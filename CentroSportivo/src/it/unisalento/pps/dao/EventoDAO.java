@@ -3,6 +3,8 @@ package it.unisalento.pps.dao;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
+
 import it.unisalento.pps.DbInterface.DbConnection;
 import it.unisalento.pps.model.Evento;
 
@@ -72,5 +74,19 @@ public class EventoDAO {
 			System.out.println(eventi.get(i).getTurno());
 		}
 		return eventi;
+	}
+
+	public boolean registraEvento(Date datainizio, String turno, Date datafine) {
+		
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idEvento = Integer.parseInt(tupla[0]);
+		
+		boolean ok_inserimento = false;
+		if(!turno.isEmpty())
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+turno+"\",\""+datafine+"\")");
+
+		return  ok_inserimento;
 	}
 }

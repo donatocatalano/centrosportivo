@@ -1,9 +1,11 @@
 package it.unisalento.pps.business;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import it.unisalento.pps.dao.DisciplinaDAO;
 import it.unisalento.pps.dao.EventoDAO;
+import it.unisalento.pps.dao.UtenteDAO;
 import it.unisalento.pps.model.Evento;
 
 public class EventoBusiness {
@@ -27,4 +29,8 @@ private static EventoBusiness instance;
 		return EventoDAO.getInstance().getEventiByIdIstruttore(idIstruttore);
 	}
 	
+	public boolean registraEvento(Date datainizio,String turno, Date datafine) {
+
+		return EventoDAO.getInstance().registraEvento(datainizio,turno,datafine);
+	}
 }
