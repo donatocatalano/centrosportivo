@@ -46,7 +46,7 @@ public class ElencoCorsi extends JFrame {
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
 		
 		for(int i=0;i<corsi.size();i++) {
-			JLabel corso = new JLabel(corsi.get(i).getTurno());
+			JLabel corso = new JLabel("CORSO " +(i+1)+ ": INIZIO IN DATA:  " +corsi.get(i).getDataInizio()+ "   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  " +corsi.get(i).getDataFine());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(corso);
 			//disciplina.addActionListener(ascoltatoreDisciplina);

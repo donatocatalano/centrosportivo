@@ -1,6 +1,5 @@
 package it.unisalento.pps.listener;
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
@@ -45,9 +44,9 @@ public class AscoltatoreConfermaCorso implements ActionListener {
 		
 		//manipolazione data
 		
-		int anno = Integer.parseInt((datainizio.getText()+datafine.getText().substring(6,10)));   ///23-12-1965
-		int mese = Integer.parseInt(datainizio.getText()+datafine.getText().substring(3,5));
-		int giorno = Integer.parseInt(datainizio.getText()+datafine.getText().substring(0,2));
+		int anno = Integer.parseInt((datainizio.getText().substring(6,10)));   ///23-12-1965
+		int mese = Integer.parseInt(datainizio.getText().substring(3,5));
+		int giorno = Integer.parseInt(datainizio.getText().substring(0,2));
 		
 		int anno1 = Integer.parseInt(datafine.getText().substring(6,10));   ///23-12-1965
 		int mese1 = Integer.parseInt(datafine.getText().substring(3,5));

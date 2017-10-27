@@ -28,6 +28,14 @@ public class Disciplina {
 		this.immagine = immagine;
 		this.descrizione = descrizione;
 	}
+	
+	public Disciplina(int idDisciplina, String nome, double costoMensile, String descrizione) {
+
+		this.idDisciplina = idDisciplina;
+		this.nome = nome;
+		this.costoMensile = costoMensile;
+		this.descrizione = descrizione;
+	}
 
 	
 	public int getIdDisciplina() {

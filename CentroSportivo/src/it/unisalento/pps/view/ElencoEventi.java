@@ -45,11 +45,11 @@ public class ElencoEventi extends JFrame {
 		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
 		
 		for(int i=0;i<eventi.size();i++) {
-			JLabel evento = new JLabel(eventi.get(i).getTurno());
+			JLabel evento = new JLabel("EVENTO " +(i+1)+ ": INIZIO IN DATA  " +eventi.get(i).getDataInizio()+ "   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  " +eventi.get(i).getDataFine());
 			evento.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(evento);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
-				}
+		}
 		
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);

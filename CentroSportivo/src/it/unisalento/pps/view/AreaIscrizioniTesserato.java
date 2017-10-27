@@ -39,7 +39,7 @@ public class AreaIscrizioniTesserato extends JFrame{
 	ButtonGroup group = new ButtonGroup();
 	
 	JButton indietro = new JButton("INDIETRO");
-	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
+	JButton iscrizione = new JButton("INVIA ISCRIZIONE E STAMPA RICEVUTA");
 
 	
 	
