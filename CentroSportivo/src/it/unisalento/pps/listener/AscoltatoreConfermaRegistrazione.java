@@ -42,7 +42,7 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 		long millisecondi = data.getTimeInMillis();
 		Date dataNascita = new Date(millisecondi);
 		
-		System.out.println(millisecondi);
+		//System.out.println(millisecondi);
 		
 
         JPasswordField password = frame.pass_field;

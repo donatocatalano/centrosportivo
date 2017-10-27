@@ -36,7 +36,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 	Responsabile responsabile;	
 	ArrayList<Utente> registrazioni = new ArrayList<Utente>();
 		
-	public AutorizzazioniRegistrazione(Responsabile responsabile){
+	public AutorizzazioniRegistrazione(Responsabile responsabile, Utente utente){
 		super("Registrazioni in attesa di conferma");	
 		 
 		registrazioni = UtenteBusiness.getInstance().getUtenteByIdUtente(utente.getIdUtente());

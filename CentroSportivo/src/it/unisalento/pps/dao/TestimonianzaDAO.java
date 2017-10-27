@@ -3,6 +3,7 @@ package it.unisalento.pps.dao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import it.unisalento.pps.DbInterface.DbConnection;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Testimonianza;
 
 public class TestimonianzaDAO {

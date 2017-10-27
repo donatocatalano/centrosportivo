@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -21,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreDisciplina;
@@ -28,6 +30,7 @@ import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
 import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
 import it.unisalento.pps.listener.AscoltatoreReg;
 import it.unisalento.pps.listener.LoginBtnListener;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
 public class HomepageTesserato extends JFrame {
@@ -59,14 +62,6 @@ public class HomepageTesserato extends JFrame {
 	JLabel orari = new JLabel ("<html><p align=\"center\"><b>ORARI DI APERTURA:</b><br>Lun - Ven: dalle 9.00 alle 22.00</b><br>Sab: dalle 9.00 alle 19.00</p></html>");
 	
 	
-	JButton disciplina1= new JButton("Fitness");
-	JButton disciplina2= new JButton("Pesistica");
-	JButton disciplina3= new JButton("Nuoto");
-	JButton disciplina4= new JButton("Ginnastica Artistica");
-	JButton disciplina5= new JButton("Ginnastica Ritmica");
-	JButton disciplina6= new JButton("In lavorazione");
-	
-	
 	JLabel informazioni= new JLabel("Centro Sportivo di Pinco Pallino - Via di Principi di Progettazione, 88 - 73100 Lecce");
 	
 	
@@ -74,6 +69,7 @@ public class HomepageTesserato extends JFrame {
 	Utente utenteTesserato;	
 	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina; 
 	AscoltatoreIscrizioniTesserato ascoltatoreIscrizioni;
+	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	
 	public HomepageTesserato(Utente tesserato) {
 		super("Catalogo Centro Sportivo");
@@ -106,27 +102,19 @@ public class HomepageTesserato extends JFrame {
 		orari.setFont(new Font("sansserif",Font.BOLD,22));
 		apertura.add(orari);
 		nordPnl.add(apertura);
-		
+		discipline = DisciplinaBusiness.getInstance().getDiscipline();
 		
 		ascoltatoreDisciplina = new AscoltatoreDisciplinaTesserato(this,tesserato);
-		disciplina1.addActionListener(ascoltatoreDisciplina);
-		disciplina1.setFont(new Font("sansserif",Font.BOLD,34));
-		centroPnl.add(disciplina1);
-		disciplina2.addActionListener(ascoltatoreDisciplina);
-		disciplina2.setFont(new Font("sansserif",Font.BOLD,34));
-		centroPnl.add(disciplina2);
-		disciplina3.addActionListener(ascoltatoreDisciplina);
-		disciplina3.setFont(new Font("sansserif",Font.BOLD,34));
-		centroPnl.add(disciplina3);
-		disciplina4.addActionListener(ascoltatoreDisciplina);
-		disciplina4.setFont(new Font("sansserif",Font.BOLD,34));
-		centroPnl.add(disciplina4);
-		disciplina5.addActionListener(ascoltatoreDisciplina);
-		disciplina5.setFont(new Font("sansserif",Font.BOLD,34));
-		centroPnl.add(disciplina5);
-		centroPnl.add(disciplina6);
+		
+		for(int i=0;i<discipline.size();i++) {
+			JButton disciplina = new JButton(discipline.get(i).getNome());
+			disciplina.setFont(new Font("sansserif",Font.BOLD,34));
+			centroPnl.add(disciplina);
+			disciplina.addActionListener(ascoltatoreDisciplina);
+				}
 		
 		
+				
 		sudPnl.add(informazioni);
 		
 		
