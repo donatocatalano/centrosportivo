@@ -40,8 +40,10 @@ private static DisciplinaBusiness instance;
 		return DisciplinaDAO.getInstance().registraDisciplina(nome, costo, descrizione);
 	}
 	
-	public ArrayList<Disciplina> getDisciplineByIdDisciplina() {
-		return DisciplinaDAO.getInstance().getDisciplineByIdDisciplina();
+	
+	public Disciplina getDisciplinaById(int disciplina) {
+		
+		return DisciplinaDAO.getInstance().getDisciplinaById(disciplina);
 	}
 }
 

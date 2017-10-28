@@ -37,9 +37,9 @@ public class AscoltatoreConfermaEvento implements ActionListener {
 		
 		//manipolazione data
 		
-		int anno_inizio = Integer.parseInt((datainizio.getText()+datafine.getText().substring(6,10)));   ///23-12-1965
-		int mese_inizio = Integer.parseInt(datainizio.getText()+datafine.getText().substring(3,5));
-		int giorno_inizio = Integer.parseInt(datainizio.getText()+datafine.getText().substring(0,2));
+		int anno_inizio = Integer.parseInt((datainizio.getText().substring(6,10)));   ///23-12-1965
+		int mese_inizio = Integer.parseInt(datainizio.getText().substring(3,5));
+		int giorno_inizio = Integer.parseInt(datainizio.getText().substring(0,2));
 		
 		int anno_fine = Integer.parseInt(datafine.getText().substring(6,10));   ///23-12-1965
 		int mese_fine = Integer.parseInt(datafine.getText().substring(3,5));

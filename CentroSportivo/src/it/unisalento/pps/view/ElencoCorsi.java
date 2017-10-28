@@ -14,10 +14,14 @@ import javax.swing.JScrollPane;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
+import it.unisalento.pps.business.LivelloBusiness;
+import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreNuovoCorso;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
+import it.unisalento.pps.model.Spazio;
 
 public class ElencoCorsi extends JFrame {
 	
@@ -35,6 +39,7 @@ public class ElencoCorsi extends JFrame {
 	AscoltatoreNuovoCorso ascoltatoreNuovoCorso;
 	Istruttore istruttore;
 	ArrayList<Evento> corsi = new ArrayList<Evento>();
+	
 
 	public ElencoCorsi(Istruttore istruttore) {
 		super("Elenco Corsi");
@@ -44,9 +49,15 @@ public class ElencoCorsi extends JFrame {
 		nordPnl.add(titolo);
 		
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
+		Disciplina disciplina;
+		Spazio spazio;
+		//Livello livello;
 		
 		for(int i=0;i<corsi.size();i++) {
-			JLabel corso = new JLabel("CORSO " +(i+1)+ ": INIZIO IN DATA:  " +corsi.get(i).getDataInizio()+ "   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  " +corsi.get(i).getDataFine());
+			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
+			spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
+			
+			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIO IN DATA:  " +corsi.get(i).getDataInizio()+ "   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  " +corsi.get(i).getDataFine()+"  LUOGO :"+spazio.getNome());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(corso);
 			//disciplina.addActionListener(ascoltatoreDisciplina);

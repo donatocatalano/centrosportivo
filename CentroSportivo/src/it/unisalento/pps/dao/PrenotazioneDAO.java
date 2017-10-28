@@ -1,5 +1,6 @@
 package it.unisalento.pps.dao;
 
+
 public class PrenotazioneDAO {
 	
 	private static PrenotazioneDAO instance;
@@ -13,5 +14,6 @@ public class PrenotazioneDAO {
 	}
 	return instance;
 	}
-	
+
+		
 }
