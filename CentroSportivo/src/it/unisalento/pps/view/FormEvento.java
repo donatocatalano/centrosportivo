@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -44,7 +45,8 @@ public class FormEvento extends JFrame {
 	
 	JPanel spazio= new JPanel(new FlowLayout());
 	JLabel luogo= new JLabel("DOVE");   // menù a tendina
-	public JTextField luogo_field= new JTextField(15);
+	String [] numeri = {"10", "20", "30", "40"};
+	//public JComboBox luogo_box= new JComboBox(String <E>numeri);
 		
 	JPanel tipo= new JPanel(new FlowLayout());
 	JLabel tipoevento= new JLabel("TIPO EVENTO");   // menù a tendina
@@ -87,9 +89,9 @@ public class FormEvento extends JFrame {
 		centroPnl.add(turn);
 		spazio.add(luogo);
 		luogo.setFont(new Font("sansserif",Font.BOLD,25));
-		spazio.add(luogo_field);
-		luogo_field.setFont(myfont);
-		luogo_field.setPreferredSize(mysize);
+		spazio.add(luogo_box);
+		luogo_box.setFont(myfont);
+		luogo_box.setPreferredSize(mysize);
 		centroPnl.add(spazio);
 		tipo.add(tipoevento);
 		tipoevento.setFont(new Font("sansserif",Font.BOLD,25));
