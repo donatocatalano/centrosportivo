@@ -13,11 +13,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
+import it.unisalento.pps.business.SpazioBusiness;
+import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreNuovoEvento;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
+import it.unisalento.pps.model.Spazio;
+import it.unisalento.pps.model.TipoEvento;
 
 public class ElencoEventi extends JFrame {
 	
@@ -43,13 +49,21 @@ public class ElencoEventi extends JFrame {
 		nordPnl.add(titolo);
 		
 		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
+		Disciplina disciplina;
+		Spazio spazio;
+		//Livello livello;
+		TipoEvento tipo;
 		
 		for(int i=0;i<eventi.size();i++) {
-			JLabel evento = new JLabel("EVENTO " +(i+1)+ ": INIZIO IN DATA  " +eventi.get(i).getDataInizio()+ "   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  " +eventi.get(i).getDataFine());
+			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
+			spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
+			tipo = TipoEventoBusiness.getInstance().getEventoById(eventi.get(i).getTipo());
+			
+			JLabel evento = new JLabel(tipo.getTipo()+" di " +disciplina.getNome()+ ": INIZIO IN DATA:  " +eventi.get(i).getDataInizio()+ "   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  " +eventi.get(i).getDataFine()+"  LUOGO :"+spazio.getNome());
 			evento.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(evento);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
-		}
+				}
 		
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);

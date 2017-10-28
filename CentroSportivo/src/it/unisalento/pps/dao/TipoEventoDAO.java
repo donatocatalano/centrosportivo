@@ -1,17 +1,33 @@
 package it.unisalento.pps.dao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import it.unisalento.pps.DbInterface.DbConnection;
+import it.unisalento.pps.model.Spazio;
+import it.unisalento.pps.model.TipoEvento;
+
 public class TipoEventoDAO {
 	
-	private static PrenotazioneDAO instance;
+	private static TipoEventoDAO instance;
+	private TipoEvento tipo;
 	
-	public static PrenotazioneDAO getInstance()
+	public static TipoEventoDAO getInstance()
 	{
 	
 		if (instance==null)
 		{
-		instance = new PrenotazioneDAO();			
+		instance = new TipoEventoDAO();			
 		}
 		return instance;
+	}
+
+	public TipoEvento getEventoById(int idTipo) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from tipoevento where ID_TipoEvento=\""+ idTipo +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		tipo=new TipoEvento(Integer.parseInt(tupla[0]),tupla[1]);
+		return tipo;
 	}
 	
 }

@@ -7,6 +7,8 @@ public class SpazioBusiness {
 	
 private static SpazioBusiness instance;
 	
+	Spazio spazio;
+	
 	public static SpazioBusiness getInstance()
 	{
 		if(instance==null)
@@ -17,8 +19,8 @@ private static SpazioBusiness instance;
 	}
 
 	public Spazio getSpazioById(int idSpazio) {
-		// TODO Auto-generated method stub
-		return SpazioDAO.getInstance().getSpazioById(idSpazio);
+		spazio = SpazioDAO.getInstance().getSpazioById(idSpazio);
+		return spazio;
 	}
 	
 
