@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
+import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.listener.AscoltatoreNuovaDisciplina;
 import it.unisalento.pps.model.Disciplina;
@@ -32,6 +33,7 @@ public class CatalogoDiscipline extends JFrame {
 	JLabel spazio = new JLabel();
 	
 	JPanel contenuto = new JPanel();
+	JButton modifica = new JButton ("MODIFICA");
 
 	JButton indietro= new JButton("INDIETRO");
 	JButton nuovadisciplina = new JButton("AGGIUNGI DISCIPLINA");
@@ -39,6 +41,7 @@ public class CatalogoDiscipline extends JFrame {
 	AscoltatoreBackResp ascoltatoreBackResp; 
 	AscoltatoreNuovaDisciplina ascoltatoreNuovaDisciplina;
 	Responsabile responsabile;
+	Disciplina disciplina;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 
 	public CatalogoDiscipline(Responsabile responsabile) {
@@ -56,14 +59,17 @@ public class CatalogoDiscipline extends JFrame {
 		
 		if(discipline.size()>0) {
 			for(int i=0;i<discipline.size();i++) {
-			JLabel IdDisciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
-			IdDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
-			contenuto.add(IdDisciplina);
-			JButton modifica = new JButton ("MODFICA");
-			JButton elimina = new JButton ("ELIMINA");
-			contenuto.add(modifica);
-			contenuto.add(elimina);
-			centroPnl.add(contenuto);
+				JLabel IdDisciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
+				IdDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
+				contenuto.add(IdDisciplina);
+				ascoltatoreNuovaDisciplina = new AscoltatoreNuovaDisciplina(this, responsabile);
+				modifica.addActionListener(ascoltatoreNuovaDisciplina);
+				modifica.setActionCommand(AscoltatoreBackHome.D1);	
+				JButton modifica = new JButton ("MODIFICA");
+				JButton elimina = new JButton ("ELIMINA");
+				contenuto.add(modifica);
+				contenuto.add(elimina);
+				centroPnl.add(contenuto);
 			}
 		}
 		else {

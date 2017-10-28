@@ -70,6 +70,15 @@ public class DisciplinaDAO {
 
 		return  ok_inserimento;
 	}
+
+
+	public boolean cancellaDisciplina() {
+		
+		boolean ok_eliminazione = false;
+		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("drop disciplina");
+		
+		return ok_eliminazione;
+	}
 	
 	
 }

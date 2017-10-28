@@ -55,6 +55,7 @@ public class ElencoCorsi extends JFrame {
 		nordPnl.add(spazio);
 		
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
+		centroPnl.setLayout(new GridLayout(corsi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
 		//Livello livello;
@@ -65,7 +66,8 @@ public class ElencoCorsi extends JFrame {
 			
 			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +corsi.get(i).getDataInizio()+ "   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  " +corsi.get(i).getDataFine()+"  LUOGO:  "+spazio.getNome());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(corso);
+			contenuto.add(corso);
+			centroPnl.add(contenuto);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
 				}
 		

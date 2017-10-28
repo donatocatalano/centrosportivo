@@ -6,12 +6,14 @@ import java.util.Iterator;
 
 
 import it.unisalento.pps.DbInterface.DbConnection;
+import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.Utente;
 
 public class UtenteDAO {
 	
 	private static UtenteDAO instance;
 	private Utente tesserato;
+	private Utente utente;
 	
 	public static UtenteDAO getInstance()
 	{
@@ -67,9 +69,7 @@ public class UtenteDAO {
 			ok_registrazione = DbConnection.getInstance().eseguiAggiornamento("insert into utente(ID_Utente,Nome,Cognome,Username,Password,Sesso,Data_Nascita,Tesserato) values(\""+(idUtente+1)+"\",\""+nome+"\",\""+cognome+"\",\""+username+"\",\""+password+"\",\""+sesso+"\",\""+data+"\",\""+0+"\")");
 
 		return  ok_registrazione;
-	}
-	
-	
+	}	
 
 	public ArrayList<Utente> getUtentiDaAutorizzare() {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary tesserato = 0");
@@ -81,5 +81,19 @@ public class UtenteDAO {
 			utentiDaAutorizzare.add(utente);
 		}
 		return utentiDaAutorizzare;
+	}
+
+	public boolean confermaUtente(String username) {
+		boolean ok_conferma = false;
+	
+		return ok_conferma = DbConnection.getInstance().eseguiAggiornamento("insert into utente(Tesserato) values (\""+1+"\")");
+	}
+	
+	public Utente getUtenteById(int idUtente) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where ID_Utente=\""+ idUtente +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		utente=new Utente(Integer.parseInt(tupla[0]),tupla[1]);
+		return utente;
 	}
 }

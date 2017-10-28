@@ -52,6 +52,11 @@ public class Utente{
 		this.username = username;
 		this.password = password;		
 	}
+	
+	public Utente(int idUtente, String nome) {
+		this.idUtente = idUtente;
+		this.nome = nome;
+	}
 
 	public int getIdUtente() {
 		return this.idUtente;

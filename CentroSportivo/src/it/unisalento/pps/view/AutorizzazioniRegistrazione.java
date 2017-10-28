@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
+import it.unisalento.pps.listener.AscoltatoreConfermaRegistrazione;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 
@@ -33,6 +34,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		
 	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
+	AscoltatoreConfermaRegistrazione ascoltatoreConfermaRegistrazione;
 	Responsabile responsabile;	
 	ArrayList<Utente> utentiDaAutorizzare = new ArrayList<Utente>();
 		
@@ -51,10 +53,12 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		
 		if(utentiDaAutorizzare.size()>0) {
 			for(int i=0;i<utentiDaAutorizzare.size();i++) {
-			JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita());	
+			JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita()+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername());	
 			nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
 			contenuto.add(nomeUtente);
-			JButton confermaregistrazione= new JButton("CONFERMA REGISTRAZIONE");
+			JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
+			ascoltatoreConfermaRegistrazione = new AscoltatoreConfermaRegistrazione(this, responsabile);
+			confermaregistrazione.addActionListener(ascoltatoreConfermaRegistrazione);
 			contenuto.add(confermaregistrazione);
 			centroPnl.add(contenuto);
 			}

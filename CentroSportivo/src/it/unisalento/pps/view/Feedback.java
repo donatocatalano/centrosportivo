@@ -11,11 +11,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TestimonianzaBusiness;
+import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreFeedback;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Testimonianza;
+import it.unisalento.pps.model.Utente;
 
 
 public class Feedback extends JFrame{
@@ -24,29 +27,40 @@ public class Feedback extends JFrame{
 	private JPanel centroPnl=new JPanel(new GridLayout(4,1));
 	private JPanel sudPnl=new JPanel();
 	
-	private JLabel titolo= new JLabel();
 	
+	JLabel titolo = new JLabel();
+	JLabel spazio = new JLabel();
 	
+	JPanel contenuto = new JPanel();
+		
 	private JButton indietro= new JButton("TORNA ALL'HOMEPAGE");
 	
 	
 	ArrayList<Testimonianza> testimonianze = new ArrayList<Testimonianza>();
 	
 	public Feedback (Disciplina disciplina) {
-		super("Feedback " + disciplina.getNome());
+		super("Feedback " +disciplina.getNome());
 		
 		
-		titolo.setText(" TESTIMONIANZE : "); 
-		titolo.setFont(new Font("sansserif",Font.BOLD,20));
+		titolo.setText("TESTIMONIANZE: " +disciplina.getNome()); 
+		titolo.setHorizontalAlignment(JLabel.CENTER);
+		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
+		nordPnl.add(spazio);
 		
 		
 		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
 		centroPnl.setLayout(new GridLayout(testimonianze.size(),1));
-		if(testimonianze.size()>0) {
+		Utente utente;
+		
+		
+		if(testimonianze.size()>0) {			
 			for(int i=0;i<testimonianze.size();i++) {
-				JLabel contenuto = new JLabel(testimonianze.get(i).getContenuto());		
-				contenuto.setFont(new Font("sansserif",Font.BOLD,20));
+				utente = UtenteBusiness.getInstance().getUtenteById(testimonianze.get(i).getUtente());
+				
+				JLabel testo = new JLabel((i+1)+")  FEEDBACK DI " +utente.getNome()+ ":   " +testimonianze.get(i).getContenuto());		
+				testo.setFont(new Font("sansserif",Font.BOLD,20));
+				contenuto.add(testo);
 				centroPnl.add(contenuto);		
 			}
 		}

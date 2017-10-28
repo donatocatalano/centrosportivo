@@ -55,6 +55,7 @@ public class ElencoEventi extends JFrame {
 		nordPnl.add(spazio);
 		
 		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
+		centroPnl.setLayout(new GridLayout(eventi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
 		//Livello livello;
@@ -67,7 +68,8 @@ public class ElencoEventi extends JFrame {
 			
 			JLabel evento = new JLabel(tipo.getTipo()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +eventi.get(i).getDataInizio()+ "   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  " +eventi.get(i).getDataFine()+"  LUOGO:  "+spazio.getNome());
 			evento.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(evento);
+			contenuto.add(evento);
+			centroPnl.add(contenuto);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
 				}
 		
