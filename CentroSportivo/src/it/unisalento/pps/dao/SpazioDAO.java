@@ -8,15 +8,16 @@ import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Spazio;
 
 public class SpazioDAO {
+		
+	private static SpazioDAO instance;
+	private Spazio spazio;
 	
-	private static PrenotazioneDAO instance;
-	
-	public static PrenotazioneDAO getInstance()
+	public static SpazioDAO getInstance()
 	{
 	
 	if (instance==null)
 	{
-		instance = new PrenotazioneDAO();			
+		instance = new SpazioDAO();			
 	}
 	return instance;
 	}
@@ -25,8 +26,8 @@ public class SpazioDAO {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from spazio where ID_Spazio=\""+ idSpazio +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
-		disciplina=new Disciplina(Integer.parseInt(tupla[0]),tupla[1],Double.parseDouble(tupla[2]),tupla[3],tupla[4]);
-		return disciplina;
+		spazio=new Spazio(Integer.parseInt(tupla[0]),tupla[1]);
+		return spazio;
 	}
 	
 }

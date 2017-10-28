@@ -45,7 +45,7 @@ public class CatalogoDiscipline extends JFrame {
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
 		
-		discipline = DisciplinaBusiness.getInstance().getDisciplineByIdDisciplina();
+		discipline = DisciplinaBusiness.getInstance().getDiscipline();
 		centroPnl.setLayout(new GridLayout(discipline.size(),1));
 		
 		if(discipline.size()>0) {
