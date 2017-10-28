@@ -18,11 +18,16 @@ import it.unisalento.pps.model.Responsabile;
 
 public class AutorizzazioniIscrizioniCorso extends JFrame{
 	
-	JPanel nordPnl=new JPanel();
+	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
-		
+	
+	JLabel titolo = new JLabel();
+	JLabel spazio = new JLabel();
+	
+	JPanel contenuto = new JPanel();
+	
 	JButton indietro= new JButton("INDIETRO");
 		
 	
@@ -30,7 +35,13 @@ public class AutorizzazioniIscrizioniCorso extends JFrame{
 	Responsabile responsabile;	
 		
 	public AutorizzazioniIscrizioniCorso(Responsabile responsabile){
-		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());			
+		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
+		
+		titolo.setText("ISCRIZIONI IN ATTESA DI CONFERMA"); 
+		titolo.setHorizontalAlignment(JLabel.CENTER);
+		titolo.setFont(new Font("sansserif",Font.BOLD,34));
+		nordPnl.add(titolo);
+		nordPnl.add(spazio);
 			
 		
 			  

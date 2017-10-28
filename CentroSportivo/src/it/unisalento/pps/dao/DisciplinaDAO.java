@@ -53,7 +53,6 @@ public class DisciplinaDAO {
 		for(int i=0;i<result.size();i++) {
 			disciplina = new Disciplina(Integer.parseInt(result.get(i)[0]),result.get(i)[1],Double.parseDouble(result.get(i)[2]),result.get(i)[3],result.get(i)[4]);
 			discipline.add(disciplina);
-				
 		}
 		return discipline;
 	}	

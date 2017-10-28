@@ -89,9 +89,9 @@ public class FormEvento extends JFrame {
 		centroPnl.add(turn);
 		spazio.add(luogo);
 		luogo.setFont(new Font("sansserif",Font.BOLD,25));
-		spazio.add(luogo_box);
-		luogo_box.setFont(myfont);
-		luogo_box.setPreferredSize(mysize);
+		//spazio.add(luogo_box);
+		//luogo_box.setFont(myfont);
+		//luogo_box.setPreferredSize(mysize);
 		centroPnl.add(spazio);
 		tipo.add(tipoevento);
 		tipoevento.setFont(new Font("sansserif",Font.BOLD,25));

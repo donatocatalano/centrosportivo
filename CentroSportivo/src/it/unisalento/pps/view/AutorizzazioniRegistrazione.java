@@ -1,14 +1,12 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,49 +18,45 @@ import it.unisalento.pps.model.Utente;
 
 public class AutorizzazioniRegistrazione extends JFrame{
 	
-	JPanel nordPnl=new JPanel();
+	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
+	
 	JLabel titolo = new JLabel();
+	JLabel spazio = new JLabel();
 	
-	
+	JPanel contenuto = new JPanel();
 		
 	JButton indietro = new JButton("INDIETRO");
-	JButton invio = new JButton("INVIA");
+	//JButton invio = new JButton("INVIA");
 		
 	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
 	Responsabile responsabile;	
 	ArrayList<Utente> utentiDaAutorizzare = new ArrayList<Utente>();
-	Dimension dim;
 		
 	public AutorizzazioniRegistrazione(Responsabile responsabile){
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
 		
 		titolo.setText("REGISTRAZIONI IN ATTESA DI CONFERMA"); 
+		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
+		nordPnl.add(spazio);
 		 
 		
 		utentiDaAutorizzare = UtenteBusiness.getInstance().getUtentiDaAutorizzare();
-		centroPnl.setLayout(new GridLayout(utentiDaAutorizzare.size(),6));
+		centroPnl.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
 		
 		if(utentiDaAutorizzare.size()>0) {
 			for(int i=0;i<utentiDaAutorizzare.size();i++) {
-			JLabel vuoto = new JLabel ();
-			JLabel vuoto0 = new JLabel ();
 			JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita());	
 			nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
+			contenuto.add(nomeUtente);
 			JButton confermaregistrazione= new JButton("CONFERMA REGISTRAZIONE");
-			JLabel vuoto00 = new JLabel ();
-			JLabel vuoto000 = new JLabel ();
-			centroPnl.add(vuoto);
-			centroPnl.add(vuoto0);
-			centroPnl.add(nomeUtente);
-			centroPnl.add(confermaregistrazione);
-			centroPnl.add(vuoto00);
-			centroPnl.add(vuoto000);
+			contenuto.add(confermaregistrazione);
+			centroPnl.add(contenuto);
 			}
 		}
 		else {
@@ -75,7 +69,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		ascoltatoreAutorizzazioni = new AscoltatoreAutorizzazioni(this, responsabile);
 		indietro.addActionListener(ascoltatoreAutorizzazioni);
 		sudPnl.add(indietro);
-		sudPnl.add(invio);
+		//sudPnl.add(invio);
 
 
 			

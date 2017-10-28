@@ -42,7 +42,6 @@ private static UtenteBusiness instance;
 	public boolean registraUtente(String nome,String cognome,String username,String password,String sesso,Date data) {
 
 		return UtenteDAO.getInstance().registraUtente(nome,cognome,username,password,sesso,data);
-
 	}
 	
 	public ArrayList<Utente> getUtentiDaAutorizzare() {

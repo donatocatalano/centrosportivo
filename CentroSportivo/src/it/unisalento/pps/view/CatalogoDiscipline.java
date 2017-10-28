@@ -23,12 +23,15 @@ import it.unisalento.pps.model.Testimonianza;
 
 public class CatalogoDiscipline extends JFrame {
 	
-	JPanel nordPnl=new JPanel();
+	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
+	
 	JLabel titolo = new JLabel();
-
+	JLabel spazio = new JLabel();
+	
+	JPanel contenuto = new JPanel();
 
 	JButton indietro= new JButton("INDIETRO");
 	JButton nuovadisciplina = new JButton("AGGIUNGI DISCIPLINA");
@@ -42,8 +45,11 @@ public class CatalogoDiscipline extends JFrame {
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());
 		
 		titolo.setText("CATALOGO DISCIPLINE"); 
+		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
+		nordPnl.add(spazio);
+		
 		
 		discipline = DisciplinaBusiness.getInstance().getDiscipline();
 		centroPnl.setLayout(new GridLayout(discipline.size(),1));
@@ -52,8 +58,12 @@ public class CatalogoDiscipline extends JFrame {
 			for(int i=0;i<discipline.size();i++) {
 			JLabel IdDisciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
 			IdDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(IdDisciplina);
-			
+			contenuto.add(IdDisciplina);
+			JButton modifica = new JButton ("MODFICA");
+			JButton elimina = new JButton ("ELIMINA");
+			contenuto.add(modifica);
+			contenuto.add(elimina);
+			centroPnl.add(contenuto);
 			}
 		}
 		else {

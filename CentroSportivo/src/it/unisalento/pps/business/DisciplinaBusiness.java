@@ -42,7 +42,6 @@ private static DisciplinaBusiness instance;
 	
 	
 	public Disciplina getDisciplinaById(int disciplina) {
-		
 		return DisciplinaDAO.getInstance().getDisciplinaById(disciplina);
 	}
 }

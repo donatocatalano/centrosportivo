@@ -25,11 +25,15 @@ import it.unisalento.pps.model.Spazio;
 
 public class ElencoCorsi extends JFrame {
 	
-	JPanel nordPnl=new JPanel();
+	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
+	
 	JLabel titolo = new JLabel();
+	JLabel spazio = new JLabel();
+	
+	JPanel contenuto = new JPanel();
 	
 	
 	JButton indietro = new JButton("INDIETRO");
@@ -42,11 +46,13 @@ public class ElencoCorsi extends JFrame {
 	
 
 	public ElencoCorsi(Istruttore istruttore) {
-		super("Elenco Corsi");
+		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
 		
-		titolo.setText(" ELENCO CORSI "); 
+		titolo.setText("ELENCO CORSI"); 
+		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
+		nordPnl.add(spazio);
 		
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
 		Disciplina disciplina;
@@ -57,7 +63,7 @@ public class ElencoCorsi extends JFrame {
 			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
 			spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
 			
-			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIO IN DATA:  " +corsi.get(i).getDataInizio()+ "   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  " +corsi.get(i).getDataFine()+"  LUOGO :"+spazio.getNome());
+			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +corsi.get(i).getDataInizio()+ "   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  " +corsi.get(i).getDataFine()+"  LUOGO:  "+spazio.getNome());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
 			centroPnl.add(corso);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
