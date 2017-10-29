@@ -1,7 +1,6 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -11,16 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
-import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.listener.AscoltatoreNuovaDisciplina;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.model.Testimonianza;
 
 public class CatalogoDiscipline extends JFrame {
 	
@@ -75,7 +71,8 @@ public class CatalogoDiscipline extends JFrame {
 		else {
 			JLabel nessunaoccorrenza = new JLabel("Nessuna Disciplina nel sistema");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(nessunaoccorrenza);		
+			contenuto.add(nessunaoccorrenza);
+			centroPnl.add(contenuto);		
 		}			
 		
 		

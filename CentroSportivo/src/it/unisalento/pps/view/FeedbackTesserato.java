@@ -22,12 +22,13 @@ import it.unisalento.pps.model.Utente;
 
 public class FeedbackTesserato extends JFrame{
 	
-	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel();
-	JPanel sudPnl=new JPanel();
+	private JPanel nordPnl=new JPanel(new GridLayout(2,1));
+	private JPanel centroPnl=new JPanel();
+	private JPanel sudPnl=new JPanel();
+	
 	
 	JLabel titolo = new JLabel();
-	JLabel spazio = new JLabel();
+	JPanel spazio = new JPanel();
 	
 	JPanel contenuto = new JPanel();
 	
@@ -53,7 +54,7 @@ public class FeedbackTesserato extends JFrame{
 		
 		
 		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
-		centroPnl.setLayout(new GridLayout(testimonianze.size(),1));
+		contenuto.setLayout(new GridLayout(testimonianze.size(),1));
 		Utente utente;
 		
 		if(testimonianze.size()>0) {			

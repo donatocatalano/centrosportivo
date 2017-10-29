@@ -23,13 +23,14 @@ import it.unisalento.pps.model.Utente;
 
 public class Feedback extends JFrame{
 	
-	private JPanel nordPnl=new JPanel();
-	private JPanel centroPnl=new JPanel(new GridLayout(4,1));
+	private JPanel nordPnl=new JPanel(new GridLayout(2,1));
+	private JPanel centroPnl=new JPanel();
 	private JPanel sudPnl=new JPanel();
 	
 	
 	JLabel titolo = new JLabel();
-	JLabel spazio = new JLabel();
+	JPanel spazio = new JPanel();
+	
 	
 	JPanel contenuto = new JPanel();
 		
@@ -50,7 +51,7 @@ public class Feedback extends JFrame{
 		
 		
 		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
-		centroPnl.setLayout(new GridLayout(testimonianze.size(),1));
+		contenuto.setLayout(new GridLayout(testimonianze.size(),1));
 		Utente utente;
 		
 		
@@ -76,7 +77,7 @@ public class Feedback extends JFrame{
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
+		this.getContentPane().add(centroPnl,BorderLayout.WEST);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 	

@@ -27,10 +27,9 @@ public class AutorizzazioniRegistrazione extends JFrame{
 	JLabel titolo = new JLabel();
 	JLabel spazio = new JLabel();
 	
-	JPanel contenuto = new JPanel();
+	JPanel contenuto = new JPanel(new GridLayout(2,1));
 		
 	JButton indietro = new JButton("INDIETRO");
-	//JButton invio = new JButton("INVIA");
 		
 	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
@@ -49,36 +48,45 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		 
 		
 		utentiDaAutorizzare = UtenteBusiness.getInstance().getUtentiDaAutorizzare();
-		centroPnl.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
 		
-		if(utentiDaAutorizzare.size()>0) {
-			for(int i=0;i<utentiDaAutorizzare.size();i++) {
-			JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita()+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername());	
-			nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
-			contenuto.add(nomeUtente);
-			JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
-			ascoltatoreConfermaRegistrazione = new AscoltatoreConfermaRegistrazione(this, responsabile);
-			confermaregistrazione.addActionListener(ascoltatoreConfermaRegistrazione);
-			contenuto.add(confermaregistrazione);
+		
+		if(utentiDaAutorizzare.size()>0) {	
+			
 			centroPnl.add(contenuto);
+			
+			for(int i=0;i<utentiDaAutorizzare.size();i++) {
+				
+				JPanel contenuto1 = new JPanel();
+				contenuto1.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
+				JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita()+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername());	
+				nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
+				contenuto1.add(nomeUtente);
+				contenuto.add(contenuto1);
+				
+				JPanel contenuto2 = new JPanel();
+				JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
+				ascoltatoreConfermaRegistrazione = new AscoltatoreConfermaRegistrazione(this, responsabile);
+				confermaregistrazione.addActionListener(ascoltatoreConfermaRegistrazione);
+				contenuto2.add(confermaregistrazione);
+				contenuto.add(contenuto2);
 			}
 		}
 		else {
 			JLabel nessunaoccorrenza = new JLabel("Nessun Utente in attesa di autorizzazione all'Iscrizione");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(nessunaoccorrenza);		
+			contenuto.add(nessunaoccorrenza);
+			centroPnl.add(contenuto);		
 		}			
 		
 			  
 		ascoltatoreAutorizzazioni = new AscoltatoreAutorizzazioni(this, responsabile);
 		indietro.addActionListener(ascoltatoreAutorizzazioni);
 		sudPnl.add(indietro);
-		//sudPnl.add(invio);
 
 
 			
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
+		this.getContentPane().add(centroPnl,BorderLayout.WEST);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 			
