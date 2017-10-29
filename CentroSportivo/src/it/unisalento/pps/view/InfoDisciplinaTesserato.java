@@ -27,10 +27,11 @@ public class InfoDisciplinaTesserato extends JFrame{
 	JPanel titolo = new JPanel(new FlowLayout());
 	JLabel nomeDisciplina = new JLabel();
 	
-	private JPanel sup = new JPanel(new GridLayout(2,1));
+	private JPanel sup = new JPanel(new GridLayout(3,1));
 	private JPanel inf = new JPanel(new GridLayout(2,1));
-	private JLabel costoMensile= new JLabel();
 	private JLabel descrizioneDisciplina= new JLabel();
+	private JLabel spazio = new JLabel();
+	private JLabel costoMensile= new JLabel();
 	private ImageIcon immagine;
 	private JLabel immagineDisciplina= new JLabel();
 	
@@ -55,13 +56,16 @@ public class InfoDisciplinaTesserato extends JFrame{
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		sup.add(descrizioneDisciplina);
 		
+		sup.add(spazio);
+		
 		costoMensile.setText(" COSTO MENSILE "+disciplina.getCostoMensile()+ "0 €");
 		costoMensile.setFont(new Font("sansserif",Font.BOLD,20));
+		costoMensile.setHorizontalAlignment(JLabel.CENTER);
 		sup.add(costoMensile);
 		
 		immagine = new ImageIcon("./img/"+disciplina.getImmagine());
 		immagineDisciplina.setIcon(immagine);
-		centroPnl.add(immagineDisciplina);
+		inf.add(immagineDisciplina);
 		centroPnl.add(sup);
 		centroPnl.add(inf);
 		
