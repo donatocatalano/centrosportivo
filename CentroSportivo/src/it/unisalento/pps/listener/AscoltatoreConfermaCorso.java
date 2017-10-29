@@ -54,7 +54,7 @@ public class AscoltatoreConfermaCorso implements ActionListener {
 		Date dataFine = new Date(millisecondi_fine);
 		
 		
-		boolean ok = EventoBusiness.getInstance().registraCorso(dataInizio,turno.getText(),dataFine);
+		boolean ok = EventoBusiness.getInstance().registraCorso(dataInizio,turno.getText(),istruttore.getIdIstruttore(),dataFine);
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 			new AreaIstruttore(istruttore);

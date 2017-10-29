@@ -55,7 +55,7 @@ public class AscoltatoreConfermaEvento implements ActionListener {
 		
 		
 		
-		boolean ok = EventoBusiness.getInstance().registraEvento(dataInizio,turno.getText(),dataFine);
+		boolean ok = EventoBusiness.getInstance().registraEvento(dataInizio,turno.getText(),istruttore.getIdIstruttore(),dataFine);
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 			new AreaIstruttore(istruttore);
