@@ -28,7 +28,7 @@ public class AreaIscrizioniTesserato extends JFrame{
 	JPanel sudPnl=new JPanel();
 	
 	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel("SCEGLI DISCIPLINE, LIVELLI, TURNO E METODO DI PAGAMENTO");
+	JLabel scelta = new JLabel("SCEGLI LA DISCIPLINA, IL LIVELLO, IL TURNO E IL METODO DI PAGAMENTO");
 	
 	
 	public JPanel pagamento = new JPanel(new FlowLayout());
