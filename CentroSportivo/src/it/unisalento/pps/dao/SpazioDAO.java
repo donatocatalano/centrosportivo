@@ -29,5 +29,4 @@ public class SpazioDAO {
 		spazio=new Spazio(Integer.parseInt(tupla[0]),tupla[1]);
 		return spazio;
 	}
-	
 }

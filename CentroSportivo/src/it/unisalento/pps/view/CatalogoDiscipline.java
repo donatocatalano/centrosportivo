@@ -1,7 +1,6 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -11,24 +10,26 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
-import it.unisalento.pps.business.UtenteBusiness;
+import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.listener.AscoltatoreNuovaDisciplina;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.model.Testimonianza;
 
 public class CatalogoDiscipline extends JFrame {
 	
-	JPanel nordPnl=new JPanel();
+	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
+	
 	JLabel titolo = new JLabel();
-
+	JLabel spazio = new JLabel();
+	
+	JPanel contenuto = new JPanel();
+	JButton modifica = new JButton ("MODIFICA");
 
 	JButton indietro= new JButton("INDIETRO");
 	JButton nuovadisciplina = new JButton("AGGIUNGI DISCIPLINA");
@@ -36,30 +37,42 @@ public class CatalogoDiscipline extends JFrame {
 	AscoltatoreBackResp ascoltatoreBackResp; 
 	AscoltatoreNuovaDisciplina ascoltatoreNuovaDisciplina;
 	Responsabile responsabile;
+	Disciplina disciplina;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 
 	public CatalogoDiscipline(Responsabile responsabile) {
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());
 		
 		titolo.setText("CATALOGO DISCIPLINE"); 
+		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
+		nordPnl.add(spazio);
+		
 		
 		discipline = DisciplinaBusiness.getInstance().getDiscipline();
 		centroPnl.setLayout(new GridLayout(discipline.size(),1));
 		
 		if(discipline.size()>0) {
 			for(int i=0;i<discipline.size();i++) {
-			JLabel IdDisciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
-			IdDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(IdDisciplina);
-			
+				JLabel IdDisciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
+				IdDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
+				contenuto.add(IdDisciplina);
+				ascoltatoreNuovaDisciplina = new AscoltatoreNuovaDisciplina(this, responsabile);
+				modifica.addActionListener(ascoltatoreNuovaDisciplina);
+				modifica.setActionCommand(AscoltatoreBackHome.D1);	
+				JButton modifica = new JButton ("MODIFICA");
+				JButton elimina = new JButton ("ELIMINA");
+				contenuto.add(modifica);
+				contenuto.add(elimina);
+				centroPnl.add(contenuto);
 			}
 		}
 		else {
 			JLabel nessunaoccorrenza = new JLabel("Nessuna Disciplina nel sistema");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(nessunaoccorrenza);		
+			contenuto.add(nessunaoccorrenza);
+			centroPnl.add(contenuto);		
 		}			
 		
 		

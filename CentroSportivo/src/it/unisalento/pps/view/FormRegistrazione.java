@@ -118,7 +118,7 @@ public class FormRegistrazione extends JFrame {
 
 
 		indietro.addActionListener(new AscoltatoreBackHome(this));
-		registrazione.addActionListener(new AscoltatoreConfermaRegistrazione(this));
+		registrazione.addActionListener(new AscoltatoreInvioRegistrazione(this));
 		sudPnl.add(indietro);
 		sudPnl.add(registrazione);
 		

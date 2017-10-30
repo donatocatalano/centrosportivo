@@ -10,6 +10,7 @@ import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.CatalogoDiscipline;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 import it.unisalento.pps.view.FormDisciplina;
+import it.unisalento.pps.view.FormModDisciplina;
 
 public class AscoltatoreBackResp implements ActionListener {
 	
@@ -35,6 +36,12 @@ public class AscoltatoreBackResp implements ActionListener {
 		this.responsabile = responsabile;
 	}
 
+	public AscoltatoreBackResp(FormModDisciplina frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		new AreaResponsabile(responsabile);
 		frame.dispose();

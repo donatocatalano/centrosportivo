@@ -7,6 +7,7 @@ import it.unisalento.pps.dao.DisciplinaDAO;
 import it.unisalento.pps.dao.EventoDAO;
 import it.unisalento.pps.dao.UtenteDAO;
 import it.unisalento.pps.model.Evento;
+import it.unisalento.pps.model.Istruttore;
 
 public class EventoBusiness {
 
@@ -29,13 +30,13 @@ private static EventoBusiness instance;
 		return EventoDAO.getInstance().getEventiByIdIstruttore(idIstruttore);
 	}
 	
-	public boolean registraEvento(Date datainizio,String orario, Date datafine) {
+	public boolean registraEvento(Date datainizio, String orario, int istruttore, Date datafine) {
 
-		return EventoDAO.getInstance().registraEvento(datainizio,orario,datafine);
+		return EventoDAO.getInstance().registraEvento(datainizio,orario,istruttore,datafine);
 	}
 
-	public boolean registraCorso(Date datainizio, String orario, Date datafine) {
+	public boolean registraCorso(Date datainizio, String orario, int istruttore, Date datafine) {
 		
-		return EventoDAO.getInstance().registraCorso(datainizio,orario,datafine);
+		return EventoDAO.getInstance().registraCorso(datainizio,orario,istruttore,datafine);
 	}
 }

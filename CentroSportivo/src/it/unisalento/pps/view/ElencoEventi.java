@@ -27,11 +27,15 @@ import it.unisalento.pps.model.TipoEvento;
 
 public class ElencoEventi extends JFrame {
 	
-	JPanel nordPnl=new JPanel();
+	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
+	
 	JLabel titolo = new JLabel();
+	JLabel spazio = new JLabel();
+	
+	JPanel contenuto = new JPanel();
 	
 	JButton indietro = new JButton("INDIETRO");
 	JButton nuovoevento = new JButton("AGGIUNGI EVENTO");
@@ -42,13 +46,16 @@ public class ElencoEventi extends JFrame {
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
 
 	public ElencoEventi(Istruttore istruttore) {
-		super("Elenco Eventi");
+		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
 		
-		titolo.setText(" ELENCO EVENTI "); 
+		titolo.setText("ELENO EVENTI"); 
+		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
+		nordPnl.add(spazio);
 		
 		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
+		centroPnl.setLayout(new GridLayout(eventi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
 		//Livello livello;
@@ -59,9 +66,10 @@ public class ElencoEventi extends JFrame {
 			spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
 			tipo = TipoEventoBusiness.getInstance().getEventoById(eventi.get(i).getTipo());
 			
-			JLabel evento = new JLabel(tipo.getTipo()+" di " +disciplina.getNome()+ ": INIZIO IN DATA:  " +eventi.get(i).getDataInizio()+ "   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  " +eventi.get(i).getDataFine()+"  LUOGO :"+spazio.getNome());
+			JLabel evento = new JLabel(tipo.getTipo()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +eventi.get(i).getDataInizio()+ "   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  " +eventi.get(i).getDataFine()+"  LUOGO:  "+spazio.getNome());
 			evento.setFont(new Font("sansserif",Font.BOLD,20));
-			centroPnl.add(evento);
+			contenuto.add(evento);
+			centroPnl.add(contenuto);
 			//disciplina.addActionListener(ascoltatoreDisciplina);
 				}
 		

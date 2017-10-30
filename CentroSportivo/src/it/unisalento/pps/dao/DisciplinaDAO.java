@@ -53,7 +53,6 @@ public class DisciplinaDAO {
 		for(int i=0;i<result.size();i++) {
 			disciplina = new Disciplina(Integer.parseInt(result.get(i)[0]),result.get(i)[1],Double.parseDouble(result.get(i)[2]),result.get(i)[3],result.get(i)[4]);
 			discipline.add(disciplina);
-				
 		}
 		return discipline;
 	}	
@@ -70,6 +69,15 @@ public class DisciplinaDAO {
 			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into disciplina(ID_Disciplina,Nome,CostoMensile,Descrizione) values(\""+(idDisciplina+1)+"\",\""+nome+"\",\""+costo+"\",\""+descrizione+"\")");
 
 		return  ok_inserimento;
+	}
+
+
+	public boolean cancellaDisciplina() {
+		
+		boolean ok_eliminazione = false;
+		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("drop disciplina");
+		
+		return ok_eliminazione;
 	}
 	
 	

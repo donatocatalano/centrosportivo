@@ -13,11 +13,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.listener.AscoltatoreConfermaDisciplina;
 import it.unisalento.pps.model.Responsabile;
 
-public class FormDisciplina extends JFrame {
+public class FormModDisciplina extends JFrame {
 	
 	Font myfont = new Font("sansserif",Font.PLAIN,20);  
 	Dimension mysize = new Dimension (200,30);
@@ -59,7 +60,9 @@ public class FormDisciplina extends JFrame {
 	JButton inserimento= new JButton("CONFERMA DATI INSERITI");
 	
 	
-	public FormDisciplina(Responsabile responsabile) {
+	AscoltatoreConfermaDisciplina ascoltatoreConfermaDisciplina;
+	
+	public FormModDisciplina(Responsabile responsabile) {
 		super("Area privata RESPONSABILE : "+responsabile.getNome()+" "+responsabile.getCognome());
 		
 		compilaform.setFont(new Font("sansserif",Font.BOLD,34));
@@ -99,7 +102,9 @@ public class FormDisciplina extends JFrame {
 
 
 		indietro.addActionListener(new AscoltatoreBackResp(this, responsabile));
-		inserimento.addActionListener(new AscoltatoreConfermaDisciplina(this, responsabile));
+		ascoltatoreConfermaDisciplina = new AscoltatoreConfermaDisciplina(this,responsabile);
+		inserimento.addActionListener(ascoltatoreConfermaDisciplina);
+		inserimento.setActionCommand(AscoltatoreBackHome.D1);	
 		sudPnl.add(indietro);
 		sudPnl.add(inserimento);
 		
