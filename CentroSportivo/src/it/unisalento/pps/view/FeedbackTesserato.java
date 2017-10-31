@@ -55,7 +55,7 @@ public class FeedbackTesserato extends JFrame{
 		
 		
 		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
-		contenuto.setLayout(new GridLayout(testimonianze.size(),1));
+		contenuto.setLayout(new GridLayout(3*testimonianze.size(),1));
 		Utente utente;
 		
 		if(testimonianze.size()>0) {			
@@ -69,7 +69,11 @@ public class FeedbackTesserato extends JFrame{
 				
 				JLabel testo = new JLabel((i+1)+")  FEEDBACK del "+giorno+ ":"+mese+ ":" +anno+" di " +utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
 				testo.setFont(new Font("sansserif",Font.BOLD,20));
+				JLabel vuoto1 = new JLabel();
+				JLabel vuoto2 = new JLabel();
+				contenuto.add(vuoto1);
 				contenuto.add(testo);
+				contenuto.add(vuoto2);
 				centroPnl.add(contenuto);		
 			}
 		}
