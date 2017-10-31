@@ -51,7 +51,7 @@ public class CatalogoDiscipline extends JFrame {
 		
 		
 		discipline = DisciplinaBusiness.getInstance().getDiscipline();
-		centroPnl.setLayout(new GridLayout(discipline.size(),1));
+		centroPnl.setLayout(new GridLayout(3*discipline.size(),1));
 		
 		if(discipline.size()>0) {
 			for(int i=0;i<discipline.size();i++) {

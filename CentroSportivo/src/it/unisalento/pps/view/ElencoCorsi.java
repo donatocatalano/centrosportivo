@@ -52,14 +52,17 @@ public class ElencoCorsi extends JFrame {
 		nordPnl.add(spazio);
 		
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
+		System.out.println(corsi);
 		centroPnl.setLayout(new GridLayout(5*corsi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
 		//Livello livello;
 		
 		for(int i=0;i<corsi.size();i++) {
+			
 			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
 			spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
+			
 			//livello = LivelloBusiness.getInstance().getLivelloById(corsi.get(i).getLivello());
 			String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
 			String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
@@ -72,7 +75,7 @@ public class ElencoCorsi extends JFrame {
 			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
 			corso.setHorizontalAlignment(JLabel.LEFT);
-			
+			System.out.println(corso);
 			contenuto.add(corso);
 			
 			centroPnl.add(contenuto);
