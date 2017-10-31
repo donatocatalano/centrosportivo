@@ -59,7 +59,7 @@ public class DisciplinaDAO {
 	
 	public boolean registraDisciplina(String nome, Double costo, String descrizione) {
 
-		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from disciplina " );
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Disciplina) from disciplina");
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
 		int idDisciplina = Integer.parseInt(tupla[0]);
