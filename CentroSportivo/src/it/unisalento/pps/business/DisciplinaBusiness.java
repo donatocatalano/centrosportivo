@@ -45,8 +45,8 @@ private static DisciplinaBusiness instance;
 	}
 
 
-	public boolean cancellaDisciplina() {
-		return DisciplinaDAO.getInstance().cancellaDisciplina();
+	public boolean cancellaDisciplina(Disciplina disciplina) {
+		return DisciplinaDAO.getInstance().cancellaDisciplina(disciplina);
 	}
 
 

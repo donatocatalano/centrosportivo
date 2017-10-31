@@ -26,7 +26,7 @@ public class AscoltatoreEliminaDisciplina implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		
-		boolean ok = DisciplinaBusiness.getInstance().cancellaDisciplina();
+		boolean ok = DisciplinaBusiness.getInstance().cancellaDisciplina(disciplina);
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Disciplina eliminata!");
 			new CatalogoDiscipline(responsabile);
