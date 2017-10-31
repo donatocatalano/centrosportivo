@@ -17,10 +17,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
+import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreConfermaCorso;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Istruttore;
+import it.unisalento.pps.model.Spazio;
 
 public class FormCorso extends JFrame {
 	
@@ -47,16 +49,16 @@ public class FormCorso extends JFrame {
 	
 	JPanel spazio= new JPanel(new FlowLayout());
 	JLabel luogo= new JLabel("DOVE");
-	JComboBox combo_luogo = new JComboBox();
+	public JComboBox combo_luogo = new JComboBox();
 	
 		
 	JPanel tipo= new JPanel(new FlowLayout());
 	JLabel tipoevento= new JLabel("TIPO EVENTO");   
-	JComboBox combo_evento = new JComboBox();
+	public JComboBox combo_evento = new JComboBox();
 	
 	JPanel appartenenza = new JPanel(new FlowLayout());
 	JLabel disciplina = new JLabel("DISCIPLINA");   
-	JComboBox combo_disciplina = new JComboBox();
+	public JComboBox combo_disciplina = new JComboBox();
 	
 	JPanel dateend= new JPanel(new FlowLayout());
 	JLabel datafine= new JLabel("DATA FINE (nel formato gg-mm-aaaa)");
@@ -70,7 +72,8 @@ public class FormCorso extends JFrame {
 	public FormCorso(Istruttore istruttore) {
 		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
 		
-ArrayList<Disciplina> discipline = DisciplinaBusiness.getInstance().getDiscipline();
+		ArrayList<Disciplina> discipline = DisciplinaBusiness.getInstance().getDiscipline();
+		ArrayList<Spazio> spazi = SpazioBusiness.getInstance().getSpazi();
 		
 		compilaform.setFont(new Font("sansserif",Font.BOLD,34));
 		compilaform.setHorizontalAlignment(JLabel.CENTER);
@@ -93,12 +96,13 @@ ArrayList<Disciplina> discipline = DisciplinaBusiness.getInstance().getDisciplin
 		centroPnl.add(turn);
 		spazio.add(luogo);
 		luogo.setFont(new Font("sansserif",Font.BOLD,25));
-		combo_luogo.addItem("PISCINA");
-		combo_luogo.addItem("PALESTRA");
-		combo_luogo.addItem("SALAPESI");
-		combo_luogo.setEditable(true);
-		combo_luogo.setFont(myfont);
-		combo_luogo.setPreferredSize(mysize);
+		luogo.setFont(new Font("sansserif",Font.BOLD,25));
+		for(int i=0;i<spazi.size();i++) {
+			combo_luogo.addItem(spazi.get(i).getNome());
+			combo_luogo.setEditable(true);
+			combo_luogo.setFont(myfont);
+			combo_luogo.setPreferredSize(mysize);
+		}
 		spazio.add(combo_luogo);
 		centroPnl.add(spazio);
 		tipo.add(tipoevento);
