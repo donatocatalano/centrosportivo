@@ -1,6 +1,10 @@
 package it.unisalento.pps.business;
 
+import java.util.ArrayList;
+
+import it.unisalento.pps.dao.SpazioDAO;
 import it.unisalento.pps.dao.TipoEventoDAO;
+import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
 
 public class TipoEventoBusiness {
@@ -17,8 +21,10 @@ private static TipoEventoBusiness instance;
 	}
 
 	public TipoEvento getEventoById(int idTipo) {
-		// TODO Auto-generated method stub
 		return TipoEventoDAO.getInstance().getEventoById(idTipo);
 	}
 	
+	public ArrayList<TipoEvento> getTipoNome() {
+		return TipoEventoDAO.getInstance().getTipoNome();
+	}
 }

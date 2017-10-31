@@ -22,9 +22,6 @@ import it.unisalento.pps.model.Utente;
 
 public class FeedbackTesserato extends JFrame{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	private JPanel centroPnl=new JPanel();
@@ -36,8 +33,8 @@ public class FeedbackTesserato extends JFrame{
 	
 	JPanel contenuto = new JPanel();
 	
-	JButton indietro= new JButton("TORNA ALL'HOMEPAGE");
-	JButton feedback = new JButton("LASCIA FEEDBACK");
+	private JButton indietro= new JButton("TORNA ALL'HOMEPAGE");
+	private JButton feedback = new JButton("LASCIA FEEDBACK");
 	
 	
 	AscoltatoreBackHome ascoltatoreBackHome; 
@@ -67,11 +64,10 @@ public class FeedbackTesserato extends JFrame{
 				
 				String giorno= testimonianze.get(i).getData().toString().substring(8,10);
 				String mese = testimonianze.get(i).getData().toString().substring(5,7);
-				String anno =testimonianze.get(i).getData().toString().substring(0,4);	
+				String anno =testimonianze.get(i).getData().toString().substring(0,4);
 				
 				
-				
-				JLabel testo = new JLabel((i+1)+")  FEEDBACK del   " +giorno+ ":"+mese+ ":" +anno+" , "+ utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
+				JLabel testo = new JLabel((i+1)+")  FEEDBACK del "+giorno+ ":"+mese+ ":" +anno+" di " +utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
 				testo.setFont(new Font("sansserif",Font.BOLD,20));
 				JLabel vuoto1 = new JLabel();
 				JLabel vuoto2 = new JLabel();
@@ -98,7 +94,7 @@ public class FeedbackTesserato extends JFrame{
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
+		this.getContentPane().add(centroPnl,BorderLayout.WEST);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 	

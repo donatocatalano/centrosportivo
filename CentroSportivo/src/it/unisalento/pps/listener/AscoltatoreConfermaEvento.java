@@ -29,9 +29,9 @@ public class AscoltatoreConfermaEvento implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) throws IllegalArgumentException{
 		JTextField datainizio = frame.datainizio_field;
 		JTextField turno = frame.orario_field;
-		//JTextField luogo = frame.luogo_field;
-		//JTextField tipoevento = frame.tipoevento_field;
-		//JTextField disciplina = frame.disciplina_field;
+		String spazio = frame.combo_luogo.getSelectedItem().toString();
+		String tipo = frame.combo_evento.getSelectedItem().toString();
+		String disciplina = frame.combo_disciplina.getSelectedItem().toString();
 		JTextField datafine = frame.datafine_field;
 		
 		
@@ -55,7 +55,7 @@ public class AscoltatoreConfermaEvento implements ActionListener {
 		
 		
 		
-		boolean ok = EventoBusiness.getInstance().registraEvento(dataInizio,turno.getText(),istruttore.getIdIstruttore(),dataFine);
+		boolean ok = EventoBusiness.getInstance().registraEvento(dataInizio,turno.getText(),istruttore.getIdIstruttore(),spazio.parseInt().getIdSpazio(),tipo,disciplina,dataFine);
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 			new AreaIstruttore(istruttore);

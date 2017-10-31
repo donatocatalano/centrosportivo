@@ -76,7 +76,7 @@ public class EventoDAO {
 		return eventi;
 	}
 
-	public boolean registraEvento(Date datainizio, String orario, int istruttore, Date datafine) {
+	public boolean registraEvento(Date datainizio, String orario, int istruttore, String spazio, String tipo, String disciplina, Date datafine) {
 		
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
 		Iterator<String[]> iter = risultato.iterator();
@@ -85,12 +85,12 @@ public class EventoDAO {
 		
 		boolean ok_inserimento = false;
 		if(!orario.isEmpty())
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Istruttore,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+orario+"\",\""+istruttore+"\",\""+datafine+"\")");
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Istruttore,Spazio,Tipo,Disciplina,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+orario+"\",\""+istruttore+"\",\""+spazio+"\",\""+tipo+"\",\""+disciplina+"\",\""+datafine+"\")");
 
 		return  ok_inserimento;
 	}
 
-	public boolean registraCorso(Date datainizio, String orario, int istruttore, Date datafine) {
+	public boolean registraCorso(Date datainizio, String orario, int istruttore, String spazio, String tipo, String disciplina, Date datafine) {
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
@@ -98,7 +98,7 @@ public class EventoDAO {
 		
 		boolean ok_inserimento = false;
 		if(!orario.isEmpty())
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Istruttore,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+orario+"\",\""+istruttore+"\",\""+datafine+"\")");
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into evento(ID_Evento,Data_Inizio,Turno,Istruttore,Spazio,Tipo,Disciplina,Data_Fine) values(\""+(idEvento+1)+"\",\""+datainizio+"\",\""+orario+"\",\""+istruttore+"\",\""+spazio+"\",\""+tipo+"\",\""+disciplina+"\",\""+datafine+"\")");
 
 		return  ok_inserimento;
 	}

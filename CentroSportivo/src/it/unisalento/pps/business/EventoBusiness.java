@@ -30,13 +30,13 @@ private static EventoBusiness instance;
 		return EventoDAO.getInstance().getEventiByIdIstruttore(idIstruttore);
 	}
 	
-	public boolean registraEvento(Date datainizio, String orario, int istruttore, Date datafine) {
+	public boolean registraEvento(Date datainizio, String orario, int istruttore, String spazio, String tipo, String disciplina, Date datafine) {
 
-		return EventoDAO.getInstance().registraEvento(datainizio,orario,istruttore,datafine);
+		return EventoDAO.getInstance().registraEvento(datainizio,orario,istruttore,spazio,tipo,disciplina,datafine);
 	}
 
-	public boolean registraCorso(Date datainizio, String orario, int istruttore, Date datafine) {
-		
-		return EventoDAO.getInstance().registraCorso(datainizio,orario,istruttore,datafine);
+	public boolean registraCorso(Date datainizio, String orario, int istruttore, String spazio, String tipo, String disciplina, Date datafine) {
+
+		return EventoDAO.getInstance().registraEvento(datainizio,orario,istruttore,spazio,tipo,disciplina,datafine);
 	}
 }

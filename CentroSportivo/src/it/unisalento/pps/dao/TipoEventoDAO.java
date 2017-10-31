@@ -30,4 +30,17 @@ public class TipoEventoDAO {
 		return tipo;
 	}
 	
+	public ArrayList<TipoEvento> getTipoNome() {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from tipoevento");
+		
+		ArrayList<TipoEvento> tipi = new ArrayList<TipoEvento>();
+		TipoEvento tipo;
+		
+		for(int i=0;i<result.size();i++) {
+			tipo = new TipoEvento(Integer.parseInt(result.get(i)[0]),result.get(i)[1]);
+			tipi.add(tipo);
+		}
+		return tipi;
+	}	
+	
 }
