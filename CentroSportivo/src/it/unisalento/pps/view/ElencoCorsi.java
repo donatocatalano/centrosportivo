@@ -69,9 +69,9 @@ public class ElencoCorsi extends JFrame {
 			String mese_fine = corsi.get(i).getDataFine().toString().substring(5,7);
 			String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);		
 			
-			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome()+ "  Livello : ");
+			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
-			corso.setHorizontalAlignment(JLabel.CENTER);
+			corso.setHorizontalAlignment(JLabel.LEFT);
 			
 			contenuto.add(corso);
 			
