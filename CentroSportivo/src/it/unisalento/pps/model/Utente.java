@@ -39,6 +39,14 @@ public class Utente{
 		this.tesserato = tesserato;
 	}
 	
+	
+	
+	public Utente(int idUtente, String nome, String cognome) {
+		this.idUtente = idUtente;
+		this.nome = nome;
+		this.cognome = cognome;
+	}
+
 	public Utente(int idUtente, String nome, String cognome,  String sesso) {
 		this.idUtente = idUtente;
 		this.nome = nome;

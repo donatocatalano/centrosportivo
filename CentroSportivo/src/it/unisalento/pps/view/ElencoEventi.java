@@ -64,9 +64,15 @@ public class ElencoEventi extends JFrame {
 		for(int i=0;i<eventi.size();i++) {
 			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
 			spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
-			tipo = TipoEventoBusiness.getInstance().getEventoById(eventi.get(i).getTipo());
+			String giorno_inizio= eventi.get(i).getDataInizio().toString().substring(8,10);
+			String mese_inizio = eventi.get(i).getDataInizio().toString().substring(5,7);
+			String anno_inizio =eventi.get(i).getDataInizio().toString().substring(0,4);	
 			
-			JLabel evento = new JLabel(tipo.getTipo()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +eventi.get(i).getDataInizio()+ "   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  " +eventi.get(i).getDataFine()+"  LUOGO:  "+spazio.getNome());
+			String giorno_fine= eventi.get(i).getDataFine().toString().substring(8,10);
+			String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
+			String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);		
+			
+			JLabel evento = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome());
 			evento.setFont(new Font("sansserif",Font.BOLD,20));
 			contenuto.add(evento);
 			centroPnl.add(contenuto);

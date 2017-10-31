@@ -1,32 +1,28 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.util.*;
+
 import it.unisalento.pps.listener.*;
 import it.unisalento.pps.model.Istruttore;
-import it.unisalento.pps.model.Responsabile;
+
 
 
 public class AreaIstruttore extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(1,3));
 	JPanel centroPnl=new JPanel(new GridLayout(3,4));
 	JPanel sudPnl=new JPanel();

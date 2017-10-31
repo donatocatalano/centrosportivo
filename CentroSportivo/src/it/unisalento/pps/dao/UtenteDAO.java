@@ -93,7 +93,7 @@ public class UtenteDAO {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where ID_Utente=\""+ idUtente +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
-		utente=new Utente(Integer.parseInt(tupla[0]),tupla[1]);
+		utente=new Utente(Integer.parseInt(tupla[0]),tupla[1],tupla[2]);
 		return utente;
 	}
 }

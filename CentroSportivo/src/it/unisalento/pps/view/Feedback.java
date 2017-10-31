@@ -11,11 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.unisalento.pps.business.SpazioBusiness;
+
 import it.unisalento.pps.business.TestimonianzaBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreFeedback;
+
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Testimonianza;
 import it.unisalento.pps.model.Utente;
@@ -23,6 +23,10 @@ import it.unisalento.pps.model.Utente;
 
 public class Feedback extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	private JPanel centroPnl=new JPanel();
 	private JPanel sudPnl=new JPanel();
@@ -58,8 +62,13 @@ public class Feedback extends JFrame{
 		if(testimonianze.size()>0) {			
 			for(int i=0;i<testimonianze.size();i++) {
 				utente = UtenteBusiness.getInstance().getUtenteById(testimonianze.get(i).getUtente());
+								
+				String giorno= testimonianze.get(i).getData().toString().substring(8,10);
+				String mese = testimonianze.get(i).getData().toString().substring(5,7);
+				String anno =testimonianze.get(i).getData().toString().substring(0,4);	
+							
 				
-				JLabel testo = new JLabel((i+1)+")  FEEDBACK DI " +utente.getNome()+ ":   " +testimonianze.get(i).getContenuto());		
+				JLabel testo = new JLabel((i+1)+")  FEEDBACK del   " +giorno+ ":"+mese+ ":" +anno+" , "+ utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
 				testo.setFont(new Font("sansserif",Font.BOLD,20));
 				contenuto.add(testo);
 				centroPnl.add(contenuto);		

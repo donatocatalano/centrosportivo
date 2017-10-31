@@ -25,11 +25,13 @@ import it.unisalento.pps.model.Spazio;
 
 public class ElencoCorsi extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
-	
-	
 	JLabel titolo = new JLabel();
 	JLabel spazio = new JLabel();
 	
@@ -63,8 +65,15 @@ public class ElencoCorsi extends JFrame {
 		for(int i=0;i<corsi.size();i++) {
 			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
 			spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
+			String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
+			String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
+			String anno_inizio =corsi.get(i).getDataInizio().toString().substring(0,4);	
 			
-			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +corsi.get(i).getDataInizio()+ "   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  " +corsi.get(i).getDataFine()+"  LUOGO:  "+spazio.getNome());
+			String giorno_fine= corsi.get(i).getDataFine().toString().substring(8,10);
+			String mese_fine = corsi.get(i).getDataFine().toString().substring(5,7);
+			String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);		
+			
+			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
 			contenuto.add(corso);
 			centroPnl.add(contenuto);
