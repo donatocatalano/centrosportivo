@@ -79,6 +79,15 @@ public class DisciplinaDAO {
 		
 		return ok_eliminazione;
 	}
+
+
+	public int getIdDisciplinaByNome(String disciplina) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from disciplina where Nome=\""+ disciplina +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		int disciplinaId=Integer.parseInt(tupla[0]);
+		return disciplinaId;
+	}
 	
 	
 }

@@ -30,4 +30,9 @@ private static SpazioBusiness instance;
 	public ArrayList<Spazio> getSpazi() {
 		return SpazioDAO.getInstance().getSpazi();
 	}
+
+	public int getIdSpazioByNome(String spazio) {
+		// TODO Auto-generated method stub
+		return SpazioDAO.getInstance().getIdSpazioByNome(spazio);
+	}
 }

@@ -48,6 +48,12 @@ private static DisciplinaBusiness instance;
 	public boolean cancellaDisciplina() {
 		return DisciplinaDAO.getInstance().cancellaDisciplina();
 	}
+
+
+	public int getIdDisciplinaByNome(String disciplina) {
+		// TODO Auto-generated method stub
+		return DisciplinaDAO.getInstance().getIdDisciplinaByNome(disciplina);
+	}
 }
 
 

@@ -12,10 +12,6 @@ public class Spazio{
 		this.idSpazio = idSpazio;
 	}
 	
-	public Spazio(String nome) {
-		this.nome = nome;
-	}
-
 	public Spazio(int idSpazio, String nome) {
 		this.idSpazio = idSpazio;
 		this.nome = nome;

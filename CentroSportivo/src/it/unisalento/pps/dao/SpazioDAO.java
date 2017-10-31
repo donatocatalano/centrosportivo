@@ -29,15 +29,7 @@ public class SpazioDAO {
 		spazio=new Spazio(Integer.parseInt(tupla[0]),tupla[1]);
 		return spazio;
 	}
-	
-	public Spazio getSpazioByNome(String spazio) {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from spazio where Nome=\""+ spazio +"\" ");
-		Iterator<String[]> iter = result.iterator();
-		String[] tupla = iter.next();
-		spazio=new Spazio(Integer.parseInt(tupla[0]),tupla[1]);
-		return spazio;
-	}
-	
+		
 	public ArrayList<Spazio> getSpazi() {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from spazio");
 		
@@ -49,5 +41,13 @@ public class SpazioDAO {
 			spazi.add(spazio);
 		}
 		return spazi;
+	}
+
+	public int getIdSpazioByNome(String spazio) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from spazio where Nome=\""+ spazio +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		int spazioId=Integer.parseInt(tupla[0]);
+		return spazioId;
 	}	
 }

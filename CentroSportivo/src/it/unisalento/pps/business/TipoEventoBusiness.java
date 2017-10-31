@@ -27,4 +27,9 @@ private static TipoEventoBusiness instance;
 	public ArrayList<TipoEvento> getTipoNome() {
 		return TipoEventoDAO.getInstance().getTipoNome();
 	}
+
+	public int getIdTipoEventoByNome(String tipo) {
+		// TODO Auto-generated method stub
+		return TipoEventoDAO.getInstance().getIdTipoEventoByNome(tipo);
+	}
 }

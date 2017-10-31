@@ -8,7 +8,10 @@ import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
+import it.unisalento.pps.business.SpazioBusiness;
+import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.view.AreaIstruttore;
 import it.unisalento.pps.view.FormCorso;
@@ -53,8 +56,12 @@ public class AscoltatoreConfermaCorso implements ActionListener {
 		Date dataInizio = new Date(millisecondi_inizio);
 		Date dataFine = new Date(millisecondi_fine);
 		
+		int spazioId = SpazioBusiness.getInstance().getIdSpazioByNome(spazio);
+		int tipoId = TipoEventoBusiness.getInstance().getIdTipoEventoByNome(tipo);
+		int disciplinaId = DisciplinaBusiness.getInstance().getIdDisciplinaByNome(disciplina);
 		
-		boolean ok = EventoBusiness.getInstance().registraCorso(dataInizio,turno.getText(),istruttore.getIdIstruttore(),spazio,tipo,disciplina,dataFine);
+		
+		boolean ok = EventoBusiness.getInstance().registraCorso(dataInizio,turno.getText(),istruttore.getIdIstruttore(),spazioId,tipoId,disciplinaId,dataFine);
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 			new AreaIstruttore(istruttore);

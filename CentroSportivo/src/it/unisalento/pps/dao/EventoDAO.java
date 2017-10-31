@@ -76,7 +76,7 @@ public class EventoDAO {
 		return eventi;
 	}
 
-	public boolean registraEvento(Date datainizio, String orario, int istruttore, String spazio, String tipo, String disciplina, Date datafine) {
+	public boolean registraEvento(Date datainizio, String orario, int istruttore, int spazio, int tipo, int disciplina, Date datafine) {
 		
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
 		Iterator<String[]> iter = risultato.iterator();
@@ -90,7 +90,7 @@ public class EventoDAO {
 		return  ok_inserimento;
 	}
 
-	public boolean registraCorso(Date datainizio, String orario, int istruttore, String spazio, String tipo, String disciplina, Date datafine) {
+	public boolean registraCorso(Date datainizio, String orario, int istruttore, int spazio, int tipo, int disciplina, Date datafine) {
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
