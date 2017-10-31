@@ -60,7 +60,7 @@ public class CatalogoDiscipline extends JFrame {
 				contenuto.add(IdDisciplina);
 				ascoltatoreNuovaDisciplina = new AscoltatoreNuovaDisciplina(this, responsabile);
 				modifica.addActionListener(ascoltatoreNuovaDisciplina);
-				modifica.setActionCommand(AscoltatoreBackHome.D1);	
+				modifica.setActionCommand(AscoltatoreBackHome.D1);
 				JButton modifica = new JButton ("MODIFICA");
 				JButton elimina = new JButton ("ELIMINA");
 				contenuto.add(modifica);

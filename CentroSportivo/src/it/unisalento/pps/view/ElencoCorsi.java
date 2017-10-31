@@ -11,14 +11,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
-import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreNuovoCorso;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
-import it.unisalento.pps.model.Livello;
 import it.unisalento.pps.model.Spazio;
 
 public class ElencoCorsi extends JFrame {
