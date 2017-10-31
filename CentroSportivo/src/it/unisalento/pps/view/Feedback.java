@@ -23,9 +23,7 @@ import it.unisalento.pps.model.Utente;
 
 public class Feedback extends JFrame{
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	private JPanel centroPnl=new JPanel();
@@ -55,7 +53,7 @@ public class Feedback extends JFrame{
 		
 		
 		testimonianze = TestimonianzaBusiness.getInstance().getTestimonianzeByIdDisciplina(disciplina.getIdDisciplina());
-		contenuto.setLayout(new GridLayout(testimonianze.size(),1));
+		contenuto.setLayout(new GridLayout(3*testimonianze.size(),1));
 		Utente utente;
 		
 		
@@ -70,7 +68,11 @@ public class Feedback extends JFrame{
 				
 				JLabel testo = new JLabel((i+1)+")  FEEDBACK del   " +giorno+ ":"+mese+ ":" +anno+" , "+ utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
 				testo.setFont(new Font("sansserif",Font.BOLD,20));
+				JLabel vuoto1 = new JLabel();
+				JLabel vuoto2 = new JLabel();
+				contenuto.add(vuoto1);
 				contenuto.add(testo);
+				contenuto.add(vuoto2);
 				centroPnl.add(contenuto);		
 			}
 		}
@@ -86,7 +88,7 @@ public class Feedback extends JFrame{
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.WEST);
+		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 	

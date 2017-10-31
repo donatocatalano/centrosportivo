@@ -28,9 +28,9 @@ public class AreaIstruttore extends JFrame{
 	JPanel sudPnl=new JPanel();
 	
 	
-	JLabel vuoto00 = new JLabel ("");
-	JLabel titolo = new JLabel ("");
-	JLabel vuoto000 = new JLabel ("");
+	JLabel vuoto00 = new JLabel ();
+	JLabel titolo = new JLabel ();
+	JLabel vuoto000 = new JLabel ();
         
 	JPanel vuoto0 = new JPanel ();
 	JPanel vuoto1 = new JPanel ();
