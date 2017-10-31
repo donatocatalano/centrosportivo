@@ -51,7 +51,7 @@ public class CatalogoDiscipline extends JFrame {
 		
 		
 		discipline = DisciplinaBusiness.getInstance().getDiscipline();
-		centroPnl.setLayout(new GridLayout(discipline.size(),1));
+		centroPnl.setLayout(new GridLayout(3*discipline.size(),1));
 		
 		if(discipline.size()>0) {
 			for(int i=0;i<discipline.size();i++) {
@@ -60,7 +60,7 @@ public class CatalogoDiscipline extends JFrame {
 				contenuto.add(IdDisciplina);
 				ascoltatoreNuovaDisciplina = new AscoltatoreNuovaDisciplina(this, responsabile);
 				modifica.addActionListener(ascoltatoreNuovaDisciplina);
-				modifica.setActionCommand(AscoltatoreBackHome.D1);	
+				modifica.setActionCommand(AscoltatoreBackHome.D1);
 				JButton modifica = new JButton ("MODIFICA");
 				JButton elimina = new JButton ("ELIMINA");
 				contenuto.add(modifica);

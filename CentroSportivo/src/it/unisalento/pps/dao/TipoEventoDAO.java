@@ -44,7 +44,7 @@ public class TipoEventoDAO {
 	}
 
 	public int getIdTipoEventoByNome(String tipo) {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from tipoevento where Nome=\""+ tipo +"\" ");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from tipoevento where Tipo=\""+ tipo +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
 		int tipoId=Integer.parseInt(tupla[0]);
