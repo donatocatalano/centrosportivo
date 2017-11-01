@@ -14,14 +14,14 @@ import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.*;
 
-public class LoginBtnListener implements ActionListener, KeyListener {
+public class AscoltatoreLogin implements ActionListener, KeyListener {
 
 	private Homepage homepageWindow;
 	private Utente tesserato;
 	private Istruttore istruttore;
 	private Responsabile responsabile;
 	
-	public LoginBtnListener(Homepage homepageWindow) {
+	public AscoltatoreLogin(Homepage homepageWindow) {
 		super();
 		this.homepageWindow = homepageWindow;
 	}

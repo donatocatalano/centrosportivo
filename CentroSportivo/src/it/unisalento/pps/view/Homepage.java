@@ -25,7 +25,7 @@ import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.TestimonianzaBusiness;
 import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.listener.AscoltatoreReg;
-import it.unisalento.pps.listener.LoginBtnListener;
+import it.unisalento.pps.listener.AscoltatoreLogin;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Testimonianza;
 
@@ -77,10 +77,10 @@ public class Homepage extends JFrame {
 		login.add(username);
 		login.add(psw);
 		login.add(password);
-		password.addKeyListener(new LoginBtnListener (this));
+		password.addKeyListener(new AscoltatoreLogin (this));
 		login.add(loginBtn);
-		loginBtn.addActionListener(new LoginBtnListener(this));
-		loginBtn.addKeyListener(new LoginBtnListener (this));
+		loginBtn.addActionListener(new AscoltatoreLogin(this));
+		loginBtn.addKeyListener(new AscoltatoreLogin (this));
 		login.add(registrazione);
 		registrazione.addActionListener(new AscoltatoreReg(this));
 		//loginBtn.setOpaque( true );

@@ -29,7 +29,7 @@ import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
 import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
 import it.unisalento.pps.listener.AscoltatoreReg;
-import it.unisalento.pps.listener.LoginBtnListener;
+import it.unisalento.pps.listener.AscoltatoreLogin;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
