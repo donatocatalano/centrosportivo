@@ -13,7 +13,8 @@ import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
-import it.unisalento.pps.listener.AscoltatoreNuovoCorso;
+import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
+import it.unisalento.pps.listener.AscoltatoreNuovoEvento;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
@@ -35,10 +36,11 @@ public class ElencoCorsi extends JFrame {
 	JButton nuovocorso = new JButton("AGGIUNGI CORSO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
-	AscoltatoreNuovoCorso ascoltatoreNuovoCorso;
+	AscoltatoreNuovoEvento ascoltatoreNuovoCorso;
+	AscoltatoreEliminaEvento ascoltatoreElimina;
 	Istruttore istruttore;
 	ArrayList<Evento> corsi = new ArrayList<Evento>();
-	
+
 
 	public ElencoCorsi(Istruttore istruttore) {
 		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
@@ -50,18 +52,15 @@ public class ElencoCorsi extends JFrame {
 		nordPnl.add(spazio);
 		
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
-		System.out.println(corsi);
 		centroPnl.setLayout(new GridLayout(5*corsi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
-		//Livello livello;
 		
 		for(int i=0;i<corsi.size();i++) {
 			
 			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
 			spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
 			
-			//livello = LivelloBusiness.getInstance().getLivelloById(corsi.get(i).getLivello());
 			String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
 			String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
 			String anno_inizio =corsi.get(i).getDataInizio().toString().substring(0,4);	
@@ -73,20 +72,24 @@ public class ElencoCorsi extends JFrame {
 			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome());
 			corso.setFont(new Font("sansserif",Font.BOLD,20));
 			corso.setHorizontalAlignment(JLabel.LEFT);
-			System.out.println(corso);
+			JButton elimina = new JButton ("ELIMINA");
 			contenuto.add(corso);
-			
+			contenuto.add(elimina);
 			centroPnl.add(contenuto);
 			
-				}
+			ascoltatoreElimina = new AscoltatoreEliminaEvento(this,istruttore,corsi.get(i));
+			elimina.setActionCommand(AscoltatoreEliminaEvento.D1);
+			elimina.addActionListener(ascoltatoreElimina);
+		}
 		
 		
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
 		sudPnl.add(indietro);
-		ascoltatoreNuovoCorso = new AscoltatoreNuovoCorso (this, istruttore);
+		ascoltatoreNuovoCorso = new AscoltatoreNuovoEvento (this, istruttore);
 		nuovocorso.addActionListener(ascoltatoreNuovoCorso);
+		nuovocorso.setActionCommand(AscoltatoreNuovoEvento.D1);
 		sudPnl.add(nuovocorso);
 		
 		

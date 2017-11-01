@@ -18,6 +18,8 @@ import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
+import it.unisalento.pps.listener.AscoltatoreEliminaDisciplina;
+import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
 import it.unisalento.pps.listener.AscoltatoreNuovoEvento;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
@@ -42,13 +44,15 @@ public class ElencoEventi extends JFrame {
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
 	AscoltatoreNuovoEvento ascoltatoreNuovoEvento;
+	AscoltatoreEliminaEvento ascoltatoreElimina;
 	Istruttore istruttore;
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
+	
 
 	public ElencoEventi(Istruttore istruttore) {
 		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
 		
-		titolo.setText("ELENO EVENTI"); 
+		titolo.setText("ELENCO EVENTI"); 
 		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
@@ -58,7 +62,6 @@ public class ElencoEventi extends JFrame {
 		centroPnl.setLayout(new GridLayout(eventi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
-		//Livello livello;
 		TipoEvento tipo;
 		
 		for(int i=0;i<eventi.size();i++) {
@@ -74,10 +77,14 @@ public class ElencoEventi extends JFrame {
 			
 			JLabel evento = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome());
 			evento.setFont(new Font("sansserif",Font.BOLD,20));
+			JButton elimina = new JButton ("ELIMINA");
 			contenuto.add(evento);
+			contenuto.add(elimina);
 			centroPnl.add(contenuto);
-			//disciplina.addActionListener(ascoltatoreDisciplina);
-				}
+			
+			ascoltatoreElimina = new AscoltatoreEliminaEvento(this,istruttore,eventi.get(i));
+			elimina.addActionListener(ascoltatoreElimina);
+		}
 		
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);

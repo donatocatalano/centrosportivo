@@ -138,7 +138,6 @@ public class FormEvento extends JFrame {
 
 
 		indietro.addActionListener(new AscoltatoreBackIst(this, istruttore));
-		//
 		inserimento.addActionListener(new AscoltatoreConfermaEvento(this, istruttore));
 		sudPnl.add(indietro);
 		sudPnl.add(inserimento);

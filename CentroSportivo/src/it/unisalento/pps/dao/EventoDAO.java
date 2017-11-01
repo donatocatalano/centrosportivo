@@ -102,4 +102,11 @@ public class EventoDAO {
 
 		return  ok_inserimento;
 	}
+
+	public boolean cancellaEvento(Evento evento) {
+		boolean ok_eliminazione = false;
+		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from evento where ID_Evento = \""+ evento.getIdEvento() +"\" ");
+		
+		return   ok_eliminazione;
+	}
 }

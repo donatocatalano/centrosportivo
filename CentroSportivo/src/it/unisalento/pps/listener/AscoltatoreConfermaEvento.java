@@ -1,6 +1,5 @@
 package it.unisalento.pps.listener;
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
@@ -15,7 +14,6 @@ import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.view.AreaIstruttore;
-import it.unisalento.pps.view.FormCorso;
 import it.unisalento.pps.view.FormEvento;
 
 public class AscoltatoreConfermaEvento implements ActionListener {
@@ -25,6 +23,7 @@ public class AscoltatoreConfermaEvento implements ActionListener {
 	
 
 	public AscoltatoreConfermaEvento(FormEvento frame, Istruttore istruttore) {
+		super();
 		this.frame = frame;
 		this.istruttore = istruttore;
 	}

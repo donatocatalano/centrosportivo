@@ -86,7 +86,7 @@ public class Feedback extends JFrame{
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
+		this.getContentPane().add(centroPnl,BorderLayout.WEST);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 	

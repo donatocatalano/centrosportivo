@@ -43,7 +43,6 @@ public class CatalogoDiscipline extends JFrame {
 	AscoltatoreNuovaDisciplina ascoltatoreNuovaDisciplina;
 	AscoltatoreEliminaDisciplina ascoltatoreElimina;
 	Responsabile responsabile;
-	//Disciplina disciplina;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 
 	public CatalogoDiscipline(Responsabile responsabile) {
@@ -68,9 +67,6 @@ public class CatalogoDiscipline extends JFrame {
 				JButton elimina = new JButton ("ELIMINA");
 				JPanel contenuto = new JPanel(new FlowLayout());
 				contenuto.setAlignmentX(LEFT_ALIGNMENT);
-				//disciplina.setHorizontalAlignment(JLabel.LEFT);
-				Dimension panelD = new Dimension(1200,50);
-				//contenuto.setPreferredSize(panelD);
 				contenuto.add(disciplina);				
 				contenuto.add(modifica);
 				contenuto.add(elimina);
