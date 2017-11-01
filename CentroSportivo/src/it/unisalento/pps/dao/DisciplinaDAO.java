@@ -73,16 +73,11 @@ public class DisciplinaDAO {
 
 
 	public boolean cancellaDisciplina(Disciplina disciplina) {
-		String nome = disciplina.getNome();
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from disciplina where Nome=\""+ nome +"\" ");
-		Iterator<String[]> iter = result.iterator();
-		String[] tupla = iter.next();
-		int disciplinaId=Integer.parseInt(tupla[0]);
-		
+				
 		boolean ok_eliminazione = false;
-		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from disciplina where ID_Disciplina = \""+ disciplinaId +"\" ");
+		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from disciplina where ID_Disciplina = \""+ disciplina.getIdDisciplina() +"\" ");
 		
-		return ok_eliminazione;
+		return   ok_eliminazione;
 	}
 
 
