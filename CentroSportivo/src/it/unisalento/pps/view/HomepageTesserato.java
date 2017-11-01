@@ -1,35 +1,22 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
-import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreDisciplina;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
 import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
-import it.unisalento.pps.listener.AscoltatoreReg;
-import it.unisalento.pps.listener.AscoltatoreLogin;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 

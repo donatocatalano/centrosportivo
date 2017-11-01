@@ -1,7 +1,6 @@
 package it.unisalento.pps.business;
 
 import it.unisalento.pps.dao.IstruttoreDAO;
-import it.unisalento.pps.dao.UtenteDAO;
 import it.unisalento.pps.model.Istruttore;
 
 public class IstruttoreBusiness {

@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.AutorizzazioniIscrizioniCorso;
 import it.unisalento.pps.view.AutorizzazioniPagamento;

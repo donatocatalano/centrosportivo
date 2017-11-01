@@ -8,20 +8,17 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
-import it.unisalento.pps.listener.AscoltatoreConfermaCorso;
 import it.unisalento.pps.listener.AscoltatoreConfermaEvento;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Istruttore;

@@ -1,9 +1,7 @@
 package it.unisalento.pps.view;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.util.*;
 import it.unisalento.pps.listener.*;
 
 public class FormRegistrazione extends JFrame {

@@ -3,12 +3,8 @@ package it.unisalento.pps.business;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import it.unisalento.pps.dao.DisciplinaDAO;
 import it.unisalento.pps.dao.EventoDAO;
-import it.unisalento.pps.dao.UtenteDAO;
-import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
-import it.unisalento.pps.model.Istruttore;
 
 public class EventoBusiness {
 

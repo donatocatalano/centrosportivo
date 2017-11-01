@@ -2,9 +2,7 @@ package it.unisalento.pps.business;
 
 import java.util.ArrayList;
 
-import it.unisalento.pps.dao.DisciplinaDAO;
 import it.unisalento.pps.dao.LivelloDAO;
-import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Livello;
 
 public class LivelloBusiness {

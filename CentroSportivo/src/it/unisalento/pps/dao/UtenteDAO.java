@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 
 import it.unisalento.pps.DbInterface.DbConnection;
-import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.Utente;
 
 public class UtenteDAO {

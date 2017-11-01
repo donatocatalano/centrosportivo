@@ -4,9 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import it.unisalento.pps.dao.TestimonianzaDAO;
-import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Testimonianza;
-import it.unisalento.pps.model.Utente;
 
 public class TestimonianzaBusiness {
 	

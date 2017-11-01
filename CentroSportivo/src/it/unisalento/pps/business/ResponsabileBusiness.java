@@ -1,6 +1,5 @@
 package it.unisalento.pps.business;
 
-import it.unisalento.pps.dao.IstruttoreDAO;
 import it.unisalento.pps.dao.ResponsabileDAO;
 import it.unisalento.pps.model.Responsabile;
 

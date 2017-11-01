@@ -1,7 +1,6 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -11,14 +10,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
-import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
-import it.unisalento.pps.listener.AscoltatoreEliminaDisciplina;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
 import it.unisalento.pps.listener.AscoltatoreFormEvento;
 import it.unisalento.pps.model.Disciplina;

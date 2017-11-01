@@ -15,12 +15,10 @@ import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.view.AreaIstruttore;
 import it.unisalento.pps.view.FormCorso;
-import it.unisalento.pps.view.FormEvento;
 
 public class AscoltatoreConfermaCorso implements ActionListener {
 	
 	private FormCorso frame;
-	private FormEvento frame1;
 	private Istruttore istruttore;
 	
 

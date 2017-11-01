@@ -2,9 +2,7 @@ package it.unisalento.pps.business;
 
 import java.util.ArrayList;
 
-import it.unisalento.pps.dao.DisciplinaDAO;
 import it.unisalento.pps.dao.SpazioDAO;
-import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Spazio;
 
 public class SpazioBusiness {

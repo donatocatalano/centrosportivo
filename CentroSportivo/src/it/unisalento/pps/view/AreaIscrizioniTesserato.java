@@ -1,14 +1,12 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +15,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
 public class AreaIscrizioniTesserato extends JFrame{

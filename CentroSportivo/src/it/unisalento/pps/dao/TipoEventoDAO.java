@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import it.unisalento.pps.DbInterface.DbConnection;
-import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
 
 public class TipoEventoDAO {

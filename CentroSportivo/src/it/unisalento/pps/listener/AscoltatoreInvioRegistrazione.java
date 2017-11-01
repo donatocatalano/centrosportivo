@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.GregorianCalendar;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;

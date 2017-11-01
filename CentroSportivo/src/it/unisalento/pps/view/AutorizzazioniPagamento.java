@@ -11,9 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
-import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreBackResp;
-import it.unisalento.pps.listener.AscoltatoreCatalogoDiscipline;
 import it.unisalento.pps.model.Responsabile;
 
 public class AutorizzazioniPagamento extends JFrame{

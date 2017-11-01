@@ -24,7 +24,6 @@ public class AscoltatoreDisciplina implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton bottone = (JButton) e.getSource();
 		String nomeDisciplina = bottone.getText();
-		String com = e.getActionCommand();
 		d1launch(nomeDisciplina);
 		
 	}
