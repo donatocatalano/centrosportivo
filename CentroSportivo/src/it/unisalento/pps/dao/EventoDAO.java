@@ -78,7 +78,7 @@ public class EventoDAO {
 
 	public boolean registraEvento(Date datainizio, String orario, int istruttore, int spazio, int tipo, int disciplina, Date datafine) {
 		
-		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Evento) from evento " );
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
 		int idEvento = Integer.parseInt(tupla[0]);
@@ -91,7 +91,7 @@ public class EventoDAO {
 	}
 
 	public boolean registraCorso(Date datainizio, String orario, int istruttore, int spazio, int tipo, int disciplina, Date datafine) {
-		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from evento " );
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Evento) from evento " );
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
 		int idEvento = Integer.parseInt(tupla[0]);
