@@ -51,8 +51,8 @@ private static UtenteBusiness instance;
 		return UtenteDAO.getInstance().getUtentiDaAutorizzare();
 	}
 
-	public boolean confermaUtente(String username) {
-		return UtenteDAO.getInstance().confermaUtente(username);
+	public boolean confermaUtente(int utente, int responsabile) {
+		return UtenteDAO.getInstance().confermaUtente(utente, responsabile);
 	}
 	
 	public Utente getUtenteById(int idUtente) {

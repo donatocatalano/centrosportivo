@@ -58,7 +58,7 @@ public class UtenteDAO {
 
 	public boolean registraUtente(String nome,String cognome,String username,String password,String sesso,Date data) {
 
-		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select count(*) from utente " );
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Utente) from utente " );
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
 		int idUtente = Integer.parseInt(tupla[0]);
@@ -83,10 +83,10 @@ public class UtenteDAO {
 		return utentiDaAutorizzare;
 	}
 
-	public boolean confermaUtente(String username) {
-		boolean ok_conferma = false;
-	
-		return ok_conferma = DbConnection.getInstance().eseguiAggiornamento("insert into utente(Tesserato) values (\""+1+"\")");
+	public boolean confermaUtente(int utente, int responsabile) {		
+		boolean ok_conferma = false;		
+		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("update utente (Responsabile,Tesserato) values (\""+responsabile+"\",\""+1+"\") where ID_Utente=(\""+utente+"\")");
+		return ok_conferma;
 	}
 	
 	public Utente getUtenteById(int idUtente) {

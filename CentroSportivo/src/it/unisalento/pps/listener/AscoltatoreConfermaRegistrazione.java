@@ -2,42 +2,47 @@ package it.unisalento.pps.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
-import java.util.GregorianCalendar;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
-import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.AutorizzazioniRegistrazione;
-import it.unisalento.pps.view.FormRegistrazione;
-import it.unisalento.pps.view.Homepage;
 
 public class AscoltatoreConfermaRegistrazione implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;	
+	private Utente utente;
 
-	public AscoltatoreConfermaRegistrazione(AutorizzazioniRegistrazione frame, Responsabile responsabile) {
+	public AscoltatoreConfermaRegistrazione(AutorizzazioniRegistrazione frame, Responsabile responsabile, Utente utente) {
 		this.frame = frame;
 		this.responsabile = responsabile;
+		this.utente = utente;
 	}
 	
 	public void actionPerformed(ActionEvent e){
-		/*int i;
-		String username = frame.username.get(i);
+		boolean ok = UtenteBusiness.getInstance().confermaUtente(utente.getIdUtente(), responsabile.getIdResponsabile());
+		Object[] options = {"SI","NO"};
+		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
+			"Vuoi confermare la registrazione?",
+			"ATTENZIONE !!",
+			JOptionPane.YES_NO_OPTION,
+			JOptionPane.QUESTION_MESSAGE,
+			null,     //do not use a custom Icon
+			options,  //the titles of buttons
+			options[0]); //default button title
 		
-		boolean ok = UtenteBusiness.getInstance().confermaUtente(username);
-		if(ok) {
-			JOptionPane.showMessageDialog(null, "Registrazione confermata");
-			new AreaResponsabile(responsabile);
+		
+		if(ok && n==0) {
+			JOptionPane.showMessageDialog(null, "Utente tesserato!");
+			new AutorizzazioniRegistrazione(responsabile);
 			frame.dispose();
-			}*/
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Utente non confermato!");
+		}
 	}
 }

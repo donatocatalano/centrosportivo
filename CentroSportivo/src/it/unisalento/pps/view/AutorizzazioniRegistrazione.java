@@ -65,7 +65,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 				
 				JPanel contenuto2 = new JPanel();
 				JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
-				ascoltatoreConfermaRegistrazione = new AscoltatoreConfermaRegistrazione(this, responsabile);
+				ascoltatoreConfermaRegistrazione = new AscoltatoreConfermaRegistrazione(this, responsabile, utentiDaAutorizzare.get(i));
 				confermaregistrazione.addActionListener(ascoltatoreConfermaRegistrazione);
 				contenuto2.add(confermaregistrazione);
 				contenuto.add(contenuto2);
