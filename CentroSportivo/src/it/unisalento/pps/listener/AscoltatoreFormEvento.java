@@ -11,19 +11,19 @@ import it.unisalento.pps.view.ElencoEventi;
 import it.unisalento.pps.view.FormEvento;
 import it.unisalento.pps.view.FormCorso;
 
-public class AscoltatoreNuovoEvento implements ActionListener {
+public class AscoltatoreFormEvento implements ActionListener {
 	
 	private JFrame frame;
 	private Istruttore istruttore;
 	public final static String D1 = "D1";
 	
-	public AscoltatoreNuovoEvento(ElencoEventi frame, Istruttore istruttore) {
+	public AscoltatoreFormEvento(ElencoEventi frame, Istruttore istruttore) {
 		super();
 		this.frame = frame;
 		this.istruttore = istruttore;
 	}
 	
-	public AscoltatoreNuovoEvento(ElencoCorsi frame, Istruttore istruttore) {
+	public AscoltatoreFormEvento(ElencoCorsi frame, Istruttore istruttore) {
 		super();
 		this.frame = frame;
 		this.istruttore = istruttore;

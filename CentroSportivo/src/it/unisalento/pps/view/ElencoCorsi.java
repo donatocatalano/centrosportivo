@@ -14,7 +14,7 @@ import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
-import it.unisalento.pps.listener.AscoltatoreNuovoEvento;
+import it.unisalento.pps.listener.AscoltatoreFormEvento;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
@@ -36,7 +36,7 @@ public class ElencoCorsi extends JFrame {
 	JButton nuovocorso = new JButton("AGGIUNGI CORSO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
-	AscoltatoreNuovoEvento ascoltatoreNuovoCorso;
+	AscoltatoreFormEvento ascoltatoreNuovoCorso;
 	AscoltatoreEliminaEvento ascoltatoreElimina;
 	Istruttore istruttore;
 	ArrayList<Evento> corsi = new ArrayList<Evento>();
@@ -87,9 +87,9 @@ public class ElencoCorsi extends JFrame {
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
 		sudPnl.add(indietro);
-		ascoltatoreNuovoCorso = new AscoltatoreNuovoEvento (this, istruttore);
+		ascoltatoreNuovoCorso = new AscoltatoreFormEvento (this, istruttore);
 		nuovocorso.addActionListener(ascoltatoreNuovoCorso);
-		nuovocorso.setActionCommand(AscoltatoreNuovoEvento.D1);
+		nuovocorso.setActionCommand(AscoltatoreFormEvento.D1);
 		sudPnl.add(nuovocorso);
 		
 		

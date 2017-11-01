@@ -39,7 +39,7 @@ public class AscoltatoreEliminaDisciplina implements ActionListener {
 		
 		if(ok && n==0) {
 			JOptionPane.showMessageDialog(null, "Disciplina eliminata!");
-			new CatalogoDiscipline(responsabile);
+			new CatalogoDiscipline(responsabile, disciplina);
 			frame.dispose();
 		}
 		else {

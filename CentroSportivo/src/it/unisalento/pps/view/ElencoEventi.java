@@ -20,7 +20,7 @@ import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreEliminaDisciplina;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
-import it.unisalento.pps.listener.AscoltatoreNuovoEvento;
+import it.unisalento.pps.listener.AscoltatoreFormEvento;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
@@ -43,7 +43,7 @@ public class ElencoEventi extends JFrame {
 	JButton nuovoevento = new JButton("AGGIUNGI EVENTO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
-	AscoltatoreNuovoEvento ascoltatoreNuovoEvento;
+	AscoltatoreFormEvento ascoltatoreNuovoEvento;
 	AscoltatoreEliminaEvento ascoltatoreElimina;
 	Istruttore istruttore;
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
@@ -90,7 +90,7 @@ public class ElencoEventi extends JFrame {
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
 		sudPnl.add(indietro);
-		ascoltatoreNuovoEvento = new AscoltatoreNuovoEvento (this, istruttore);
+		ascoltatoreNuovoEvento = new AscoltatoreFormEvento (this, istruttore);
 		nuovoevento.addActionListener(ascoltatoreNuovoEvento);
 		sudPnl.add(nuovoevento);
 		

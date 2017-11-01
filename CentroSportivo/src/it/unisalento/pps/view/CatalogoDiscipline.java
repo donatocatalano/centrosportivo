@@ -17,7 +17,7 @@ import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.listener.AscoltatoreEliminaDisciplina;
-import it.unisalento.pps.listener.AscoltatoreNuovaDisciplina;
+import it.unisalento.pps.listener.AscoltatoreFormDisciplina;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Responsabile;
 
@@ -40,12 +40,13 @@ public class CatalogoDiscipline extends JFrame {
 	JButton nuovadisciplina = new JButton("AGGIUNGI DISCIPLINA");
 	
 	AscoltatoreBackResp ascoltatoreBackResp; 
-	AscoltatoreNuovaDisciplina ascoltatoreNuovaDisciplina;
+	AscoltatoreFormDisciplina ascoltatoreModDisciplina;
+	AscoltatoreFormDisciplina ascoltatoreNuovaDisciplina;
 	AscoltatoreEliminaDisciplina ascoltatoreElimina;
 	Responsabile responsabile;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 
-	public CatalogoDiscipline(Responsabile responsabile) {
+	public CatalogoDiscipline(Responsabile responsabile, Disciplina disciplina) {
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());
 		
 		titolo.setText("CATALOGO DISCIPLINE"); 
@@ -61,19 +62,19 @@ public class CatalogoDiscipline extends JFrame {
 		
 		if(discipline.size()>0) {
 			for(int i=0;i<discipline.size();i++) {
-				JLabel disciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
-				disciplina.setFont(new Font("sansserif",Font.BOLD,20));
+				JLabel campo_disciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
+				campo_disciplina.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton modifica = new JButton ("MODIFICA");
 				JButton elimina = new JButton ("ELIMINA");
 				JPanel contenuto = new JPanel(new FlowLayout());
 				contenuto.setAlignmentX(LEFT_ALIGNMENT);
-				contenuto.add(disciplina);				
+				contenuto.add(campo_disciplina);				
 				contenuto.add(modifica);
 				contenuto.add(elimina);
 				centroPnl.add(contenuto);
-				/*ascoltatoreNuovaDisciplina = new AscoltatoreNuovaDisciplina(this, responsabile);
-				modifica.addActionListener(ascoltatoreNuovaDisciplina);
-				modifica.setActionCommand(AscoltatoreBackHome.D1);*/
+				ascoltatoreModDisciplina = new AscoltatoreFormDisciplina(this, responsabile, discipline.get(i));
+				modifica.addActionListener(ascoltatoreModDisciplina);
+				modifica.setActionCommand(AscoltatoreFormDisciplina.D1);
 				ascoltatoreElimina = new AscoltatoreEliminaDisciplina(this,responsabile,discipline.get(i));
 				elimina.addActionListener(ascoltatoreElimina);
 				
@@ -90,7 +91,7 @@ public class CatalogoDiscipline extends JFrame {
 		ascoltatoreBackResp = new AscoltatoreBackResp(this, responsabile);
 		indietro.addActionListener(ascoltatoreBackResp);
 		sudPnl.add(indietro);
-		ascoltatoreNuovaDisciplina = new AscoltatoreNuovaDisciplina(this, responsabile);
+		ascoltatoreNuovaDisciplina = new AscoltatoreFormDisciplina(this, responsabile, disciplina);
 		nuovadisciplina.addActionListener(ascoltatoreNuovaDisciplina);
 		sudPnl.add(nuovadisciplina);
 		

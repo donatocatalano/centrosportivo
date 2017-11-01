@@ -13,13 +13,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.listener.AscoltatoreConfermaDisciplina;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Responsabile;
 
 public class FormModDisciplina extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
 	Font myfont = new Font("sansserif",Font.PLAIN,20);  
 	Dimension mysize = new Dimension (200,30);
 	
@@ -49,7 +52,7 @@ public class FormModDisciplina extends JFrame {
 	JLabel immagine= new JLabel("CARICA IMMAGINE DA COMPLETARE");
 	
 	JPanel appartenenza = new JPanel(new FlowLayout());
-	JLabel disciplina = new JLabel("");
+	JLabel campo_disciplina = new JLabel("");
 	
 	JPanel dateend= new JPanel(new FlowLayout());
 	JLabel datafine= new JLabel("");
@@ -59,10 +62,9 @@ public class FormModDisciplina extends JFrame {
 	JButton indietro= new JButton("INDIETRO");
 	JButton inserimento= new JButton("CONFERMA DATI INSERITI");
 	
-	
 	AscoltatoreConfermaDisciplina ascoltatoreConfermaDisciplina;
 	
-	public FormModDisciplina(Responsabile responsabile) {
+	public FormModDisciplina(Responsabile responsabile, Disciplina disciplina) {
 		super("Area privata RESPONSABILE : "+responsabile.getNome()+" "+responsabile.getCognome());
 		
 		compilaform.setFont(new Font("sansserif",Font.BOLD,34));
@@ -71,10 +73,13 @@ public class FormModDisciplina extends JFrame {
 		paginareg.add(vuoto);
 		nordPnl.add(paginareg);
 		
+		disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(disciplina.getIdDisciplina());
+		
 		
 		name.add(nome);
 		nome.setFont(new Font("sansserif",Font.BOLD,25));
 		name.add(nome_field);
+		JTextField nome_field = new JTextField(disciplina.getNome());
 		nome_field.setFont(myfont);
 		nome_field.setPreferredSize(mysize);
 		centroPnl.add(name);
@@ -93,8 +98,8 @@ public class FormModDisciplina extends JFrame {
 		image.add(immagine);
 		immagine.setFont(new Font("sansserif",Font.BOLD,25));
 		centroPnl.add(image);
-		appartenenza.add(disciplina);
-		disciplina.setFont(new Font("sansserif",Font.BOLD,25));
+		appartenenza.add(campo_disciplina);
+		campo_disciplina.setFont(new Font("sansserif",Font.BOLD,25));
 		centroPnl.add(appartenenza);
 		dateend.add(datafine);
 		datafine.setFont(new Font("sansserif",Font.BOLD,25));
