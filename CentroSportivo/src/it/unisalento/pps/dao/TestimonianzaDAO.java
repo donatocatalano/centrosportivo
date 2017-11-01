@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import it.unisalento.pps.DbInterface.DbConnection;
-import it.unisalento.pps.model.Disciplina;
-import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Testimonianza;
 
 public class TestimonianzaDAO {
@@ -44,5 +42,18 @@ public class TestimonianzaDAO {
 			testimonianze.add(testimonianza);
 		}
 		return testimonianze;
+	}
+
+	public boolean inserisciFeed(Date data, String contenuto, int disciplina, int tesserato) {
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Testimonianza) from testimonianza" );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idTestimonianza = Integer.parseInt(tupla[0]);
+		
+		boolean ok_inserimento = false;
+		if(!contenuto.isEmpty())
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into testimonianza (ID_Testimonianza,Data,Contenuto,Utente,Disciplina) values(\""+(idTestimonianza+1)+"\",\""+data+"\",\""+contenuto+"\",\""+tesserato+"\",\""+disciplina+"\")");
+		
+		return ok_inserimento;
 	}
 }

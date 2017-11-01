@@ -51,7 +51,6 @@ private static DisciplinaBusiness instance;
 
 
 	public int getIdDisciplinaByNome(String disciplina) {
-		// TODO Auto-generated method stub
 		return DisciplinaDAO.getInstance().getIdDisciplinaByNome(disciplina);
 	}
 }
