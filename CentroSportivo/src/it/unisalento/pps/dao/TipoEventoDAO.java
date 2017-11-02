@@ -21,7 +21,7 @@ public class TipoEventoDAO {
 		return instance;
 	}
 
-	public TipoEvento getEventoById(int idTipo) {
+	public TipoEvento getTipoEventoById(int idTipo) {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from tipoevento where ID_TipoEvento=\""+ idTipo +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();

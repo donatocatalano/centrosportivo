@@ -40,4 +40,8 @@ private static EventoBusiness instance;
 	public boolean cancellaEvento(Evento evento) {
 		return EventoDAO.getInstance().cancellaEvento(evento);
 	}
+
+	public ArrayList<Evento> getEventi() {
+		return EventoDAO.getInstance().getEventi();
+	}
 }

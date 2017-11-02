@@ -62,7 +62,7 @@ public class CatalogoDiscipline extends JFrame {
 		
 		if(discipline.size()>0) {
 			for(int i=0;i<discipline.size();i++) {
-				JLabel campo_disciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione());	
+				JLabel campo_disciplina = new JLabel(discipline.get(i).getNome()+"     COSTO MENSILE: "+discipline.get(i).getCostoMensile()+"0      DESCRIZIONE: "+discipline.get(i).getDescrizione()+"   ");	
 				campo_disciplina.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton modifica = new JButton ("MODIFICA");
 				JButton elimina = new JButton ("ELIMINA");

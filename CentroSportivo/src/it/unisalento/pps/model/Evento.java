@@ -20,8 +20,18 @@ public class Evento{
 		this.idEvento = idEvento;
 	}
 
-	public Evento(int idEvento, Date dataInizio,Date dataFine, String turno, int istruttore, int spazio, int tipo,
-			int disciplina) {
+	public Evento(int idEvento, Date dataInizio,Date dataFine, String turno, int istruttore, int spazio, int tipo, int disciplina) {
+		this.idEvento = idEvento;
+		this.dataInizio = dataInizio;
+		this.dataFine = dataFine;		
+		this.turno = turno;
+		this.istruttore = istruttore;
+		this.spazio = spazio;
+		this.tipo = tipo;
+		this.disciplina = disciplina;
+	}
+	
+	public Evento(int idEvento, String turno, int tipo) {
 		this.idEvento = idEvento;
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;		

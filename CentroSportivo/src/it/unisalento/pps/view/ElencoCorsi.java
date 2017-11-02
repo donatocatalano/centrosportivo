@@ -30,6 +30,7 @@ public class ElencoCorsi extends JFrame {
 	JLabel spazio = new JLabel();
 	
 	JPanel contenuto = new JPanel();
+	JPanel contenutoVuoto = new JPanel();
 	
 	
 	JButton indietro = new JButton("INDIETRO");
@@ -56,32 +57,39 @@ public class ElencoCorsi extends JFrame {
 		Disciplina disciplina;
 		Spazio spazio;
 		
-		for(int i=0;i<corsi.size();i++) {
+		if(corsi.size()>0) {
+			for(int i=0;i<corsi.size();i++) {
 			
-			disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
-			spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
+				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
+				spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
 			
-			String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
-			String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
-			String anno_inizio =corsi.get(i).getDataInizio().toString().substring(0,4);	
+				String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
+				String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
+				String anno_inizio =corsi.get(i).getDataInizio().toString().substring(0,4);	
 			
-			String giorno_fine= corsi.get(i).getDataFine().toString().substring(8,10);
-			String mese_fine = corsi.get(i).getDataFine().toString().substring(5,7);
-			String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);		
+				String giorno_fine= corsi.get(i).getDataFine().toString().substring(8,10);
+				String mese_fine = corsi.get(i).getDataFine().toString().substring(5,7);
+				String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);		
 			
-			JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome());
-			corso.setFont(new Font("sansserif",Font.BOLD,20));
-			corso.setHorizontalAlignment(JLabel.LEFT);
-			JButton elimina = new JButton ("ELIMINA");
-			contenuto.add(corso);
-			contenuto.add(elimina);
-			centroPnl.add(contenuto);
+				JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ ":"+mese_inizio+ ":" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ ":"+mese_fine+ ":" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
+				corso.setFont(new Font("sansserif",Font.BOLD,20));
+				corso.setHorizontalAlignment(JLabel.LEFT);
+				JButton elimina = new JButton ("ELIMINA");
+				contenuto.add(corso);
+				contenuto.add(elimina);
+				centroPnl.add(contenuto);
 			
-			ascoltatoreElimina = new AscoltatoreEliminaEvento(this,istruttore,corsi.get(i));
-			elimina.setActionCommand(AscoltatoreEliminaEvento.D1);
-			elimina.addActionListener(ascoltatoreElimina);
+				ascoltatoreElimina = new AscoltatoreEliminaEvento(this,istruttore,corsi.get(i));
+				elimina.setActionCommand(AscoltatoreEliminaEvento.D1);
+				elimina.addActionListener(ascoltatoreElimina);
+			}
 		}
-		
+		else {
+			JLabel nessunaoccorrenza = new JLabel("Nessun Corso nel sistema");	
+			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
+			contenutoVuoto.add(nessunaoccorrenza);
+			centroPnl.add(contenutoVuoto);		
+		}	
 		
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
