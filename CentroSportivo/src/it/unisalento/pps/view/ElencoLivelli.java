@@ -25,13 +25,11 @@ public class ElencoLivelli extends JFrame {
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();
 	
-	JPanel contenutoVuoto = new JPanel();
-	
 	
 	JLabel titolo = new JLabel();
 	JLabel spazio = new JLabel();
 	
-	
+	JPanel contenutoVuoto = new JPanel();
 	JButton modifica = new JButton ("MODIFICA");
 
 	JButton indietro= new JButton("INDIETRO");
@@ -62,7 +60,6 @@ public class ElencoLivelli extends JFrame {
 				JLabel campo_livello = new JLabel("             "+livelli.get(i).getNome()+"   ");	
 				campo_livello.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton elimina = new JButton ("ELIMINA");
-				//JPanel contenuto = new JPanel(new FlowLayout());
 				contenutolivello.add(campo_livello);
 				contenutolivello.add(elimina);
 				

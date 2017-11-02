@@ -28,7 +28,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 	JLabel titolo = new JLabel();
 	JLabel spazio = new JLabel();
 	
-	JPanel contenuto = new JPanel(new GridLayout(2,1));
+	JPanel contenuto = new JPanel();
 		
 	JButton indietro = new JButton("INDIETRO");
 		

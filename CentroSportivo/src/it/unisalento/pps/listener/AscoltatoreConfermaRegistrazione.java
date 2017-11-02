@@ -2,6 +2,7 @@ package it.unisalento.pps.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e){
+		
 		boolean ok = UtenteBusiness.getInstance().confermaUtente(utente.getIdUtente(), responsabile.getIdResponsabile());
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
