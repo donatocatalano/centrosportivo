@@ -63,7 +63,7 @@ public class Feedback extends JFrame{
 				String mese = testimonianze.get(i).getData().toString().substring(5,7);
 				String anno =testimonianze.get(i).getData().toString().substring(0,4);
 				
-				JLabel testo = new JLabel((i+1)+")  FEEDBACK del "+giorno+ ":"+mese+ ":" +anno+" di " +utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
+				JLabel testo = new JLabel((i+1)+")  FEEDBACK del "+giorno+ "/"+mese+ "/" +anno+" di " +utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
 				testo.setFont(new Font("sansserif",Font.BOLD,20));
 				JLabel vuoto1 = new JLabel();
 				JLabel vuoto2 = new JLabel();

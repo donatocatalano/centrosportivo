@@ -39,7 +39,7 @@ public class AscoltatoreEliminaEvento implements ActionListener {
 		if (com==D1)
 			d1launch();	
 		else {
-			boolean ok = EventoBusiness.getInstance().cancellaEvento(evento);
+			
 			Object[] options = {"SI","NO"};
 			int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
 				"Vuoi eliminare l'evento?",
@@ -51,7 +51,8 @@ public class AscoltatoreEliminaEvento implements ActionListener {
 				options[0]); //default button title
 		
 		
-			if(ok && n==0) {
+			if(n==0) {
+				boolean ok = EventoBusiness.getInstance().cancellaEvento(evento);
 				JOptionPane.showMessageDialog(null, "Evento eliminato!");
 				new ElencoEventi(istruttore);
 				frame.dispose();
@@ -64,7 +65,7 @@ public class AscoltatoreEliminaEvento implements ActionListener {
 	
 	private void d1launch(){
 		
-		boolean ok = EventoBusiness.getInstance().cancellaEvento(evento);
+		
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
 			"Vuoi eliminare il corso?",
@@ -76,7 +77,8 @@ public class AscoltatoreEliminaEvento implements ActionListener {
 			options[0]); //default button title
 	
 	
-		if(ok && n==0) {
+		if(n==0) {
+			boolean ok = EventoBusiness.getInstance().cancellaEvento(evento);
 			JOptionPane.showMessageDialog(null, "Corso eliminato!");
 			new ElencoCorsi(istruttore);
 			frame.dispose();

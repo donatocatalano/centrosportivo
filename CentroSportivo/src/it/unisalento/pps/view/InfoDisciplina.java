@@ -55,7 +55,7 @@ public class InfoDisciplina extends JFrame{
 		nordPnl.add(titolo);
 		
 
-		descrizioneDisciplina.setText(" DESCRIZIONE : "+disciplina.getDescrizione());
+		descrizioneDisciplina.setText(" DESCRIZIONE: "+disciplina.getDescrizione());
 		descrizioneDisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		sup.add(descrizioneDisciplina);
 		
