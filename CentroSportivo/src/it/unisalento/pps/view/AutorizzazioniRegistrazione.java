@@ -1,6 +1,7 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -56,19 +57,20 @@ public class AutorizzazioniRegistrazione extends JFrame{
 			
 			for(int i=0;i<utentiDaAutorizzare.size();i++) {
 				
-				JPanel contenuto1 = new JPanel();
+				JPanel contenuto1 = new JPanel(new FlowLayout());
 				contenuto1.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
-				JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita()+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername());	
+				JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita()+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername()+"    ");	
 				nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
+				JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
 				contenuto1.add(nomeUtente);
+				contenuto1.add(confermaregistrazione);
 				contenuto.add(contenuto1);
 				
 				JPanel contenuto2 = new JPanel();
-				JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
+				contenuto.add(contenuto2);
+				
 				ascoltatoreConfermaRegistrazione = new AscoltatoreConfermaRegistrazione(this, responsabile, utentiDaAutorizzare.get(i));
 				confermaregistrazione.addActionListener(ascoltatoreConfermaRegistrazione);
-				contenuto2.add(confermaregistrazione);
-				contenuto.add(contenuto2);
 			}
 		}
 		else {
