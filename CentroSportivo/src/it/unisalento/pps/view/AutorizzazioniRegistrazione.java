@@ -53,12 +53,12 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		
 		if(utentiDaAutorizzare.size()>0) {	
 			
+			contenuto.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
 			centroPnl.add(contenuto);
 			
 			for(int i=0;i<utentiDaAutorizzare.size();i++) {
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				contenuto1.setLayout(new GridLayout(utentiDaAutorizzare.size(),1));
 				JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita()+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername()+"    ");	
 				nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
