@@ -84,7 +84,7 @@ public class UtenteDAO {
 
 	public boolean confermaUtente(int utente, int responsabile) {		
 		boolean ok_conferma = false;		
-		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("update utente (Responsabile,Tesserato) values (\""+responsabile+"\",\""+1+"\") where ID_Utente=(\""+utente+"\")");
+		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", tesserato='1' WHERE ID_Utente = "+utente+" ");
 		return ok_conferma;
 	}
 	
