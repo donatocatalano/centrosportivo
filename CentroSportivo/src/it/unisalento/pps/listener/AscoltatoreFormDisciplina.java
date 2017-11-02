@@ -18,12 +18,6 @@ public class AscoltatoreFormDisciplina implements ActionListener {
 	private Disciplina disciplina;
 	public final static String D1 ="D1";
 	
-	/*public AscoltatoreFormDisciplina(CatalogoDiscipline frame, Responsabile responsabile) {
-		super();
-		this.frame = frame;
-		this.responsabile = responsabile;
-	}*/
-	
 	public AscoltatoreFormDisciplina(CatalogoDiscipline frame, Responsabile responsabile, Disciplina disciplina) {
 		super();
 		this.frame = frame;

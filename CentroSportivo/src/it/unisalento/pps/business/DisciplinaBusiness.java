@@ -30,8 +30,8 @@ private static DisciplinaBusiness instance;
 	}
 
 
-	public boolean registraDisciplina(String nome, Double costo, String descrizione) {
-		return DisciplinaDAO.getInstance().registraDisciplina(nome, costo, descrizione);
+	public boolean registraDisciplina(String nome, Double costo,String immagine, String descrizione) {
+		return DisciplinaDAO.getInstance().registraDisciplina(nome, costo,immagine, descrizione);
 	}
 	
 	

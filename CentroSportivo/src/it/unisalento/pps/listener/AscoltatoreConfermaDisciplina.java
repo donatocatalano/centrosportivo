@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
@@ -24,8 +25,8 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 		this.responsabile = responsabile;
 	}
 	
-	public AscoltatoreConfermaDisciplina(FormModDisciplina frame1, Responsabile responsabile) {
-		this.frame1 = frame1;
+	public AscoltatoreConfermaDisciplina(FormModDisciplina frame, Responsabile responsabile) {
+		this.frame1 = frame;
 		this.responsabile = responsabile;
 	}
 
@@ -37,10 +38,13 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 		else {
 			JTextField nome = frame.nome_field;
 			JTextField costo = frame.costo_field;
-			JTextField descrizione = frame.descrizione_field;
+			JTextArea descrizione = frame.descrizione_field;
+			JTextField immagine = frame.immagine_field;
+			
+			
 		
 		
-			boolean ok = DisciplinaBusiness.getInstance().registraDisciplina(nome.getText(),Double.parseDouble(costo.getText()), descrizione.getText());
+			boolean ok = DisciplinaBusiness.getInstance().registraDisciplina(nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
 			if(ok) {
 				JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 				new AreaResponsabile(responsabile);
@@ -54,10 +58,11 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 	private void d1launch() {
 		JTextField nome = frame1.nome_field;
 		JTextField costo = frame1.costo_field;
-		JTextField descrizione = frame1.descrizione_field;
+		JTextArea descrizione = frame1.descrizione_field;
+		JTextField immagine = frame1.immagine_field;
 	
 	
-		boolean ok = DisciplinaBusiness.getInstance().registraDisciplina(nome.getText(),Double.parseDouble(costo.getText()), descrizione.getText());
+		boolean ok = DisciplinaBusiness.getInstance().registraDisciplina(nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
 		if(ok) {
 			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
 			new AreaResponsabile(responsabile);

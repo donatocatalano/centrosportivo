@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
@@ -46,10 +47,11 @@ public class FormModDisciplina extends JFrame {
 	
 	JPanel period= new JPanel(new FlowLayout());
 	JLabel descrizione= new JLabel("BREVE DESCRIZIONE");
-	public JTextField descrizione_field= new JTextField(15);
+	public JTextArea descrizione_field= new JTextArea(5,20);
 		
 	JPanel image= new JPanel(new FlowLayout());
-	JLabel immagine= new JLabel("CARICA IMMAGINE DA COMPLETARE");
+	JLabel immagine= new JLabel("INSERISCI NOME FILE IMMAGINE");
+	public JTextField immagine_field= new JTextField(15);
 	
 	JPanel appartenenza = new JPanel(new FlowLayout());
 	JLabel campo_disciplina = new JLabel("");

@@ -53,7 +53,7 @@ public class DisciplinaDAO {
 		return discipline;
 	}	
 	
-	public boolean registraDisciplina(String nome, Double costo, String descrizione) {
+	public boolean registraDisciplina(String nome, Double costo,String immagine, String descrizione) {
 
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Disciplina) from disciplina");
 		Iterator<String[]> iter = risultato.iterator();
@@ -62,7 +62,7 @@ public class DisciplinaDAO {
 		
 		boolean ok_inserimento = false;
 		if(!(nome.isEmpty()||(costo==0)||descrizione.isEmpty()))
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into disciplina(ID_Disciplina,Nome,CostoMensile,Descrizione) values(\""+(idDisciplina+1)+"\",\""+nome+"\",\""+costo+"\",\""+descrizione+"\")");
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into disciplina(ID_Disciplina,Nome,CostoMensile,Immagine,Descrizione) values(\""+(idDisciplina+1)+"\",\""+nome+"\",\""+costo+"\",\""+immagine+"\",\""+descrizione+"\")");
 
 		return  ok_inserimento;
 	}

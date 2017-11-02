@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.listener.AscoltatoreBackResp;
@@ -42,18 +43,15 @@ public class FormDisciplina extends JFrame {
 	
 	JPanel period= new JPanel(new FlowLayout());
 	JLabel descrizione= new JLabel("BREVE DESCRIZIONE");
-	public JTextField descrizione_field= new JTextField(15);
+	public JTextArea descrizione_field= new JTextArea(5,20);
 		
 	JPanel image= new JPanel(new FlowLayout());
-	JLabel immagine= new JLabel("CARICA IMMAGINE DA COMPLETARE");
+	JLabel immagine= new JLabel("INSERISCI NOME FILE IMMAGINE");
+	public JTextField immagine_field= new JTextField(15);
 	
 	JPanel appartenenza = new JPanel(new FlowLayout());
-	JLabel disciplina = new JLabel("");
-	
-	JPanel dateend= new JPanel(new FlowLayout());
-	JLabel datafine= new JLabel("");
-	
-	
+	JLabel disciplina = new JLabel();
+		
 	
 	JButton indietro= new JButton("INDIETRO");
 	JButton inserimento= new JButton("CONFERMA DATI INSERITI");
@@ -89,14 +87,14 @@ public class FormDisciplina extends JFrame {
 		centroPnl.add(period);
 		image.add(immagine);
 		immagine.setFont(new Font("sansserif",Font.BOLD,25));
+		immagine_field.setFont(myfont);
+		immagine_field.setPreferredSize(mysize);
+		image.add(immagine_field);
 		centroPnl.add(image);
 		appartenenza.add(disciplina);
 		disciplina.setFont(new Font("sansserif",Font.BOLD,25));
 		centroPnl.add(appartenenza);
-		dateend.add(datafine);
-		datafine.setFont(new Font("sansserif",Font.BOLD,25));
-		centroPnl.add(dateend);
-
+		
 
 		indietro.addActionListener(new AscoltatoreBackResp(this, responsabile));
 		inserimento.addActionListener(new AscoltatoreConfermaDisciplina(this, responsabile));
