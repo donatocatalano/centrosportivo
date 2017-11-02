@@ -58,8 +58,12 @@ public class AutorizzazioniRegistrazione extends JFrame{
 			
 			for(int i=0;i<utentiDaAutorizzare.size();i++) {
 				
+				String giorno= utentiDaAutorizzare.get(i).getDataNascita().toString().substring(8,10);
+				String mese = utentiDaAutorizzare.get(i).getDataNascita().toString().substring(5,7);
+				String anno =utentiDaAutorizzare.get(i).getDataNascita().toString().substring(0,4);	
+				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il " +utentiDaAutorizzare.get(i).getDataNascita()+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername()+"    ");	
+				JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il "+giorno+ "/"+mese+ "/" +anno+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername()+"    ");	
 				nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
 				contenuto1.add(nomeUtente);

@@ -61,8 +61,7 @@ public class Feedback extends JFrame{
 								
 				String giorno= testimonianze.get(i).getData().toString().substring(8,10);
 				String mese = testimonianze.get(i).getData().toString().substring(5,7);
-				String anno =testimonianze.get(i).getData().toString().substring(0,4);	
-							
+				String anno =testimonianze.get(i).getData().toString().substring(0,4);
 				
 				JLabel testo = new JLabel((i+1)+")  FEEDBACK del "+giorno+ ":"+mese+ ":" +anno+" di " +utente.getNome()+" " + utente.getCognome()+ ":   " +testimonianze.get(i).getContenuto());		
 				testo.setFont(new Font("sansserif",Font.BOLD,20));

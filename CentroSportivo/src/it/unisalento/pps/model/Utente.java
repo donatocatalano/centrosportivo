@@ -54,6 +54,13 @@ public class Utente{
 		this.sesso = sesso;
 	}
 	
+	public Utente(int idUtente, String nome, String cognome,  String username, Date dataNascita) {
+		this.idUtente = idUtente;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.username = username;
+		this.dataNascita = dataNascita;
+	}
 	
 	public Utente(String username, String password) 
 	{		

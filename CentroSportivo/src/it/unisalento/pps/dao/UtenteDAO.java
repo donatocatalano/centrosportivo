@@ -1,6 +1,7 @@
 package it.unisalento.pps.dao;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.sql.Date;
 import java.util.Iterator;
 
@@ -76,7 +77,15 @@ public class UtenteDAO {
 		ArrayList<Utente> utentiDaAutorizzare = new ArrayList<Utente>();
 		Utente utente;
 		for(int i=0;i<result.size();i++) {
-			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3]);
+			
+			int anno = Integer.parseInt((result.get(i)[6].substring(0,4)));
+			int mese = Integer.parseInt((result.get(i)[6].substring(5,7)));
+			int giorno= Integer.parseInt((result.get(i)[6].substring(8,10)));
+			GregorianCalendar data = new GregorianCalendar(anno,mese-1,giorno);
+			long millisecondi_inizio = data.getTimeInMillis();
+			Date date = new Date(millisecondi_inizio);
+			
+			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3], date);
 			utentiDaAutorizzare.add(utente);
 		}
 		return utentiDaAutorizzare;
