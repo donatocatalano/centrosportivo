@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
+import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
 import it.unisalento.pps.listener.AscoltatoreFormEvento;
@@ -19,6 +20,7 @@ import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.model.Spazio;
+import it.unisalento.pps.model.TipoEvento;
 
 public class ElencoCorsi extends JFrame {
 	
@@ -41,10 +43,13 @@ public class ElencoCorsi extends JFrame {
 	AscoltatoreEliminaEvento ascoltatoreElimina;
 	Istruttore istruttore;
 	ArrayList<Evento> corsi = new ArrayList<Evento>();
+	
 
 
 	public ElencoCorsi(Istruttore istruttore) {
 		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
+		
+		
 		
 		titolo.setText("ELENCO CORSI"); 
 		titolo.setHorizontalAlignment(JLabel.CENTER);
@@ -56,12 +61,14 @@ public class ElencoCorsi extends JFrame {
 		centroPnl.setLayout(new GridLayout(5*corsi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
+		TipoEvento tipo;
 		
 		if(corsi.size()>0) {
 			for(int i=0;i<corsi.size();i++) {
 			
 				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
 				spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
+				tipo = TipoEventoBusiness.getInstance().getTipoEventoById(corsi.get(i).getTipo());
 			
 				String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
 				String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
@@ -69,9 +76,10 @@ public class ElencoCorsi extends JFrame {
 			
 				String giorno_fine= corsi.get(i).getDataFine().toString().substring(8,10);
 				String mese_fine = corsi.get(i).getDataFine().toString().substring(5,7);
-				String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);		
-			
-				JLabel corso = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
+				String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);	
+				
+							
+				JLabel corso = new JLabel(tipo.getTipo().toUpperCase()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
 				corso.setFont(new Font("sansserif",Font.BOLD,20));
 				corso.setHorizontalAlignment(JLabel.LEFT);
 				JButton elimina = new JButton ("ELIMINA");

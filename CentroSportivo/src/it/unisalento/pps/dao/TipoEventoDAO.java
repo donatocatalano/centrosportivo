@@ -26,7 +26,7 @@ public class TipoEventoDAO {
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
 		tipo=new TipoEvento(Integer.parseInt(tupla[0]),tupla[1]);
-		return tipo;
+		return  tipo;
 	}
 	
 	public ArrayList<TipoEvento> getTipoNome() {

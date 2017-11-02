@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
+import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
 import it.unisalento.pps.listener.AscoltatoreFormEvento;
@@ -59,11 +60,13 @@ public class ElencoEventi extends JFrame {
 		centroPnl.setLayout(new GridLayout(eventi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
+		TipoEvento tipo;
 		
 		if(eventi.size()>0) {
 			for(int i=0;i<eventi.size();i++) {
 				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
 				spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
+				tipo = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
 				
 				String giorno_inizio= eventi.get(i).getDataInizio().toString().substring(8,10);
 				String mese_inizio = eventi.get(i).getDataInizio().toString().substring(5,7);
@@ -73,7 +76,7 @@ public class ElencoEventi extends JFrame {
 				String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
 				String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);		
 			
-				JLabel evento = new JLabel("CORSO di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
+				JLabel evento = new JLabel(tipo.getTipo().toUpperCase()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
 				evento.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton elimina = new JButton ("ELIMINA");
 				contenuto.add(evento);
