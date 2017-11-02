@@ -52,21 +52,19 @@ public class ElencoLivelli extends JFrame {
 		nordPnl.add(titolo);
 		nordPnl.add(spazio);
 		
-		
+		JPanel contenutolivello=new JPanel(new FlowLayout());
 		
 		livelli = LivelloBusiness.getInstance().getLivelli();
 		centroPnl.setLayout(new GridLayout(livelli.size(),1));
 		
 		if(livelli.size()>0) {
 			for(int i=0;i<livelli.size();i++) {
-				JLabel campo_livello = new JLabel(livelli.get(i).getNome());	
+				JLabel campo_livello = new JLabel("             "+livelli.get(i).getNome()+"   ");	
 				campo_livello.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton elimina = new JButton ("ELIMINA");
-				JPanel contenuto = new JPanel(new FlowLayout());
-				contenuto.setAlignmentX(LEFT_ALIGNMENT);
-				contenuto.add(campo_livello);
-				contenuto.add(elimina);
-				centroPnl.add(contenuto);
+				//JPanel contenuto = new JPanel(new FlowLayout());
+				contenutolivello.add(campo_livello);
+				contenutolivello.add(elimina);
 				
 				ascoltatoreElimina = new AscoltatoreEliminaLivello(this,responsabile,livelli.get(i));
 				elimina.addActionListener(ascoltatoreElimina);
@@ -79,6 +77,7 @@ public class ElencoLivelli extends JFrame {
 			centroPnl.add(contenutoVuoto);		
 		}			
 		
+		centroPnl.add(contenutolivello);
 		
 		ascoltatoreBackResp = new AscoltatoreBackResp(this, responsabile);
 		indietro.addActionListener(ascoltatoreBackResp);
