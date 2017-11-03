@@ -105,7 +105,7 @@ public class UtenteDAO {
 		System.out.println(dataodierna);
 		
 		boolean ok_conferma = false;		
-		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", data_registrazione = "+dataodierna+", tesserato='1' WHERE ID_Utente = "+utente+" ");
+		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", data_registrazione = curdate(), tesserato='1' WHERE ID_Utente = "+utente+" ");
 		return ok_conferma;
 	}
 	
