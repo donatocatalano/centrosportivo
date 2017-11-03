@@ -19,6 +19,7 @@ import it.unisalento.pps.model.Utente;
 
 public class ElencoAutorizzazioni extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
 	JPanel centroPnl=new JPanel(new GridLayout(3,3));
 	JPanel sudPnl=new JPanel();

@@ -1,6 +1,5 @@
 package it.unisalento.pps.business;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import it.unisalento.pps.dao.TestimonianzaDAO;

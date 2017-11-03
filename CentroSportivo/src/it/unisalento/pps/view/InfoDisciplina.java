@@ -18,7 +18,7 @@ import it.unisalento.pps.model.Disciplina;
 
 public class InfoDisciplina extends JFrame{
 	
-
+	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel();
 	private JPanel centroPnl=new JPanel();
 	private JPanel sudPnl=new JPanel();

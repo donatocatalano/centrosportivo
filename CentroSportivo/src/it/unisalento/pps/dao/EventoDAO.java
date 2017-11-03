@@ -1,6 +1,5 @@
 package it.unisalento.pps.dao;
 
-import java.awt.Font;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

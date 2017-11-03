@@ -21,6 +21,7 @@ import it.unisalento.pps.model.Responsabile;
 
 public class ElencoLivelli extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();

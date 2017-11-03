@@ -6,6 +6,7 @@ import it.unisalento.pps.listener.*;
 
 public class FormRegistrazione extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
 	Font myfont = new Font("sansserif",Font.PLAIN,20);  
 	Dimension mysize = new Dimension (200,30);
 	

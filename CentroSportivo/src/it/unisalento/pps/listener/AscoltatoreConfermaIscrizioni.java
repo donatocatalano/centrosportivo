@@ -3,10 +3,7 @@ package it.unisalento.pps.listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
 import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaIscrizioniTesserato;

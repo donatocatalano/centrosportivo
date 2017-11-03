@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,7 +30,6 @@ import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
 public class AreaIscrizioniTesserato extends JFrame{
-	
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();

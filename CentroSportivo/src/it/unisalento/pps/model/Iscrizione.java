@@ -34,6 +34,13 @@ public class Iscrizione {
 		this.dataConferma = dataConferma;
 	}
 
+	public Iscrizione(int idIscrizione, int livello, int disciplina, int utente) {
+		this.idIscrizione = idIscrizione;
+		this.livello = livello;
+		this.disciplina = disciplina;
+		this.utente = utente;
+	}
+
 	public int getIdIscrizione() {
 		return this.idIscrizione;
 	}

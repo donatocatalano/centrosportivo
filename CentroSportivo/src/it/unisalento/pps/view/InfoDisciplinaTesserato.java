@@ -19,6 +19,7 @@ import it.unisalento.pps.model.Utente;
 
 public class InfoDisciplinaTesserato extends JFrame{
 	
+	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
 	JPanel centroPnl=new JPanel();
 	JPanel sudPnl=new JPanel();

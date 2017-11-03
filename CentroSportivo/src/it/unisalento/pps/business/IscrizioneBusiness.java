@@ -1,5 +1,8 @@
 package it.unisalento.pps.business;
 
+import it.unisalento.pps.dao.IscrizioneDAO;
+import it.unisalento.pps.model.Iscrizione;
+
 public class IscrizioneBusiness {
 	
 private static IscrizioneBusiness instance;
@@ -13,5 +16,7 @@ private static IscrizioneBusiness instance;
 		return instance;
 	}
 	
-
+	public Iscrizione getIscrizioneById(int idIscrizione) {
+		return IscrizioneDAO.getInstance().getIscrizioneById(idIscrizione);
+	}
 }

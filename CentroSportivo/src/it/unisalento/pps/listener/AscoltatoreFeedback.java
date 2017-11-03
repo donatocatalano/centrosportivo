@@ -51,14 +51,6 @@ public class AscoltatoreFeedback implements ActionListener{
 			
 			String feedback = (String)JOptionPane.showInputDialog(frame,"Inserisci il tuo feedback:\n","FEEDBACK",JOptionPane.PLAIN_MESSAGE);
 			
-			
-		/*	int anno = 2017;
-			int mese = 01;
-			int giorno= 01;
-			GregorianCalendar date = new GregorianCalendar(anno,mese-1,giorno);
-			long millisecondi_inizio = date.getTimeInMillis();
-			Date data = new Date(millisecondi_inizio);*/
-			
 			boolean ok;
 			
 			if (feedback !=null) {

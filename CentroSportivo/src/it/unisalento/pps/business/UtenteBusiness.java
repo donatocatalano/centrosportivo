@@ -2,7 +2,6 @@ package it.unisalento.pps.business;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import it.unisalento.pps.dao.UtenteDAO;
 import it.unisalento.pps.model.Utente;

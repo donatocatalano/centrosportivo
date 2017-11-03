@@ -15,6 +15,7 @@ import it.unisalento.pps.model.Responsabile;
 
 public class AreaResponsabile extends JFrame{
 	
+	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(1,3));
 	JPanel centroPnl=new JPanel(new GridLayout(3,4));
 	JPanel sudPnl=new JPanel();
