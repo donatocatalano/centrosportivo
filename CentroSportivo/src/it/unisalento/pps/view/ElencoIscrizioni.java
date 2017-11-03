@@ -13,19 +13,23 @@ import javax.swing.JPanel;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
+import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
+import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
 import it.unisalento.pps.listener.AscoltatoreFormEvento;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
+import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
+import it.unisalento.pps.model.Utente;
 
-public class ElencoEventi extends JFrame {
-
+public class ElencoIscrizioni extends JFrame {
+	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(2,1));
 	JPanel centroPnl=new JPanel();
@@ -39,69 +43,64 @@ public class ElencoEventi extends JFrame {
 	JPanel contenutoVuoto = new JPanel();
 	
 	JButton indietro = new JButton("INDIETRO");
-	JButton nuovoevento = new JButton("AGGIUNGI EVENTO");
 
 	AscoltatoreBackIst ascoltatoreBackIst; 
-	AscoltatoreFormEvento ascoltatoreNuovoEvento;
+	AscoltatoreFormEvento ascoltatoreNuovoCorso;
 	AscoltatoreEliminaEvento ascoltatoreElimina;
-	Istruttore istruttore;
-	ArrayList<Evento> eventi = new ArrayList<Evento>();
+	ArrayList<Iscrizione> iscrizioni = new ArrayList<Iscrizione>();
 	
 
-	public ElencoEventi(Istruttore istruttore) {
+	public ElencoIscrizioni(Istruttore istruttore) {
 		super("Area privata ISTRUTTORE : "+istruttore.getNome()+" "+istruttore.getCognome());
 		
-		titolo.setText("ELENCO EVENTI"); 
+		titolo.setText("ELENCO ISCRIZIONI"); 
 		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
 		nordPnl.add(spazio);
 		
-		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
-		centroPnl.setLayout(new GridLayout(eventi.size(),1));
+		iscrizioni = IscrizioneBusiness.getInstance().getIscrizioniAutorizzate();
+		centroPnl.setLayout(new GridLayout(5*iscrizioni.size(),1));
 		Disciplina disciplina;
-		Spazio spazio;
-		TipoEvento tipo;
+		Utente utente;
 		
-		if(eventi.size()>0) {
-			for(int i=0;i<eventi.size();i++) {
-				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
-				spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
-				tipo = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
+		if(iscrizioni.size()>0) {
+			for(int i=0;i<iscrizioni.size();i++) {
+				if(iscrizioni.get(i).getDataConferma()!=null) {
+			
+				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioni.get(i).getDisciplina());
+				utente = UtenteBusiness.getInstance().getUtenteById(iscrizioni.get(i).getUtente());
 				
-				String giorno_inizio = eventi.get(i).getDataInizio().toString().substring(8,10);
-				String mese_inizio = eventi.get(i).getDataInizio().toString().substring(5,7);
-				String anno_inizio = eventi.get(i).getDataInizio().toString().substring(0,4);	
-			
-				String giorno_fine = eventi.get(i).getDataFine().toString().substring(8,10);
-				String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
-				String anno_fine = eventi.get(i).getDataFine().toString().substring(0,4);		
-			
-				JLabel evento = new JLabel(tipo.getTipo().toUpperCase()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
-				evento.setFont(new Font("sansserif",Font.BOLD,20));
-				JButton elimina = new JButton ("ELIMINA");
-				contenuto.add(evento);
-				contenuto.add(elimina);
+				String giorno = iscrizioni.get(i).getDataConferma().toString().substring(8,10);
+				String mese = iscrizioni.get(i).getDataConferma().toString().substring(5,7);
+				String anno = iscrizioni.get(i).getDataConferma().toString().substring(0,4);				
+				
+				JLabel iscrizione = new JLabel("Iscrizione del " +giorno+"/"+mese+"/"+anno+ "   Disciplina" +disciplina.getNome()+ "   di   " +utente.getNome()+"   " +utente.getCognome());
+				iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
+				iscrizione.setHorizontalAlignment(JLabel.LEFT);
+				contenuto.add(iscrizione);
 				centroPnl.add(contenuto);
-			
-				ascoltatoreElimina = new AscoltatoreEliminaEvento(this,istruttore,eventi.get(i));
-				elimina.addActionListener(ascoltatoreElimina);
+				}
+				else {
+					JLabel nessunaoccorrenza = new JLabel("Nessuna Iscrizione al momento!");	
+					nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
+					contenutoVuoto.add(nessunaoccorrenza);
+					centroPnl.add(contenutoVuoto);		
+				}	
 			}
 		}
 		else {
-			JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema");	
+			JLabel nessunaoccorrenza = new JLabel("Nessuna Iscrizione al momento!");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutoVuoto.add(nessunaoccorrenza);
 			centroPnl.add(contenutoVuoto);		
-		}			
+		}	
 		
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
 		sudPnl.add(indietro);
-		ascoltatoreNuovoEvento = new AscoltatoreFormEvento (this, istruttore);
-		nuovoevento.addActionListener(ascoltatoreNuovoEvento);
-		sudPnl.add(nuovoevento);
+		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
 		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
@@ -117,3 +116,4 @@ public class ElencoEventi extends JFrame {
 		this.setVisible(true);
 	}
 }
+

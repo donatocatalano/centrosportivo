@@ -13,16 +13,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
+import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.LivelloBusiness;
+import it.unisalento.pps.business.PrenotazioneBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
 import it.unisalento.pps.listener.AscoltatoreConfermaIscrizioni;
+import it.unisalento.pps.listener.AscoltatoreEliminaIscrizione;
 import it.unisalento.pps.listener.AscoltatoreAutorizzaIscrizione;
 import it.unisalento.pps.listener.AscoltatoreAutorizzaRegistrazione;
 import it.unisalento.pps.model.Disciplina;
+import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Livello;
+import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 
@@ -44,10 +49,11 @@ public class AutorizzazioniIscrizione extends JFrame{
 	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
 	AscoltatoreAutorizzaIscrizione ascoltatoreAutorizzaIscrizione;
+	AscoltatoreEliminaIscrizione ascoltatoreEliminaIscrizione;
 	Responsabile responsabile;
-	ArrayList<Iscrizione> iscrizioniDaAutorizzare = new ArrayList<Iscrizione>();
+	ArrayList<Prenotazione> prenotazioniDaAutorizzare = new ArrayList<Prenotazione>();
 		
-	public AutorizzazioniIscrizione(Responsabile responsabile){
+	public AutorizzazioniIscrizione(Responsabile responsabile, Prenotazione prenotazione){
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
 		
 		titolo.setText("ISCRIZIONI IN ATTESA DI CONFERMA"); 
@@ -56,39 +62,42 @@ public class AutorizzazioniIscrizione extends JFrame{
 		nordPnl.add(titolo);
 		nordPnl.add(spazio);
 			
-		iscrizioniDaAutorizzare = IscrizioneBusiness.getInstance().getIscrizioniDaAutorizzare();
+		prenotazioniDaAutorizzare = PrenotazioneBusiness.getInstance().getPrenotazioniDaAutorizzare();
 		
-		Disciplina disciplina;
 		Utente utente;
-		Livello livello;
+		Evento evento;
 			  
-		if(iscrizioniDaAutorizzare.size()>0) {	
+		if(prenotazioniDaAutorizzare.size()>0) {	
 			
-			contenuto.setLayout(new GridLayout(iscrizioniDaAutorizzare.size(),1));
+			contenuto.setLayout(new GridLayout(prenotazioniDaAutorizzare.size(),1));
 			centroPnl.add(contenuto);
 			
-			for(int i=0;i<iscrizioniDaAutorizzare.size();i++) {
-				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioniDaAutorizzare.get(i).getDisciplina());
-				utente = UtenteBusiness.getInstance().getUtenteById(iscrizioniDaAutorizzare.get(i).getUtente());
-				livello = LivelloBusiness.getInstance().getLivelloById(iscrizioniDaAutorizzare.get(i).getLivello());
+			for(int i=0;i<prenotazioniDaAutorizzare.size();i++) {
+				evento = EventoBusiness.getInstance().getEventoById(prenotazioniDaAutorizzare.get(i).getEvento());
+				utente = UtenteBusiness.getInstance().getUtenteById(prenotazioniDaAutorizzare.get(i).getUtente());
 				
-				String giorno= iscrizioniDaAutorizzare.get(i).getDataIn().toString().substring(8,10);
-				String mese = iscrizioniDaAutorizzare.get(i).getDataIn().toString().substring(5,7);
-				String anno =iscrizioniDaAutorizzare.get(i).getDataIn().toString().substring(0,4);	
+				String giorno = prenotazioniDaAutorizzare.get(i).getDataPrenotazione().toString().substring(8,10);
+				String mese = prenotazioniDaAutorizzare.get(i).getDataPrenotazione().toString().substring(5,7);
+				String anno = prenotazioniDaAutorizzare.get(i).getDataPrenotazione().toString().substring(0,4);	
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel iscrizione = new JLabel("Richiesta di iscrizione per "+disciplina.getNome()+",   Livello: "+livello.getNome()+",   UTENTE: "+utente.getNome()+" "+utente.getCognome()+"   del " +giorno+"/"+mese+"/"+anno+"   ");	
-				iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
-				JButton autorizzaiscrizione = new JButton("AUTORIZZA ISCRIZIONE");
-				contenuto1.add(iscrizione);
-				contenuto1.add(autorizzaiscrizione);
+				JLabel campo_prenotazione = new JLabel("Richiesta di iscrizione del "+giorno+"/"+mese+"/"+anno+" DI "+utente.getNome()+" "+utente.getCognome()+"   EVENTO: "+evento.getDisciplina()+"   ");	
+				campo_prenotazione.setFont(new Font("sansserif",Font.BOLD,20));
+				JButton autorizzaprenotazione = new JButton("AUTORIZZA PRENOTAZIONE");
+				JButton eliminaprenotazione = new JButton ("CANCELLA PRENOTAZIONE");
+				contenuto1.add(campo_prenotazione);
+				contenuto1.add(autorizzaprenotazione);
+				contenuto1.add(eliminaprenotazione);
 				contenuto.add(contenuto1);
 				
 				JPanel contenuto2 = new JPanel();
 				contenuto.add(contenuto2);
 				
-				ascoltatoreAutorizzaIscrizione = new AscoltatoreAutorizzaIscrizione(this, responsabile, iscrizioniDaAutorizzare.get(i));
-				autorizzaiscrizione.addActionListener(ascoltatoreAutorizzaIscrizione);
+				ascoltatoreEliminaIscrizione= new AscoltatoreEliminaIscrizione(this, responsabile, prenotazioniDaAutorizzare.get(i));
+				eliminaprenotazione.addActionListener(ascoltatoreEliminaIscrizione);
+				
+				ascoltatoreAutorizzaIscrizione = new AscoltatoreAutorizzaIscrizione(this, responsabile, prenotazioniDaAutorizzare.get(i));
+				autorizzaprenotazione.addActionListener(ascoltatoreAutorizzaIscrizione);
 			}
 		}
 		else {

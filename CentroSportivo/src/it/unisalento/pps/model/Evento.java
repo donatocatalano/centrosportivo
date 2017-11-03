@@ -37,6 +37,14 @@ public class Evento{
 		this.tipo = tipo;
 	}
 
+	public Evento(int idEvento, String turno, int spazio, int tipo, int disciplina) {
+		this.idEvento = idEvento;	
+		this.turno = turno;
+		this.spazio = spazio;
+		this.tipo = tipo;
+		this.disciplina = disciplina;
+	}
+
 	public int getIdEvento() {
 		return this.idEvento;
 	}

@@ -34,6 +34,23 @@ public class Pagamento{
 		this.accettato = accettato;
 	}
 
+	public Pagamento(int idPagamento, int utente, int tipo, float totale, Date dataPagamento, int iscrizione) {
+		this.idPagamento = idPagamento;
+		this.utente = utente;
+		this.tipo = tipo;
+		this.totale = totale;
+		this.dataPagamento = dataPagamento;
+		this.iscrizione = iscrizione;
+	}
+
+	public Pagamento(int idPagamento, int utente, int tipo, float totale, int iscrizione) {
+		this.idPagamento = idPagamento;
+		this.utente = utente;
+		this.tipo = tipo;
+		this.totale = totale;
+		this.iscrizione = iscrizione;
+	}
+
 	public int getIdPagamento() {
 		return this.idPagamento;
 	}

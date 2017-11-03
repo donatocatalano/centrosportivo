@@ -70,11 +70,11 @@ public class ElencoCorsi extends JFrame {
 				spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
 				tipo = TipoEventoBusiness.getInstance().getTipoEventoById(corsi.get(i).getTipo());
 			
-				String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
+				String giorno_inizio = corsi.get(i).getDataInizio().toString().substring(8,10);
 				String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
 				String anno_inizio =corsi.get(i).getDataInizio().toString().substring(0,4);	
 			
-				String giorno_fine= corsi.get(i).getDataFine().toString().substring(8,10);
+				String giorno_fine = corsi.get(i).getDataFine().toString().substring(8,10);
 				String mese_fine = corsi.get(i).getDataFine().toString().substring(5,7);
 				String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);	
 				

@@ -11,6 +11,7 @@ import it.unisalento.pps.model.Evento;
 public class EventoDAO {
 	
 	private static EventoDAO instance;
+	private Evento evento;
 	
 	public static EventoDAO getInstance()
 	{
@@ -43,6 +44,7 @@ public class EventoDAO {
 			GregorianCalendar dataFine = new GregorianCalendar(anno_fine,mese_fine-1,giorno_fine);
 			long millisecondi_fine = dataFine.getTimeInMillis();
 			Date data_fine = new Date(millisecondi_fine);
+			
 			corso = new Evento(Integer.parseInt(result.get(i)[0]),data_inizio,data_fine,result.get(i)[2],idIstruttore,Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
 			corsi.add(corso);
 		}
@@ -133,5 +135,13 @@ public class EventoDAO {
 		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from evento where ID_Evento = \""+ evento.getIdEvento() +"\" ");
 		
 		return   ok_eliminazione;
+	}
+	
+	public Evento getEventoById(int idEvento) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from evento where ID_Evento=\""+ idEvento +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		evento=new Evento(Integer.parseInt(tupla[0]),tupla[2],Integer.parseInt(tupla[4]),Integer.parseInt(tupla[5]),Integer.parseInt(tupla[6]));
+		return  evento;
 	}
 }

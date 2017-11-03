@@ -28,7 +28,7 @@ private static PagamentoBusiness instance;
 		return PagamentoDAO.getInstance().getPagamentiDaAutorizzare();
 	}
 
-	public boolean autorizzaPagamento(int pagamento) {
-		return PagamentoDAO.getInstance().autorizzaPagamento(pagamento);
+	public boolean autorizzaPagamento(int pagamento, int responsabile) {
+		return PagamentoDAO.getInstance().autorizzaPagamento(pagamento, responsabile);
 	}
 }

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AutorizzazioniIscrizione;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
@@ -13,6 +14,7 @@ public class AscoltatoreAutIsc implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;
+	private Prenotazione prenotazione;
 	
 	
 	public AscoltatoreAutIsc(ElencoAutorizzazioni frame, Responsabile responsabile) {
@@ -23,7 +25,7 @@ public class AscoltatoreAutIsc implements ActionListener {
 	
 
 	public void actionPerformed(ActionEvent e) {
-		new AutorizzazioniIscrizione(responsabile);
+		new AutorizzazioniIscrizione(responsabile, prenotazione);
 		frame.dispose();
 	}
 }

@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import it.unisalento.pps.DbInterface.DbConnection;
 import it.unisalento.pps.model.Disciplina;
+import it.unisalento.pps.model.Prenotazione;
 
 public class DisciplinaDAO {
 	
@@ -83,7 +84,6 @@ public class DisciplinaDAO {
 
 
 	public boolean cancellaDisciplina(Disciplina disciplina) {
-				
 		boolean ok_eliminazione = false;
 		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from disciplina where ID_Disciplina = \""+ disciplina.getIdDisciplina() +"\" ");
 		

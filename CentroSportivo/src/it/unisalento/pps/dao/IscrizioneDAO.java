@@ -57,6 +57,32 @@ public class IscrizioneDAO {
 		}
 		return iscrizioniDaAutorizzare;
 	}
+	
+	public ArrayList<Iscrizione> getIscrizioniAutorizzate() {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from iscrizione where binary accettata = 1 ");
+		
+		ArrayList<Iscrizione> iscrizioniDaAutorizzare = new ArrayList<Iscrizione>();
+		Iscrizione iscrizione;
+		for(int i=0;i<result.size();i++) {
+			
+			int anno_in = Integer.parseInt((result.get(i)[1].substring(0,4)));
+			int mese_in = Integer.parseInt((result.get(i)[1].substring(5,7)));
+			int giorno_in= Integer.parseInt((result.get(i)[1].substring(8,10)));
+			int anno_out = Integer.parseInt((result.get(i)[2].substring(0,4)));
+			int mese_out = Integer.parseInt((result.get(i)[2].substring(5,7)));
+			int giorno_out= Integer.parseInt((result.get(i)[2].substring(8,10)));
+			GregorianCalendar dataIn = new GregorianCalendar(anno_in,mese_in-1,giorno_in);
+			GregorianCalendar dataOut = new GregorianCalendar(anno_out,mese_out-1,giorno_out);
+			long millisecondi_in = dataIn.getTimeInMillis();
+			long millisecondi_out = dataOut.getTimeInMillis();
+			Date dateIn = new Date(millisecondi_in);
+			Date dateOut = new Date(millisecondi_out);
+			
+			iscrizione = new Iscrizione(Integer.parseInt(result.get(i)[0]),dateIn, dateOut, Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
+			iscrizioniDaAutorizzare.add(iscrizione);
+		}
+		return iscrizioniDaAutorizzare;
+	}
 
 	public boolean autorizzaIscrizione(int iscrizione) {
 		

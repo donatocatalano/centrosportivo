@@ -27,6 +27,10 @@ private static IscrizioneBusiness instance;
 	public ArrayList<Iscrizione> getIscrizioniDaAutorizzare() {
 		return IscrizioneDAO.getInstance().getIscrizioniDaAutorizzare();
 	}
+	
+	public ArrayList<Iscrizione> getIscrizioniAutorizzate() {
+		return IscrizioneDAO.getInstance().getIscrizioniDaAutorizzare();
+	}
 
 	public boolean autorizzaIscrizione(int iscrizione) {
 		return IscrizioneDAO.getInstance().autorizzaIscrizione(iscrizione);

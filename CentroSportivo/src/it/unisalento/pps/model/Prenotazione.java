@@ -23,6 +23,12 @@ public class Prenotazione {
 		this.dataPrenotazione = dataPrenotazione;
 	}
 
+	public Prenotazione(int idPrenotazione, int utente, int evento) {
+		this.idPrenotazione = idPrenotazione;
+		this.utente = utente;
+		this.evento = evento;
+	}
+
 	public int getIdPrenotazione() {
 		return this.idPrenotazione;
 	}

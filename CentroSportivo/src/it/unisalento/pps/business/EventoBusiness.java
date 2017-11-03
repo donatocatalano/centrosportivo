@@ -4,7 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import it.unisalento.pps.dao.EventoDAO;
+import it.unisalento.pps.dao.IscrizioneDAO;
 import it.unisalento.pps.model.Evento;
+import it.unisalento.pps.model.Iscrizione;
 
 public class EventoBusiness {
 
@@ -43,5 +45,9 @@ private static EventoBusiness instance;
 
 	public ArrayList<Evento> getEventi() {
 		return EventoDAO.getInstance().getEventi();
+	}
+	
+	public Evento getEventoById(int idEvento) {
+		return EventoDAO.getInstance().getEventoById(idEvento);
 	}
 }
