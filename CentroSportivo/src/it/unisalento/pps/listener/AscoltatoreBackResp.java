@@ -9,8 +9,8 @@ import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.CatalogoDiscipline;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
-import it.unisalento.pps.view.ElencoLivelli;
 import it.unisalento.pps.view.FormDisciplina;
+import it.unisalento.pps.view.FormElencoLivelli;
 import it.unisalento.pps.view.FormModDisciplina;
 
 public class AscoltatoreBackResp implements ActionListener {
@@ -19,9 +19,9 @@ public class AscoltatoreBackResp implements ActionListener {
 	private Responsabile responsabile;
 	
 	
-	public AscoltatoreBackResp(ElencoAutorizzazioni frame, Responsabile responsabile) {
+	public AscoltatoreBackResp(FormElencoLivelli formElencoLivelli, Responsabile responsabile) {
 		super();
-		this.frame = frame;
+		this.frame = formElencoLivelli;
 		this.responsabile=responsabile;
 	}
 	
@@ -31,12 +31,7 @@ public class AscoltatoreBackResp implements ActionListener {
 		this.responsabile = responsabile;
 	}
 	
-	public AscoltatoreBackResp(ElencoLivelli frame, Responsabile responsabile) {
-		super();
-		this.frame = frame;
-		this.responsabile = responsabile;
-	}
-	
+		
 	public AscoltatoreBackResp(FormDisciplina frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
@@ -49,6 +44,12 @@ public class AscoltatoreBackResp implements ActionListener {
 		this.responsabile = responsabile;
 	}
 	
+	public AscoltatoreBackResp(ElencoAutorizzazioni frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+
 	public void actionPerformed(ActionEvent e) {
 		new AreaResponsabile(responsabile);
 		frame.dispose();

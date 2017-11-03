@@ -58,7 +58,7 @@ public class ElencoCorsi extends JFrame {
 		nordPnl.add(spazio);
 		
 		corsi = EventoBusiness.getInstance().getCorsiByIdIstruttore(istruttore.getIdIstruttore());
-		centroPnl.setLayout(new GridLayout(5*corsi.size(),1));
+		centroPnl.setLayout(new GridLayout(corsi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
 		TipoEvento tipo;

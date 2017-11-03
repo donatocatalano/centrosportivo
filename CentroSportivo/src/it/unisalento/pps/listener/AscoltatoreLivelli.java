@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.CatalogoDiscipline;
-import it.unisalento.pps.view.ElencoLivelli;
+import it.unisalento.pps.view.FormElencoLivelli;
 
 public class AscoltatoreLivelli implements ActionListener {
 	
@@ -21,7 +21,7 @@ public class AscoltatoreLivelli implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		new ElencoLivelli(responsabile);
+		new FormElencoLivelli(responsabile);
 		frame.dispose();
 	}
 }

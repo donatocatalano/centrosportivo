@@ -27,25 +27,24 @@ import it.unisalento.pps.model.TipoEvento;
 public class ElencoEventi extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	JPanel nordPnl=new JPanel(new GridLayout(2,1));
-	JPanel centroPnl=new JPanel();
-	JPanel sudPnl=new JPanel();
+	private JPanel nordPnl=new JPanel(new GridLayout(2,1));
+	private JPanel centroPnl=new JPanel();
+	private JPanel sudPnl=new JPanel();
 	
 	
-	JLabel titolo = new JLabel();
-	JLabel spazio = new JLabel();
+	private JLabel titolo = new JLabel();
+	private JLabel spazio = new JLabel();
 	
-	JPanel contenuto = new JPanel();
-	JPanel contenutoVuoto = new JPanel();
+	private JPanel contenuto = new JPanel();
+	private JPanel contenutoVuoto = new JPanel();
 	
-	JButton indietro = new JButton("INDIETRO");
-	JButton nuovoevento = new JButton("AGGIUNGI EVENTO");
+	private JButton indietro = new JButton("INDIETRO");
+	private JButton nuovoevento = new JButton("AGGIUNGI EVENTO");
 
-	AscoltatoreBackIst ascoltatoreBackIst; 
-	AscoltatoreFormEvento ascoltatoreNuovoEvento;
-	AscoltatoreEliminaEvento ascoltatoreElimina;
-	Istruttore istruttore;
-	ArrayList<Evento> eventi = new ArrayList<Evento>();
+	private AscoltatoreBackIst ascoltatoreBackIst; 
+	private AscoltatoreFormEvento ascoltatoreNuovoEvento;
+	private AscoltatoreEliminaEvento ascoltatoreElimina;
+	private ArrayList<Evento> eventi = new ArrayList<Evento>();
 	
 
 	public ElencoEventi(Istruttore istruttore) {
@@ -58,6 +57,9 @@ public class ElencoEventi extends JFrame {
 		nordPnl.add(spazio);
 		
 		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
+		for(int i = 0;i<eventi.size();i++) {
+			System.out.println(eventi.size());
+		}
 		centroPnl.setLayout(new GridLayout(eventi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;

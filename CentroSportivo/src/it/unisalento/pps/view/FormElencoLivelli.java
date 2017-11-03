@@ -19,7 +19,7 @@ import it.unisalento.pps.listener.AscoltatoreNuovoLivello;
 import it.unisalento.pps.model.Livello;
 import it.unisalento.pps.model.Responsabile;
 
-public class ElencoLivelli extends JFrame {
+public class FormElencoLivelli extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(2,1));
@@ -42,7 +42,7 @@ public class ElencoLivelli extends JFrame {
 	Responsabile responsabile;
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 
-	public ElencoLivelli(Responsabile responsabile) {
+	public FormElencoLivelli(Responsabile responsabile) {
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());
 		
 		titolo.setText("ELENCO LIVELLI"); 

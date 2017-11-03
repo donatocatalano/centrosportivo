@@ -38,7 +38,7 @@ public class CatalogoDiscipline extends JFrame {
 
 	JButton indietro= new JButton("INDIETRO");
 	JButton nuovadisciplina = new JButton("AGGIUNGI DISCIPLINA");
-	JButton nuovolivello = new JButton("AGGIUNGI LIVELLO");
+	JButton nuovolivello = new JButton("GESTISCI LIVELLI");
 	
 	AscoltatoreBackResp ascoltatoreBackResp; 
 	AscoltatoreFormDisciplina ascoltatoreModDisciplina;

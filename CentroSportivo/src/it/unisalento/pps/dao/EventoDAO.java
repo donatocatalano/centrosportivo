@@ -38,9 +38,9 @@ public class EventoDAO {
 			long millisecondi_inizio = dataInizio.getTimeInMillis();
 			Date data_inizio = new Date(millisecondi_inizio);
 			
-			int anno_fine = Integer.parseInt((result.get(i)[1].substring(0,4)));
-			int mese_fine = Integer.parseInt((result.get(i)[1].substring(5,7)));
-			int giorno_fine = Integer.parseInt((result.get(i)[1].substring(8,10)));
+			int anno_fine = Integer.parseInt((result.get(i)[7].substring(0,4)));
+			int mese_fine = Integer.parseInt((result.get(i)[7].substring(5,7)));
+			int giorno_fine = Integer.parseInt((result.get(i)[7].substring(8,10)));
 			GregorianCalendar dataFine = new GregorianCalendar(anno_fine,mese_fine-1,giorno_fine);
 			long millisecondi_fine = dataFine.getTimeInMillis();
 			Date data_fine = new Date(millisecondi_fine);
