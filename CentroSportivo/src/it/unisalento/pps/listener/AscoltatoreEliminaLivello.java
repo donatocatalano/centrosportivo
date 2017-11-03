@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.model.Livello;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.view.ElencoLivelli;
+import it.unisalento.pps.view.FormElencoLivelli;
 
 public class AscoltatoreEliminaLivello implements ActionListener {
 	
@@ -17,7 +17,7 @@ public class AscoltatoreEliminaLivello implements ActionListener {
 	private Responsabile responsabile;
 	private Livello livello;
 	
-	public AscoltatoreEliminaLivello(ElencoLivelli frame, Responsabile responsabile, Livello livello) {
+	public AscoltatoreEliminaLivello(FormElencoLivelli frame, Responsabile responsabile, Livello livello) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;
@@ -40,7 +40,7 @@ public class AscoltatoreEliminaLivello implements ActionListener {
 		
 		if(ok && n==0) {
 			JOptionPane.showMessageDialog(null, "Livello eliminato!");
-			new ElencoLivelli(responsabile);
+			new FormElencoLivelli(responsabile);
 			frame.dispose();
 		}
 		else {
