@@ -44,7 +44,7 @@ public class TestimonianzaDAO {
 		return testimonianze;
 	}
 
-	public boolean inserisciFeed(Date data, String contenuto, int disciplina, int tesserato) {
+	public boolean inserisciFeed(String contenuto, int disciplina, int tesserato) {
 		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Testimonianza) from testimonianza" );
 		Iterator<String[]> iter = risultato.iterator();
 		String[] tupla = iter.next();
@@ -52,7 +52,7 @@ public class TestimonianzaDAO {
 		
 		boolean ok_inserimento = false;
 		if(!contenuto.isEmpty())
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into testimonianza (ID_Testimonianza,Data,Contenuto,Utente,Disciplina) values(\""+(idTestimonianza+1)+"\",\""+data+"\",\""+contenuto+"\",\""+tesserato+"\",\""+disciplina+"\")");
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into testimonianza (ID_Testimonianza,Data,Contenuto,Utente,Disciplina) values(\""+(idTestimonianza+1)+"\",curdate(),\""+contenuto+"\",\""+tesserato+"\",\""+disciplina+"\")");
 		
 		return ok_inserimento;
 	}
