@@ -34,6 +34,10 @@ public class Pagamento{
 		this.accettato = accettato;
 	}
 
+	public Pagamento(int parseInt, int parseInt2, int parseInt3, double parseDouble) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdPagamento() {
 		return this.idPagamento;
 	}

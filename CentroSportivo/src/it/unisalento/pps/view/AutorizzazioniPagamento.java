@@ -21,6 +21,7 @@ import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Livello;
+import it.unisalento.pps.model.Pagamento;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 
@@ -41,7 +42,7 @@ public class AutorizzazioniPagamento extends JFrame{
 	
 		
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
-	AscoltatoreAutorizzaPagamento ascoltatoreAutorizzaPagamento;
+	//AscoltatoreAutorizzaPagamento ascoltatoreAutorizzaPagamento;
 	Responsabile responsabile;
 	ArrayList<Pagamento> pagamentiDaAutorizzare = new ArrayList<Pagamento>();
 		
