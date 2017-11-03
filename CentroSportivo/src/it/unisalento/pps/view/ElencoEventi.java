@@ -78,8 +78,12 @@ public class ElencoEventi extends JFrame {
 				String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);		
 			
 
+<<<<<<< HEAD
 				JLabel evento = new JLabel(tipo.getTipo().toUpperCase()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
 
+=======
+				JLabel evento = new JLabel(tipo.getTipo().toUpperCase()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
+>>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo.git
 				evento.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton elimina = new JButton ("ELIMINA");
 				contenuto.add(evento);

@@ -23,7 +23,7 @@ private static TestimonianzaBusiness instance;
 		return TestimonianzaDAO.getInstance().getTestimonianzeByDisciplina(IdDisciplina);
 	}
 
-	public boolean inserisciFeed(Date data, String contenuto, int tesserato, int disciplina) {
-		return TestimonianzaDAO.getInstance().inserisciFeed(data, contenuto, tesserato, disciplina);
+	public boolean inserisciFeed(String contenuto, int tesserato, int disciplina) {
+		return TestimonianzaDAO.getInstance().inserisciFeed(contenuto, tesserato, disciplina);
 	}
 }

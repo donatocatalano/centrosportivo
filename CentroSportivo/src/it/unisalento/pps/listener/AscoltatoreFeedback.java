@@ -52,12 +52,12 @@ public class AscoltatoreFeedback implements ActionListener{
 			String feedback = (String)JOptionPane.showInputDialog(frame,"Inserisci il tuo feedback:\n","FEEDBACK",JOptionPane.PLAIN_MESSAGE);
 			
 			
-			int anno = 2017;
+		/*	int anno = 2017;
 			int mese = 01;
 			int giorno= 01;
 			GregorianCalendar date = new GregorianCalendar(anno,mese-1,giorno);
 			long millisecondi_inizio = date.getTimeInMillis();
-			Date data = new Date(millisecondi_inizio);
+			Date data = new Date(millisecondi_inizio);*/
 			
 			boolean ok;
 			
@@ -73,7 +73,7 @@ public class AscoltatoreFeedback implements ActionListener{
 					options[0]); //default button title
 			
 				if(n==0 && JOptionPane.PLAIN_MESSAGE!=0) {					
-					ok = TestimonianzaBusiness.getInstance().inserisciFeed(data, feedback,disciplina.getIdDisciplina(), tesserato.getIdUtente());
+					ok = TestimonianzaBusiness.getInstance().inserisciFeed(feedback,disciplina.getIdDisciplina(), tesserato.getIdUtente());
 					JOptionPane.showMessageDialog(null, "Feedback inserito!");
 					new FeedbackTesserato(disciplina, tesserato);
 					frame.dispose();

@@ -94,7 +94,7 @@ public class UtenteDAO {
 
 	public boolean confermaUtente(int utente, int responsabile) {
 		
-		Calendar data = Calendar.getInstance();
+		/*Calendar data = Calendar.getInstance();
 		data.getTime();
 		int anno=data.get(Calendar.YEAR);
 		int mese=data.get(Calendar.MONTH);
@@ -102,10 +102,10 @@ public class UtenteDAO {
 		GregorianCalendar data1 = new GregorianCalendar(anno,mese,giorno);
 		long millisecondi_inizio = data1.getTimeInMillis();
 		Date dataodierna = new Date(millisecondi_inizio);
-		System.out.println(dataodierna);
+		System.out.println(dataodierna);*/
 		
 		boolean ok_conferma = false;		
-		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", data_registrazione = "+dataodierna+", tesserato='1' WHERE ID_Utente = "+utente+" ");
+		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", data_registrazione = curdate(), tesserato='1' WHERE ID_Utente = "+utente+" ");
 		return ok_conferma;
 	}
 	
