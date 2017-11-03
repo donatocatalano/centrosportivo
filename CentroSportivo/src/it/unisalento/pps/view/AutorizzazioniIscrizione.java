@@ -16,15 +16,17 @@ import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
-import it.unisalento.pps.listener.AscoltatoreAutorizzaIscrizione;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
+import it.unisalento.pps.listener.AscoltatoreConfermaIscrizioni;
+import it.unisalento.pps.listener.AscoltatoreAutorizzaIscrizione;
+import it.unisalento.pps.listener.AscoltatoreAutorizzaRegistrazione;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Livello;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 
-public class AutorizzazioniPagamento extends JFrame{
+public class AutorizzazioniIscrizione extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(2,1));
@@ -36,57 +38,57 @@ public class AutorizzazioniPagamento extends JFrame{
 	JLabel spazio = new JLabel();
 	
 	JPanel contenuto = new JPanel();
-		
-	JButton indietro= new JButton("INDIETRO");
 	
+	JButton indietro= new JButton("INDIETRO");
 		
+	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
-	AscoltatoreAutorizzaPagamento ascoltatoreAutorizzaPagamento;
+	AscoltatoreAutorizzaIscrizione ascoltatoreAutorizzaIscrizione;
 	Responsabile responsabile;
-	ArrayList<Pagamento> pagamentiDaAutorizzare = new ArrayList<Pagamento>();
+	ArrayList<Iscrizione> iscrizioniDaAutorizzare = new ArrayList<Iscrizione>();
 		
-	public AutorizzazioniPagamento(Responsabile responsabile){
+	public AutorizzazioniIscrizione(Responsabile responsabile){
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
 		
-		titolo.setText("PAGAMENTI IN ATTESA DI CONFERMA"); 
+		titolo.setText("ISCRIZIONI IN ATTESA DI CONFERMA"); 
 		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
 		nordPnl.add(spazio);
 			
-		pagamentiDaAutorizzare = PagamentoBusiness.getInstance().getPagamentiDaAutorizzare();
+		iscrizioniDaAutorizzare = IscrizioneBusiness.getInstance().getIscrizioniDaAutorizzare();
 		
 		Disciplina disciplina;
 		Utente utente;
 		Livello livello;
 			  
-		if(pagamentiDaAutorizzare.size()>0) {	
+		if(iscrizioniDaAutorizzare.size()>0) {	
 			
-			contenuto.setLayout(new GridLayout(pagamentiDaAutorizzare.size(),1));
+			contenuto.setLayout(new GridLayout(iscrizioniDaAutorizzare.size(),1));
 			centroPnl.add(contenuto);
 			
-			for(int i=0;i<pagamentiDaAutorizzare.size();i++) {
-				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(pagamentiDaAutorizzare.get(i).getDisciplina());
-				utente = UtenteBusiness.getInstance().getUtenteById(pagamentiDaAutorizzare.get(i).getUtente());
-				livello = LivelloBusiness.getInstance().getLivelloById(pagamentiDaAutorizzare.get(i).getLivello());
+			for(int i=0;i<iscrizioniDaAutorizzare.size();i++) {
+				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioniDaAutorizzare.get(i).getDisciplina());
+				utente = UtenteBusiness.getInstance().getUtenteById(iscrizioniDaAutorizzare.get(i).getUtente());
+				livello = LivelloBusiness.getInstance().getLivelloById(iscrizioniDaAutorizzare.get(i).getLivello());
 				
-				String giorno= pagamentiDaAutorizzare.get(i).getDataIn().toString().substring(8,10);
-				String mese = pagamentiDaAutorizzare.get(i).getDataIn().toString().substring(5,7);
-				String anno = pagamentiDaAutorizzare.get(i).getDataIn().toString().substring(0,4);	
+				String giorno= iscrizioniDaAutorizzare.get(i).getDataIn().toString().substring(8,10);
+				String mese = iscrizioniDaAutorizzare.get(i).getDataIn().toString().substring(5,7);
+				String anno =iscrizioniDaAutorizzare.get(i).getDataIn().toString().substring(0,4);	
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel pagamento = new JLabel("Richiesta di pagamento per "+disciplina.getNome()+",   Livello: "+livello.getNome()+",   UTENTE: "+utente.getNome()+" "+utente.getCognome()+"   del " +giorno+"/"+mese+"/"+anno+"   ");	
-				pagamento.setFont(new Font("sansserif",Font.BOLD,20));
-				JButton autorizzapagamento = new JButton("AUTORIZZA PAGAMENTO");
-				contenuto1.add(pagamento);
-				contenuto1.add(autorizzapagamento);
+				JLabel iscrizione = new JLabel("Richiesta di iscrizione per "+disciplina.getNome()+",   Livello: "+livello.getNome()+",   UTENTE: "+utente.getNome()+" "+utente.getCognome()+"   del " +giorno+"/"+mese+"/"+anno+"   ");	
+				iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
+				JButton autorizzaiscrizione = new JButton("AUTORIZZA ISCRIZIONE");
+				contenuto1.add(iscrizione);
+				contenuto1.add(autorizzaiscrizione);
 				contenuto.add(contenuto1);
 				
 				JPanel contenuto2 = new JPanel();
 				contenuto.add(contenuto2);
 				
-				ascoltatoreAutorizzaPagamento = new AscoltatoreAutorizzaPagamento(this, responsabile, pagamentiDaAutorizzare.get(i));
-				autorizzapagamenti.addActionListener(ascoltatoreAutorizzaPagamento);
+				ascoltatoreAutorizzaIscrizione = new AscoltatoreAutorizzaIscrizione(this, responsabile, iscrizioniDaAutorizzare.get(i));
+				autorizzaiscrizione.addActionListener(ascoltatoreAutorizzaIscrizione);
 			}
 		}
 		else {

@@ -91,7 +91,7 @@ public class UtenteDAO {
 		return utentiDaAutorizzare;
 	}
 
-	public boolean confermaUtente(int utente, int responsabile) {
+	public boolean autorizzaUtente(int utente, int responsabile) {
 		
 		/*Calendar data = Calendar.getInstance();
 		data.getTime();
@@ -103,9 +103,9 @@ public class UtenteDAO {
 		Date dataodierna = new Date(millisecondi_inizio);
 		System.out.println(dataodierna);*/
 		
-		boolean ok_conferma = false;		
-		ok_conferma = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", data_registrazione = curdate(), tesserato='1' WHERE ID_Utente = "+utente+" ");
-		return ok_conferma;
+		boolean ok_autorizza = false;		
+		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", data_registrazione = curdate(), tesserato='1' WHERE ID_Utente = "+utente+" ");
+		return ok_autorizza;
 	}
 	
 	public Utente getUtenteById(int idUtente) {

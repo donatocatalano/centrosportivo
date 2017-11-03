@@ -41,6 +41,15 @@ public class Iscrizione {
 		this.utente = utente;
 	}
 
+	public Iscrizione(int idIscrizione, Date dataIn, Date dataOut, int livello, int disciplina, int utente) {
+		this.idIscrizione = idIscrizione;
+		this.dataIn = dataIn;
+		this.dataOut = dataOut;
+		this.livello = livello;
+		this.disciplina = disciplina;
+		this.utente = utente;
+	}
+
 	public int getIdIscrizione() {
 		return this.idIscrizione;
 	}

@@ -6,29 +6,32 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
+import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
+import it.unisalento.pps.view.AutorizzazioniIscrizione;
 import it.unisalento.pps.view.AutorizzazioniRegistrazione;
 
-public class AscoltatoreConfermaRegistrazione implements ActionListener {
+public class AscoltatoreAutorizzaIscrizione implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;	
-	private Utente utente;
+	private Iscrizione iscrizione;
 
-	public AscoltatoreConfermaRegistrazione(AutorizzazioniRegistrazione frame, Responsabile responsabile, Utente utente) {
+	public AscoltatoreAutorizzaIscrizione(AutorizzazioniIscrizione frame, Responsabile responsabile, Iscrizione iscrizione) {
 		this.frame = frame;
 		this.responsabile = responsabile;
-		this.utente = utente;
+		this.iscrizione = iscrizione;
 	}
 	
 	public void actionPerformed(ActionEvent e){
 		
-		boolean ok = UtenteBusiness.getInstance().confermaUtente(utente.getIdUtente(), responsabile.getIdResponsabile());
+		boolean ok = IscrizioneBusiness.getInstance().autorizzaIscrizione(iscrizione.getIdIscrizione());
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
-			"Vuoi confermare la registrazione?",
+			"Vuoi autorizzare l'iscrizione?",
 			"ATTENZIONE !!",
 			JOptionPane.YES_NO_OPTION,
 			JOptionPane.QUESTION_MESSAGE,
@@ -38,12 +41,12 @@ public class AscoltatoreConfermaRegistrazione implements ActionListener {
 		
 		
 		if(ok && n==0) {
-			JOptionPane.showMessageDialog(null, "Utente tesserato!");
-			new AutorizzazioniRegistrazione(responsabile);
+			JOptionPane.showMessageDialog(null, "Iscrizione autorizzata!");
+			new AutorizzazioniIscrizione(responsabile);
 			frame.dispose();
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Utente non confermato!");
+			JOptionPane.showMessageDialog(null, "Iscrizione non autorizzata!");
 		}
 	}
 }

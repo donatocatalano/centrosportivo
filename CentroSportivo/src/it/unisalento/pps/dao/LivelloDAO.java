@@ -5,10 +5,12 @@ import java.util.Iterator;
 
 import it.unisalento.pps.DbInterface.DbConnection;
 import it.unisalento.pps.model.Livello;
+import it.unisalento.pps.model.Utente;
 
 public class LivelloDAO {
 	
 	private static LivelloDAO instance;
+	private Livello livello;
 	
 	public static LivelloDAO getInstance()
 	{
@@ -52,5 +54,13 @@ public class LivelloDAO {
 			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into livello(ID_Livello,Nome) values(\""+(idLivello+1)+"\",\""+nome+"\") ");
 
 		return  ok_inserimento;
+	}
+
+	public Livello getLivelloById(int idLivello) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from livello where ID_Livello=\""+ idLivello +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		livello=new Livello(Integer.parseInt(tupla[0]),tupla[1]);
+		return livello;
 	}	
 }
