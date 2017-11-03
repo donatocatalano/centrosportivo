@@ -24,7 +24,6 @@ public class InfoDisciplina extends JFrame{
 	private JPanel sudPnl=new JPanel();
 	
 	
-	
 	private JPanel titolo= new JPanel(new FlowLayout());
 	private JLabel nomeDisciplina= new JLabel();
 	

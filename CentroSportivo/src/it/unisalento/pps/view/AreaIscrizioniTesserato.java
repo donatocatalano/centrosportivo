@@ -108,9 +108,9 @@ public class AreaIscrizioniTesserato extends JFrame{
 				campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 				JPanel contenuto1=new JPanel(new GridLayout(2,1));
-				contenuto.add(contenutoVuoto);
+				contenuto1.add(contenutoVuoto);
 				contenuto1.add(campo_evento);
-				contenuto1.setLayout(new GridLayout(eventi.size(),1));
+				contenuto.setLayout(new GridLayout(eventi.size(),1));
 				contenuto.add(contenuto1);
 				
 				group_evento.add(campo_evento);
