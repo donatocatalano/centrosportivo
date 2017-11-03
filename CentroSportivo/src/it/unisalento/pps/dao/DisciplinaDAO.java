@@ -76,7 +76,7 @@ public class DisciplinaDAO {
 		
 		boolean ok_inserimento = false;
 		if(!(nome.isEmpty()||(costo==0)||descrizione.isEmpty()))
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("UPDATE disciplina SET Nome="+nome+", CostoMensile="+costo+", Immagine="+immagine+", Descrizione="+descrizione+" WHERE ID_Disciplina= "+disciplina+" ");
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("UPDATE disciplina SET nome="+nome+", costomensile="+costo+", immagine="+immagine+", descrizione="+descrizione+" WHERE ID_Disciplina= "+disciplina+" ");
 
 		return  ok_inserimento;
 	}

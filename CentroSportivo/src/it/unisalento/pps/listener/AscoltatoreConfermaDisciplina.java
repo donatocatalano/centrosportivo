@@ -44,7 +44,7 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 			JTextArea descrizione = frame.descrizione_field;
 			JTextField immagine = frame.immagine_field;
 			
-		
+	
 			boolean ok = DisciplinaBusiness.getInstance().registraDisciplina(nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
 			if(ok) {
 				JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
@@ -61,15 +61,27 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 		JTextField costo = frame1.costo_field;
 		JTextArea descrizione = frame1.descrizione_field;
 		JTextField immagine = frame1.immagine_field;
-	
-	
-		boolean ok = DisciplinaBusiness.getInstance().aggiornaDisciplina(disciplina.getIdDisciplina(),nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
-		if(ok) {
-			JOptionPane.showMessageDialog(null, "Aggiornamento avvenuto correttamente!");
-			new AreaResponsabile(responsabile);
-			frame1.dispose();
+		
+		Object[] options = {"SI","NO"};
+		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
+			"Vuoi modificare la disciplina?",
+			"ATTENZIONE !!",
+			JOptionPane.YES_NO_OPTION,
+			JOptionPane.QUESTION_MESSAGE,
+			null,     //do not use a custom Icon
+			options,  //the titles of buttons
+			options[0]); //default button title
+		
+		if(n==0) {
+			boolean ok = DisciplinaBusiness.getInstance().aggiornaDisciplina(disciplina.getIdDisciplina(),nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
+				if (ok) {
+					JOptionPane.showMessageDialog(null, "Aggiornamento avvenuto correttamente!");
+					new AreaResponsabile(responsabile);
+					frame1.dispose();			
+				}
+				else
+					JOptionPane.showMessageDialog(null, "C'è qualche errore.Riprova");
 		}
-		else
-			JOptionPane.showMessageDialog(null, "C'è qualche errore.Riprova");	
+		else JOptionPane.showMessageDialog(null, "Disciplina non modificata!");
 	}
 }

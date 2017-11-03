@@ -26,7 +26,6 @@ public class AscoltatoreEliminaDisciplina implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		
-		boolean ok = DisciplinaBusiness.getInstance().cancellaDisciplina(disciplina);
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
 				"Vuoi eliminare la disciplina "+disciplina.getNome()+"?",
@@ -37,7 +36,8 @@ public class AscoltatoreEliminaDisciplina implements ActionListener {
 				options,  //the titles of buttons
 				options[0]); //default button title
 		
-		if(ok && n==0) {
+		if(n==0) {
+			boolean ok = DisciplinaBusiness.getInstance().cancellaDisciplina(disciplina);
 			JOptionPane.showMessageDialog(null, "Disciplina eliminata!");
 			new CatalogoDiscipline(responsabile, disciplina);
 			frame.dispose();
@@ -45,6 +45,5 @@ public class AscoltatoreEliminaDisciplina implements ActionListener {
 		else {
 			JOptionPane.showMessageDialog(null, "Disciplina non eliminata!");
 		}
-			
 	}
 }
