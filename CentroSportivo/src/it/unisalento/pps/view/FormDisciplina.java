@@ -22,6 +22,7 @@ public class FormDisciplina extends JFrame {
 	
 	Font myfont = new Font("sansserif",Font.PLAIN,20);  
 	Dimension mysize = new Dimension (200,30);
+	String prova;
 	
 	JPanel nordPnl=new JPanel(new GridLayout (2,1));
 	JPanel centroPnl=new JPanel(new GridLayout (3,3));
