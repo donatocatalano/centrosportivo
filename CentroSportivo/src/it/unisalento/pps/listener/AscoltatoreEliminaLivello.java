@@ -26,7 +26,6 @@ public class AscoltatoreEliminaLivello implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		
-		boolean ok = LivelloBusiness.getInstance().cancellaLivello(livello);
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
 			"Vuoi eliminare il livello?",
@@ -38,7 +37,8 @@ public class AscoltatoreEliminaLivello implements ActionListener {
 			options[0]); //default button title
 		
 		
-		if(ok && n==0) {
+		if(n==0) {
+			boolean ok = LivelloBusiness.getInstance().cancellaLivello(livello);
 			JOptionPane.showMessageDialog(null, "Livello eliminato!");
 			new FormElencoLivelli(responsabile);
 			frame.dispose();

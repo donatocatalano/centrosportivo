@@ -34,7 +34,6 @@ public class Pagamento{
 		this.accettato = accettato;
 	}
 
-<<<<<<< HEAD
 	public Pagamento(int idPagamento, int utente, int tipo, float totale, Date dataPagamento, int iscrizione) {
 		this.idPagamento = idPagamento;
 		this.utente = utente;
@@ -49,12 +48,7 @@ public class Pagamento{
 		this.utente = utente;
 		this.tipo = tipo;
 		this.totale = totale;
-=======
-	public Pagamento(int parseInt, int parseInt2, int parseInt3, double parseDouble) {
-		// TODO Auto-generated constructor stub
-	}
-
-	
+	}	
 
 	public Pagamento(int idPagamento, int utente, int tipo, double totale, Date dataPagamento, int iscrizione) {
 		this.idPagamento = idPagamento;
@@ -62,7 +56,6 @@ public class Pagamento{
 		this.tipo = tipo;
 		this.totale = totale;
 		this.dataPagamento = dataPagamento;
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo
 		this.iscrizione = iscrizione;
 	}
 

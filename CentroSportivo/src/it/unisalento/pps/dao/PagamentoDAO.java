@@ -44,26 +44,10 @@ public class PagamentoDAO {
 			long millisecondi = date.getTimeInMillis();
 			Date data = new Date(millisecondi);
 			
-<<<<<<< HEAD
 			pagamento = new Pagamento(Integer.parseInt(result.get(i)[0]),Integer.parseInt(result.get(i)[1]),Integer.parseInt(result.get(i)[2]),Float.parseFloat(result.get(i)[3]),data,Integer.parseInt(result.get(i)[7]));
-=======
-			int anno = Integer.parseInt((result.get(i)[1].substring(0,4)));
-			int mese = Integer.parseInt((result.get(i)[1].substring(5,7)));
-			int giorno= Integer.parseInt((result.get(i)[1].substring(8,10)));
-			
-			GregorianCalendar data = new GregorianCalendar(anno,mese-1,giorno);
-			long millisecondi = data.getTimeInMillis();
-			Date dataPagamento = new Date(millisecondi);
-			
-			pagamento = new Pagamento(Integer.parseInt(result.get(i)[0]),Integer.parseInt(result.get(i)[1]),Integer.parseInt(result.get(i)[2]),Double.parseDouble(result.get(i)[3]),dataPagamento,Integer.parseInt(result.get(i)[7]));
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo
 			pagamentiDaAutorizzare.add(pagamento);
 		}
-<<<<<<< HEAD
 		return  pagamentiDaAutorizzare;
-=======
-		return   pagamentiDaAutorizzare;
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo
 	}
 
 	public boolean autorizzaPagamento(int pagamento, int responsabile) {
@@ -73,7 +57,3 @@ public class PagamentoDAO {
 		return ok_autorizza;
 	}
 }
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo

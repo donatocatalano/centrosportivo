@@ -27,10 +27,9 @@ public class AscoltatoreAutorizzaPagamento implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e){
 		
-		boolean ok = PagamentoBusiness.getInstance().autorizzaPagamento(pagamento.getIdPagamento(), responsabile.getIdResponsabile());
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
-			"Vuoi autorizzare l'iscrizione?",
+			"Vuoi autorizzare il pagamento?",
 			"ATTENZIONE !!",
 			JOptionPane.YES_NO_OPTION,
 			JOptionPane.QUESTION_MESSAGE,
@@ -39,7 +38,8 @@ public class AscoltatoreAutorizzaPagamento implements ActionListener {
 			options[0]); //default button title
 		
 		
-		if(ok && n==0) {
+		if(n==0) {
+			boolean ok = PagamentoBusiness.getInstance().autorizzaPagamento(pagamento.getIdPagamento(), responsabile.getIdResponsabile());
 			JOptionPane.showMessageDialog(null, "Pagamento autorizzato!");
 			new AutorizzazioniPagamento(responsabile);
 			frame.dispose();

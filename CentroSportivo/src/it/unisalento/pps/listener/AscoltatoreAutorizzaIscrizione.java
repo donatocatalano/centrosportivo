@@ -25,7 +25,6 @@ public class AscoltatoreAutorizzaIscrizione implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e){
 		
-		boolean ok = PrenotazioneBusiness.getInstance().autorizzaPrenotazione(prenotazione.getIdPrenotazione());
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
 			"Vuoi autorizzare l'iscrizione?",
@@ -37,7 +36,8 @@ public class AscoltatoreAutorizzaIscrizione implements ActionListener {
 			options[0]); //default button title
 		
 		
-		if(ok && n==0) {
+		if(n==0) {
+			boolean ok = PrenotazioneBusiness.getInstance().autorizzaPrenotazione(prenotazione.getIdPrenotazione());
 			JOptionPane.showMessageDialog(null, "Iscrizione autorizzata!");
 			new AutorizzazioniIscrizione(responsabile, prenotazione);
 			frame.dispose();

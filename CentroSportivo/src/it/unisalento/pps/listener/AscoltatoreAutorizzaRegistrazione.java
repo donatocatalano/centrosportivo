@@ -25,7 +25,6 @@ public class AscoltatoreAutorizzaRegistrazione implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e){
 		
-		boolean ok = UtenteBusiness.getInstance().autorizzaUtente(utente.getIdUtente(), responsabile.getIdResponsabile());
 		Object[] options = {"SI","NO"};
 		int n = JOptionPane.showOptionDialog(frame,   // restituisce 0 se clicco il primo tasto, 1 se premo il secondo
 			"Vuoi autorizzare la registrazione?",
@@ -37,7 +36,8 @@ public class AscoltatoreAutorizzaRegistrazione implements ActionListener {
 			options[0]); //default button title
 		
 		
-		if(ok && n==0) {
+		if(n==0) {
+			boolean ok = UtenteBusiness.getInstance().autorizzaUtente(utente.getIdUtente(), responsabile.getIdResponsabile());
 			JOptionPane.showMessageDialog(null, "Utente tesserato!");
 			new AutorizzazioniRegistrazione(responsabile);
 			frame.dispose();

@@ -2,9 +2,7 @@ package it.unisalento.pps.business;
 
 import java.util.ArrayList;
 
-import it.unisalento.pps.dao.IscrizioneDAO;
 import it.unisalento.pps.dao.PagamentoDAO;
-import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Pagamento;
 
 public class PagamentoBusiness {
@@ -27,14 +25,8 @@ private static PagamentoBusiness instance;
 	public ArrayList<Pagamento> getPagamentiDaAutorizzare() {
 		return PagamentoDAO.getInstance().getPagamentiDaAutorizzare();
 	}
-
-<<<<<<< HEAD
+	
 	public boolean autorizzaPagamento(int pagamento, int responsabile) {
 		return PagamentoDAO.getInstance().autorizzaPagamento(pagamento, responsabile);
 	}
-=======
-	/*public boolean autorizzaPagamento(int pagamento) {
-		return PagamentoDAO.getInstance().autorizzaPagamento(pagamento);
-	}*/
->>>>>>> branch 'master' of https://github.com/donatocatalano/centrosportivo
 }
