@@ -25,6 +25,7 @@ public class AscoltatoreLogin implements ActionListener, KeyListener {
 		this.homepageWindow = homepageWindow;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void keyPressed(KeyEvent homepagewindow) {
 		if (homepagewindow.getKeyCode() == KeyEvent.VK_ENTER) {
 			
@@ -73,9 +74,8 @@ public class AscoltatoreLogin implements ActionListener, KeyListener {
 	public void keyReleased(KeyEvent e) {
 		}
 
-
-
 	
+	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e){		
 
 		String username = homepageWindow.username.getText();

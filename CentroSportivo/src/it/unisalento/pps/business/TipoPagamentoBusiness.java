@@ -2,9 +2,7 @@ package it.unisalento.pps.business;
 
 import java.util.ArrayList;
 
-import it.unisalento.pps.dao.TipoEventoDAO;
 import it.unisalento.pps.dao.TipoPagamentoDAO;
-import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.TipoPagamento;
 
 public class TipoPagamentoBusiness {
