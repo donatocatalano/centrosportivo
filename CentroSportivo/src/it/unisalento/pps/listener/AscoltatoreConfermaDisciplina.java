@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.FormDisciplina;
@@ -18,6 +19,7 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 	private FormDisciplina frame;
 	private FormModDisciplina frame1;
 	private Responsabile responsabile;
+	private Disciplina disciplina;
 	public final static String D1="d1";
 	
 	public AscoltatoreConfermaDisciplina(FormDisciplina frame, Responsabile responsabile) {
@@ -25,9 +27,10 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 		this.responsabile = responsabile;
 	}
 	
-	public AscoltatoreConfermaDisciplina(FormModDisciplina frame, Responsabile responsabile) {
+	public AscoltatoreConfermaDisciplina(FormModDisciplina frame, Responsabile responsabile, Disciplina disciplina) {
 		this.frame1 = frame;
 		this.responsabile = responsabile;
+		this.disciplina = disciplina;
 	}
 
 	public void actionPerformed(ActionEvent e) throws IllegalArgumentException{
@@ -41,8 +44,6 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 			JTextArea descrizione = frame.descrizione_field;
 			JTextField immagine = frame.immagine_field;
 			
-			
-		
 		
 			boolean ok = DisciplinaBusiness.getInstance().registraDisciplina(nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
 			if(ok) {
@@ -62,9 +63,9 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 		JTextField immagine = frame1.immagine_field;
 	
 	
-		boolean ok = DisciplinaBusiness.getInstance().registraDisciplina(nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
+		boolean ok = DisciplinaBusiness.getInstance().aggiornaDisciplina(disciplina.getIdDisciplina(),nome.getText(),Double.parseDouble(costo.getText()),immagine.getText(), descrizione.getText());
 		if(ok) {
-			JOptionPane.showMessageDialog(null, "Inserimento avvenuto correttamente!");
+			JOptionPane.showMessageDialog(null, "Aggiornamento avvenuto correttamente!");
 			new AreaResponsabile(responsabile);
 			frame1.dispose();
 		}

@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,7 +25,7 @@ import it.unisalento.pps.model.Responsabile;
 public class FormModDisciplina extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	Font myfont = new Font("sansserif",Font.PLAIN,20);  
+	Font myfont = new Font("sansserif",Font.PLAIN,25);  
 	Dimension mysize = new Dimension (200,30);
 	
 	JPanel nordPnl=new JPanel(new GridLayout (2,1));
@@ -39,15 +40,15 @@ public class FormModDisciplina extends JFrame {
 	
 	JPanel name= new JPanel(new FlowLayout());
 	JLabel nome= new JLabel("NOME");
-	public JTextField nome_field= new JTextField(15);
+	public JTextField nome_field;
 	
 	JPanel cost= new JPanel(new FlowLayout());
 	JLabel costo= new JLabel("COSTO MENSILE");
-	public JTextField costo_field= new JTextField(15);
+	public JTextField costo_field;
 	
 	JPanel period= new JPanel(new FlowLayout());
 	JLabel descrizione= new JLabel("BREVE DESCRIZIONE");
-	public JTextArea descrizione_field= new JTextArea(5,20);
+	public JTextArea descrizione_field;
 		
 	JPanel image= new JPanel(new FlowLayout());
 	JLabel immagine= new JLabel("INSERISCI NOME FILE IMMAGINE");
@@ -56,15 +57,12 @@ public class FormModDisciplina extends JFrame {
 	JPanel appartenenza = new JPanel(new FlowLayout());
 	JLabel campo_disciplina = new JLabel("");
 	
-	JPanel dateend= new JPanel(new FlowLayout());
-	JLabel datafine= new JLabel("");
-	
-	
-	
+
 	JButton indietro= new JButton("INDIETRO");
 	JButton inserimento= new JButton("CONFERMA DATI INSERITI");
 	
 	AscoltatoreConfermaDisciplina ascoltatoreConfermaDisciplina;
+	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	
 	public FormModDisciplina(Responsabile responsabile, Disciplina disciplina) {
 		super("Area privata RESPONSABILE : "+responsabile.getNome()+" "+responsabile.getCognome());
@@ -77,39 +75,40 @@ public class FormModDisciplina extends JFrame {
 		
 		disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(disciplina.getIdDisciplina());
 		
-		
-		name.add(nome);
 		nome.setFont(new Font("sansserif",Font.BOLD,25));
-		name.add(nome_field);
-		JTextField nome_field = new JTextField(disciplina.getNome());
+		nome_field = new JTextField(disciplina.getNome());
 		nome_field.setFont(myfont);
 		nome_field.setPreferredSize(mysize);
+		name.add(nome_field);
+		name.add(nome);
 		centroPnl.add(name);
 		cost.add(costo);
 		costo.setFont(new Font("sansserif",Font.BOLD,25));
-		cost.add(costo_field);
+		costo_field = new JTextField(Double.toString(disciplina.getCostoMensile()));
 		costo_field.setFont(myfont);
 		costo_field.setPreferredSize(mysize);
+		cost.add(costo_field);
 		centroPnl.add(cost);
 		period.add(descrizione);
 		descrizione.setFont(new Font("sansserif",Font.BOLD,25));
+		descrizione_field = new JTextArea(disciplina.getDescrizione(),5,20);
 		period.add(descrizione_field);
 		descrizione_field.setFont(myfont);
 		descrizione_field.setPreferredSize(mysize);
 		centroPnl.add(period);
 		image.add(immagine);
 		immagine.setFont(new Font("sansserif",Font.BOLD,25));
+		immagine_field.setFont(myfont);
+		immagine_field.setPreferredSize(mysize);
+		image.add(immagine_field);
 		centroPnl.add(image);
 		appartenenza.add(campo_disciplina);
 		campo_disciplina.setFont(new Font("sansserif",Font.BOLD,25));
 		centroPnl.add(appartenenza);
-		dateend.add(datafine);
-		datafine.setFont(new Font("sansserif",Font.BOLD,25));
-		centroPnl.add(dateend);
 
 
 		indietro.addActionListener(new AscoltatoreBackResp(this, responsabile));
-		ascoltatoreConfermaDisciplina = new AscoltatoreConfermaDisciplina(this,responsabile);
+		ascoltatoreConfermaDisciplina = new AscoltatoreConfermaDisciplina(this, responsabile, disciplina);
 		inserimento.addActionListener(ascoltatoreConfermaDisciplina);
 		inserimento.setActionCommand(AscoltatoreBackHome.D1);	
 		sudPnl.add(indietro);

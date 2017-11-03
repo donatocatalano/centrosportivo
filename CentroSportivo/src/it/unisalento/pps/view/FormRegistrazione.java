@@ -35,7 +35,7 @@ public class FormRegistrazione extends JFrame {
 	
 	
 	JPanel date= new JPanel(new FlowLayout());
-	JLabel data= new JLabel("DATA (nel formato gg-mm-aaaa)");
+	JLabel data= new JLabel("DATA DI NASCITA (nel formato gg-mm-aaaa)");
 	public JTextField data_field= new JTextField(15);
 
 	

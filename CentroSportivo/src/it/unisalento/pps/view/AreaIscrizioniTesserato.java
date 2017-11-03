@@ -115,7 +115,6 @@ public class AreaIscrizioniTesserato extends JFrame{
 				
 				group_evento.add(campo_evento);
 			}
-			
 		}
 		else {
 			JLabel nessunaoccorrenza = new JLabel("Nessuna Disciplina nel sistema");	
