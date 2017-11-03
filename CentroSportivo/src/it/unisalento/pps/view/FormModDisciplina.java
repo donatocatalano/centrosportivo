@@ -62,7 +62,6 @@ public class FormModDisciplina extends JFrame {
 	private JButton inserimento= new JButton("CONFERMA DATI INSERITI");
 	
 	private AscoltatoreConfermaDisciplina ascoltatoreConfermaDisciplina;
-	private ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	
 	public FormModDisciplina(Responsabile responsabile, Disciplina disciplina) {
 		super("Area privata RESPONSABILE : "+responsabile.getNome()+" "+responsabile.getCognome());
@@ -79,8 +78,8 @@ public class FormModDisciplina extends JFrame {
 		nome_field = new JTextField(disciplina.getNome());
 		nome_field.setFont(myfont);
 		nome_field.setPreferredSize(mysize);
-		name.add(nome_field);
 		name.add(nome);
+		name.add(nome_field);
 		centroPnl.add(name);
 		cost.add(costo);
 		costo.setFont(new Font("sansserif",Font.BOLD,25));
