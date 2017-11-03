@@ -32,14 +32,9 @@ public class Evento{
 	}
 	
 	public Evento(int idEvento, String turno, int tipo) {
-		this.idEvento = idEvento;
-		this.dataInizio = dataInizio;
-		this.dataFine = dataFine;		
+		this.idEvento = idEvento;		
 		this.turno = turno;
-		this.istruttore = istruttore;
-		this.spazio = spazio;
 		this.tipo = tipo;
-		this.disciplina = disciplina;
 	}
 
 	public int getIdEvento() {
@@ -105,5 +100,4 @@ public class Evento{
 	public void setDisciplina(int disciplina) {
 		this.disciplina = disciplina;
 	}
-
 }
