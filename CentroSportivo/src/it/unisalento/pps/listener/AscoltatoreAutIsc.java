@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.view.AutorizzazioniIscrizioniCorso;
+import it.unisalento.pps.view.AutorizzazioniIscrizione;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 
 public class AscoltatoreAutIsc implements ActionListener {
@@ -23,7 +23,7 @@ public class AscoltatoreAutIsc implements ActionListener {
 	
 
 	public void actionPerformed(ActionEvent e) {
-		new AutorizzazioniIscrizioniCorso(responsabile);
+		new AutorizzazioniIscrizione(responsabile);
 		frame.dispose();
 	}
 }

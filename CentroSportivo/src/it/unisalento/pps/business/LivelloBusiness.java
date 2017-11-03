@@ -8,6 +8,8 @@ import it.unisalento.pps.model.Livello;
 public class LivelloBusiness {
 	
 private static LivelloBusiness instance;
+
+	Livello livello;
 	
 	public static LivelloBusiness getInstance()
 	{
@@ -28,5 +30,10 @@ private static LivelloBusiness instance;
 
 	public boolean inserisciLivello(String livello) {
 		return LivelloDAO.getInstance().inserisciLivello(livello);
+	}
+
+	public Livello getLivelloById(int idLivello) {
+		livello = LivelloDAO.getInstance().getLivelloById(idLivello);
+		return livello;
 	}
 }

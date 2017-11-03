@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
-import it.unisalento.pps.listener.AscoltatoreConfermaRegistrazione;
+import it.unisalento.pps.listener.AscoltatoreAutorizzaRegistrazione;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 
@@ -35,7 +35,7 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		
 	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
-	AscoltatoreConfermaRegistrazione ascoltatoreConfermaRegistrazione;
+	AscoltatoreAutorizzaRegistrazione ascoltatoreAutorizzaRegistrazione;
 	Responsabile responsabile;	
 	ArrayList<Utente> utentiDaAutorizzare = new ArrayList<Utente>();
 		
@@ -47,10 +47,8 @@ public class AutorizzazioniRegistrazione extends JFrame{
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
 		nordPnl.add(spazio);
-		 
 		
 		utentiDaAutorizzare = UtenteBusiness.getInstance().getUtentiDaAutorizzare();
-		
 		
 		if(utentiDaAutorizzare.size()>0) {	
 			
@@ -66,16 +64,16 @@ public class AutorizzazioniRegistrazione extends JFrame{
 				JPanel contenuto1 = new JPanel(new FlowLayout());
 				JLabel nomeUtente = new JLabel(utentiDaAutorizzare.get(i).getNome()+" "+utentiDaAutorizzare.get(i).getCognome()+" nato il "+giorno+ "/"+mese+ "/" +anno+" USERNAME: "+utentiDaAutorizzare.get(i).getUsername()+"    ");	
 				nomeUtente.setFont(new Font("sansserif",Font.BOLD,20));
-				JButton confermaregistrazione = new JButton("CONFERMA REGISTRAZIONE");
+				JButton autorizzaregistrazione = new JButton("AUTORIZZA REGISTRAZIONE");
 				contenuto1.add(nomeUtente);
-				contenuto1.add(confermaregistrazione);
+				contenuto1.add(autorizzaregistrazione);
 				contenuto.add(contenuto1);
 				
 				JPanel contenuto2 = new JPanel();
 				contenuto.add(contenuto2);
 				
-				ascoltatoreConfermaRegistrazione = new AscoltatoreConfermaRegistrazione(this, responsabile, utentiDaAutorizzare.get(i));
-				confermaregistrazione.addActionListener(ascoltatoreConfermaRegistrazione);
+				ascoltatoreAutorizzaRegistrazione = new AscoltatoreAutorizzaRegistrazione(this, responsabile, utentiDaAutorizzare.get(i));
+				autorizzaregistrazione.addActionListener(ascoltatoreAutorizzaRegistrazione);
 			}
 		}
 		else {
