@@ -21,7 +21,7 @@ public class AscoltatoreLivelli implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		new ElencoLivelli(responsabile);
+		new FormElencoLivelli(responsabile);
 		frame.dispose();
 	}
 }

@@ -25,44 +25,44 @@ import it.unisalento.pps.model.Responsabile;
 public class FormModDisciplina extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	Font myfont = new Font("sansserif",Font.PLAIN,25);  
-	Dimension mysize = new Dimension (200,30);
+	private Font myfont = new Font("sansserif",Font.PLAIN,25);  
+	private Dimension mysize = new Dimension (200,30);
 	
-	JPanel nordPnl=new JPanel(new GridLayout (2,1));
-	JPanel centroPnl=new JPanel(new GridLayout (3,3));
-	JPanel sudPnl=new JPanel();
-	
-	
-	JPanel paginareg= new JPanel();
-	JLabel compilaform= new JLabel("INSERISCI I DATI RICHIESTI");
-	JPanel vuoto= new JPanel();
+	private JPanel nordPnl=new JPanel(new GridLayout (2,1));
+	private JPanel centroPnl=new JPanel(new GridLayout (3,3));
+	private JPanel sudPnl=new JPanel();
 	
 	
-	JPanel name= new JPanel(new FlowLayout());
-	JLabel nome= new JLabel("NOME");
+	private JPanel paginareg= new JPanel();
+	private JLabel compilaform= new JLabel("INSERISCI I DATI RICHIESTI");
+	private JPanel vuoto= new JPanel();
+	
+	
+	private JPanel name= new JPanel(new FlowLayout());
+	private JLabel nome= new JLabel("NOME");
 	public JTextField nome_field;
 	
-	JPanel cost= new JPanel(new FlowLayout());
-	JLabel costo= new JLabel("COSTO MENSILE");
+	private JPanel cost= new JPanel(new FlowLayout());
+	private JLabel costo= new JLabel("COSTO MENSILE");
 	public JTextField costo_field;
 	
-	JPanel period= new JPanel(new FlowLayout());
-	JLabel descrizione= new JLabel("BREVE DESCRIZIONE");
+	private JPanel period= new JPanel(new FlowLayout());
+	private JLabel descrizione= new JLabel("BREVE DESCRIZIONE");
 	public JTextArea descrizione_field;
 		
-	JPanel image= new JPanel(new FlowLayout());
-	JLabel immagine= new JLabel("INSERISCI NOME FILE IMMAGINE");
-	public JTextField immagine_field= new JTextField(15);
+	private JPanel image= new JPanel(new FlowLayout());
+	private JLabel immagine= new JLabel("INSERISCI NOME FILE IMMAGINE");
+	public JTextField immagine_field;
 	
-	JPanel appartenenza = new JPanel(new FlowLayout());
-	JLabel campo_disciplina = new JLabel("");
+	private JPanel appartenenza = new JPanel(new FlowLayout());
+	private JLabel campo_disciplina = new JLabel("");
 	
 
-	JButton indietro= new JButton("INDIETRO");
-	JButton inserimento= new JButton("CONFERMA DATI INSERITI");
+	private JButton indietro= new JButton("INDIETRO");
+	private JButton inserimento= new JButton("CONFERMA DATI INSERITI");
 	
-	AscoltatoreConfermaDisciplina ascoltatoreConfermaDisciplina;
-	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
+	private AscoltatoreConfermaDisciplina ascoltatoreConfermaDisciplina;
+	private ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	
 	public FormModDisciplina(Responsabile responsabile, Disciplina disciplina) {
 		super("Area privata RESPONSABILE : "+responsabile.getNome()+" "+responsabile.getCognome());
@@ -96,6 +96,7 @@ public class FormModDisciplina extends JFrame {
 		descrizione_field.setFont(myfont);
 		descrizione_field.setPreferredSize(mysize);
 		centroPnl.add(period);
+		immagine_field= new JTextField(disciplina.getImmagine(),15);
 		image.add(immagine);
 		immagine.setFont(new Font("sansserif",Font.BOLD,25));
 		immagine_field.setFont(myfont);

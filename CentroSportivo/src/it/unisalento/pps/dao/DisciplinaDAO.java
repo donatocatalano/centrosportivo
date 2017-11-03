@@ -69,15 +69,11 @@ public class DisciplinaDAO {
 	
 	public boolean aggiornaDisciplina(int disciplina, String nome, Double costo,String immagine, String descrizione) {
 
-		//ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select ID_Disciplina from disciplina");
-		/*Iterator<String[]> iter = risultato.iterator();
-		String[] tupla = iter.next();
-		int idDisciplina = Integer.parseInt(tupla[0]);*/
-		
+				
 		boolean ok_inserimento = false;
 		if(!(nome.isEmpty()||(costo==0)||descrizione.isEmpty()))
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("UPDATE disciplina SET nome="+nome+", costomensile="+costo+", immagine="+immagine+", descrizione="+descrizione+" WHERE ID_Disciplina= "+disciplina+" ");
-
+		ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("UPDATE disciplina SET Nome=\""+nome+"\", CostoMensile="+costo+", Immagine=\""+immagine+"\", Descrizione=\""+descrizione+"\" WHERE ID_Disciplina= "+disciplina);
+		
 		return  ok_inserimento;
 	}
 

@@ -8,14 +8,15 @@ import javax.swing.JOptionPane;
 
 import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.view.ElencoLivelli;
+
+import it.unisalento.pps.view.FormElencoLivelli;
 
 public class AscoltatoreNuovoLivello implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;
 	
-	public AscoltatoreNuovoLivello(ElencoLivelli frame, Responsabile responsabile) {
+	public AscoltatoreNuovoLivello(FormElencoLivelli frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;
@@ -28,7 +29,7 @@ public class AscoltatoreNuovoLivello implements ActionListener {
 		boolean ok = LivelloBusiness.getInstance().inserisciLivello(livello);
 		
 		JOptionPane.showMessageDialog(null, "Livello inserito!");
-		new ElencoLivelli(responsabile);
+		new FormElencoLivelli(responsabile);
 		frame.dispose();
 	}
 }
