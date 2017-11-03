@@ -3,7 +3,10 @@ package it.unisalento.pps.listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaIscrizioniTesserato;
@@ -11,8 +14,9 @@ import it.unisalento.pps.view.HomepageTesserato;
 
 public class AscoltatoreConfermaIscrizioni implements ActionListener{
 	
-	private JFrame frame;
+	private AreaIscrizioniTesserato frame;
 	private Utente tesserato;
+	int tipoPagamento;
 	
 
 	public AscoltatoreConfermaIscrizioni(AreaIscrizioniTesserato frame, Utente tesserato) {
@@ -23,7 +27,32 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 	
 	public void actionPerformed(ActionEvent arg0) throws IllegalArgumentException{
 		
-		new HomepageTesserato(tesserato);
-		frame.dispose();
+		JRadioButton evento = frame.campo_evento;
+		JRadioButton carta = frame.carta;
+		JRadioButton paypal = frame.paypal;
+		JRadioButton contanti = frame.contanti;
+		JRadioButton livello = frame.livello;
+		
+		
+		try {
+			
+			if(carta.isSelected()) {
+				tipoPagamento = 1;
+				}
+			else if(paypal.isSelected()) {
+				tipoPagamento = 2;
+			}
+			else {
+					tipoPagamento = 3;
+				}
+			System.out.println(evento.getText());
+			
+			
+			new HomepageTesserato(tesserato);
+			frame.dispose();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

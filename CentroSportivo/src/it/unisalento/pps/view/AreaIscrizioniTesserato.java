@@ -32,6 +32,8 @@ import it.unisalento.pps.model.Utente;
 
 public class AreaIscrizioniTesserato extends JFrame{
 	
+	
+	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
 	JPanel centroPnl=new JPanel(new FlowLayout());
 	JPanel sudPnl=new JPanel(new GridLayout(3,1));
@@ -48,15 +50,21 @@ public class AreaIscrizioniTesserato extends JFrame{
 	public JRadioButton carta = new JRadioButton();
 	public JRadioButton paypal = new JRadioButton();
 	public JRadioButton contanti = new JRadioButton();
-	ButtonGroup group = new ButtonGroup();
+	ButtonGroup group_pagamento = new ButtonGroup();
+	ButtonGroup group_livello = new ButtonGroup();
+	
+	public JRadioButton livello;
+	
+	public JRadioButton campo_evento;
+	ButtonGroup group_evento = new ButtonGroup();
+	
 	
 	JPanel contenutolivello=new JPanel(new FlowLayout());
 	JPanel contenutotasti = new JPanel(new FlowLayout());
 	JButton indietro = new JButton("INDIETRO");
 	JButton iscrizione = new JButton("INVIA ISCRIZIONE E STAMPA RICEVUTA");
-
 	
-	
+		
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	Utente tesserato;
 	Istruttore istruttore;
@@ -79,8 +87,10 @@ public class AreaIscrizioniTesserato extends JFrame{
 		Spazio spazio;
 		TipoEvento tipoevento;
 		
+		
 		if(eventi.size()>0) {
 			for(int i=0;i<eventi.size();i++) {
+				System.out.println(eventi.size());
 				
 				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
 				spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
@@ -94,7 +104,7 @@ public class AreaIscrizioniTesserato extends JFrame{
 				String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
 				String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
 			
-				JCheckBox campo_evento = new JCheckBox("   "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
+				campo_evento = new JRadioButton(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
 				campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 				JPanel contenuto1=new JPanel(new GridLayout(2,1));
@@ -102,7 +112,10 @@ public class AreaIscrizioniTesserato extends JFrame{
 				contenuto1.add(campo_evento);
 				contenuto1.setLayout(new GridLayout(eventi.size(),1));
 				contenuto.add(contenuto1);
+				
+				group_evento.add(campo_evento);
 			}
+			
 		}
 		else {
 			JLabel nessunaoccorrenza = new JLabel("Nessuna Disciplina nel sistema");	
@@ -119,9 +132,9 @@ public class AreaIscrizioniTesserato extends JFrame{
 		carta.setText("Carta di credito");
 		paypal.setText("Paypal");
 		contanti.setText("Contanti");
-		group.add(carta);
-		group.add(paypal);
-		group.add(contanti);
+		group_pagamento.add(carta);
+		group_pagamento.add(paypal);
+		group_pagamento.add(contanti);
 		carta.setFont(new Font("sansserif",Font.BOLD,20));
 		paypal.setFont(new Font("sansserif",Font.BOLD,20));
 		contanti.setFont(new Font("sansserif",Font.BOLD,20));
@@ -136,10 +149,13 @@ public class AreaIscrizioniTesserato extends JFrame{
 			contenutolivello.add(titolo);
 			titolo.setFont(new Font("sansserif",Font.BOLD,22));
 			for(int i=0;i<livelli.size();i++) {
-				JCheckBox livello = new JCheckBox(livelli.get(i).getNome());
+				livello = new JRadioButton(livelli.get(i).getNome());
 				livello.setFont(new Font("sansserif",Font.BOLD,20));
 				contenutolivello.add(livello);
+				
+				group_livello.add(livello);
 			}
+			
 		}	
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
