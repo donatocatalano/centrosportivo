@@ -4,9 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
-
 import it.unisalento.pps.DbInterface.DbConnection;
-import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Pagamento;
 
 public class PagamentoDAO {
@@ -40,23 +38,18 @@ public class PagamentoDAO {
 		Pagamento pagamento;
 		for(int i=0;i<result.size();i++) {
 			
-			int anno_in = Integer.parseInt((result.get(i)[1].substring(0,4)));
-			int mese_in = Integer.parseInt((result.get(i)[1].substring(5,7)));
-			int giorno_in= Integer.parseInt((result.get(i)[1].substring(8,10)));
-			int anno_out = Integer.parseInt((result.get(i)[2].substring(0,4)));
-			int mese_out = Integer.parseInt((result.get(i)[2].substring(5,7)));
-			int giorno_out= Integer.parseInt((result.get(i)[2].substring(8,10)));
-			GregorianCalendar dataIn = new GregorianCalendar(anno_in,mese_in-1,giorno_in);
-			GregorianCalendar dataOut = new GregorianCalendar(anno_out,mese_out-1,giorno_out);
-			long millisecondi_in = dataIn.getTimeInMillis();
-			long millisecondi_out = dataOut.getTimeInMillis();
-			Date dateIn = new Date(millisecondi_in);
-			Date dateOut = new Date(millisecondi_out);
+			int anno = Integer.parseInt((result.get(i)[1].substring(0,4)));
+			int mese = Integer.parseInt((result.get(i)[1].substring(5,7)));
+			int giorno= Integer.parseInt((result.get(i)[1].substring(8,10)));
 			
-			pagamento = new Pagamento(Integer.parseInt(result.get(i)[0]),dateIn, dateOut, Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
-			pagamentiDaAutorizzare.add(pagamenti);
+			GregorianCalendar data = new GregorianCalendar(anno,mese-1,giorno);
+			long millisecondi = data.getTimeInMillis();
+			Date dataPagamento = new Date(millisecondi);
+			
+			pagamento = new Pagamento(Integer.parseInt(result.get(i)[0]),Integer.parseInt(result.get(i)[1]),Integer.parseInt(result.get(i)[2]),Double.parseDouble(result.get(i)[3]),dataPagamento,Integer.parseInt(result.get(i)[7]));
+			pagamentiDaAutorizzare.add(pagamento);
 		}
-		return pagamentiDaAutorizzare;
+		return   pagamentiDaAutorizzare;
 	}
 
 	public boolean autorizzaIscrizione(int iscrizione) {
@@ -67,4 +60,3 @@ public class PagamentoDAO {
 	}
 }
 	
-}

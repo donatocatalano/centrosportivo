@@ -15,7 +15,9 @@ import javax.swing.JPanel;
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.LivelloBusiness;
+import it.unisalento.pps.business.PagamentoBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
+import it.unisalento.pps.listener.AscoltatoreAutPag;
 import it.unisalento.pps.listener.AscoltatoreAutorizzaIscrizione;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
 import it.unisalento.pps.model.Disciplina;
@@ -42,8 +44,6 @@ public class AutorizzazioniPagamento extends JFrame{
 	
 		
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
-	//AscoltatoreAutorizzaPagamento ascoltatoreAutorizzaPagamento;
-	Responsabile responsabile;
 	ArrayList<Pagamento> pagamentiDaAutorizzare = new ArrayList<Pagamento>();
 		
 	public AutorizzazioniPagamento(Responsabile responsabile){
@@ -67,16 +67,14 @@ public class AutorizzazioniPagamento extends JFrame{
 			centroPnl.add(contenuto);
 			
 			for(int i=0;i<pagamentiDaAutorizzare.size();i++) {
-				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(pagamentiDaAutorizzare.get(i).getDisciplina());
+				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(pagamentiDaAutorizzare.get(i).getIscrizione());
 				utente = UtenteBusiness.getInstance().getUtenteById(pagamentiDaAutorizzare.get(i).getUtente());
-				livello = LivelloBusiness.getInstance().getLivelloById(pagamentiDaAutorizzare.get(i).getLivello());
+				//livello = LivelloBusiness.getInstance().getLivelloById(pagamentiDaAutorizzare.get(i).getTotale());
 				
-				String giorno= pagamentiDaAutorizzare.get(i).getDataIn().toString().substring(8,10);
-				String mese = pagamentiDaAutorizzare.get(i).getDataIn().toString().substring(5,7);
-				String anno = pagamentiDaAutorizzare.get(i).getDataIn().toString().substring(0,4);	
-				
+						
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel pagamento = new JLabel("Richiesta di pagamento per "+disciplina.getNome()+",   Livello: "+livello.getNome()+",   UTENTE: "+utente.getNome()+" "+utente.getCognome()+"   del " +giorno+"/"+mese+"/"+anno+"   ");	
+				JLabel pagamento = new JLabel("PROVA LABEL");
+				//JLabel pagamento = new JLabel("Richiesta di pagamento per "+disciplina.getNome()+",   Livello: "+livello.getNome()+",   UTENTE: "+utente.getNome()+" "+utente.getCognome()+"   del " +giorno+"/"+mese+"/"+anno+"   ");	
 				pagamento.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton autorizzapagamento = new JButton("AUTORIZZA PAGAMENTO");
 				contenuto1.add(pagamento);
@@ -86,8 +84,8 @@ public class AutorizzazioniPagamento extends JFrame{
 				JPanel contenuto2 = new JPanel();
 				contenuto.add(contenuto2);
 				
-				ascoltatoreAutorizzaPagamento = new AscoltatoreAutorizzaPagamento(this, responsabile, pagamentiDaAutorizzare.get(i));
-				autorizzapagamenti.addActionListener(ascoltatoreAutorizzaPagamento);
+				//ascoltatoreAutorizzaPagamento = new AscoltatoreAutPag(this, responsabile, pagamentiDaAutorizzare.get(i));
+				//autorizzapagamenti.addActionListener(ascoltatoreAutorizzaPagamento);
 			}
 		}
 		else {

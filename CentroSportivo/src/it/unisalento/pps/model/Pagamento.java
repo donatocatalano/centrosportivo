@@ -1,13 +1,13 @@
 package it.unisalento.pps.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Pagamento{
 
 	private int idPagamento;
 	private int utente;
 	private int tipo;
-	private float totale;
+	private double totale;
 	private int responsabile;
 	private Date dataConferma;
 	private Date dataPagamento;
@@ -38,6 +38,17 @@ public class Pagamento{
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+	public Pagamento(int idPagamento, int utente, int tipo, double totale, Date dataPagamento, int iscrizione) {
+		this.idPagamento = idPagamento;
+		this.utente = utente;
+		this.tipo = tipo;
+		this.totale = totale;
+		this.dataPagamento = dataPagamento;
+		this.iscrizione = iscrizione;
+	}
+
 	public int getIdPagamento() {
 		return this.idPagamento;
 	}
@@ -62,7 +73,7 @@ public class Pagamento{
 		this.tipo = tipo;
 	}
 
-	public float getTotale() {
+	public double getTotale() {
 		return this.totale;
 	}
 
