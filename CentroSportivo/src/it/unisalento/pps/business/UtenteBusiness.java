@@ -46,6 +46,10 @@ private static UtenteBusiness instance;
 	public ArrayList<Utente> getUtentiDaAutorizzare() {
 		return UtenteDAO.getInstance().getUtentiDaAutorizzare();
 	}
+	
+	public ArrayList<Utente> getTesserati() {
+		return UtenteDAO.getInstance().getTesserati();
+	}
 
 	public boolean autorizzaUtente(int utente, int responsabile) {
 		return UtenteDAO.getInstance().autorizzaUtente(utente, responsabile);
@@ -54,5 +58,9 @@ private static UtenteBusiness instance;
 	public Utente getUtenteById(int idUtente) {
 		utente = UtenteDAO.getInstance().getUtenteById(idUtente);
 		return utente;
+	}
+
+	public boolean cancellaTesserato(Utente tesserato) {
+		return UtenteDAO.getInstance().cancellaTesserato(tesserato);
 	}
 }

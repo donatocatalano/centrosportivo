@@ -8,7 +8,7 @@ import it.unisalento.pps.view.Homepage;
 
 public class AscoltatoreReg implements ActionListener{
 		
-			private	Homepage homepagewindow;
+		private	Homepage homepagewindow;
 			
 		public AscoltatoreReg(Homepage homepagewindow) {
 			super();

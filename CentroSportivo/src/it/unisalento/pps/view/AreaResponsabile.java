@@ -1,6 +1,7 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -21,9 +22,11 @@ public class AreaResponsabile extends JFrame{
 	JPanel sudPnl=new JPanel();
 	
 	
-	JLabel vuoto00 = new JLabel ("");
-	JLabel titolo = new JLabel ("");
-	JLabel vuoto000 = new JLabel ("");
+	JPanel vuoto00 = new JPanel ();
+	JPanel vuoto000 = new JPanel ();
+	JPanel bottoni = new JPanel (new FlowLayout());
+	JButton tesserati = new JButton("ELENCO TESSERATI");
+	JButton istruttori = new JButton("ELENCO ISTRUTTORI");
         
 	JPanel vuoto0 = new JPanel ();
 	JPanel vuoto1 = new JPanel ();
@@ -41,6 +44,8 @@ public class AreaResponsabile extends JFrame{
 	JButton indietro= new JButton("LOGOUT");
 		
 	AscoltatoreCatalogoDiscipline ascoltatoreCatalogoDiscipline;
+	AscoltatoreElencoTesserati ascoltatoreElencoTesserati;
+	AscoltatoreElencoIstruttori ascoltatoreElencoIstruttori;
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
 	Responsabile responsabile;	
 		
@@ -48,10 +53,18 @@ public class AreaResponsabile extends JFrame{
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());			
 			
 		nordPnl.add(vuoto00);
-		nordPnl.add(titolo);
 		nordPnl.add(vuoto000);
-			
-			
+		ascoltatoreElencoTesserati = new AscoltatoreElencoTesserati(this, responsabile);
+		tesserati.addActionListener(ascoltatoreElencoTesserati);
+		tesserati.setFont(new Font("sansserif",Font.BOLD,20));
+		bottoni.add(tesserati);
+		ascoltatoreElencoIstruttori = new AscoltatoreElencoIstruttori(this, responsabile);
+		istruttori.addActionListener(ascoltatoreElencoIstruttori);
+		istruttori.setFont(new Font("sansserif",Font.BOLD,20));
+		bottoni.add(istruttori);
+		nordPnl.add(bottoni);
+		
+		
 		centroPnl.add(vuoto0);
 		centroPnl.add(vuoto1);
 		centroPnl.add(vuoto2);

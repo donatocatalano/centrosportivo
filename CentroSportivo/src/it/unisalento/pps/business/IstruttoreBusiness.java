@@ -1,5 +1,7 @@
 package it.unisalento.pps.business;
 
+import java.util.ArrayList;
+
 import it.unisalento.pps.dao.IstruttoreDAO;
 import it.unisalento.pps.model.Istruttore;
 
@@ -26,5 +28,16 @@ private static IstruttoreBusiness instance;
 		
 		return IstruttoreDAO.getInstance().getIstruttoreByUsername(username);
 	}
-
+	
+	public ArrayList<Istruttore> getIstruttori() {
+		return IstruttoreDAO.getInstance().getIstruttori();
+	}
+	
+	public boolean cancellaIstruttore(Istruttore istruttore) {
+		return IstruttoreDAO.getInstance().cancellaIstruttore(istruttore);
+	}
+	
+	public boolean registraIstruttore(String nome,String cognome,String username,String password) {
+		return IstruttoreDAO.getInstance().registraIstruttore(nome,cognome,username,password);
+	}
 }

@@ -80,7 +80,7 @@ public class AscoltatoreConfermaDisciplina implements ActionListener {
 					frame1.dispose();			
 				}
 				else
-					JOptionPane.showMessageDialog(null, "C'è qualche errore.Riprova");
+					JOptionPane.showMessageDialog(null, "C'è qualche errore. Riprova");
 		}
 		else JOptionPane.showMessageDialog(null, "Disciplina non modificata!");
 	}

@@ -90,6 +90,26 @@ public class UtenteDAO {
 		}
 		return utentiDaAutorizzare;
 	}
+	
+	public ArrayList<Utente> getTesserati() {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from utente where binary tesserato = 1");
+		
+		ArrayList<Utente> tesserati = new ArrayList<Utente>();
+		Utente utente;
+		for(int i=0;i<result.size();i++) {
+			
+			int anno = Integer.parseInt((result.get(i)[6].substring(0,4)));
+			int mese = Integer.parseInt((result.get(i)[6].substring(5,7)));
+			int giorno= Integer.parseInt((result.get(i)[6].substring(8,10)));
+			GregorianCalendar data = new GregorianCalendar(anno,mese-1,giorno);
+			long millisecondi_inizio = data.getTimeInMillis();
+			Date date = new Date(millisecondi_inizio);
+			
+			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3], date);
+			tesserati.add(utente);
+		}
+		return tesserati;
+	}
 
 	public boolean autorizzaUtente(int utente, int responsabile) {
 		
@@ -114,5 +134,12 @@ public class UtenteDAO {
 		String[] tupla = iter.next();
 		utente=new Utente(Integer.parseInt(tupla[0]),tupla[1],tupla[2]);
 		return utente;
+	}
+
+	public boolean cancellaTesserato(Utente tesserato) {
+		boolean ok_eliminazione = false;
+		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from tesserato where ID_Utente = \""+ tesserato.getIdUtente() +"\" ");
+	
+		return   ok_eliminazione;
 	}
 }

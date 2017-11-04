@@ -9,8 +9,11 @@ import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.CatalogoDiscipline;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
+import it.unisalento.pps.view.ElencoIstruttori;
+import it.unisalento.pps.view.ElencoTesserati;
 import it.unisalento.pps.view.FormDisciplina;
 import it.unisalento.pps.view.FormElencoLivelli;
+import it.unisalento.pps.view.FormIstruttore;
 import it.unisalento.pps.view.FormModDisciplina;
 
 public class AscoltatoreBackResp implements ActionListener {
@@ -45,6 +48,24 @@ public class AscoltatoreBackResp implements ActionListener {
 	}
 	
 	public AscoltatoreBackResp(ElencoAutorizzazioni frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+	
+	public AscoltatoreBackResp(ElencoTesserati frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+	
+	public AscoltatoreBackResp(ElencoIstruttori frame, Responsabile responsabile) {
+		super();
+		this.frame = frame;
+		this.responsabile = responsabile;
+	}
+	
+	public AscoltatoreBackResp(FormIstruttore frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;

@@ -41,4 +41,37 @@ public class IstruttoreDAO {
 		return istruttore;
 	}
 	
+	public ArrayList<Istruttore> getIstruttori() {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore ");
+		ArrayList<Istruttore> istruttori = new ArrayList<Istruttore>();
+		Istruttore istruttore;
+		for(int i=0;i<result.size();i++) {
+			
+			istruttore = new Istruttore(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3],result.get(i)[4]);
+			istruttori.add(istruttore);
+		}
+		return istruttori;
+	}
+	
+	public boolean cancellaIstruttore(Istruttore istruttore) {
+		boolean ok_eliminazione = false;
+		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from istruttore where ID_Istruttore = \""+ istruttore.getIdIstruttore() +"\" ");
+	
+		return   ok_eliminazione;
+	}
+	
+	public boolean registraIstruttore(String nome,String cognome,String username,String password) {
+
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Istruttore) from istruttore " );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idIstruttore = Integer.parseInt(tupla[0]);
+
+		
+		boolean ok_registrazione = false;
+		if(!(nome.isEmpty()||cognome.isEmpty()||username.isEmpty()||password.isEmpty()))
+			ok_registrazione = DbConnection.getInstance().eseguiAggiornamento("insert into istruttore (ID_Istruttore,Nome,Cognome,Username,Password) values(\""+(idIstruttore+1)+"\",\""+nome+"\",\""+cognome+"\",\""+username+"\",\""+password+"\")");
+
+		return  ok_registrazione;
+	}	
 }
