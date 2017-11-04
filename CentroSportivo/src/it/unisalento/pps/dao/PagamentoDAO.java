@@ -27,7 +27,7 @@ public class PagamentoDAO {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from pagamento where ID_Pagamento=\""+ idPagamento +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
-		pagamento=new Pagamento(Integer.parseInt(tupla[0]),Integer.parseInt(tupla[1]),Integer.parseInt(tupla[2]),Float.parseFloat(tupla[3]),Integer.parseInt(tupla[7]));
+		pagamento=new Pagamento(Integer.parseInt(tupla[0]),Integer.parseInt(tupla[1]),Integer.parseInt(tupla[2]),Double.parseDouble(tupla[3]),Integer.parseInt(tupla[7]));
 		return  pagamento;
 	}
 
@@ -44,7 +44,7 @@ public class PagamentoDAO {
 			long millisecondi = date.getTimeInMillis();
 			Date data = new Date(millisecondi);
 			
-			pagamento = new Pagamento(Integer.parseInt(result.get(i)[0]),Integer.parseInt(result.get(i)[1]),Integer.parseInt(result.get(i)[2]),Float.parseFloat(result.get(i)[3]),data,Integer.parseInt(result.get(i)[7]));
+			pagamento = new Pagamento(Integer.parseInt(result.get(i)[0]),Integer.parseInt(result.get(i)[1]),Integer.parseInt(result.get(i)[2]),Double.parseDouble(result.get(i)[3]),data,Integer.parseInt(result.get(i)[7]));
 			pagamentiDaAutorizzare.add(pagamento);
 		}
 		return  pagamentiDaAutorizzare;

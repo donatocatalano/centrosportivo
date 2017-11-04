@@ -43,7 +43,7 @@ public class Pagamento{
 		this.iscrizione = iscrizione;
 	}
 
-	public Pagamento(int idPagamento, int utente, int tipo, float totale, int iscrizione) {
+	public Pagamento(int idPagamento, int utente, int tipo, double totale, int iscrizione) {
 		this.idPagamento = idPagamento;
 		this.utente = utente;
 		this.tipo = tipo;
