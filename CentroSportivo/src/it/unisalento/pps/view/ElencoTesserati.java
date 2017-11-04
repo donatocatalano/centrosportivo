@@ -63,7 +63,7 @@ public class ElencoTesserati extends JFrame {
 				String anno = tesserati.get(i).getDataNascita().toString().substring(0,4);	
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel tesserato = new JLabel("ID TESSERATO: " +tesserati.get(i).getIdUtente()+"    NOME: " +tesserati.get(i).getCognome()+"    COGNOME: " +tesserati.get(i).getNome()+"    nato il "+giorno+"/"+mese+"/"+anno+ "    USERNAME: "+tesserati.get(i).getUsername()+"    PASSWORD: "+tesserati.get(i).getPassword()+"     ");
+				JLabel tesserato = new JLabel("ID TESSERATO: " +tesserati.get(i).getIdUtente()+"    NOME: " +tesserati.get(i).getCognome()+"    COGNOME: " +tesserati.get(i).getNome()+"    DATA DI NASCITA: "+giorno+"/"+mese+"/"+anno+ "    USERNAME: "+tesserati.get(i).getUsername()+"    PASSWORD: "+tesserati.get(i).getPassword()+"     ");
 				tesserato.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton eliminatesserato = new JButton ("CANCELLA TESSERATO");
 				contenuto1.add(tesserato);
