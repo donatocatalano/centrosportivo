@@ -21,7 +21,6 @@ import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreConfermaIscrizioni;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Iscrizione;
@@ -89,9 +88,9 @@ public class AreaIscrizioniEventi extends JFrame{
 		Spazio spazio;
 		TipoEvento tipoevento;
 		for(int j=0;j<iscrizioni.size();j++) {
-			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()){
-					if(iscrizioni.get(j).getDataConferma()!=null) { //&& (iscrizioni.get(j).getAccettata()==true)) {
-						if(eventi.size()>0) {                                                                                 //problema se inserisco questa condizione
+			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente() && iscrizioni.get(j).getDataConferma()!=null){
+					//&& (iscrizioni.get(j).getAccettata()==true)) {    //problema se inserisco questa condizione
+						if(eventi.size()>0) {                                     
 							for(int i=0;i<eventi.size();i++) {
 								System.out.println(eventi.size());
 								
@@ -118,6 +117,42 @@ public class AreaIscrizioniEventi extends JFrame{
 				
 								group_evento.add(campo_evento);
 							}
+							selPagamento.setFont(new Font("sansserif",Font.BOLD,22));
+							contenutopagamento.add(selPagamento);
+							carta.setText("Carta di credito");
+							paypal.setText("Paypal");
+							contanti.setText("Contanti");
+							group_pagamento.add(carta);
+							group_pagamento.add(paypal);
+							group_pagamento.add(contanti);
+							carta.setFont(new Font("sansserif",Font.BOLD,20));
+							paypal.setFont(new Font("sansserif",Font.BOLD,20));
+							contanti.setFont(new Font("sansserif",Font.BOLD,20));
+							contenutopagamento.add(carta);
+							contenutopagamento.add(paypal);
+							contenutopagamento.add(contanti);
+							sudPnl.add(contenutopagamento);
+							
+							
+							if(livelli.size()>0) {
+								JLabel titolo = new JLabel ("SELEZIONA LIVELLO   ");
+								contenutolivello.add(titolo);
+								titolo.setFont(new Font("sansserif",Font.BOLD,22));
+								for(int i=0;i<livelli.size();i++) {
+									livello = new JRadioButton(livelli.get(i).getNome());
+									livello.setFont(new Font("sansserif",Font.BOLD,20));
+									contenutolivello.add(livello);
+									
+									group_livello.add(livello);
+								}
+							}	
+							
+							ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
+							indietro.addActionListener(ascoltatoreBackHome);
+							indietro.setActionCommand(AscoltatoreBackHome.D1);
+							contenutotasti.add(indietro);
+							//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
+							contenutotasti.add(iscrizione);
 						}
 						else {
 							JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema");	
@@ -132,53 +167,14 @@ public class AreaIscrizioniEventi extends JFrame{
 						contenutoVuoto.add(nessunaoccorrenza);
 						centroPnl.add(contenutoVuoto);		
 					}	
-			}
-			else { 
-				JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
-				nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-				contenutoVuoto.add(nessunaoccorrenza);
-				centroPnl.add(contenutoVuoto);	
-			}		
 		}
 		centroPnl.add(contenuto);
-		
-		selPagamento.setFont(new Font("sansserif",Font.BOLD,22));
-		contenutopagamento.add(selPagamento);
-		carta.setText("Carta di credito");
-		paypal.setText("Paypal");
-		contanti.setText("Contanti");
-		group_pagamento.add(carta);
-		group_pagamento.add(paypal);
-		group_pagamento.add(contanti);
-		carta.setFont(new Font("sansserif",Font.BOLD,20));
-		paypal.setFont(new Font("sansserif",Font.BOLD,20));
-		contanti.setFont(new Font("sansserif",Font.BOLD,20));
-		contenutopagamento.add(carta);
-		contenutopagamento.add(paypal);
-		contenutopagamento.add(contanti);
-		sudPnl.add(contenutopagamento);
-		
-		
-		if(livelli.size()>0) {
-			JLabel titolo = new JLabel ("SELEZIONA LIVELLO   ");
-			contenutolivello.add(titolo);
-			titolo.setFont(new Font("sansserif",Font.BOLD,22));
-			for(int i=0;i<livelli.size();i++) {
-				livello = new JRadioButton(livelli.get(i).getNome());
-				livello.setFont(new Font("sansserif",Font.BOLD,20));
-				contenutolivello.add(livello);
-				
-				group_livello.add(livello);
-			}
-			
-		}	
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
 		contenutotasti.add(indietro);
-		//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
-		contenutotasti.add(iscrizione);
+		
 		sudPnl.add(contenutolivello);
 		sudPnl.add(contenutotasti);
 		
