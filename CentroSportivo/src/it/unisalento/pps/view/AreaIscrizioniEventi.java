@@ -90,7 +90,7 @@ public class AreaIscrizioniEventi extends JFrame{
 		TipoEvento tipoevento;
 		for(int j=0;j<iscrizioni.size();j++) {
 			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()){
-					if(iscrizioni.get(j).getAccettata()==true) { //&& (iscrizioni.get(j).getAccettata()==true)) {
+					if(iscrizioni.get(j).getDataConferma()!=null) { //&& (iscrizioni.get(j).getAccettata()==true)) {
 						if(eventi.size()>0) {                                                                                 //problema se inserisco questa condizione
 							for(int i=0;i<eventi.size();i++) {
 								System.out.println(eventi.size());
