@@ -4,9 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import it.unisalento.pps.dao.EventoDAO;
-import it.unisalento.pps.dao.IscrizioneDAO;
 import it.unisalento.pps.model.Evento;
-import it.unisalento.pps.model.Iscrizione;
 
 public class EventoBusiness {
 

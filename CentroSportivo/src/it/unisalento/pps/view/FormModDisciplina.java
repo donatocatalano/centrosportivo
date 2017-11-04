@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

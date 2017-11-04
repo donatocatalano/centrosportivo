@@ -12,20 +12,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
-import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.IscrizioneBusiness;
-import it.unisalento.pps.business.SpazioBusiness;
-import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
 import it.unisalento.pps.listener.AscoltatoreFormEvento;
 import it.unisalento.pps.model.Disciplina;
-import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Istruttore;
-import it.unisalento.pps.model.Spazio;
-import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
 public class ElencoIscrizioni extends JFrame {

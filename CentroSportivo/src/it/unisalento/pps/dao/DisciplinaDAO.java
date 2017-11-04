@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 import it.unisalento.pps.DbInterface.DbConnection;
 import it.unisalento.pps.model.Disciplina;
-import it.unisalento.pps.model.Prenotazione;
 
 public class DisciplinaDAO {
 	

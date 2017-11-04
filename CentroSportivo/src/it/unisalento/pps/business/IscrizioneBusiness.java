@@ -3,9 +3,7 @@ package it.unisalento.pps.business;
 import java.util.ArrayList;
 
 import it.unisalento.pps.dao.IscrizioneDAO;
-import it.unisalento.pps.dao.UtenteDAO;
 import it.unisalento.pps.model.Iscrizione;
-import it.unisalento.pps.model.Utente;
 
 public class IscrizioneBusiness {
 	
