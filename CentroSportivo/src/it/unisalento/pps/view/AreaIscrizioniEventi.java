@@ -89,48 +89,56 @@ public class AreaIscrizioniEventi extends JFrame{
 		Spazio spazio;
 		TipoEvento tipoevento;
 		for(int j=0;j<iscrizioni.size();j++) {
-			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente() && iscrizioni.get(j).getAccettata()==true) {
-				if(eventi.size()>0) {
-					for(int i=0;i<eventi.size();i++) {
-						System.out.println(eventi.size());
-				
-						disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
-						spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
-						tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
+			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()){
+					if(iscrizioni.get(j).getAccettata()==true) { //&& (iscrizioni.get(j).getAccettata()==true)) {
+						if(eventi.size()>0) {                                                                                 //problema se inserisco questa condizione
+							for(int i=0;i<eventi.size();i++) {
+								System.out.println(eventi.size());
+								
+								disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
+								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
+								tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
 			
-						String giorno_inizio= eventi.get(i).getDataInizio().toString().substring(8,10);
-						String mese_inizio = eventi.get(i).getDataInizio().toString().substring(5,7);
-						String anno_inizio =eventi.get(i).getDataInizio().toString().substring(0,4);	
+								String giorno_inizio= eventi.get(i).getDataInizio().toString().substring(8,10);
+								String mese_inizio = eventi.get(i).getDataInizio().toString().substring(5,7);
+								String anno_inizio =eventi.get(i).getDataInizio().toString().substring(0,4);	
 			
-						String giorno_fine= eventi.get(i).getDataFine().toString().substring(8,10);
-						String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
-						String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
+								String giorno_fine= eventi.get(i).getDataFine().toString().substring(8,10);
+								String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
+								String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
 			
-						campo_evento = new JRadioButton(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
-						campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
+								campo_evento = new JRadioButton(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
+								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
-						JPanel contenuto1=new JPanel(new GridLayout(2,1));
-						contenuto1.add(contenutoVuoto);
-						contenuto1.add(campo_evento);
-						contenuto.setLayout(new GridLayout(eventi.size(),1));
-						contenuto.add(contenuto1);
+								JPanel contenuto1=new JPanel(new GridLayout(2,1));
+								contenuto1.add(contenutoVuoto);
+								contenuto1.add(campo_evento);
+								contenuto.setLayout(new GridLayout(eventi.size(),1));
+								contenuto.add(contenuto1);
 				
-						group_evento.add(campo_evento);
+								group_evento.add(campo_evento);
+							}
+						}
+						else {
+							JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema");	
+							nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
+							contenutoVuoto.add(nessunaoccorrenza);
+							centroPnl.add(contenutoVuoto);		
+						}
 					}
-				}
-				else {
-					JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema");	
-					nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-					contenutoVuoto.add(nessunaoccorrenza);
-					centroPnl.add(contenutoVuoto);		
-				}
+					else { 
+						JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
+						nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
+						contenutoVuoto.add(nessunaoccorrenza);
+						centroPnl.add(contenutoVuoto);		
+					}	
 			}
-			else {
+			else { 
 				JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
 				nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 				contenutoVuoto.add(nessunaoccorrenza);
-				centroPnl.add(contenutoVuoto);		
-			}			
+				centroPnl.add(contenutoVuoto);	
+			}		
 		}
 		centroPnl.add(contenuto);
 		
