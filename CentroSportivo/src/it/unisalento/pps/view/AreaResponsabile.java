@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import it.unisalento.pps.listener.*;
 import it.unisalento.pps.model.Responsabile;

@@ -7,19 +7,15 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.listener.AscoltatoreConfermaIstruttore;
-import it.unisalento.pps.listener.AscoltatoreInvioRegistrazione;
 import it.unisalento.pps.model.Responsabile;
 
 public class FormIstruttore extends JFrame {
