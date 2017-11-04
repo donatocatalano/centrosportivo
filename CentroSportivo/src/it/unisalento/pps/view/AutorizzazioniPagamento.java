@@ -67,7 +67,7 @@ public class AutorizzazioniPagamento extends JFrame{
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
 
-				JLabel pagamento = new JLabel("Richiesta di pagamento per "+utente.getNome()+" "+utente.getCognome()+" CON "+tipo.getTipo());	
+				JLabel pagamento = new JLabel("Richiesta di pagamento per "+utente.getNome()+" "+utente.getCognome()+" CON "+tipo.getTipo()+ " IMPORTO: "+pagamentiDaAutorizzare.get(i).getTotale()+"0   ");	
 				pagamento.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton autorizzapagamento = new JButton("AUTORIZZA PAGAMENTO");
 				contenuto1.add(pagamento);
