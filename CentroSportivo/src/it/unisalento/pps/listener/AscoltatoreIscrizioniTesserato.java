@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Utente;
-import it.unisalento.pps.view.AreaIscrizioniTesserato;
+import it.unisalento.pps.view.AreaIscrizioniCorsi;
+import it.unisalento.pps.view.AreaIscrizioniEventi;
 import it.unisalento.pps.view.HomepageTesserato;
 
 
@@ -14,6 +15,7 @@ public class AscoltatoreIscrizioniTesserato implements ActionListener {
 	
 	private JFrame frame;
 	private Utente tesserato;
+	public final static String D1 = "D1";
 	
 	public AscoltatoreIscrizioniTesserato(HomepageTesserato frame, Utente tesserato) {
 		super();
@@ -22,7 +24,15 @@ public class AscoltatoreIscrizioniTesserato implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		new AreaIscrizioniTesserato(tesserato);
-		frame.dispose();
+		String com = e.getActionCommand();
+		if (com==D1)
+			d1launch();
+		else {
+			new AreaIscrizioniCorsi(tesserato);
+			frame.dispose();
+		}
+	}
+	public void d1launch() {
+		new AreaIscrizioniEventi(tesserato);
 	}
 }

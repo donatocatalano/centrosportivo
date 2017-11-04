@@ -29,7 +29,7 @@ import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
-public class AreaIscrizioniTesserato extends JFrame{
+public class AreaIscrizioniCorsi extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
@@ -67,10 +67,10 @@ public class AreaIscrizioniTesserato extends JFrame{
 	Utente tesserato;
 	Istruttore istruttore;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
-	ArrayList<Evento> eventi = new ArrayList<Evento>();
+	ArrayList<Evento> corsi = new ArrayList<Evento>();
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 	
-	public AreaIscrizioniTesserato(Utente tesserato) {
+	public AreaIscrizioniCorsi(Utente tesserato) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
 		
 		
@@ -78,7 +78,7 @@ public class AreaIscrizioniTesserato extends JFrame{
 		titolo.add(scelta);
 		nordPnl.add(titolo);
 		
-		eventi = EventoBusiness.getInstance().getEventi();
+		corsi = EventoBusiness.getInstance().getCorsi();
 		livelli = LivelloBusiness.getInstance().getLivelli();
 		
 		Disciplina disciplina;
@@ -86,36 +86,36 @@ public class AreaIscrizioniTesserato extends JFrame{
 		TipoEvento tipoevento;
 		
 		
-		if(eventi.size()>0) {
-			for(int i=0;i<eventi.size();i++) {
-				System.out.println(eventi.size());
+		if(corsi.size()>0) {
+			for(int i=0;i<corsi.size();i++) {
+				System.out.println(corsi.size());
 				
-				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
-				spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
-				tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
+				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(corsi.get(i).getDisciplina());
+				spazio = SpazioBusiness.getInstance().getSpazioById(corsi.get(i).getSpazio());
+				tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(corsi.get(i).getTipo());
 			
-				String giorno_inizio= eventi.get(i).getDataInizio().toString().substring(8,10);
-				String mese_inizio = eventi.get(i).getDataInizio().toString().substring(5,7);
-				String anno_inizio =eventi.get(i).getDataInizio().toString().substring(0,4);	
+				String giorno_inizio= corsi.get(i).getDataInizio().toString().substring(8,10);
+				String mese_inizio = corsi.get(i).getDataInizio().toString().substring(5,7);
+				String anno_inizio =corsi.get(i).getDataInizio().toString().substring(0,4);	
 			
-				String giorno_fine= eventi.get(i).getDataFine().toString().substring(8,10);
-				String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
-				String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
+				String giorno_fine= corsi.get(i).getDataFine().toString().substring(8,10);
+				String mese_fine = corsi.get(i).getDataFine().toString().substring(5,7);
+				String anno_fine =corsi.get(i).getDataFine().toString().substring(0,4);
 			
-				campo_evento = new JRadioButton(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
+				campo_evento = new JRadioButton(corsi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +corsi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
 				campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 				JPanel contenuto1=new JPanel(new GridLayout(2,1));
 				contenuto1.add(contenutoVuoto);
 				contenuto1.add(campo_evento);
-				contenuto.setLayout(new GridLayout(eventi.size(),1));
+				contenuto.setLayout(new GridLayout(corsi.size(),1));
 				contenuto.add(contenuto1);
 				
 				group_evento.add(campo_evento);
 			}
 		}
 		else {
-			JLabel nessunaoccorrenza = new JLabel("Nessuna Disciplina nel sistema");	
+			JLabel nessunaoccorrenza = new JLabel("Nessun Corso nel sistema");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutoVuoto.add(nessunaoccorrenza);
 			centroPnl.add(contenutoVuoto);		

@@ -48,7 +48,7 @@ public class InfoCorsi extends JFrame {
 	
 
 	public InfoCorsi(Disciplina disciplina,Utente tesserato) {
-		super(disciplina.getNome()+" UTENTE:"+tesserato.getNome()+" "+tesserato.getCognome());
+		super(disciplina.getNome()+" UTENTE: "+tesserato.getNome()+" "+tesserato.getCognome());
 		
 		
 		

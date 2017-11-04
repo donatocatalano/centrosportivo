@@ -41,6 +41,10 @@ private static EventoBusiness instance;
 		return EventoDAO.getInstance().cancellaEvento(evento);
 	}
 
+	public ArrayList<Evento> getCorsi() {
+		return EventoDAO.getInstance().getCorsi();
+	}
+	
 	public ArrayList<Evento> getEventi() {
 		return EventoDAO.getInstance().getEventi();
 	}
