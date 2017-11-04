@@ -48,4 +48,8 @@ private static EventoBusiness instance;
 	public Evento getEventoById(int idEvento) {
 		return EventoDAO.getInstance().getEventoById(idEvento);
 	}
+
+	public ArrayList<Evento> getCorsiByIdDisciplina(int idDisciplina) {
+		return EventoDAO.getInstance().getCorsiByIdDisciplina(idDisciplina);
+	}
 }

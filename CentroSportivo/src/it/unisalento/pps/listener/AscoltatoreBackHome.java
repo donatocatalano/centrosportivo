@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import it.unisalento.pps.view.FormRegistrazione;
 import it.unisalento.pps.view.Homepage;
 import it.unisalento.pps.view.HomepageTesserato;
+import it.unisalento.pps.view.InfoCorsi;
 import it.unisalento.pps.view.InfoDisciplina;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
 import it.unisalento.pps.model.Utente;
@@ -68,6 +69,12 @@ import it.unisalento.pps.view.AreaIstruttore;
 	}
 	
 	public AscoltatoreBackHome(FeedbackTesserato frame, Utente tesserato) {
+		super();
+		this.frame = frame;
+		this.tesserato = tesserato;
+	}
+	
+	public AscoltatoreBackHome(InfoCorsi frame, Utente tesserato) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;

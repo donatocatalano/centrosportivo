@@ -31,6 +31,8 @@ public class Evento{
 		this.disciplina = disciplina;
 	}
 	
+	
+	
 	public Evento(int idEvento, String turno, int tipo) {
 		this.idEvento = idEvento;		
 		this.turno = turno;
