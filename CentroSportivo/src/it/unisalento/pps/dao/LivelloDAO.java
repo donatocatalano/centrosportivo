@@ -5,7 +5,6 @@ import java.util.Iterator;
 
 import it.unisalento.pps.DbInterface.DbConnection;
 import it.unisalento.pps.model.Livello;
-import it.unisalento.pps.model.Utente;
 
 public class LivelloDAO {
 	
@@ -51,7 +50,7 @@ public class LivelloDAO {
 		
 		boolean ok_inserimento = false;
 		if(!(nome.isEmpty()))
-			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into livello(ID_Livello,Nome) values(\""+(idLivello+1)+"\",\""+nome+"\") ");
+			ok_inserimento = DbConnection.getInstance().eseguiAggiornamento("insert into livello (ID_Livello,Nome) values(\""+(idLivello+1)+"\",\""+nome+"\") ");
 
 		return  ok_inserimento;
 	}
