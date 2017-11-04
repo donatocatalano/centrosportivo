@@ -89,7 +89,7 @@ public class AreaIscrizioniEventi extends JFrame{
 		Spazio spazio;
 		TipoEvento tipoevento;
 		for(int j=0;j<iscrizioni.size();j++) {
-			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()) {
+			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente() && iscrizioni.get(j).getAccettata()==true) {
 				if(eventi.size()>0) {
 					for(int i=0;i<eventi.size();i++) {
 						System.out.println(eventi.size());
