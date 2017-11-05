@@ -70,14 +70,20 @@ public class IscrizioneDAO {
 			int anno_out = Integer.parseInt((result.get(i)[2].substring(0,4)));
 			int mese_out = Integer.parseInt((result.get(i)[2].substring(5,7)));
 			int giorno_out= Integer.parseInt((result.get(i)[2].substring(8,10)));
+			int anno_conferma = Integer.parseInt((result.get(i)[8].substring(0,4)));
+			int mese_conferma = Integer.parseInt((result.get(i)[8].substring(5,7)));
+			int giorno_conferma = Integer.parseInt((result.get(i)[8].substring(8,10)));
 			GregorianCalendar dataIn = new GregorianCalendar(anno_in,mese_in-1,giorno_in);
 			GregorianCalendar dataOut = new GregorianCalendar(anno_out,mese_out-1,giorno_out);
+			GregorianCalendar dataconferma = new GregorianCalendar(anno_conferma,mese_conferma-1,giorno_conferma);
 			long millisecondi_in = dataIn.getTimeInMillis();
 			long millisecondi_out = dataOut.getTimeInMillis();
+			long millisecondi_conferma = dataconferma.getTimeInMillis();
 			Date dateIn = new Date(millisecondi_in);
 			Date dateOut = new Date(millisecondi_out);
+			Date dateconferma = new Date(millisecondi_conferma);
 			
-			iscrizione = new Iscrizione(Integer.parseInt(result.get(i)[0]),dateIn, dateOut, Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
+			iscrizione = new Iscrizione(Integer.parseInt(result.get(i)[0]),dateIn, dateOut,Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]),dateconferma);
 			iscrizioniAutorizzate.add(iscrizione);
 		}
 		return iscrizioniAutorizzate;
