@@ -20,7 +20,6 @@ import it.unisalento.pps.listener.AscoltatoreFormEvento;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Istruttore;
-import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 
 public class ElencoIscrizioni extends JFrame {

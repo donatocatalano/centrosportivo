@@ -85,7 +85,7 @@ public class UtenteDAO {
 			long millisecondi_inizio = data.getTimeInMillis();
 			Date date = new Date(millisecondi_inizio);
 			
-			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3], date);
+			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3],result.get(i)[4], date);
 			utentiDaAutorizzare.add(utente);
 		}
 		return utentiDaAutorizzare;
@@ -105,7 +105,7 @@ public class UtenteDAO {
 			long millisecondi_inizio = data.getTimeInMillis();
 			Date date = new Date(millisecondi_inizio);
 			
-			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3], date);
+			utente = new Utente(Integer.parseInt(result.get(i)[0]),result.get(i)[1],result.get(i)[2],result.get(i)[3],result.get(i)[4], date);
 			tesserati.add(utente);
 		}
 		return tesserati;

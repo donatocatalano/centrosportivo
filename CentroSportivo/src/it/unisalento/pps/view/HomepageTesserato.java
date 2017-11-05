@@ -17,6 +17,7 @@ import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
 import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
+import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
@@ -34,11 +35,15 @@ public class HomepageTesserato extends JFrame {
 	
 	JPanel norddestra = new JPanel(new GridLayout(2,2));
 	
+	JPanel bottone = new JPanel(new GridLayout(3,2));
 	JPanel vuoto1 = new JPanel();
+	JPanel vuoto2 = new JPanel();
+	JPanel vuoto21 = new JPanel();
+	JButton iscrizionieventi = new JButton("ISCRIZIONI EVENTI");
 	JPanel login = new JPanel(new GridLayout(3,2));	
 	JPanel vuoto00 = new JPanel();
 	JLabel nomeutente = new JLabel();
-	JButton iscrizioni = new JButton("ISCRIZIONI");
+	JButton iscrizionicorsi = new JButton("ISCRIZIONI CORSI");
 	JButton logout = new JButton("LOGOUT");	
 	JPanel vuoto3 = new JPanel();
 	JPanel vuoto4 = new JPanel();
@@ -67,16 +72,24 @@ public class HomepageTesserato extends JFrame {
 		//titolo.setBackground( Color.RED );
 		titolo.add(centrosportivo);
 		nordPnl.add(titolo);
-		norddestra.add(vuoto1);
+		bottone.add(vuoto1);
+		bottone.add(vuoto2);
+		bottone.add(vuoto21);
+		ascoltatoreIscrizioni = new AscoltatoreIscrizioniTesserato(this,tesserato);
+		iscrizionieventi.setActionCommand(AscoltatoreIscrizioniTesserato.D1);
+		iscrizionieventi.addActionListener(ascoltatoreIscrizioni);
+		bottone.add(iscrizionieventi);
+		norddestra.add(bottone);
 		login.add(vuoto00);
 		nomeutente.setText(tesserato.getNome()+" "+tesserato.getCognome());
-		
+		nomeutente.setFont(new Font("sansserif",Font.BOLD,18));
 		login.add(nomeutente);
 		ascoltatoreIscrizioni = new AscoltatoreIscrizioniTesserato(this,tesserato);
-		iscrizioni.addActionListener(ascoltatoreIscrizioni);
-		login.add(iscrizioni);
+		iscrizionicorsi.addActionListener(ascoltatoreIscrizioni);
+		login.add(iscrizionicorsi);
 		logout.addActionListener(new AscoltatoreBackHome (this,tesserato));
 		login.add(logout);
+		
 		norddestra.add(login);
 		norddestra.add(vuoto3);
 		norddestra.add(vuoto4);

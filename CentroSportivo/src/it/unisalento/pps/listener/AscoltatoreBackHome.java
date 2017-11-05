@@ -8,13 +8,15 @@ import javax.swing.JFrame;
 import it.unisalento.pps.view.FormRegistrazione;
 import it.unisalento.pps.view.Homepage;
 import it.unisalento.pps.view.HomepageTesserato;
+import it.unisalento.pps.view.InfoCorsi;
 import it.unisalento.pps.view.InfoDisciplina;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaResponsabile;
 import it.unisalento.pps.view.Feedback;
 import it.unisalento.pps.view.FeedbackTesserato;
-import it.unisalento.pps.view.AreaIscrizioniTesserato;
+import it.unisalento.pps.view.AreaIscrizioniCorsi;
+import it.unisalento.pps.view.AreaIscrizioniEventi;
 import it.unisalento.pps.view.AreaIstruttore;
 
 
@@ -56,7 +58,13 @@ import it.unisalento.pps.view.AreaIstruttore;
 		this.frame = frame;
 	}
 	
-	public AscoltatoreBackHome(AreaIscrizioniTesserato frame,Utente tesserato) {
+	public AscoltatoreBackHome(AreaIscrizioniCorsi frame,Utente tesserato) {
+		super();
+		this.frame = frame;
+		this.tesserato = tesserato;
+	}
+	
+	public AscoltatoreBackHome(AreaIscrizioniEventi frame,Utente tesserato) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;
@@ -68,6 +76,12 @@ import it.unisalento.pps.view.AreaIstruttore;
 	}
 	
 	public AscoltatoreBackHome(FeedbackTesserato frame, Utente tesserato) {
+		super();
+		this.frame = frame;
+		this.tesserato = tesserato;
+	}
+	
+	public AscoltatoreBackHome(InfoCorsi frame, Utente tesserato) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;

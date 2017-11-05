@@ -62,7 +62,7 @@ public class ElencoIstruttori extends JFrame {
 			for(int i=0;i<istruttori.size();i++) {
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel istruttore = new JLabel("ID UTENTE: " +istruttori.get(i).getIdIstruttore()+"    NOME: " +istruttori.get(i).getCognome()+"    COGNOME: " +istruttori.get(i).getNome()+"    USERNAME: "+istruttori.get(i).getUsername()+"    PASSWORD: "+istruttori.get(i).getPassword()+"     ");
+				JLabel istruttore = new JLabel("ID ISTRUTTORE: " +istruttori.get(i).getIdIstruttore()+"    NOME: " +istruttori.get(i).getNome()+"    COGNOME: " +istruttori.get(i).getCognome()+"    USERNAME: "+istruttori.get(i).getUsername()+"    PASSWORD: "+istruttori.get(i).getPassword()+"     ");
 				istruttore.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton eliminaistruttore = new JButton ("CANCELLA ISTRUTTORE");
 				contenuto1.add(istruttore);

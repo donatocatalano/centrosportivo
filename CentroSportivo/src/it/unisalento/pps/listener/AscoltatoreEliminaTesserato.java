@@ -6,12 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import it.unisalento.pps.business.PrenotazioneBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
-import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
-import it.unisalento.pps.view.AutorizzazioniIscrizione;
 import it.unisalento.pps.view.ElencoTesserati;
 
 public class AscoltatoreEliminaTesserato implements ActionListener {

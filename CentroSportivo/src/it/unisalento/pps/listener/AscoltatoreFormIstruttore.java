@@ -5,13 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.view.ElencoCorsi;
-import it.unisalento.pps.view.ElencoEventi;
 import it.unisalento.pps.view.ElencoIstruttori;
-import it.unisalento.pps.view.FormCorso;
-import it.unisalento.pps.view.FormEvento;
 import it.unisalento.pps.view.FormIstruttore;
 
 public class AscoltatoreFormIstruttore implements ActionListener {

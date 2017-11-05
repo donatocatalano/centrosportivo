@@ -10,7 +10,6 @@ import it.unisalento.pps.business.IstruttoreBusiness;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.ElencoIstruttori;
-import it.unisalento.pps.view.ElencoTesserati;
 
 public class AscoltatoreEliminaIstruttore implements ActionListener {
 	

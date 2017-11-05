@@ -76,9 +76,61 @@ public class EventoDAO {
 		}
 		return eventi;
 	}
+	
+	public ArrayList<Evento> getCorsiByIdDisciplina(int idDisciplina) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from EVENTO where (Disciplina = \""+idDisciplina+"\") and (tipo = 3)");
+		
+		ArrayList<Evento> eventi = new ArrayList<Evento>();
+		Evento evento;
+		
+		for(int i=0;i<result.size();i++) {
+			int anno_inizio = Integer.parseInt((result.get(i)[1].substring(0,4)));
+			int mese_inizio = Integer.parseInt((result.get(i)[1].substring(5,7)));
+			int giorno_inizio = Integer.parseInt((result.get(i)[1].substring(8,10)));
+			GregorianCalendar dataInizio = new GregorianCalendar(anno_inizio,mese_inizio-1,giorno_inizio);
+			long millisecondi_inizio = dataInizio.getTimeInMillis();
+			Date data_inizio = new Date(millisecondi_inizio);
+			
+			int anno_fine = Integer.parseInt((result.get(i)[7].substring(0,4)));
+			int mese_fine = Integer.parseInt((result.get(i)[7].substring(5,7)));
+			int giorno_fine = Integer.parseInt((result.get(i)[7].substring(8,10)));
+			GregorianCalendar dataFine = new GregorianCalendar(anno_fine,mese_fine-1,giorno_fine);
+			long millisecondi_fine = dataFine.getTimeInMillis();
+			Date data_fine = new Date(millisecondi_fine);
+			evento = new Evento(Integer.parseInt(result.get(i)[0]),data_inizio,data_fine,result.get(i)[2],Integer.parseInt(result.get(i)[3]),Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),idDisciplina);
+			eventi.add(evento);
+		}
+		return eventi;
+	}
 		
 	public ArrayList<Evento> getEventi() {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from EVENTO ");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from EVENTO where (tipo=1) and (tipo=2)");
+		
+		ArrayList<Evento> eventi = new ArrayList<Evento>();
+		Evento evento;
+		
+		for(int i=0;i<result.size();i++) {
+			int anno_inizio = Integer.parseInt((result.get(i)[1].substring(0,4)));
+			int mese_inizio = Integer.parseInt((result.get(i)[1].substring(5,7)));
+			int giorno_inizio = Integer.parseInt((result.get(i)[1].substring(8,10)));
+			GregorianCalendar dataInizio = new GregorianCalendar(anno_inizio,mese_inizio-1,giorno_inizio);
+			long millisecondi_inizio = dataInizio.getTimeInMillis();
+			Date data_inizio = new Date(millisecondi_inizio);
+			
+			int anno_fine = Integer.parseInt((result.get(i)[7].substring(0,4)));
+			int mese_fine = Integer.parseInt((result.get(i)[7].substring(5,7)));
+			int giorno_fine = Integer.parseInt((result.get(i)[7].substring(8,10)));
+			GregorianCalendar dataFine = new GregorianCalendar(anno_fine,mese_fine-1,giorno_fine);
+			long millisecondi_fine = dataFine.getTimeInMillis();
+			Date data_fine = new Date(millisecondi_fine);
+			evento = new Evento(Integer.parseInt(result.get(i)[0]),data_inizio,data_fine,result.get(i)[2],Integer.parseInt(result.get(i)[3]),Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
+			eventi.add(evento);
+		}
+		return eventi;
+	}
+	
+	public ArrayList<Evento> getCorsi() {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from EVENTO where Tipo = 3");
 		
 		ArrayList<Evento> eventi = new ArrayList<Evento>();
 		Evento evento;
