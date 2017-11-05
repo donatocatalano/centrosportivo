@@ -37,7 +37,7 @@ public class AreaIscrizioniTesserato extends JFrame{
 	JPanel sudPnl=new JPanel(new GridLayout(3,1));
 	
 	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel("SCEGLI LA DISCIPLINA, IL LIVELLO, IL TURNO E IL METODO DI PAGAMENTO");
+	JLabel scelta = new JLabel("SCEGLI LA DISCIPLINA, IL LIVELLO, IL TURNO E IL METODO DI PAGAMENTO");   // il titolo fa schifo...
 	
 	JPanel contenuto = new JPanel(new GridLayout(2,1));
 	
@@ -102,7 +102,7 @@ public class AreaIscrizioniTesserato extends JFrame{
 				String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
 				String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
 			
-				campo_evento = new JRadioButton(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
+				campo_evento = new JRadioButton(eventi.get(i).getIdEvento()+"  "+disciplina.getNome().toUpperCase()+ ": Inizia IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   Orari:  " +eventi.get(i).getTurno()+ "   Termina il:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  Luogo:  "+spazio.getNome().toUpperCase() +"  Tipo:  "+tipoevento.getTipo().toUpperCase()+ "  Costo:  € "+disciplina.getCostoMensile()+"0");	
 				campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 				JPanel contenuto1=new JPanel(new GridLayout(2,1));

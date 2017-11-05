@@ -2,11 +2,9 @@ package it.unisalento.pps.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import it.unisalento.pps.business.TestimonianzaBusiness;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
@@ -49,7 +47,7 @@ public class AscoltatoreFeedback implements ActionListener{
 			
 			String feedback = (String)JOptionPane.showInputDialog(frame,"Inserisci il tuo feedback:\n","FEEDBACK",JOptionPane.PLAIN_MESSAGE);
 			
-			boolean ok;
+			
 			
 			if (feedback !=null) {
 				Object[] options = {"SI","NO"};
@@ -63,10 +61,12 @@ public class AscoltatoreFeedback implements ActionListener{
 					options[0]); //default button title
 			
 				if(n==0 && JOptionPane.PLAIN_MESSAGE!=0) {					
-					ok = TestimonianzaBusiness.getInstance().inserisciFeed(feedback,disciplina.getIdDisciplina(), tesserato.getIdUtente());
+					boolean ok = TestimonianzaBusiness.getInstance().inserisciFeed(feedback,disciplina.getIdDisciplina(), tesserato.getIdUtente());
+					if(ok) {
 					JOptionPane.showMessageDialog(null, "Feedback inserito!");
 					new FeedbackTesserato(disciplina, tesserato);
 					frame.dispose();
+					}
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Feedback non inserito!");
