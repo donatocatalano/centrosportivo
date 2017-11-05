@@ -170,6 +170,12 @@ public class AreaIscrizioniEventi extends JFrame{
 				}	
 			}
 		}
+		else { 
+			JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
+			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
+			contenutoVuoto.add(nessunaoccorrenza);
+			centroPnl.add(contenutoVuoto);		
+		}	
 		centroPnl.add(contenuto);
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
