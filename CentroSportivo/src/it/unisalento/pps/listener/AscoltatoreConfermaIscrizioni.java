@@ -48,7 +48,6 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 			new HomepageTesserato(tesserato);
 			frame.dispose();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

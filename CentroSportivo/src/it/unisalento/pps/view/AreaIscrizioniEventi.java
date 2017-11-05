@@ -80,16 +80,17 @@ public class AreaIscrizioniEventi extends JFrame{
 		titolo.add(scelta);
 		nordPnl.add(titolo);
 		
-		eventi = EventoBusiness.getInstance().getEventi();
-		livelli = LivelloBusiness.getInstance().getLivelli();
+		
 		iscrizioni = IscrizioneBusiness.getInstance().getIscrizioniAutorizzate();
 		
 		Disciplina disciplina;
 		Spazio spazio;
 		TipoEvento tipoevento;
-		for(int j=0;j<iscrizioni.size();j++) {
-			if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente() && iscrizioni.get(j).getDataConferma()!=null){
-					//&& (iscrizioni.get(j).getAccettata()==true)) {    //problema se inserisco questa condizione
+		if(iscrizioni.size()>0) {
+			for(int j=0;j<iscrizioni.size();j++) {
+				if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()){
+					eventi = EventoBusiness.getInstance().getEventi();
+					livelli = LivelloBusiness.getInstance().getLivelli();
 						if(eventi.size()>0) {                                     
 							for(int i=0;i<eventi.size();i++) {
 								System.out.println(eventi.size());
@@ -160,13 +161,14 @@ public class AreaIscrizioniEventi extends JFrame{
 							contenutoVuoto.add(nessunaoccorrenza);
 							centroPnl.add(contenutoVuoto);		
 						}
-					}
-					else { 
-						JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
-						nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-						contenutoVuoto.add(nessunaoccorrenza);
-						centroPnl.add(contenutoVuoto);		
-					}	
+				}
+				else { 
+					JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
+					nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
+					contenutoVuoto.add(nessunaoccorrenza);
+					centroPnl.add(contenutoVuoto);		
+				}	
+			}
 		}
 		centroPnl.add(contenuto);
 		

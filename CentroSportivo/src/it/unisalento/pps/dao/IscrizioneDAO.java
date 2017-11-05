@@ -60,7 +60,7 @@ public class IscrizioneDAO {
 	public ArrayList<Iscrizione> getIscrizioniAutorizzate() {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from iscrizione where binary accettata = 1 ");
 		
-		ArrayList<Iscrizione> iscrizioniDaAutorizzare = new ArrayList<Iscrizione>();
+		ArrayList<Iscrizione> iscrizioniAutorizzate = new ArrayList<Iscrizione>();
 		Iscrizione iscrizione;
 		for(int i=0;i<result.size();i++) {
 			
@@ -78,9 +78,9 @@ public class IscrizioneDAO {
 			Date dateOut = new Date(millisecondi_out);
 			
 			iscrizione = new Iscrizione(Integer.parseInt(result.get(i)[0]),dateIn, dateOut, Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]));
-			iscrizioniDaAutorizzare.add(iscrizione);
+			iscrizioniAutorizzate.add(iscrizione);
 		}
-		return iscrizioniDaAutorizzare;
+		return iscrizioniAutorizzate;
 	}
 
 	public boolean autorizzaIscrizione(int iscrizione) {
