@@ -40,9 +40,11 @@ public class AscoltatoreAutorizzaPagamento implements ActionListener {
 		
 		if(n==0) {
 			boolean ok = PagamentoBusiness.getInstance().autorizzaPagamento(pagamento.getIdPagamento(), responsabile.getIdResponsabile());
-			JOptionPane.showMessageDialog(null, "Pagamento autorizzato!");
-			new AutorizzazioniPagamento(responsabile);
-			frame.dispose();
+			if(ok) { 
+				JOptionPane.showMessageDialog(null, "Pagamento autorizzato!");
+				new AutorizzazioniPagamento(responsabile);
+				frame.dispose();
+			}
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Pagamento non autorizzato!");

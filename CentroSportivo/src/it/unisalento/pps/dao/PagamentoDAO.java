@@ -34,6 +34,8 @@ public class PagamentoDAO {
 	public ArrayList<Pagamento> getPagamentiDaAutorizzare() {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from pagamento where binary accettato = 0");
 		
+		System.out.println(result.get(0)[1]);
+		
 		ArrayList<Pagamento> pagamentiDaAutorizzare = new ArrayList<Pagamento>();
 		Pagamento pagamento;
 		for(int i=0;i<result.size();i++) {
