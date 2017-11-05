@@ -73,5 +73,15 @@ public class IstruttoreDAO {
 			ok_registrazione = DbConnection.getInstance().eseguiAggiornamento("insert into istruttore (ID_Istruttore,Nome,Cognome,Username,Password) values(\""+(idIstruttore+1)+"\",\""+nome+"\",\""+cognome+"\",\""+username+"\",\""+password+"\")");
 
 		return  ok_registrazione;
+	}
+
+	public Istruttore getIstruttoreById(int idIstruttore) {
+		
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from istruttore where binary ID_Istruttore=\""+ idIstruttore +"\" ");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		istruttore = new Istruttore(Integer.parseInt(tupla[0]),tupla[1],tupla[2]);
+		
+		return istruttore;
 	}	
 }

@@ -40,4 +40,9 @@ private static IstruttoreBusiness instance;
 	public boolean registraIstruttore(String nome,String cognome,String username,String password) {
 		return IstruttoreDAO.getInstance().registraIstruttore(nome,cognome,username,password);
 	}
+
+	public Istruttore getIstruttoreById(int istruttore) {
+		
+		return IstruttoreDAO.getInstance().getIstruttoreById(istruttore);
+	}
 }

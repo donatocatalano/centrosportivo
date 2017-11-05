@@ -12,15 +12,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
+import it.unisalento.pps.business.IstruttoreBusiness;
 import it.unisalento.pps.business.PrenotazioneBusiness;
+import it.unisalento.pps.business.SpazioBusiness;
+import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
 import it.unisalento.pps.listener.AscoltatoreEliminaPrenotazione;
 import it.unisalento.pps.listener.AscoltatoreAutorizzaModificaPrenotazione;
+import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
+import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
+import it.unisalento.pps.model.Spazio;
+import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
 public class AutorizzazioniModifichePrenotazioni extends JFrame{
@@ -58,6 +66,11 @@ public class AutorizzazioniModifichePrenotazioni extends JFrame{
 		
 		Utente utente;
 		Evento evento;
+		Disciplina disciplina;
+		Istruttore istruttore;
+		Spazio spazio;
+		TipoEvento tipo;
+		
 			  
 		if(prenotazioniDaAutorizzare.size()>0) {	
 			
@@ -67,13 +80,17 @@ public class AutorizzazioniModifichePrenotazioni extends JFrame{
 			for(int i=0;i<prenotazioniDaAutorizzare.size();i++) {
 				evento = EventoBusiness.getInstance().getEventoById(prenotazioniDaAutorizzare.get(i).getEvento());
 				utente = UtenteBusiness.getInstance().getUtenteById(prenotazioniDaAutorizzare.get(i).getUtente());
+				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(evento.getDisciplina());
+				istruttore = IstruttoreBusiness.getInstance().getIstruttoreById(evento.getIstruttore());
+				spazio = SpazioBusiness.getInstance().getSpazioById(evento.getSpazio());
+				tipo = TipoEventoBusiness.getInstance().getTipoEventoById(evento.getTipo());
 				
 				String giorno = prenotazioniDaAutorizzare.get(i).getDataPrenotazione().toString().substring(8,10);
 				String mese = prenotazioniDaAutorizzare.get(i).getDataPrenotazione().toString().substring(5,7);
 				String anno = prenotazioniDaAutorizzare.get(i).getDataPrenotazione().toString().substring(0,4);	
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel campo_prenotazione = new JLabel("Richiesta di modifica del "+giorno+"/"+mese+"/"+anno+" DI "+utente.getNome()+" "+utente.getCognome()+"   EVENTO: "+evento.getDisciplina()+"   ");	
+				JLabel campo_prenotazione = new JLabel("Richiesta di modifica del "+giorno+"/"+mese+"/"+anno+" di "+utente.getNome().toUpperCase()+" "+utente.getCognome().toUpperCase()+"   Evento: "+tipo.getTipo().toUpperCase()+" di "+disciplina.getNome().toUpperCase()+" in "+spazio.getNome().toUpperCase()+ "  con l'istruttore  "+istruttore.getNome().toUpperCase()+ " "+istruttore.getCognome().toUpperCase());	
 				campo_prenotazione.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton autorizzaprenotazione = new JButton("AUTORIZZA MODIFICA");
 				JButton eliminaprenotazione = new JButton ("CANCELLA PRENOTAZIONE");

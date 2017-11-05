@@ -12,11 +12,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unisalento.pps.business.DisciplinaBusiness;
+import it.unisalento.pps.business.IscrizioneBusiness;
+import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.business.PagamentoBusiness;
 import it.unisalento.pps.business.TipoPagamentoBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreAutorizzaIscrizioneEPagamento;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
+import it.unisalento.pps.model.Disciplina;
+import it.unisalento.pps.model.Iscrizione;
+import it.unisalento.pps.model.Livello;
 import it.unisalento.pps.model.Pagamento;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.TipoPagamento;
@@ -55,6 +61,10 @@ public class AutorizzazioniIscrizioneEPagamento extends JFrame{
 		
 		TipoPagamento tipo;
 		Utente utente;
+		Disciplina disciplina;
+		Livello livello;
+		Iscrizione iscrizione;
+		
 			  
 		if(pagamentiDaAutorizzare.size()>0) {	
 			
@@ -64,10 +74,15 @@ public class AutorizzazioniIscrizioneEPagamento extends JFrame{
 			for(int i=0;i<pagamentiDaAutorizzare.size();i++) {
 				tipo = TipoPagamentoBusiness.getInstance().getTipoPagamentoById(pagamentiDaAutorizzare.get(i).getTipo());
 				utente = UtenteBusiness.getInstance().getUtenteById(pagamentiDaAutorizzare.get(i).getUtente());
+				iscrizione = IscrizioneBusiness.getInstance().getIscrizioneById(pagamentiDaAutorizzare.get(i).getIscrizione());
+				disciplina= DisciplinaBusiness.getInstance().getDisciplinaById(iscrizione.getDisciplina());
+				livello = LivelloBusiness.getInstance().getLivelloById(iscrizione.getLivello());
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
+				
+				
 
-				JLabel pagamento = new JLabel("Richiesta di pagamento di "+utente.getNome()+" "+utente.getCognome()+" METODO DI PAGAMENTO: "+tipo.getTipo()+ " IMPORTO: "+pagamentiDaAutorizzare.get(i).getTotale()+"0   ");	
+				JLabel pagamento = new JLabel("Richiesta di ISCRIZIONE a  "+disciplina.getNome().toUpperCase() +"   livello "+livello.getNome().toUpperCase()+" di "+utente.getNome()+" "+utente.getCognome()+"                                    Metodo di Pagamento: "+tipo.getTipo().toUpperCase()+ "    Totale : "+pagamentiDaAutorizzare.get(i).getTotale()+"0   ");	
 				pagamento.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton autorizzapagamento = new JButton("AUTORIZZA PAGAMENTO/Iscrizione");
 				contenuto1.add(pagamento);

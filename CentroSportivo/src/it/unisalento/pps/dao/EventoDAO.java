@@ -193,7 +193,20 @@ public class EventoDAO {
 		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from evento where ID_Evento=\""+ idEvento +"\" ");
 		Iterator<String[]> iter = result.iterator();
 		String[] tupla = iter.next();
-		evento=new Evento(Integer.parseInt(tupla[0]),tupla[2],Integer.parseInt(tupla[4]),Integer.parseInt(tupla[5]),Integer.parseInt(tupla[6]));
+		int anno_inizio = Integer.parseInt((tupla[1].substring(0,4)));
+		int mese_inizio = Integer.parseInt((tupla[1].substring(5,7)));
+		int giorno_inizio = Integer.parseInt((tupla[1].substring(8,10)));
+		GregorianCalendar dataInizio = new GregorianCalendar(anno_inizio,mese_inizio-1,giorno_inizio);
+		long millisecondi_inizio = dataInizio.getTimeInMillis();
+		Date data_inizio = new Date(millisecondi_inizio);
+		
+		int anno_fine = Integer.parseInt((tupla[7].substring(0,4)));
+		int mese_fine = Integer.parseInt((tupla[7].substring(5,7)));
+		int giorno_fine = Integer.parseInt((tupla[7].substring(8,10)));
+		GregorianCalendar dataFine = new GregorianCalendar(anno_fine,mese_fine-1,giorno_fine);
+		long millisecondi_fine = dataFine.getTimeInMillis();
+		Date data_fine = new Date(millisecondi_fine);
+		evento=new Evento(Integer.parseInt(tupla[0]),data_inizio,data_fine,tupla[2],Integer.parseInt(tupla[3]),Integer.parseInt(tupla[4]),Integer.parseInt(tupla[5]),Integer.parseInt(tupla[6]));
 		return  evento;
 	}
 }
