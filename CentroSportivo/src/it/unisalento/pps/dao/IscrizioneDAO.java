@@ -89,10 +89,10 @@ public class IscrizioneDAO {
 		return iscrizioniAutorizzate;
 	}
 
-	public boolean autorizzaIscrizione(int iscrizione) {
+	public boolean autorizzaIscrizione(int iscrizione,int responsabile) {
 		
 		boolean ok_autorizza = false;		
-		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE iscrizione SET accettata = '1', data_conferma = curdate() WHERE ID_Iscrizione = "+iscrizione+" ");
+		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE iscrizione SET accettata = '1', data_conferma = curdate(),responsabile ="+responsabile+" WHERE ID_Iscrizione = "+iscrizione+" ");
 		return ok_autorizza;
 	}
 }

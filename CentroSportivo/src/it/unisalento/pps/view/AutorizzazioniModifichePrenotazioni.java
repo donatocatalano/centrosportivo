@@ -16,14 +16,14 @@ import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.PrenotazioneBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
-import it.unisalento.pps.listener.AscoltatoreEliminaIscrizione;
-import it.unisalento.pps.listener.AscoltatoreAutorizzaIscrizione;
+import it.unisalento.pps.listener.AscoltatoreEliminaPrenotazione;
+import it.unisalento.pps.listener.AscoltatoreAutorizzaModificaPrenotazione;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.Utente;
 
-public class AutorizzazioniIscrizione extends JFrame{
+public class AutorizzazioniModifichePrenotazioni extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(2,1));
@@ -40,15 +40,15 @@ public class AutorizzazioniIscrizione extends JFrame{
 		
 	
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
-	AscoltatoreAutorizzaIscrizione ascoltatoreAutorizzaIscrizione;
-	AscoltatoreEliminaIscrizione ascoltatoreEliminaIscrizione;
+	AscoltatoreAutorizzaModificaPrenotazione ascoltatoreAutorizzaModificaPrenotazione;
+	AscoltatoreEliminaPrenotazione ascoltatoreEliminaPrenotazione;
 	Responsabile responsabile;
 	ArrayList<Prenotazione> prenotazioniDaAutorizzare = new ArrayList<Prenotazione>();
 		
-	public AutorizzazioniIscrizione(Responsabile responsabile, Prenotazione prenotazione){
+	public AutorizzazioniModifichePrenotazioni(Responsabile responsabile, Prenotazione prenotazione){
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
 		
-		titolo.setText("ISCRIZIONI IN ATTESA DI CONFERMA"); 
+		titolo.setText("RICHIESTE DI MODIFICA"); 
 		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
@@ -73,9 +73,9 @@ public class AutorizzazioniIscrizione extends JFrame{
 				String anno = prenotazioniDaAutorizzare.get(i).getDataPrenotazione().toString().substring(0,4);	
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				JLabel campo_prenotazione = new JLabel("Richiesta di iscrizione del "+giorno+"/"+mese+"/"+anno+" DI "+utente.getNome()+" "+utente.getCognome()+"   EVENTO: "+evento.getDisciplina()+"   ");	
+				JLabel campo_prenotazione = new JLabel("Richiesta di modifica del "+giorno+"/"+mese+"/"+anno+" DI "+utente.getNome()+" "+utente.getCognome()+"   EVENTO: "+evento.getDisciplina()+"   ");	
 				campo_prenotazione.setFont(new Font("sansserif",Font.BOLD,20));
-				JButton autorizzaprenotazione = new JButton("AUTORIZZA PRENOTAZIONE");
+				JButton autorizzaprenotazione = new JButton("AUTORIZZA MODIFICA");
 				JButton eliminaprenotazione = new JButton ("CANCELLA PRENOTAZIONE");
 				contenuto1.add(campo_prenotazione);
 				contenuto1.add(autorizzaprenotazione);
@@ -85,15 +85,15 @@ public class AutorizzazioniIscrizione extends JFrame{
 				JPanel contenuto2 = new JPanel();
 				contenuto.add(contenuto2);
 				
-				ascoltatoreEliminaIscrizione= new AscoltatoreEliminaIscrizione(this, responsabile, prenotazioniDaAutorizzare.get(i));
-				eliminaprenotazione.addActionListener(ascoltatoreEliminaIscrizione);
+				ascoltatoreEliminaPrenotazione= new AscoltatoreEliminaPrenotazione(this, responsabile, prenotazioniDaAutorizzare.get(i));
+				eliminaprenotazione.addActionListener(ascoltatoreEliminaPrenotazione);
 				
-				ascoltatoreAutorizzaIscrizione = new AscoltatoreAutorizzaIscrizione(this, responsabile, prenotazioniDaAutorizzare.get(i));
-				autorizzaprenotazione.addActionListener(ascoltatoreAutorizzaIscrizione);
+				ascoltatoreAutorizzaModificaPrenotazione = new AscoltatoreAutorizzaModificaPrenotazione(this, responsabile, prenotazioniDaAutorizzare.get(i));
+				autorizzaprenotazione.addActionListener(ascoltatoreAutorizzaModificaPrenotazione);
 			}
 		}
 		else {
-			JLabel nessunaoccorrenza = new JLabel("Nessuna iscrizione in attesa di autorizzazione");	
+			JLabel nessunaoccorrenza = new JLabel("Nessuna modifica in attesa di autorizzazione");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 			contenuto.add(nessunaoccorrenza);
 			centroPnl.add(contenuto);		

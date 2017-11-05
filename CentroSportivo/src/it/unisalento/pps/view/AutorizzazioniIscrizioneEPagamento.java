@@ -15,14 +15,14 @@ import javax.swing.JPanel;
 import it.unisalento.pps.business.PagamentoBusiness;
 import it.unisalento.pps.business.TipoPagamentoBusiness;
 import it.unisalento.pps.business.UtenteBusiness;
-import it.unisalento.pps.listener.AscoltatoreAutorizzaPagamento;
+import it.unisalento.pps.listener.AscoltatoreAutorizzaIscrizioneEPagamento;
 import it.unisalento.pps.listener.AscoltatoreAutorizzazioni;
 import it.unisalento.pps.model.Pagamento;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.model.TipoPagamento;
 import it.unisalento.pps.model.Utente;
 
-public class AutorizzazioniPagamento extends JFrame{
+public class AutorizzazioniIscrizioneEPagamento extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel(new GridLayout(2,1));
@@ -39,13 +39,13 @@ public class AutorizzazioniPagamento extends JFrame{
 	
 		
 	AscoltatoreAutorizzazioni ascoltatoreAutorizzazioni;
-	AscoltatoreAutorizzaPagamento ascoltatoreAutorizzaPagamento;
+	AscoltatoreAutorizzaIscrizioneEPagamento ascoltatoreAutorizzaIscrizioneEPagamento;
 	ArrayList<Pagamento> pagamentiDaAutorizzare = new ArrayList<Pagamento>();
 		
-	public AutorizzazioniPagamento(Responsabile responsabile){
+	public AutorizzazioniIscrizioneEPagamento(Responsabile responsabile){
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());	
 		
-		titolo.setText("PAGAMENTI IN ATTESA DI CONFERMA"); 
+		titolo.setText("ISCRIZIONI IN ATTESA DI CONFERMA"); 
 		titolo.setHorizontalAlignment(JLabel.CENTER);
 		titolo.setFont(new Font("sansserif",Font.BOLD,34));
 		nordPnl.add(titolo);
@@ -67,9 +67,9 @@ public class AutorizzazioniPagamento extends JFrame{
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
 
-				JLabel pagamento = new JLabel("Richiesta di pagamento per "+utente.getNome()+" "+utente.getCognome()+" METODO DI PAGAMENTO: "+tipo.getTipo()+ " IMPORTO: "+pagamentiDaAutorizzare.get(i).getTotale()+"0   ");	
+				JLabel pagamento = new JLabel("Richiesta di pagamento di "+utente.getNome()+" "+utente.getCognome()+" METODO DI PAGAMENTO: "+tipo.getTipo()+ " IMPORTO: "+pagamentiDaAutorizzare.get(i).getTotale()+"0   ");	
 				pagamento.setFont(new Font("sansserif",Font.BOLD,20));
-				JButton autorizzapagamento = new JButton("AUTORIZZA PAGAMENTO");
+				JButton autorizzapagamento = new JButton("AUTORIZZA PAGAMENTO/Iscrizione");
 				contenuto1.add(pagamento);
 				contenuto1.add(autorizzapagamento);
 				contenuto.add(contenuto1);
@@ -78,8 +78,8 @@ public class AutorizzazioniPagamento extends JFrame{
 				contenuto.add(contenuto2);
 				
 
-				ascoltatoreAutorizzaPagamento = new AscoltatoreAutorizzaPagamento(this, responsabile, pagamentiDaAutorizzare.get(i));
-				autorizzapagamento.addActionListener(ascoltatoreAutorizzaPagamento);
+				ascoltatoreAutorizzaIscrizioneEPagamento = new AscoltatoreAutorizzaIscrizioneEPagamento(this, responsabile, pagamentiDaAutorizzare.get(i));
+				autorizzapagamento.addActionListener(ascoltatoreAutorizzaIscrizioneEPagamento);
 			}
 		}
 		else {

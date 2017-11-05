@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.view.AutorizzazioniIscrizione;
+import it.unisalento.pps.view.AutorizzazioniModifichePrenotazioni;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 
 public class AscoltatoreAutIsc implements ActionListener {
@@ -25,7 +25,7 @@ public class AscoltatoreAutIsc implements ActionListener {
 	
 
 	public void actionPerformed(ActionEvent e) {
-		new AutorizzazioniIscrizione(responsabile, prenotazione);
+		new AutorizzazioniModifichePrenotazioni(responsabile, prenotazione);
 		frame.dispose();
 	}
 }

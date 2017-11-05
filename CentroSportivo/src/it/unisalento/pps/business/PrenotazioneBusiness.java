@@ -26,8 +26,8 @@ private static PrenotazioneBusiness instance;
 		return PrenotazioneDAO.getInstance().getPrenotazioniDaAutorizzare();
 	}
 
-	public boolean autorizzaPrenotazione(int prenotazione) {
-		return PrenotazioneDAO.getInstance().autorizzaPrenotazione(prenotazione);
+	public boolean autorizzaModificaPrenotazione(int prenotazione) {
+		return PrenotazioneDAO.getInstance().autorizzaModificaPrenotazione(prenotazione);
 	}
 
 	public boolean cancellaPrenotazione(Prenotazione prenotazione) {

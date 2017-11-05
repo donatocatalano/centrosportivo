@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AreaResponsabile;
-import it.unisalento.pps.view.AutorizzazioniIscrizione;
-import it.unisalento.pps.view.AutorizzazioniPagamento;
+import it.unisalento.pps.view.AutorizzazioniModifichePrenotazioni;
+import it.unisalento.pps.view.AutorizzazioniIscrizioneEPagamento;
 import it.unisalento.pps.view.AutorizzazioniRegistrazione;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 
@@ -30,13 +30,13 @@ public class AscoltatoreAutorizzazioni implements ActionListener {
 		this.responsabile = responsabile;
 	}
 	
-	public AscoltatoreAutorizzazioni(AutorizzazioniIscrizione frame, Responsabile responsabile) {
+	public AscoltatoreAutorizzazioni(AutorizzazioniModifichePrenotazioni frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;
 	}
 	
-	public AscoltatoreAutorizzazioni(AutorizzazioniPagamento frame, Responsabile responsabile) {
+	public AscoltatoreAutorizzazioni(AutorizzazioniIscrizioneEPagamento frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;

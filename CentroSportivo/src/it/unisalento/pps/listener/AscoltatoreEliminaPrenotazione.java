@@ -9,15 +9,15 @@ import javax.swing.JOptionPane;
 import it.unisalento.pps.business.PrenotazioneBusiness;
 import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.view.AutorizzazioniIscrizione;
+import it.unisalento.pps.view.AutorizzazioniModifichePrenotazioni;
 
-public class AscoltatoreEliminaIscrizione implements ActionListener {
+public class AscoltatoreEliminaPrenotazione implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;
 	private Prenotazione prenotazione;
 	
-	public AscoltatoreEliminaIscrizione(AutorizzazioniIscrizione frame, Responsabile responsabile, Prenotazione prenotazione) {
+	public AscoltatoreEliminaPrenotazione(AutorizzazioniModifichePrenotazioni frame, Responsabile responsabile, Prenotazione prenotazione) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;
@@ -38,9 +38,11 @@ public class AscoltatoreEliminaIscrizione implements ActionListener {
 		
 		if(n==0) {
 			boolean ok = PrenotazioneBusiness.getInstance().cancellaPrenotazione(prenotazione);
+			if(ok) {
 			JOptionPane.showMessageDialog(null, "Prenotazione eliminata!");
-			new AutorizzazioniIscrizione(responsabile, prenotazione);
+			new AutorizzazioniModifichePrenotazioni(responsabile, prenotazione);
 			frame.dispose();
+			}
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Prenotazione non eliminata!");

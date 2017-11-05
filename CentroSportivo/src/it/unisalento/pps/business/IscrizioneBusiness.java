@@ -30,7 +30,7 @@ private static IscrizioneBusiness instance;
 		return IscrizioneDAO.getInstance().getIscrizioniDaAutorizzare();
 	}
 
-	public boolean autorizzaIscrizione(int iscrizione) {
-		return IscrizioneDAO.getInstance().autorizzaIscrizione(iscrizione);
+	public boolean autorizzaIscrizione(int iscrizione,int responsabile) {
+		return IscrizioneDAO.getInstance().autorizzaIscrizione(iscrizione,responsabile);
 	}
 }

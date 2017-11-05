@@ -11,15 +11,15 @@ import it.unisalento.pps.business.PagamentoBusiness;
 import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Pagamento;
 import it.unisalento.pps.model.Responsabile;
-import it.unisalento.pps.view.AutorizzazioniPagamento;
+import it.unisalento.pps.view.AutorizzazioniIscrizioneEPagamento;
 
-public class AscoltatoreAutorizzaPagamento implements ActionListener {
+public class AscoltatoreAutorizzaIscrizioneEPagamento implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;	
 	private Pagamento pagamento;
 
-	public AscoltatoreAutorizzaPagamento(AutorizzazioniPagamento frame, Responsabile responsabile, Pagamento pagamento) {
+	public AscoltatoreAutorizzaIscrizioneEPagamento(AutorizzazioniIscrizioneEPagamento frame, Responsabile responsabile, Pagamento pagamento) {
 		this.frame = frame;
 		this.responsabile = responsabile;
 		this.pagamento = pagamento;
@@ -39,15 +39,28 @@ public class AscoltatoreAutorizzaPagamento implements ActionListener {
 		
 		
 		if(n==0) {
-			boolean ok = PagamentoBusiness.getInstance().autorizzaPagamento(pagamento.getIdPagamento(), responsabile.getIdResponsabile());
-			if(ok) { 
+			boolean ok_pagamento = PagamentoBusiness.getInstance().autorizzaPagamento(pagamento.getIdPagamento(), responsabile.getIdResponsabile());
+			boolean ok_iscrizione   = IscrizioneBusiness.getInstance().autorizzaIscrizione(pagamento.getIscrizione(),responsabile.getIdResponsabile());
+			
+			if(ok_pagamento) { 
 				JOptionPane.showMessageDialog(null, "Pagamento autorizzato!");
-				new AutorizzazioniPagamento(responsabile);
-				frame.dispose();
 			}
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Pagamento non autorizzato!");
-		}
+			else 
+			{
+				JOptionPane.showMessageDialog(null, "Pagamento non autorizzato!");
+			}
+			if(ok_iscrizione) {
+				JOptionPane.showMessageDialog(null, "Iscrizione autorizzata!");
+			}
+			else 
+			{
+				JOptionPane.showMessageDialog(null, "Iscrizione non autorizzata!");
+			}
+			if(ok_pagamento && ok_iscrizione) {
+					new AutorizzazioniIscrizioneEPagamento(responsabile);
+					frame.dispose();
+				}
+			}
+		
 	}
 }

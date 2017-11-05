@@ -32,7 +32,7 @@ public class PrenotazioneDAO {
 	}
 
 	public ArrayList<Prenotazione> getPrenotazioniDaAutorizzare() {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from prenotazione");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from prenotazione where valida = 0");
 		
 		ArrayList<Prenotazione> prenotazioniDaAutorizzare = new ArrayList<Prenotazione>();
 		Prenotazione prenotazione;
@@ -51,10 +51,10 @@ public class PrenotazioneDAO {
 		return prenotazioniDaAutorizzare;
 	}
 
-	public boolean autorizzaPrenotazione(int prenotazione) {
+	public boolean autorizzaModificaPrenotazione(int prenotazione) {
 		
 		boolean ok_autorizza = false;		
-		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE iscrizione SET accettata = '1', data_conferma = curdate() WHERE ID_Prenotazione = "+prenotazione+" ");
+		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE prenotazione SET valida = '1', data_prenotazione = curdate() WHERE ID_Prenotazione = "+prenotazione+" ");
 		return ok_autorizza;
 	}
 

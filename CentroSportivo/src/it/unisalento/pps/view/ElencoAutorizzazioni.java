@@ -28,8 +28,8 @@ public class ElencoAutorizzazioni extends JFrame {
 	JPanel vuoto1 = new JPanel ();
 	JPanel vuoto2 = new JPanel ();
 	JButton registrazioni = new JButton("<html><p align=\"center\"><b>AUTORIZZAZIONE</b><br>REGISTRAZIONI</p></html>");
-	JButton iscrizioni = new JButton("<html><p align=\"center\"><b>AUTORIZZAZIONE</b><br>CORSI ED EVENTI</p></html>");
-	JButton pagamenti = new JButton("<html><p align=\"center\"><b>AUTORIZZAZIONE</b><br>PAGAMENTI</p></html>");
+	JButton iscrizioni = new JButton("<html><p align=\"center\"><b>AUTORIZZAZIONE</b><br>MODIFICHE PRENOTAZIONI</p></html>");
+	JButton pagamenti = new JButton("<html><p align=\"center\"><b>AUTORIZZAZIONE</b><br>ISCRIZIONI E PAGAMENTI</p></html>");
 	JPanel vuoto3 = new JPanel ();
 	JPanel vuoto4 = new JPanel ();
 	JPanel vuoto5 = new JPanel ();
