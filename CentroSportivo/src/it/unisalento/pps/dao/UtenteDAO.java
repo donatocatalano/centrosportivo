@@ -138,7 +138,7 @@ public class UtenteDAO {
 
 	public boolean cancellaTesserato(Utente tesserato) {
 		boolean ok_eliminazione = false;
-		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from tesserato where ID_Utente = \""+ tesserato.getIdUtente() +"\" ");
+		ok_eliminazione = DbConnection.getInstance().eseguiAggiornamento("Delete from utente where ID_Utente = \""+ tesserato.getIdUtente() +"\" ");
 	
 		return   ok_eliminazione;
 	}

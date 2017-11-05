@@ -38,9 +38,14 @@ public class AscoltatoreEliminaTesserato implements ActionListener {
 		
 		if(n==0) {
 			boolean ok = UtenteBusiness.getInstance().cancellaTesserato(tesserato);
-			JOptionPane.showMessageDialog(null, "Utente eliminato!");
-			new ElencoTesserati(responsabile);
-			frame.dispose();
+			if(ok) { 
+				JOptionPane.showMessageDialog(null, "Utente eliminato!");
+				new ElencoTesserati(responsabile);
+				frame.dispose();
+				}
+			else {
+				JOptionPane.showMessageDialog(null, "Utente non eliminato!");
+			}
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Utente non eliminato!");
