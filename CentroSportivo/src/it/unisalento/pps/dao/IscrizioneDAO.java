@@ -127,7 +127,7 @@ public class IscrizioneDAO {
 
 	public ArrayList<Iscrizione> getIscrizioniByIdTesserato(int idUtente) {
 		
-ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from iscrizione where Utente="+ idUtente + "");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from iscrizione where Utente="+ idUtente + "");
 		
 		ArrayList<Iscrizione> iscrizioni = new ArrayList<Iscrizione>();
 		Iscrizione iscrizione;
