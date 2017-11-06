@@ -12,6 +12,7 @@ public class IscrizioneDAO {
 	
 	private static IscrizioneDAO instance;
 	private Iscrizione iscrizione;
+	Date fraUnAnno;
 	
 	public static IscrizioneDAO getInstance()
 	{
@@ -102,16 +103,25 @@ public class IscrizioneDAO {
 		String[] tupla = iter.next();
 		int idIscrizione = Integer.parseInt(tupla[0]);
 		
-		//Date now = new Date();
-		//long millisecondi = now.getTime();
-		//long unAnnoDopo = 31536000000
+		Date now = new Date(System.currentTimeMillis());
+		int anno = Integer.parseInt(now.toString().substring(0,4))+1;
+		int mese = Integer.parseInt(now.toString().substring(5,7));
+		int giorno= Integer.parseInt(now.toString().substring(8,10));
+		GregorianCalendar gregorianDataOut = new GregorianCalendar(anno,mese-1,giorno);
+		long mills= gregorianDataOut.getTimeInMillis();
+		Date dataOut = new Date(mills);
 		
-
 		
-		boolean ok_iscrizione = false;
-			
-			ok_iscrizione = DbConnection.getInstance().eseguiAggiornamento("insert into iscrizione(ID_Iscrizione,DataIn,DataOut,Livello,Disciplina,Utente) values(\""+(idIscrizione+1)+"\",curdate(),curdate(),\""+livelloId+"\",\""+idDisciplina+"\",\""+idUtente+"\")");
+		boolean ok_iscrizione = DbConnection.getInstance().eseguiAggiornamento("insert into iscrizione(ID_Iscrizione,DataIn,DataOut,Livello,Disciplina,Utente) values(\""+(idIscrizione+1)+"\",curdate(),\""+dataOut+"\",\""+livelloId+"\",\""+idDisciplina+"\",\""+idUtente+"\")");
 
 		return  ok_iscrizione;
+	}
+
+	public int getIdUltimaIscrizione() {
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Iscrizione) from iscrizione " );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idIscrizione = Integer.parseInt(tupla[0]);
+		return idIscrizione;
 	}
 }

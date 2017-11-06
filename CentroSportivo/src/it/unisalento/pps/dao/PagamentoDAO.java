@@ -59,4 +59,15 @@ public class PagamentoDAO {
 		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE pagamento SET accettato = '1', data_conferma = curdate(), responsabile = "+responsabile+" WHERE ID_Pagamento = "+pagamento+" ");
 		return ok_autorizza;
 	}
+
+	public boolean nuovoPagamento(int idUtente, int tipoPagamento, double totale, int idUltimaIscrizione) {
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Pagamento) from pagamento " );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idPagamento = Integer.parseInt(tupla[0]);
+		
+		boolean ok_pagamento = DbConnection.getInstance().eseguiAggiornamento("insert into pagamento(ID_Pagamento,Utente,Tipo,Totale,Data_Pagamento,Iscrizione) values(\""+(idPagamento+1)+"\",\""+idUtente+"\",\""+tipoPagamento+"\",\""+totale+"\",curdate(),\""+idUltimaIscrizione+"\")");
+
+		return  ok_pagamento;
+	}
 }
