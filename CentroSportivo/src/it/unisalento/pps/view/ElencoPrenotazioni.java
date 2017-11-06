@@ -83,7 +83,7 @@ public class ElencoPrenotazioni extends JFrame {
 				String anno = prenotazioni.get(i).getDataPrenotazione().toString().substring(0,4);	
 				
 				JLabel prenotazione = new JLabel();				
-				prenotazione.setText(+(i+1)+"  Prenotazione del " +giorno+"/"+mese+"/"+anno+ "   di   " +utente.getNome()+"   " +utente.getCognome()+" per la "+tipo.getTipo()+ " di "+disciplina.getNome().toUpperCase()+ " in "+luogo.getNome().toUpperCase()+ " orari :"+evento.getTurno());
+				prenotazione.setText(+(i+1)+"  Prenotazione del " +giorno+"/"+mese+"/"+anno+ "   di   " +utente.getNome().toUpperCase()+"   " +utente.getCognome().toUpperCase()+" per la "+tipo.getTipo().toUpperCase()+ " di "+disciplina.getNome().toUpperCase()+ " in "+luogo.getNome().toUpperCase()+ " orari :"+evento.getTurno());
 				prenotazione.setFont(new Font("sansserif",Font.BOLD,20));
 				JPanel contenuto = new JPanel(new FlowLayout());
 				contenuto.add(prenotazione, BorderLayout.CENTER);
