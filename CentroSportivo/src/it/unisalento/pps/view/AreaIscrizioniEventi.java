@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
@@ -45,7 +45,7 @@ public class AreaIscrizioniEventi extends JFrame{
 	JPanel contenutoVuoto = new JPanel();
 	
 	
-	public JRadioButton campo_evento;
+	public JCheckBox campo_evento;
 	ButtonGroup group_evento = new ButtonGroup();
 	
 	
@@ -98,7 +98,7 @@ public class AreaIscrizioniEventi extends JFrame{
 								String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
 								String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
 			
-								campo_evento = new JRadioButton(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
+								campo_evento = new JCheckBox(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 								JPanel contenuto1=new JPanel(new GridLayout(2,1));
