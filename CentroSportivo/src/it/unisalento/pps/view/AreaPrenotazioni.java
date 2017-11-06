@@ -30,7 +30,7 @@ import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
-public class AreaIscrizioniEventi extends JFrame{
+public class AreaPrenotazioni extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
@@ -61,7 +61,7 @@ public class AreaIscrizioniEventi extends JFrame{
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 	ArrayList<Iscrizione> iscrizioni = new ArrayList<Iscrizione>();
 	
-	public AreaIscrizioniEventi(Utente tesserato) {
+	public AreaPrenotazioni(Utente tesserato) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
 		
 		

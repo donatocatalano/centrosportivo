@@ -42,4 +42,8 @@ private static IscrizioneBusiness instance;
 	public int getIdUltimaIscrizione() {
 				return IscrizioneDAO.getInstance().getIdUltimaIscrizione();
 	}
+
+	public ArrayList<Iscrizione> getIscrizioniByIdTesserato(int idUtente) {
+		return IscrizioneDAO.getInstance().getIscrizioniByIdTesserato(idUtente);
+	}
 }

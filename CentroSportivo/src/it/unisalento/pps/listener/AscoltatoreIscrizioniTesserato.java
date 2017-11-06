@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.AreaIscrizioneDisciplina;
-import it.unisalento.pps.view.AreaIscrizioniEventi;
+import it.unisalento.pps.view.AreaPrenotazioni;
 import it.unisalento.pps.view.HomepageTesserato;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
 
@@ -43,7 +43,7 @@ public class AscoltatoreIscrizioniTesserato implements ActionListener {
 		}
 	}
 	public void d1launch() {
-		new AreaIscrizioniEventi(tesserato);
+		new AreaPrenotazioni(tesserato);
 		frame.dispose();
 	}
 }

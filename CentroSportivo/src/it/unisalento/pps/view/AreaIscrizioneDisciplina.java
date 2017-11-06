@@ -30,15 +30,12 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel();
-	private JPanel centroPnl=new JPanel(new GridLayout(3,1));
+	private JPanel centroPnl=new JPanel(new GridLayout(4,1));
 	private JPanel sudPnl=new JPanel(new GridLayout(1,1));
 	private JPanel titolo = new JPanel(new FlowLayout());
+	private JPanel costiPanel = new JPanel(new FlowLayout());
 	private JLabel scelta = new JLabel();
-	
-	//private JPanel contenuto = new JPanel(new GridLayout(2,1));
-	
-	//private JPanel contenutoVuoto = new JPanel();
-	
+	private JLabel infoCosti = new JLabel();
 	public JPanel contenutopagamento = new JPanel(new FlowLayout());
 	private JLabel selPagamento = new JLabel("SELEZIONA METODO DI PAGAMENTO   ");
 	public JRadioButton carta = new JRadioButton();
@@ -47,7 +44,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	ButtonGroup group_pagamento = new ButtonGroup();
 	ButtonGroup group_livello = new ButtonGroup();
 	public 	JRadioButton livello;
-	String selectedButton;
+	private String selectedButton;
 	
 	
 	
@@ -71,10 +68,16 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	public AreaIscrizioneDisciplina(Utente tesserato, Disciplina disciplina) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
 		
-		scelta.setText("Iscrizione ai CORSI ed agli EVENTI di "+disciplina.getNome().toUpperCase());
+		scelta.setText("Abbonamento ANNUALE ai CORSI ed agli EVENTI di "+disciplina.getNome().toUpperCase());
 		scelta.setFont(new Font("sansserif",Font.BOLD,30));
 		titolo.add(scelta);
-		centroPnl.add(titolo);		
+		centroPnl.add(titolo);
+		
+		infoCosti.setText(" Costo mensile "+disciplina.getCostoMensile()+" €        Totale : "+disciplina.getCostoMensile()*12+" €");
+		infoCosti.setFont(new Font("sansserif",Font.BOLD,30));
+		costiPanel.add(infoCosti);
+		centroPnl.add(costiPanel);
+		
 		
 		livelli = LivelloBusiness.getInstance().getLivelli();		
 		
@@ -105,7 +108,6 @@ public class AreaIscrizioneDisciplina extends JFrame{
 				livello.setActionCommand("button " + i);
 				
 				try {
-                    //method to call, after pressed a button
                     Method m = getClass().getDeclaredMethod("RadioButton" + (i+1), null);
                     ActionListener al = new RadioButtonActionListener(m, this);
                     livello.addActionListener(al);

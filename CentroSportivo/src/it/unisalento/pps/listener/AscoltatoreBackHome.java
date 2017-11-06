@@ -17,7 +17,7 @@ import it.unisalento.pps.view.Feedback;
 import it.unisalento.pps.view.FeedbackTesserato;
 import it.unisalento.pps.view.AreaAttivitaCentro;
 import it.unisalento.pps.view.AreaIscrizioneDisciplina;
-import it.unisalento.pps.view.AreaIscrizioniEventi;
+import it.unisalento.pps.view.AreaPrenotazioni;
 import it.unisalento.pps.view.AreaIstruttore;
 
 
@@ -66,7 +66,7 @@ import it.unisalento.pps.view.AreaIstruttore;
 		this.tesserato = tesserato;
 	}
 	
-	public AscoltatoreBackHome(AreaIscrizioniEventi frame,Utente tesserato) {
+	public AscoltatoreBackHome(AreaPrenotazioni frame,Utente tesserato) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;
