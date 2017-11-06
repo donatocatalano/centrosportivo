@@ -69,7 +69,7 @@ public class ElencoIscrizioni extends JFrame {
 				String mese = iscrizioni.get(i).getDataConferma().toString().substring(5,7);
 				String anno = iscrizioni.get(i).getDataConferma().toString().substring(0,4);				
 				
-				JLabel iscrizione = new JLabel("Iscrizione del " +giorno+"/"+mese+"/"+anno+ "   Disciplina" +disciplina.getNome()+ "   di   " +utente.getNome()+"   " +utente.getCognome());
+				JLabel iscrizione = new JLabel("Iscrizione del " +giorno+"/"+mese+"/"+anno+ "   Disciplina: " +disciplina.getNome()+ "   di   " +utente.getNome()+"   " +utente.getCognome());
 				iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
 				iscrizione.setHorizontalAlignment(JLabel.LEFT);
 				contenuto.add(iscrizione);

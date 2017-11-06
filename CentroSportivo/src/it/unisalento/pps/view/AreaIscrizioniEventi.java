@@ -98,7 +98,7 @@ public class AreaIscrizioniEventi extends JFrame{
 								String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
 								String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
 			
-								campo_evento = new JCheckBox(disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
+								campo_evento = new JCheckBox(disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo());	
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 								JPanel contenuto1=new JPanel(new GridLayout(2,1));
