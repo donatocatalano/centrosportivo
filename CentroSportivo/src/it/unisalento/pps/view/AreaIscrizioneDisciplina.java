@@ -34,8 +34,8 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new FlowLayout());
-	JPanel sudPnl=new JPanel(new GridLayout(3,1));
+	JPanel centroPnl=new JPanel(new GridLayout(3,1));
+	JPanel sudPnl=new JPanel(new GridLayout(1,1));
 	
 	JPanel titolo = new JPanel(new FlowLayout());
 	JLabel scelta = new JLabel();
@@ -74,15 +74,15 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	public AreaIscrizioneDisciplina(Utente tesserato, Disciplina disciplina) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
 		
-		scelta.setText("ISCRIZIONE AI CORSI ED AGLI EVENTI DI "+disciplina.getNome().toUpperCase());
+		scelta.setText("Iscrizione ai  CORSI  ed agli EVENTI di "+disciplina.getNome().toUpperCase());
 		scelta.setFont(new Font("sansserif",Font.BOLD,30));
 		titolo.add(scelta);
-		nordPnl.add(titolo);
+		centroPnl.add(titolo);
 		
 		//corsi = EventoBusiness.getInstance().getCorsiByIdDisciplina(disciplina.getIdDisciplina());
 		livelli = LivelloBusiness.getInstance().getLivelli();
 		
-		Spazio spazio;
+		/*Spazio spazio;
 		TipoEvento tipoevento;
 		
 		
@@ -121,7 +121,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 			centroPnl.add(contenutoVuoto);		
 		}			
 		
-		centroPnl.add(contenuto);
+		centroPnl.add(contenuto);*/
 
 		
 		selPagamento.setFont(new Font("sansserif",Font.BOLD,22));
@@ -138,7 +138,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 		contenutopagamento.add(carta);
 		contenutopagamento.add(paypal);
 		contenutopagamento.add(contanti);
-		sudPnl.add(contenutopagamento);
+		centroPnl.add(contenutopagamento);
 		
 		
 		if(livelli.size()>0) {
@@ -161,13 +161,13 @@ public class AreaIscrizioneDisciplina extends JFrame{
 		contenutotasti.add(indietro);
 		iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
 		contenutotasti.add(iscrizione);
-		sudPnl.add(contenutolivello);
+		centroPnl.add(contenutolivello);
 		sudPnl.add(contenutotasti);
 		
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.WEST);
+		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 	
