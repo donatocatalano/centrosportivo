@@ -38,4 +38,8 @@ private static IscrizioneBusiness instance;
 		
 		return IscrizioneDAO.getInstance().nuovaIscrizione(idUtente,idDisciplina,livelloId);
 	}
+
+	public int getIdUltimaIscrizione() {
+				return IscrizioneDAO.getInstance().getIdUltimaIscrizione();
+	}
 }

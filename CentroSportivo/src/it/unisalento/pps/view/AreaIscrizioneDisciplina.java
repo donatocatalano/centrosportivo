@@ -44,8 +44,9 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	public JRadioButton contanti = new JRadioButton();
 	ButtonGroup group_pagamento = new ButtonGroup();
 	ButtonGroup group_livello = new ButtonGroup();
+	public 	JRadioButton livello;
 	
-	public JRadioButton livello;
+	
 	
 	public JRadioButton campo_evento;
 	ButtonGroup group_evento = new ButtonGroup();
