@@ -43,7 +43,7 @@ public class HomepageTesserato extends JFrame {
 	JPanel login = new JPanel(new GridLayout(3,2));	
 	JPanel vuoto00 = new JPanel();
 	JLabel nomeutente = new JLabel();
-	JButton iscrizionicorsi = new JButton("ISCRIZIONI CORSI");
+	JButton visualizzacorsi = new JButton("CORSI DISPONIBILI");
 	JButton logout = new JButton("LOGOUT");	
 	JPanel vuoto3 = new JPanel();
 	JPanel vuoto4 = new JPanel();
@@ -85,8 +85,8 @@ public class HomepageTesserato extends JFrame {
 		nomeutente.setFont(new Font("sansserif",Font.BOLD,18));
 		login.add(nomeutente);
 		ascoltatoreIscrizioni = new AscoltatoreIscrizioniTesserato(this,tesserato);
-		iscrizionicorsi.addActionListener(ascoltatoreIscrizioni);
-		login.add(iscrizionicorsi);
+		visualizzacorsi.addActionListener(ascoltatoreIscrizioni);
+		login.add(visualizzacorsi);
 		logout.addActionListener(new AscoltatoreBackHome (this,tesserato));
 		login.add(logout);
 		

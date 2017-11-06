@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreInfoCorsi;
+import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
 import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
@@ -40,11 +41,13 @@ public class InfoDisciplinaTesserato extends JFrame{
 	private JButton indietro = new JButton("INDIETRO");
 	private JButton feedback = new JButton("VEDI FEEDBACK");
 	private JButton infocorsi = new JButton("INFO CORSI");
+	private JButton iscrivitidisciplina = new JButton("ISCRIVITI");
 	
 	
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	AscoltatoreVediFeed ascoltatoreVediFeed;
 	AscoltatoreInfoCorsi ascoltatoreInfoCorsi;
+	AscoltatoreIscrizioniTesserato ascoltatoreIscrizioniTesserato;
 	Utente tesserato;
 	
 	public InfoDisciplinaTesserato(Disciplina disciplina,Utente tesserato) {
@@ -86,6 +89,9 @@ public class InfoDisciplinaTesserato extends JFrame{
 		ascoltatoreInfoCorsi = new AscoltatoreInfoCorsi (this, tesserato, disciplina);
 		infocorsi.addActionListener(ascoltatoreInfoCorsi);
 		sudPnl.add(infocorsi);
+		ascoltatoreIscrizioniTesserato = new AscoltatoreIscrizioniTesserato (this, tesserato, disciplina);
+		iscrivitidisciplina.addActionListener(ascoltatoreIscrizioniTesserato);
+		sudPnl.add(iscrivitidisciplina);
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);

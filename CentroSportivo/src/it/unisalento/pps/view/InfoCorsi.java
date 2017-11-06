@@ -16,6 +16,7 @@ import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
+import it.unisalento.pps.listener.AscoltatoreBackInfoDisciplina;
 import it.unisalento.pps.listener.AscoltatoreBackIst;
 import it.unisalento.pps.listener.AscoltatoreEliminaEvento;
 import it.unisalento.pps.listener.AscoltatoreFormEvento;
@@ -39,10 +40,10 @@ public class InfoCorsi extends JFrame {
 	JPanel contenutoVuoto = new JPanel();
 	
 	
-	JButton indietro = new JButton("TORNA ALL'HOMEPAGE");
+	JButton indietro = new JButton("INDIETRO");
 	JButton nuovocorso = new JButton("AGGIUNGI CORSO");
 
-	AscoltatoreBackHome ascoltatoreBackHome;
+	AscoltatoreBackInfoDisciplina ascoltatoreBackInfoDisciplina;
 	Istruttore istruttore;
 	ArrayList<Evento> corsi = new ArrayList<Evento>();
 	
@@ -94,8 +95,8 @@ public class InfoCorsi extends JFrame {
 		}	
 		
 		
-		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
-		indietro.addActionListener(ascoltatoreBackHome);
+		ascoltatoreBackInfoDisciplina = new AscoltatoreBackInfoDisciplina(this,tesserato, disciplina);
+		indietro.addActionListener(ascoltatoreBackInfoDisciplina);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
 		sudPnl.add(indietro);		
 		
