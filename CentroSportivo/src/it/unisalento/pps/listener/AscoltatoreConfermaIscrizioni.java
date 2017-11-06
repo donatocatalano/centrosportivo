@@ -54,6 +54,7 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 			System.out.println(livello.getText());
 			livelli = LivelloDAO.getInstance().getLivelli();
 			
+
 			for (int i = 0; i<livelli.size();i++) {
 				if(livelli.get(i).getNome().equals(livello.getText())) {
 					livelloId = livelli.get(i).getIdLivello();
@@ -61,7 +62,9 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 			}
 			
 			boolean ok_iscrizione = IscrizioneBusiness.getInstance().nuovaIscrizione(tesserato.getIdUtente(),disciplina.getIdDisciplina(),livelloId);
-			//boolean ok_pagamento = PagamentoBusiness.ge
+			
+
+			
 			
 			
 			new HomepageTesserato(tesserato);

@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
+import it.unisalento.pps.listener.AscoltatoreAttivitaCentro;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
 import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
 import it.unisalento.pps.listener.AscoltatoreVediFeed;
@@ -43,7 +44,7 @@ public class HomepageTesserato extends JFrame {
 	JPanel login = new JPanel(new GridLayout(3,2));	
 	JPanel vuoto00 = new JPanel();
 	JLabel nomeutente = new JLabel();
-	JButton visualizzacorsi = new JButton("CORSI DISPONIBILI");
+	JButton visualizzacorsi = new JButton("ATTIVITA' DEL CENTRO");
 	JButton logout = new JButton("LOGOUT");	
 	JPanel vuoto3 = new JPanel();
 	JPanel vuoto4 = new JPanel();
@@ -62,6 +63,7 @@ public class HomepageTesserato extends JFrame {
 	Utente utenteTesserato;	
 	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina; 
 	AscoltatoreIscrizioniTesserato ascoltatoreIscrizioni;
+	AscoltatoreAttivitaCentro ascoltatoreCorsiDisponibili;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	
 	public HomepageTesserato(Utente tesserato) {
@@ -84,8 +86,8 @@ public class HomepageTesserato extends JFrame {
 		nomeutente.setText(tesserato.getNome()+" "+tesserato.getCognome());
 		nomeutente.setFont(new Font("sansserif",Font.BOLD,18));
 		login.add(nomeutente);
-		ascoltatoreIscrizioni = new AscoltatoreIscrizioniTesserato(this,tesserato);
-		visualizzacorsi.addActionListener(ascoltatoreIscrizioni);
+		ascoltatoreCorsiDisponibili = new AscoltatoreAttivitaCentro(this,tesserato);
+		visualizzacorsi.addActionListener(ascoltatoreCorsiDisponibili);
 		login.add(visualizzacorsi);
 		logout.addActionListener(new AscoltatoreBackHome (this,tesserato));
 		login.add(logout);

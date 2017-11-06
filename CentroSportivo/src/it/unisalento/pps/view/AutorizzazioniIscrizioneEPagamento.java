@@ -79,8 +79,6 @@ public class AutorizzazioniIscrizioneEPagamento extends JFrame{
 				livello = LivelloBusiness.getInstance().getLivelloById(iscrizione.getLivello());
 				
 				JPanel contenuto1 = new JPanel(new FlowLayout());
-				
-				
 
 				JLabel pagamento = new JLabel("Richiesta di ISCRIZIONE a  "+disciplina.getNome().toUpperCase() +"   livello "+livello.getNome().toUpperCase()+" di "+utente.getNome()+" "+utente.getCognome()+"                                    Metodo di Pagamento: "+tipo.getTipo().toUpperCase()+ "    Totale : "+pagamentiDaAutorizzare.get(i).getTotale()+"0   ");	
 				pagamento.setFont(new Font("sansserif",Font.BOLD,20));
@@ -91,7 +89,6 @@ public class AutorizzazioniIscrizioneEPagamento extends JFrame{
 				
 				JPanel contenuto2 = new JPanel();
 				contenuto.add(contenuto2);
-				
 
 				ascoltatoreAutorizzaIscrizioneEPagamento = new AscoltatoreAutorizzaIscrizioneEPagamento(this, responsabile, pagamentiDaAutorizzare.get(i));
 				autorizzapagamento.addActionListener(ascoltatoreAutorizzaIscrizioneEPagamento);

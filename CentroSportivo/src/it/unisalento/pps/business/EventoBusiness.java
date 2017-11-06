@@ -56,4 +56,12 @@ private static EventoBusiness instance;
 	public ArrayList<Evento> getCorsiByIdDisciplina(int idDisciplina) {
 		return EventoDAO.getInstance().getCorsiByIdDisciplina(idDisciplina);
 	}
+	
+	public ArrayList<Evento> getEventiByIdDisciplina(int idDisciplina) {
+		return EventoDAO.getInstance().getEventiByIdDisciplina(idDisciplina);
+	}
+	
+	public ArrayList<Evento> getEventiCorsiByIdDisciplina(int idDisciplina) {
+		return EventoDAO.getInstance().getEventiCorsiByIdDisciplina(idDisciplina);
+	}
 }

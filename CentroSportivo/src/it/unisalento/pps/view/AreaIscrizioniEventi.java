@@ -35,24 +35,15 @@ public class AreaIscrizioniEventi extends JFrame{
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
 	JPanel centroPnl=new JPanel(new FlowLayout());
-	JPanel sudPnl=new JPanel(new GridLayout(3,1));
+	JPanel sudPnl=new JPanel();
 	
 	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel("SCEGLI LA DISCIPLINA, IL LIVELLO, IL TURNO E IL METODO DI PAGAMENTO");
+	JLabel scelta = new JLabel("SELEZIONA L'EVENTO A CUI SEI INTERESSATO");
 	
 	JPanel contenuto = new JPanel(new GridLayout(2,1));
 	
 	JPanel contenutoVuoto = new JPanel();
 	
-	public JPanel contenutopagamento = new JPanel(new FlowLayout());
-	JLabel selPagamento = new JLabel("SELEZIONA METODO DI PAGAMENTO   ");
-	public JRadioButton carta = new JRadioButton();
-	public JRadioButton paypal = new JRadioButton();
-	public JRadioButton contanti = new JRadioButton();
-	ButtonGroup group_pagamento = new ButtonGroup();
-	ButtonGroup group_livello = new ButtonGroup();
-	
-	public JRadioButton livello;
 	
 	public JRadioButton campo_evento;
 	ButtonGroup group_evento = new ButtonGroup();
@@ -90,20 +81,12 @@ public class AreaIscrizioniEventi extends JFrame{
 		
 		if(iscrizioni.size()>0) {
 			for(int j=0;j<iscrizioni.size();j++) {
-				//System.out.println(iscrizioni.get(j).getUtente());
-				//System.out.println(tesserato.getIdUtente());
-				
 				if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()){
-					eventi = EventoBusiness.getInstance().getEventi();
+					disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioni.get(j).getDisciplina());
+					eventi = EventoBusiness.getInstance().getEventiCorsiByIdDisciplina(disciplina.getIdDisciplina());
 					livelli = LivelloBusiness.getInstance().getLivelli();
-					
-					System.out.println(eventi.size());
-					
-						if(eventi.size()>0) {                                     
-							for(int i=0;i<eventi.size();i++) {
-								
-								
-								disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
+						if(eventi.size()>0) {                    
+							for(int i=0;i<eventi.size();i++) {						
 								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
 								tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
 			
@@ -126,35 +109,6 @@ public class AreaIscrizioniEventi extends JFrame{
 				
 								group_evento.add(campo_evento);
 							}
-							selPagamento.setFont(new Font("sansserif",Font.BOLD,22));
-							contenutopagamento.add(selPagamento);
-							carta.setText("Carta di credito");
-							paypal.setText("Paypal");
-							contanti.setText("Contanti");
-							group_pagamento.add(carta);
-							group_pagamento.add(paypal);
-							group_pagamento.add(contanti);
-							carta.setFont(new Font("sansserif",Font.BOLD,20));
-							paypal.setFont(new Font("sansserif",Font.BOLD,20));
-							contanti.setFont(new Font("sansserif",Font.BOLD,20));
-							contenutopagamento.add(carta);
-							contenutopagamento.add(paypal);
-							contenutopagamento.add(contanti);
-							sudPnl.add(contenutopagamento);
-							
-							
-							if(livelli.size()>0) {
-								JLabel titolo = new JLabel ("SELEZIONA LIVELLO   ");
-								contenutolivello.add(titolo);
-								titolo.setFont(new Font("sansserif",Font.BOLD,22));
-								for(int i=0;i<livelli.size();i++) {
-									livello = new JRadioButton(livelli.get(i).getNome());
-									livello.setFont(new Font("sansserif",Font.BOLD,20));
-									contenutolivello.add(livello);
-									
-									group_livello.add(livello);
-								}
-							}	
 							
 							ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 							indietro.addActionListener(ascoltatoreBackHome);
@@ -176,23 +130,20 @@ public class AreaIscrizioniEventi extends JFrame{
 					contenutoVuoto.add(nessunaoccorrenza);
 					centroPnl.add(contenutoVuoto);		
 				}	
-			}
+			}// chiude il for
 		}
 		else { 
 			JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutoVuoto.add(nessunaoccorrenza);
 			centroPnl.add(contenutoVuoto);		
-		}	
+		}
 		centroPnl.add(contenuto);
 		
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
-		contenutotasti.add(indietro);
-		
-		sudPnl.add(contenutolivello);
-		sudPnl.add(contenutotasti);
+		sudPnl.add(indietro);
 		
 		
 		
