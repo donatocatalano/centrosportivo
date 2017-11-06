@@ -73,7 +73,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 		titolo.add(scelta);
 		centroPnl.add(titolo);
 		
-		infoCosti.setText(" Costo mensile "+disciplina.getCostoMensile()+" €        Totale : "+disciplina.getCostoMensile()*12+" €");
+		infoCosti.setText(" Costo mensile "+disciplina.getCostoMensile()+"0 €        Totale : "+disciplina.getCostoMensile()*12+"0 €");
 		infoCosti.setFont(new Font("sansserif",Font.BOLD,30));
 		costiPanel.add(infoCosti);
 		centroPnl.add(costiPanel);

@@ -37,8 +37,6 @@ public class PagamentoDAO {
 		ArrayList<Pagamento> pagamentiDaAutorizzare = new ArrayList<Pagamento>();
 		Pagamento pagamento;
 		
-		
-		
 		for(int i=0;i<result.size();i++) {
 			int anno = Integer.parseInt((result.get(i)[6].substring(0,4)));
 			int mese = Integer.parseInt((result.get(i)[6].substring(5,7)));

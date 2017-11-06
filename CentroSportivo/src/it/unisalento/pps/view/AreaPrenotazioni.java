@@ -110,7 +110,7 @@ public class AreaPrenotazioni extends JFrame{
 							}
 						}
 						else {
-							JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema");	
+							JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema per la disciplina a cui sei iscritto");	
 							nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 							contenutoVuoto.add(nessunaoccorrenza);
 							centroPnl.add(contenutoVuoto);	

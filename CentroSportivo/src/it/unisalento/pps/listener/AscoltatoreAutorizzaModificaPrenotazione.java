@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.PrenotazioneBusiness;
 import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Responsabile;
