@@ -52,7 +52,7 @@ public class AreaPrenotazioni extends JFrame{
 	JPanel contenutolivello=new JPanel(new FlowLayout());
 	JButton indietro = new JButton("INDIETRO");
 	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
-	JButton distinta = new JButton("STAMPA RICEVUTA");
+	JButton distinta = new JButton("STAMPA DISTINTA");
 		
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	Istruttore istruttore;

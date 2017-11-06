@@ -56,7 +56,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	JPanel contenutotasti = new JPanel(new FlowLayout());
 	JButton indietro = new JButton("TORNA ALL'HOMEPAGE");
 	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
-	JButton distinta = new JButton("STAMPA RICEVUTA");
+	JButton distinta = new JButton("STAMPA DISTINTA");
 		
 	AscoltatoreBackHome  ascoltatoreBackHome; 
 	Utente tesserato;
