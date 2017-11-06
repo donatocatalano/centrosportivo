@@ -9,7 +9,7 @@ import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.view.AreaIstruttore;
 import it.unisalento.pps.view.ElencoCorsi;
 import it.unisalento.pps.view.ElencoEventi;
-import it.unisalento.pps.view.ElencoIscrizioni;
+import it.unisalento.pps.view.ElencoPrenotazioni;
 import it.unisalento.pps.view.FormCorso;
 import it.unisalento.pps.view.FormEvento;
 
@@ -31,7 +31,7 @@ public class AscoltatoreBackIst implements ActionListener {
 		this.istruttore=istruttore;
 	}
 	
-	public AscoltatoreBackIst(ElencoIscrizioni frame, Istruttore istruttore) {
+	public AscoltatoreBackIst(ElencoPrenotazioni frame, Istruttore istruttore) {
 		super();
 		this.frame = frame;
 		this.istruttore=istruttore;
