@@ -85,7 +85,7 @@ public class AreaIscrizioniEventi extends JFrame{
 					eventi = EventoBusiness.getInstance().getEventiCorsiByIdDisciplina(disciplina.getIdDisciplina());
 					livelli = LivelloBusiness.getInstance().getLivelli();
 						if(eventi.size()>0) {                    
-							for(int i=0;i<eventi.size();i++) {						
+							for(int i=0;i<eventi.size();i++) {					
 								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
 								tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
 			

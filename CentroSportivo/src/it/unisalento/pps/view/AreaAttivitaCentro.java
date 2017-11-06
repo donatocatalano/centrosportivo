@@ -88,7 +88,6 @@ public class AreaAttivitaCentro extends JFrame{
 				contenuto1.add(campo_evento);
 				contenuto.setLayout(new GridLayout(tuttiglieventi.size(),1));
 				contenuto.add(contenuto1);
-				
 			}
 		}
 		else {
