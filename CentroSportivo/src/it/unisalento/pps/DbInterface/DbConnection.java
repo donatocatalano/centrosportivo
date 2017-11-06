@@ -71,8 +71,7 @@ public class DbConnection {
    // query: una stringa che rappresenta un'istuzione SQL di tipo UPDATE da eseguire
    // ritorna TRUE se l'esecuzione e' adata a buon fine, FALSE se c'e' stata un'eccezione
    public boolean eseguiAggiornamento(String query) {
-	  @SuppressWarnings("unused")
-	int numero=0;
+	  int numero=0;
       boolean risultato = false;
       try {
          Statement stmt = db.createStatement();
