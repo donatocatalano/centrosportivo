@@ -52,8 +52,8 @@ public class AreaIscrizioniEventi extends JFrame{
 	JPanel contenutolivello=new JPanel(new FlowLayout());
 	JPanel contenutotasti = new JPanel(new FlowLayout());
 	JButton indietro = new JButton("INDIETRO");
-	JButton iscrizione = new JButton("INVIA ISCRIZIONE E STAMPA RICEVUTA");
-	
+	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
+	JButton ricevuta = new JButton("STAMPA RICEVUTA");
 		
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	Istruttore istruttore;
@@ -98,7 +98,7 @@ public class AreaIscrizioniEventi extends JFrame{
 								String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
 								String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
 			
-								campo_evento = new JCheckBox(eventi.get(i).getIdEvento()+"  "+disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
+								campo_evento = new JCheckBox(disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo()+ "  COSTO:  € "+disciplina.getCostoMensile()+"0");	
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 								JPanel contenuto1=new JPanel(new GridLayout(2,1));
@@ -114,8 +114,9 @@ public class AreaIscrizioniEventi extends JFrame{
 							indietro.addActionListener(ascoltatoreBackHome);
 							indietro.setActionCommand(AscoltatoreBackHome.D1);
 							contenutotasti.add(indietro);
-							//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
 							contenutotasti.add(iscrizione);
+							contenutotasti.add(ricevuta);
+							//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
 						}
 						else {
 							JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema");	
@@ -144,6 +145,7 @@ public class AreaIscrizioniEventi extends JFrame{
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
 		sudPnl.add(indietro);
+		sudPnl.add(contenutotasti);
 		
 		
 		
