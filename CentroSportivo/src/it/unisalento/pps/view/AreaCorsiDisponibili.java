@@ -20,7 +20,6 @@ import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreBackInfoDisciplina;
 import it.unisalento.pps.listener.AscoltatoreConfermaIscrizioni;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
@@ -30,7 +29,7 @@ import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
-public class AreaIscrizioniCorsi extends JFrame{
+public class AreaCorsiDisponibili extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
@@ -38,7 +37,7 @@ public class AreaIscrizioniCorsi extends JFrame{
 	JPanel sudPnl=new JPanel(new GridLayout(3,1));
 	
 	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel("SCEGLI LA DISCIPLINA, IL LIVELLO, IL TURNO E IL METODO DI PAGAMENTO");
+	JLabel scelta = new JLabel("TUTTI I CORSI DEL CENTRO");
 	
 	JPanel contenuto = new JPanel(new GridLayout(2,1));
 	
@@ -60,18 +59,18 @@ public class AreaIscrizioniCorsi extends JFrame{
 	
 	JPanel contenutolivello=new JPanel(new FlowLayout());
 	JPanel contenutotasti = new JPanel(new FlowLayout());
-	JButton indietro = new JButton("TORNA ALL'HOMEPAGE");
+	JButton indietro = new JButton("INDIETRO");
 	JButton iscrizione = new JButton("INVIA ISCRIZIONE E STAMPA RICEVUTA");
 	
 		
-	AscoltatoreBackHome  ascoltatoreBackHome; 
+	AscoltatoreBackHome ascoltatoreBackHome; 
 	Utente tesserato;
 	Istruttore istruttore;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	ArrayList<Evento> corsi = new ArrayList<Evento>();
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 	
-	public AreaIscrizioniCorsi(Utente tesserato, Disciplina disciplina) {
+	public AreaCorsiDisponibili(Utente tesserato) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
 		
 		
@@ -79,9 +78,10 @@ public class AreaIscrizioniCorsi extends JFrame{
 		titolo.add(scelta);
 		nordPnl.add(titolo);
 		
-		corsi = EventoBusiness.getInstance().getCorsiByIdDisciplina(disciplina.getIdDisciplina());
+		corsi = EventoBusiness.getInstance().getCorsi();
 		livelli = LivelloBusiness.getInstance().getLivelli();
 		
+		Disciplina disciplina;
 		Spazio spazio;
 		TipoEvento tipoevento;
 		
@@ -159,7 +159,7 @@ public class AreaIscrizioniCorsi extends JFrame{
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
 		contenutotasti.add(indietro);
-		iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
+		//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
 		contenutotasti.add(iscrizione);
 		sudPnl.add(contenutolivello);
 		sudPnl.add(contenutotasti);
@@ -181,5 +181,3 @@ public class AreaIscrizioniCorsi extends JFrame{
 		this.setVisible(true);
 	}
 }
-
-
