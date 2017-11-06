@@ -67,9 +67,7 @@ public class AreaAttivitaCentro extends JFrame{
 		
 		
 		if(tuttiglieventi.size()>0) {
-			for(int i=0;i<tuttiglieventi.size();i++) {
-				System.out.println(tuttiglieventi.size());
-				
+			for(int i=0;i<tuttiglieventi.size();i++) {				
 				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(tuttiglieventi.get(i).getDisciplina());
 				spazio = SpazioBusiness.getInstance().getSpazioById(tuttiglieventi.get(i).getSpazio());
 				tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(tuttiglieventi.get(i).getTipo());

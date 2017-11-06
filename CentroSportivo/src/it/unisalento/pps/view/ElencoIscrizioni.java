@@ -33,7 +33,7 @@ public class ElencoIscrizioni extends JFrame {
 	JLabel titolo = new JLabel();
 	JLabel spazio = new JLabel();
 	
-	JPanel contenuto = new JPanel();
+	JPanel contenuto = new JPanel(new GridLayout(2,1));
 	JPanel contenutoVuoto = new JPanel();
 	
 	JButton indietro = new JButton("INDIETRO");
@@ -61,7 +61,7 @@ public class ElencoIscrizioni extends JFrame {
 		if(iscrizioni.size()>0) {
 			for(int i=0;i<iscrizioni.size();i++) {
 				if(iscrizioni.get(i).getDataConferma()!=null) {
-			
+				JPanel contenuto1 = new JPanel();
 				disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioni.get(i).getDisciplina());
 				utente = UtenteBusiness.getInstance().getUtenteById(iscrizioni.get(i).getUtente());
 				
@@ -69,11 +69,13 @@ public class ElencoIscrizioni extends JFrame {
 				String mese = iscrizioni.get(i).getDataConferma().toString().substring(5,7);
 				String anno = iscrizioni.get(i).getDataConferma().toString().substring(0,4);				
 				
-				JLabel iscrizione = new JLabel("Iscrizione del " +giorno+"/"+mese+"/"+anno+ "   Disciplina: " +disciplina.getNome()+ "   di   " +utente.getNome()+"   " +utente.getCognome());
+				JLabel iscrizione = new JLabel(+(i+1)+") Iscrizione del " +giorno+"/"+mese+"/"+anno+ "   Disciplina: " +disciplina.getNome()+ "   di   " +utente.getNome()+"   " +utente.getCognome());
 				iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
-				iscrizione.setHorizontalAlignment(JLabel.LEFT);
-				contenuto.add(iscrizione);
-				centroPnl.add(contenuto);
+				contenuto1.add(iscrizione, BorderLayout.WEST);
+				contenuto.add(contenuto1, BorderLayout.WEST);
+				JPanel contenuto2 = new JPanel();
+				contenuto.add(contenuto2);
+				centroPnl.add(contenuto, BorderLayout.WEST);
 				}
 				else {
 					JLabel nessunaoccorrenza = new JLabel("Nessuna Iscrizione al momento!");	
@@ -95,9 +97,9 @@ public class ElencoIscrizioni extends JFrame {
 		indietro.addActionListener(ascoltatoreBackIst);
 		sudPnl.add(indietro);
 		
-		
+	
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
+		this.getContentPane().add(centroPnl,BorderLayout.WEST);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 		

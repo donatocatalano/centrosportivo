@@ -26,6 +26,7 @@ import it.unisalento.pps.view.AreaIstruttore;
 		private JFrame frame;
 		private Utente tesserato;
 		public final static String D1="d1";
+		public final static String D2="d2";
 		
 	public AscoltatoreBackHome(InfoDisciplina frame) {
 		super();
@@ -99,13 +100,20 @@ import it.unisalento.pps.view.AreaIstruttore;
 		String com = e.getActionCommand();
 		if (com==D1)
 			d1launch();	
-		else {		
-			new Homepage();
-			frame.dispose();
+		else if (com==D2)
+			d2launch();
+			else {
+				new Homepage();
+				frame.dispose();
 		}
 	}
 	
 	private void d1launch() {
+		new HomepageTesserato(tesserato);
+		frame.dispose();
+	}
+	
+	private void d2launch() {
 		new HomepageTesserato(tesserato);
 		frame.dispose();
 	}

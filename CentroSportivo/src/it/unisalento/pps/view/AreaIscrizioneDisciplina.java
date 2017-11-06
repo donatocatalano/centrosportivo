@@ -14,20 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import it.unisalento.pps.business.DisciplinaBusiness;
-import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.LivelloBusiness;
-import it.unisalento.pps.business.SpazioBusiness;
-import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatoreBackInfoDisciplina;
 import it.unisalento.pps.listener.AscoltatoreConfermaIscrizioni;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.model.Livello;
-import it.unisalento.pps.model.Spazio;
-import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
 public class AreaIscrizioneDisciplina extends JFrame{
@@ -61,8 +54,8 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	JPanel contenutolivello=new JPanel(new FlowLayout());
 	JPanel contenutotasti = new JPanel(new FlowLayout());
 	JButton indietro = new JButton("TORNA ALL'HOMEPAGE");
-	JButton iscrizione = new JButton("INVIA ISCRIZIONE E STAMPA RICEVUTA");
-	
+	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
+	JButton ricevuta = new JButton("STAMPA RICEVUTA");
 		
 	AscoltatoreBackHome  ascoltatoreBackHome; 
 	Utente tesserato;
@@ -74,7 +67,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	public AreaIscrizioneDisciplina(Utente tesserato, Disciplina disciplina) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
 		
-		scelta.setText("Iscrizione ai  CORSI  ed agli EVENTI di "+disciplina.getNome().toUpperCase());
+		scelta.setText("Iscrizione ai CORSI ed agli EVENTI di "+disciplina.getNome().toUpperCase());
 		scelta.setFont(new Font("sansserif",Font.BOLD,30));
 		titolo.add(scelta);
 		centroPnl.add(titolo);		
@@ -118,6 +111,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 		contenutotasti.add(indietro);
 		iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato,disciplina));
 		contenutotasti.add(iscrizione);
+		contenutotasti.add(ricevuta);
 		centroPnl.add(contenutolivello);
 		sudPnl.add(contenutotasti);
 		

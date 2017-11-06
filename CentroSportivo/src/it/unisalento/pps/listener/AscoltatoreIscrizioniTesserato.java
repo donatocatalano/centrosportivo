@@ -44,5 +44,6 @@ public class AscoltatoreIscrizioniTesserato implements ActionListener {
 	}
 	public void d1launch() {
 		new AreaIscrizioniEventi(tesserato);
+		frame.dispose();
 	}
 }

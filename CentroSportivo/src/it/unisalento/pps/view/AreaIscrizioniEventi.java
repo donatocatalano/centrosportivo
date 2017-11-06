@@ -38,7 +38,7 @@ public class AreaIscrizioniEventi extends JFrame{
 	JPanel sudPnl=new JPanel();
 	
 	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel("SELEZIONA L'EVENTO A CUI SEI INTERESSATO");
+	JLabel scelta = new JLabel("SELEZIONA I CORSI E GLI EVENTI A CUI SEI INTERESSATO");
 	
 	JPanel contenuto = new JPanel(new GridLayout(2,1));
 	
@@ -50,7 +50,6 @@ public class AreaIscrizioniEventi extends JFrame{
 	
 	
 	JPanel contenutolivello=new JPanel(new FlowLayout());
-	JPanel contenutotasti = new JPanel(new FlowLayout());
 	JButton indietro = new JButton("INDIETRO");
 	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
 	JButton ricevuta = new JButton("STAMPA RICEVUTA");
@@ -106,46 +105,55 @@ public class AreaIscrizioniEventi extends JFrame{
 								contenuto1.add(campo_evento);
 								contenuto.setLayout(new GridLayout(eventi.size(),1));
 								contenuto.add(contenuto1);
-				
+								
 								group_evento.add(campo_evento);
 							}
-							
-							ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
-							indietro.addActionListener(ascoltatoreBackHome);
-							indietro.setActionCommand(AscoltatoreBackHome.D1);
-							contenutotasti.add(indietro);
-							contenutotasti.add(iscrizione);
-							contenutotasti.add(ricevuta);
-							//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
 						}
 						else {
 							JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema");	
 							nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 							contenutoVuoto.add(nessunaoccorrenza);
-							centroPnl.add(contenutoVuoto);		
+							centroPnl.add(contenutoVuoto);	
+							ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
+							indietro.addActionListener(ascoltatoreBackHome);
+							indietro.setActionCommand(AscoltatoreBackHome.D2);
+							sudPnl.add(indietro);
 						}
 				}
 				else { 
 					JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
 					nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 					contenutoVuoto.add(nessunaoccorrenza);
-					centroPnl.add(contenutoVuoto);		
+					centroPnl.add(contenutoVuoto);	
+					ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
+					indietro.addActionListener(ascoltatoreBackHome);
+					indietro.setActionCommand(AscoltatoreBackHome.D2);
+					sudPnl.add(indietro);
 				}	
 			}// chiude il for
+			
+			JPanel contenutotasti = new JPanel(new FlowLayout());
+			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
+			indietro.addActionListener(ascoltatoreBackHome);
+			indietro.setActionCommand(AscoltatoreBackHome.D1);
+			contenutotasti.add(indietro);
+			contenutotasti.add(iscrizione);
+			contenutotasti.add(ricevuta);
+			//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
+			
+			sudPnl.add(contenutotasti);
 		}
 		else { 
 			JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutoVuoto.add(nessunaoccorrenza);
-			centroPnl.add(contenutoVuoto);		
+			centroPnl.add(contenutoVuoto);	
+			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
+			indietro.addActionListener(ascoltatoreBackHome);
+			indietro.setActionCommand(AscoltatoreBackHome.D2);
+			sudPnl.add(indietro);
 		}
 		centroPnl.add(contenuto);
-		
-		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
-		indietro.addActionListener(ascoltatoreBackHome);
-		indietro.setActionCommand(AscoltatoreBackHome.D1);
-		sudPnl.add(indietro);
-		sudPnl.add(contenutotasti);
 		
 		
 		

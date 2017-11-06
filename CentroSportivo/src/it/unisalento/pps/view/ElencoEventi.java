@@ -57,9 +57,7 @@ public class ElencoEventi extends JFrame {
 		nordPnl.add(spazio);
 		
 		eventi = EventoBusiness.getInstance().getEventiByIdIstruttore(istruttore.getIdIstruttore());
-		for(int i = 0;i<eventi.size();i++) {
-			System.out.println(eventi.size());
-		}
+		
 		centroPnl.setLayout(new GridLayout(eventi.size(),1));
 		Disciplina disciplina;
 		Spazio spazio;
