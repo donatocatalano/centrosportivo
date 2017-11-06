@@ -41,10 +41,7 @@ public class AscoltatoreInvioRegistrazione implements ActionListener {
 		long millisecondi = data.getTimeInMillis();
 		Date dataNascita = new Date(millisecondi);
 		
-		//System.out.println(millisecondi);
-		
-
-        JPasswordField password = frame.pass_field;
+		JPasswordField password = frame.pass_field;
 		JRadioButton maschio = frame.maschio;
 		JRadioButton femmina = frame.femmina;
 		

@@ -4,6 +4,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Connector"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/CentroSportivo"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Donato/Dropbox/Università/Principi di progettazione del software/mysql-connector-java-5.1.37/mysql-connector-java-5.1.37/mysql-connector-java-5.1.37-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

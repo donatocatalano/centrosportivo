@@ -36,7 +36,7 @@ public class PagamentoDAO {
 		
 		ArrayList<Pagamento> pagamentiDaAutorizzare = new ArrayList<Pagamento>();
 		Pagamento pagamento;
-		System.out.println(result.size());
+		
 		
 		
 		for(int i=0;i<result.size();i++) {

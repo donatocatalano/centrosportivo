@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -17,6 +19,7 @@ import javax.swing.JRadioButton;
 import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreConfermaIscrizioni;
+import it.unisalento.pps.listener.RadioButtonActionListener;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Istruttore;
@@ -26,25 +29,25 @@ import it.unisalento.pps.model.Utente;
 public class AreaIscrizioneDisciplina extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
-	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new GridLayout(3,1));
-	JPanel sudPnl=new JPanel(new GridLayout(1,1));
+	private JPanel nordPnl=new JPanel();
+	private JPanel centroPnl=new JPanel(new GridLayout(3,1));
+	private JPanel sudPnl=new JPanel(new GridLayout(1,1));
+	private JPanel titolo = new JPanel(new FlowLayout());
+	private JLabel scelta = new JLabel();
 	
-	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel();
+	//private JPanel contenuto = new JPanel(new GridLayout(2,1));
 	
-	JPanel contenuto = new JPanel(new GridLayout(2,1));
-	
-	JPanel contenutoVuoto = new JPanel();
+	//private JPanel contenutoVuoto = new JPanel();
 	
 	public JPanel contenutopagamento = new JPanel(new FlowLayout());
-	JLabel selPagamento = new JLabel("SELEZIONA METODO DI PAGAMENTO   ");
+	private JLabel selPagamento = new JLabel("SELEZIONA METODO DI PAGAMENTO   ");
 	public JRadioButton carta = new JRadioButton();
 	public JRadioButton paypal = new JRadioButton();
 	public JRadioButton contanti = new JRadioButton();
 	ButtonGroup group_pagamento = new ButtonGroup();
 	ButtonGroup group_livello = new ButtonGroup();
 	public 	JRadioButton livello;
+	String selectedButton;
 	
 	
 	
@@ -99,13 +102,26 @@ public class AreaIscrizioneDisciplina extends JFrame{
 			for(int i=0;i<livelli.size();i++) {
 				livello = new JRadioButton(livelli.get(i).getNome());
 				livello.setFont(new Font("sansserif",Font.BOLD,20));
-				contenutolivello.add(livello);
+				livello.setActionCommand("button " + i);
 				
+				try {
+                    //method to call, after pressed a button
+                    Method m = getClass().getDeclaredMethod("RadioButton" + (i+1), null);
+                    ActionListener al = new RadioButtonActionListener(m, this);
+                    livello.addActionListener(al);
+                } catch (SecurityException e) {
+                      e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                      e.printStackTrace();
+                }
+				
+				contenutolivello.add(livello);				
 				group_livello.add(livello);
 			}
 			
 		}	
 		
+		 
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
@@ -132,6 +148,34 @@ public class AreaIscrizioneDisciplina extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-}
+	
+	
+	
+	public String getSelectedButton() {
+		return selectedButton;
+	}
+		//Al massimo 6 livelli
+	public void RadioButton1() {
+	    selectedButton = "1";
+	}
 
+	public void RadioButton2() {
+		selectedButton ="2";
+	}
+
+	public void RadioButton3() {
+		selectedButton ="3";
+	}
+	
+	public void RadioButton4() {
+		selectedButton ="4";
+	}
+	public void RadioButton5() {
+		selectedButton ="5";
+	}
+	public void RadioButton6() {
+		selectedButton ="6";
+	}
+
+}
 

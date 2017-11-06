@@ -113,16 +113,6 @@ public class UtenteDAO {
 
 	public boolean autorizzaUtente(int utente, int responsabile) {
 		
-		/*Calendar data = Calendar.getInstance();
-		data.getTime();
-		int anno=data.get(Calendar.YEAR);
-		int mese=data.get(Calendar.MONTH);
-		int giorno=data.get(Calendar.DAY_OF_MONTH);
-		GregorianCalendar data1 = new GregorianCalendar(anno,mese,giorno);
-		long millisecondi_inizio = data1.getTimeInMillis();
-		Date dataodierna = new Date(millisecondi_inizio);
-		System.out.println(dataodierna);*/
-		
 		boolean ok_autorizza = false;		
 		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE utente SET responsabile = "+responsabile+", data_registrazione = curdate(), tesserato='1' WHERE ID_Utente = "+utente+" ");
 		return ok_autorizza;

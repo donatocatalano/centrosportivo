@@ -34,12 +34,13 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 		this.disciplina = disciplina;
 	}
 	
-	public void actionPerformed(ActionEvent arg0) throws IllegalArgumentException{
+	public void actionPerformed(ActionEvent event) throws IllegalArgumentException{
+		/*String comm = event.getActionCommand();
+		System.out.println(comm);*/
 		
 		JRadioButton carta = frame.carta;
 		JRadioButton paypal = frame.paypal;
 		JRadioButton contanti = frame.contanti;
-		JRadioButton livello = frame.livello;
 		
 		
 		try {
@@ -54,12 +55,11 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 					tipoPagamento = 3;
 				}
 						
-			System.out.println(livello.getText());
 			livelli = LivelloDAO.getInstance().getLivelli();
 			
 
 			for (int i = 0; i<livelli.size();i++) {
-				if(livelli.get(i).getNome().equals(livello.getText())) {
+				if(livelli.get(i).getIdLivello() == Integer.parseInt(frame.getSelectedButton())) {
 					livelloId = livelli.get(i).getIdLivello();
 				}
 			}
