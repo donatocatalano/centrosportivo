@@ -121,7 +121,7 @@ public class AreaIscrizioniEventi extends JFrame{
 						}
 				}
 				else { 
-					JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
+					JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad una disciplina!");	
 					nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 					contenutoVuoto.add(nessunaoccorrenza);
 					centroPnl.add(contenutoVuoto);	
@@ -144,7 +144,7 @@ public class AreaIscrizioniEventi extends JFrame{
 			sudPnl.add(contenutotasti);
 		}
 		else { 
-			JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad un corso!");	
+			JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad una disciplina!");	
 			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutoVuoto.add(nessunaoccorrenza);
 			centroPnl.add(contenutoVuoto);	
