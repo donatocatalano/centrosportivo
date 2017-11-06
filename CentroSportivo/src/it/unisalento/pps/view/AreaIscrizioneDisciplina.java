@@ -30,7 +30,7 @@ import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
-public class AreaIscrizioniCorsi extends JFrame{
+public class AreaIscrizioneDisciplina extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	JPanel nordPnl=new JPanel();
@@ -38,7 +38,7 @@ public class AreaIscrizioniCorsi extends JFrame{
 	JPanel sudPnl=new JPanel(new GridLayout(3,1));
 	
 	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel("SCEGLI LA DISCIPLINA, IL LIVELLO, IL TURNO E IL METODO DI PAGAMENTO");
+	JLabel scelta = new JLabel();
 	
 	JPanel contenuto = new JPanel(new GridLayout(2,1));
 	
@@ -71,15 +71,15 @@ public class AreaIscrizioniCorsi extends JFrame{
 	ArrayList<Evento> corsi = new ArrayList<Evento>();
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 	
-	public AreaIscrizioniCorsi(Utente tesserato, Disciplina disciplina) {
+	public AreaIscrizioneDisciplina(Utente tesserato, Disciplina disciplina) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
 		
-		
+		scelta.setText("ISCRIZIONE AI CORSI ED AGLI EVENTI DI "+disciplina.getNome().toUpperCase());
 		scelta.setFont(new Font("sansserif",Font.BOLD,30));
 		titolo.add(scelta);
 		nordPnl.add(titolo);
 		
-		corsi = EventoBusiness.getInstance().getCorsiByIdDisciplina(disciplina.getIdDisciplina());
+		//corsi = EventoBusiness.getInstance().getCorsiByIdDisciplina(disciplina.getIdDisciplina());
 		livelli = LivelloBusiness.getInstance().getLivelli();
 		
 		Spazio spazio;

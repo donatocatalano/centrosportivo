@@ -6,17 +6,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
 
 import it.unisalento.pps.model.Utente;
-import it.unisalento.pps.view.AreaIscrizioniCorsi;
+import it.unisalento.pps.view.AreaIscrizioneDisciplina;
 import it.unisalento.pps.view.HomepageTesserato;
 
 public class AscoltatoreConfermaIscrizioni implements ActionListener{
 	
-	private AreaIscrizioniCorsi frame;
+	private AreaIscrizioneDisciplina frame;
 	private Utente tesserato;
 	int tipoPagamento;
 	
 
-	public AscoltatoreConfermaIscrizioni(AreaIscrizioniCorsi frame, Utente tesserato) {
+	public AscoltatoreConfermaIscrizioni(AreaIscrizioneDisciplina frame, Utente tesserato) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;
