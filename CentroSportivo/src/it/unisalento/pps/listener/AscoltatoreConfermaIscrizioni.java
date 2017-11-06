@@ -48,7 +48,7 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 				}
 			System.out.println(evento.getText());
 			
-			ok_iscrizione = IscrizioneBusiness.getInstance().nuovaIscrizione()
+			//ok_iscrizione = IscrizioneBusiness.getInstance().nuovaIscrizione()
 			
 			
 			new HomepageTesserato(tesserato);
