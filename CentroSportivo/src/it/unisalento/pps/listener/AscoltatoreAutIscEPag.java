@@ -9,13 +9,13 @@ import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AutorizzazioniIscrizioneEPagamento;
 import it.unisalento.pps.view.ElencoAutorizzazioni;
 
-public class AscoltatoreAutPag implements ActionListener {
+public class AscoltatoreAutIscEPag implements ActionListener {
 	
 	private JFrame frame;
 	private Responsabile responsabile;
 	
 	
-	public AscoltatoreAutPag(ElencoAutorizzazioni frame, Responsabile responsabile) {
+	public AscoltatoreAutIscEPag(ElencoAutorizzazioni frame, Responsabile responsabile) {
 		super();
 		this.frame = frame;
 		this.responsabile = responsabile;

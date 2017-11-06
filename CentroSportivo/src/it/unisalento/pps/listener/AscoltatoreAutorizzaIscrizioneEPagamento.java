@@ -5,10 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.PagamentoBusiness;
-import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Pagamento;
 import it.unisalento.pps.model.Responsabile;
 import it.unisalento.pps.view.AutorizzazioniIscrizioneEPagamento;

@@ -38,9 +38,11 @@ public class AscoltatoreAutorizzaRegistrazione implements ActionListener {
 		
 		if(n==0) {
 			boolean ok = UtenteBusiness.getInstance().autorizzaUtente(utente.getIdUtente(), responsabile.getIdResponsabile());
+			if(ok) {
 			JOptionPane.showMessageDialog(null, "Utente tesserato!");
 			new AutorizzazioniRegistrazione(responsabile);
 			frame.dispose();
+			}
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Registrazione non autorizzata!");

@@ -10,8 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.unisalento.pps.listener.AscoltatoreAutIsc;
-import it.unisalento.pps.listener.AscoltatoreAutPag;
+import it.unisalento.pps.listener.AscoltatoreAutPre;
+import it.unisalento.pps.listener.AscoltatoreAutIscEPag;
 import it.unisalento.pps.listener.AscoltatoreAutReg;
 import it.unisalento.pps.listener.AscoltatoreBackResp;
 import it.unisalento.pps.model.Responsabile;
@@ -37,8 +37,8 @@ public class ElencoAutorizzazioni extends JFrame {
 	JButton indietro= new JButton("INDIETRO");
 	JLabel 	titolo = new JLabel();
 	AscoltatoreAutReg ascoltatoreAutReg;
-	AscoltatoreAutIsc ascoltatoreAutIsc;
-	AscoltatoreAutPag ascoltatoreAutPag;
+	AscoltatoreAutPre ascoltatoreAutPre;
+	AscoltatoreAutIscEPag ascoltatoreAutIscEPag;
 	AscoltatoreBackResp ascoltatoreBackResp; 
 	Responsabile responsabile;
 	Utente utente;
@@ -54,12 +54,12 @@ public class ElencoAutorizzazioni extends JFrame {
 		registrazioni.addActionListener(ascoltatoreAutReg);
 		registrazioni.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(registrazioni);
-		ascoltatoreAutIsc = new AscoltatoreAutIsc(this, responsabile);
-		iscrizioni.addActionListener(ascoltatoreAutIsc);
+		ascoltatoreAutPre = new AscoltatoreAutPre(this, responsabile);
+		iscrizioni.addActionListener(ascoltatoreAutPre);
 		iscrizioni.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(iscrizioni);
-		ascoltatoreAutPag = new AscoltatoreAutPag(this, responsabile);
-		pagamenti.addActionListener(ascoltatoreAutPag);
+		ascoltatoreAutIscEPag = new AscoltatoreAutIscEPag(this, responsabile);
+		pagamenti.addActionListener(ascoltatoreAutIscEPag);
 		pagamenti.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(pagamenti);
 		centroPnl.add(vuoto3);

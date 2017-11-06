@@ -50,13 +50,14 @@ public class Iscrizione {
 		this.utente = utente;
 	}
 
-	public Iscrizione(int idIscrizione, Date dataIn, Date dataOut, int livello, int disciplina, int utente, Date dataConferma) {
+	public Iscrizione(int idIscrizione, Date dataIn, Date dataOut, int livello, int disciplina, int utente,int responsabile, Date dataConferma) {
 		this.idIscrizione = idIscrizione;
 		this.dataIn = dataIn;
 		this.dataOut = dataOut;
 		this.livello = livello;
 		this.disciplina = disciplina;
 		this.utente = utente;
+		this.responsabile = responsabile;
 		this.dataConferma = dataConferma;
 	}
 

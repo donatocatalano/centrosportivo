@@ -83,7 +83,7 @@ public class IscrizioneDAO {
 			Date dateOut = new Date(millisecondi_out);
 			Date dateconferma = new Date(millisecondi_conferma);
 			
-			iscrizione = new Iscrizione(Integer.parseInt(result.get(i)[0]),dateIn, dateOut,Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]),dateconferma);
+			iscrizione = new Iscrizione(Integer.parseInt(result.get(i)[0]),dateIn, dateOut,Integer.parseInt(result.get(i)[4]),Integer.parseInt(result.get(i)[5]),Integer.parseInt(result.get(i)[6]),Integer.parseInt(result.get(i)[7]),dateconferma);
 			iscrizioniAutorizzate.add(iscrizione);
 		}
 		return iscrizioniAutorizzate;

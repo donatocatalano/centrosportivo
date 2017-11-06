@@ -65,7 +65,6 @@ public class AreaIscrizioniEventi extends JFrame{
 	
 		
 	AscoltatoreBackHome ascoltatoreBackHome; 
-	Utente tesserato;
 	Istruttore istruttore;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
@@ -83,17 +82,26 @@ public class AreaIscrizioniEventi extends JFrame{
 		
 		iscrizioni = IscrizioneBusiness.getInstance().getIscrizioniAutorizzate();
 		
+		
 		Disciplina disciplina;
 		Spazio spazio;
 		TipoEvento tipoevento;
+		
+		
 		if(iscrizioni.size()>0) {
 			for(int j=0;j<iscrizioni.size();j++) {
+				//System.out.println(iscrizioni.get(j).getUtente());
+				//System.out.println(tesserato.getIdUtente());
+				
 				if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()){
 					eventi = EventoBusiness.getInstance().getEventi();
 					livelli = LivelloBusiness.getInstance().getLivelli();
+					
+					System.out.println(eventi.size());
+					
 						if(eventi.size()>0) {                                     
 							for(int i=0;i<eventi.size();i++) {
-								System.out.println(eventi.size());
+								
 								
 								disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(eventi.get(i).getDisciplina());
 								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
