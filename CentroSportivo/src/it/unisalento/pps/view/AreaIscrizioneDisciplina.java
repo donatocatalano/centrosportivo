@@ -56,7 +56,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 	JPanel contenutotasti = new JPanel(new FlowLayout());
 	JButton indietro = new JButton("TORNA ALL'HOMEPAGE");
 	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
-	JButton ricevuta = new JButton("STAMPA RICEVUTA");
+	JButton distinta = new JButton("STAMPA RICEVUTA");
 		
 	AscoltatoreBackHome  ascoltatoreBackHome; 
 	Utente tesserato;
@@ -130,7 +130,7 @@ public class AreaIscrizioneDisciplina extends JFrame{
 		contenutotasti.add(indietro);
 		iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato,disciplina));
 		contenutotasti.add(iscrizione);
-		contenutotasti.add(ricevuta);
+		contenutotasti.add(distinta);
 		centroPnl.add(contenutolivello);
 		sudPnl.add(contenutotasti);
 		

@@ -52,7 +52,7 @@ public class AreaPrenotazioni extends JFrame{
 	JPanel contenutolivello=new JPanel(new FlowLayout());
 	JButton indietro = new JButton("INDIETRO");
 	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
-	JButton ricevuta = new JButton("STAMPA RICEVUTA");
+	JButton distinta = new JButton("STAMPA RICEVUTA");
 		
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	Istruttore istruttore;
@@ -138,7 +138,7 @@ public class AreaPrenotazioni extends JFrame{
 			indietro.setActionCommand(AscoltatoreBackHome.D1);
 			contenutotasti.add(indietro);
 			contenutotasti.add(iscrizione);
-			contenutotasti.add(ricevuta);
+			contenutotasti.add(distinta);
 			//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
 			
 			sudPnl.add(contenutotasti);
