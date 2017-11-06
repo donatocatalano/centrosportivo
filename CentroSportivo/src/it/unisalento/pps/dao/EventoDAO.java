@@ -104,7 +104,7 @@ public class EventoDAO {
 	}
 		
 	public ArrayList<Evento> getEventi() {
-		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from EVENTO where (tipo=1) and (tipo=2)");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from EVENTO");
 		
 		ArrayList<Evento> eventi = new ArrayList<Evento>();
 		Evento evento;
