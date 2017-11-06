@@ -95,4 +95,23 @@ public class IscrizioneDAO {
 		ok_autorizza = DbConnection.getInstance().eseguiAggiornamento("UPDATE iscrizione SET accettata = '1', data_conferma = curdate(),responsabile ="+responsabile+" WHERE ID_Iscrizione = "+iscrizione+" ");
 		return ok_autorizza;
 	}
+
+	public boolean nuovaIscrizione(int idUtente, int idDisciplina, int livelloId) {
+		ArrayList<String[]> risultato= DbConnection.getInstance().eseguiQuery("select max(ID_Iscrizione) from iscrizione " );
+		Iterator<String[]> iter = risultato.iterator();
+		String[] tupla = iter.next();
+		int idIscrizione = Integer.parseInt(tupla[0]);
+		
+		//Date now = new Date();
+		//long millisecondi = now.getTime();
+		//long unAnnoDopo = 31536000000
+		
+
+		
+		boolean ok_iscrizione = false;
+			
+			ok_iscrizione = DbConnection.getInstance().eseguiAggiornamento("insert into iscrizione(ID_Iscrizione,DataIn,DataOut,Livello,Disciplina,Utente) values(\""+(idIscrizione+1)+"\",curdate(),curdate(),\""+livelloId+"\",\""+idDisciplina+"\",\""+idUtente+"\")");
+
+		return  ok_iscrizione;
+	}
 }
