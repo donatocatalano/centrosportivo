@@ -24,6 +24,13 @@ public class Prenotazione {
 		this.dataPrenotazione = dataPrenotazione;
 		this.valida = valida;
 	}
+	
+	public Prenotazione(int idPrenotazione, int utente, int evento, Date dataPrenotazione) {
+		this.idPrenotazione = idPrenotazione;
+		this.utente = utente;
+		this.evento = evento;
+		this.dataPrenotazione = dataPrenotazione;
+	}
 
 	public Prenotazione(int idPrenotazione, int utente, int evento) {
 		this.idPrenotazione = idPrenotazione;
