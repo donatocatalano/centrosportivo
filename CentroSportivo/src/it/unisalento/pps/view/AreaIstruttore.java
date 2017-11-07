@@ -27,7 +27,7 @@ public class AreaIstruttore extends JFrame{
 	JPanel vuoto2 = new JPanel ();
 	JButton corsi = new JButton("<html><p align=\"center\"><b>GESTIONE</b><br>CORSI</p></html>");
 	JButton eventi = new JButton("<html><p align=\"center\"><b>GESTIONE</b><br>EVENTI</p></html>");
-	JButton iscrizioni = new JButton("<html><p align=\"center\"><b>VISUALIZZA</b><br>ISCRIZIONI</p></html>");
+	JButton prenotazioni = new JButton("<html><p align=\"center\"><b>VISUALIZZA</b><br>PRENOTAZIONI</p></html>");
 	JPanel vuoto8 = new JPanel ();
 	JPanel vuoto9 = new JPanel ();
 	JPanel vuoto10 = new JPanel ();
@@ -36,7 +36,7 @@ public class AreaIstruttore extends JFrame{
 		
 	AscoltatoreEventi ascoltatoreEventi;
 	AscoltatoreCorsi ascoltatoreCorsi;
-	AscoltatoreElencoIscrizioni ascoltatoreElencoIscrizioni;
+	AscoltatoreElencoPrenotazioni ascoltatoreElencoPrenotazioni;
 	Istruttore istruttore;
 		
 	public AreaIstruttore(Istruttore istruttore){
@@ -54,10 +54,10 @@ public class AreaIstruttore extends JFrame{
 		eventi.addActionListener(ascoltatoreEventi);
 		eventi.setFont(new Font("sansserif",Font.BOLD,34));
 		centroPnl.add(eventi);
-		ascoltatoreElencoIscrizioni = new AscoltatoreElencoIscrizioni(this, istruttore);
-		iscrizioni.addActionListener(ascoltatoreElencoIscrizioni);
-		iscrizioni.setFont(new Font("sansserif",Font.BOLD,34));
-		centroPnl.add(iscrizioni);
+		ascoltatoreElencoPrenotazioni = new AscoltatoreElencoPrenotazioni(this, istruttore);
+		prenotazioni.addActionListener(ascoltatoreElencoPrenotazioni);
+		prenotazioni.setFont(new Font("sansserif",Font.BOLD,34));
+		centroPnl.add(prenotazioni);
 		centroPnl.add(vuoto8);
 		centroPnl.add(vuoto9);
 		centroPnl.add(vuoto10);

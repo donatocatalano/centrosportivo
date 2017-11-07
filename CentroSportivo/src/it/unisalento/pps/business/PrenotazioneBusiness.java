@@ -33,4 +33,8 @@ private static PrenotazioneBusiness instance;
 	public boolean cancellaPrenotazione(Prenotazione prenotazione) {
 		return PrenotazioneDAO.getInstance().cancellaPrenotazione(prenotazione);
 	}
+
+	public ArrayList<Prenotazione> getPrenotazioni() {
+		return PrenotazioneDAO.getInstance().getPrenotazioni();
+	}
 }
