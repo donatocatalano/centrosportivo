@@ -140,7 +140,9 @@ public class AreaPrenotazioni extends JFrame{
 			indietro.setActionCommand(AscoltatoreBackHome.D1);
 			indietro.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(indietro);
+			iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(iscrizione);
+			distinta.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(distinta);
 			//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
 			
