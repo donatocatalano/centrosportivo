@@ -1,6 +1,7 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -25,24 +26,23 @@ import it.unisalento.pps.model.TipoEvento;
 public class ElencoCorsi extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	JPanel nordPnl=new JPanel(new GridLayout(2,1));
-	JPanel centroPnl=new JPanel();
-	JPanel sudPnl=new JPanel();
-	JLabel titolo = new JLabel();
-	JLabel spazio = new JLabel();
-	
-	JPanel contenuto = new JPanel();
-	JPanel contenutoVuoto = new JPanel();
+	private JPanel nordPnl=new JPanel(new GridLayout(2,1));
+	private JPanel centroPnl=new JPanel();
+	private JPanel sudPnl=new JPanel();
+	private JLabel titolo = new JLabel();
+	private JLabel spazio = new JLabel();
 	
 	
-	JButton indietro = new JButton("INDIETRO");
-	JButton nuovocorso = new JButton("AGGIUNGI CORSO");
+	private JPanel contenutoVuoto = new JPanel();
+	
+	
+	private JButton indietro = new JButton("INDIETRO");
+	private JButton nuovocorso = new JButton("AGGIUNGI CORSO");
 
-	AscoltatoreBackIst ascoltatoreBackIst; 
-	AscoltatoreFormEvento ascoltatoreNuovoCorso;
-	AscoltatoreEliminaEvento ascoltatoreElimina;
-	Istruttore istruttore;
-	ArrayList<Evento> corsi = new ArrayList<Evento>();
+	private AscoltatoreBackIst ascoltatoreBackIst; 
+	private AscoltatoreFormEvento ascoltatoreNuovoCorso;
+	private AscoltatoreEliminaEvento ascoltatoreElimina;
+	private ArrayList<Evento> corsi = new ArrayList<Evento>();
 	
 
 
@@ -83,6 +83,7 @@ public class ElencoCorsi extends JFrame {
 				corso.setFont(new Font("sansserif",Font.BOLD,20));
 				corso.setHorizontalAlignment(JLabel.LEFT);
 				JButton elimina = new JButton ("ELIMINA");
+				JPanel contenuto = new JPanel(new FlowLayout());
 				contenuto.add(corso);
 				contenuto.add(elimina);
 				centroPnl.add(contenuto);
