@@ -1,6 +1,7 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -35,7 +36,6 @@ public class ElencoEventi extends JFrame {
 	private JLabel titolo = new JLabel();
 	private JLabel spazio = new JLabel();
 	
-	private JPanel contenuto = new JPanel();
 	private JPanel contenutoVuoto = new JPanel();
 	
 	private JButton indietro = new JButton("INDIETRO");
@@ -80,6 +80,7 @@ public class ElencoEventi extends JFrame {
 				JLabel evento = new JLabel(tipo.getTipo().toUpperCase()+" di " +disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"   ");
 				evento.setFont(new Font("sansserif",Font.BOLD,20));
 				JButton elimina = new JButton ("ELIMINA");
+				JPanel contenuto = new JPanel(new FlowLayout());
 				contenuto.add(evento);
 				contenuto.add(elimina);
 				centroPnl.add(contenuto);
