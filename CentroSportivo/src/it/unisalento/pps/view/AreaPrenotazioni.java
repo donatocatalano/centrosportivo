@@ -34,7 +34,7 @@ public class AreaPrenotazioni extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel();
-	private JPanel centroPnl=new JPanel(new FlowLayout());
+	private JPanel centroPnl=new JPanel(new GridLayout(2,1));
 	private JPanel sudPnl=new JPanel();
 	
 	private JPanel noEventi = new JPanel();
@@ -105,17 +105,17 @@ public class AreaPrenotazioni extends JFrame{
 								
 								
 								container.add(contenuto);
-								centroPnl.add(container);
+								
 								nonIscritto =false;
 								
 									}
+							centroPnl.add(container);
 								}
 						else {
 							JLabel nessunaoccorrenza = new JLabel("Nessun Corso o Evento disponibile per "+disciplina.getNome().toUpperCase());	
 							nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-							container.add(new JLabel("                   "));
-							container.add(nessunaoccorrenza);
-							centroPnl.add(container);
+							noEventi.add(nessunaoccorrenza);
+							
 						}
 						
 					}
@@ -126,9 +126,10 @@ public class AreaPrenotazioni extends JFrame{
 				JLabel nessunaoccorrenza = new JLabel("Non sei iscritto a nessuna Disciplina ! Iscriviti !");	
 				nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 				noEventi.add(nessunaoccorrenza);
-				centroPnl.add(noEventi);
+				//centroPnl.add(noEventi);
 		}
 			
+			centroPnl.add(noEventi);
 			JPanel contenutotasti = new JPanel(new FlowLayout());
 			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 			indietro.addActionListener(ascoltatoreBackHome);
