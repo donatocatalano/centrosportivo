@@ -33,106 +33,101 @@ import it.unisalento.pps.model.Utente;
 public class AreaPrenotazioni extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
-	JPanel nordPnl=new JPanel();
-	JPanel centroPnl=new JPanel(new FlowLayout());
-	JPanel sudPnl=new JPanel();
+	private JPanel nordPnl=new JPanel();
+	private JPanel centroPnl=new JPanel(new FlowLayout());
+	private JPanel sudPnl=new JPanel();
 	
-	JPanel titolo = new JPanel(new FlowLayout());
-	JLabel scelta = new JLabel("SELEZIONA I CORSI E GLI EVENTI A CUI SEI INTERESSATO");
-	
-	JPanel contenuto = new JPanel(new GridLayout(2,1));
-	
-	JPanel contenutoVuoto = new JPanel();
+	private JPanel noEventi = new JPanel();
 	
 	
-	public JCheckBox campo_evento;
-	ButtonGroup group_evento = new ButtonGroup();
+	private JPanel titolo = new JPanel(new FlowLayout());
+	private JLabel scelta = new JLabel("SELEZIONA I CORSI E GLI EVENTI PER CUI TI VUOI PRENOTARE");
+	
+	//public JCheckBox campo_evento;
+	//ButtonGroup group_evento = new ButtonGroup();
 	
 	
-	JPanel contenutolivello=new JPanel(new FlowLayout());
 	JButton indietro = new JButton("INDIETRO");
-	JButton iscrizione = new JButton("INVIA ISCRIZIONE");
+	JButton iscrizione = new JButton("INVIA PRENOTAZIONE");
 	JButton distinta = new JButton("STAMPA DISTINTA");
 		
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	Istruttore istruttore;
-	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 	ArrayList<Iscrizione> iscrizioni = new ArrayList<Iscrizione>();
 	
 	public AreaPrenotazioni(Utente tesserato) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
-		
-		
+			
 		scelta.setFont(new Font("sansserif",Font.BOLD,30));
 		titolo.add(scelta);
 		nordPnl.add(titolo);
 		
 		
 		iscrizioni = IscrizioneBusiness.getInstance().getIscrizioniAutorizzate();
-		
+		livelli = LivelloBusiness.getInstance().getLivelli();
 		
 		Disciplina disciplina;
 		Spazio spazio;
 		TipoEvento tipoevento;
+		boolean nonIscritto = true;
 		
 		
-		if(iscrizioni.size()>0) {
-			for(int j=0;j<iscrizioni.size();j++) {
-				if(iscrizioni.get(j).getUtente()==tesserato.getIdUtente()){
-					disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioni.get(j).getDisciplina());
+		for(int i=0;i<iscrizioni.size();i++) {
+				if(iscrizioni.get(i).getUtente()==tesserato.getIdUtente()){
+					disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioni.get(i).getDisciplina());
 					eventi = EventoBusiness.getInstance().getEventiCorsiByIdDisciplina(disciplina.getIdDisciplina());
-					livelli = LivelloBusiness.getInstance().getLivelli();
-						if(eventi.size()>0) {                    
-							for(int i=0;i<eventi.size();i++) {					
-								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(i).getSpazio());
-								tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(i).getTipo());
+					JPanel container = new JPanel();
+					 
+						if(eventi.size()>0) {    
+							
+							container.setLayout(new GridLayout(eventi.size()+1,1));
+							
+							for(int j=0;j<eventi.size();j++) {					
+								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(j).getSpazio());
+								tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(j).getTipo());
 			
-								String giorno_inizio= eventi.get(i).getDataInizio().toString().substring(8,10);
-								String mese_inizio = eventi.get(i).getDataInizio().toString().substring(5,7);
-								String anno_inizio =eventi.get(i).getDataInizio().toString().substring(0,4);	
+								String giorno_inizio= eventi.get(j).getDataInizio().toString().substring(8,10);
+								String mese_inizio = eventi.get(j).getDataInizio().toString().substring(5,7);
+								String anno_inizio =eventi.get(j).getDataInizio().toString().substring(0,4);	
 			
-								String giorno_fine= eventi.get(i).getDataFine().toString().substring(8,10);
-								String mese_fine = eventi.get(i).getDataFine().toString().substring(5,7);
-								String anno_fine =eventi.get(i).getDataFine().toString().substring(0,4);
+								String giorno_fine= eventi.get(j).getDataFine().toString().substring(8,10);
+								String mese_fine = eventi.get(j).getDataFine().toString().substring(5,7);
+								String anno_fine =eventi.get(j).getDataFine().toString().substring(0,4);
 			
-								campo_evento = new JCheckBox(disciplina.getNome()+ ": INIZIA IL:  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   ORARI:  " +eventi.get(i).getTurno()+ "   TERMINA IL:  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome() +"  TIPO:  "+tipoevento.getTipo());	
+								JCheckBox campo_evento = new JCheckBox( tipoevento.getTipo().toUpperCase()+" di "+disciplina.getNome().toUpperCase()+ " dal  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"  al  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+" orario "+eventi.get(j).getTurno()+ " in  "+spazio.getNome().toUpperCase());	
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
-								JPanel contenuto1=new JPanel(new GridLayout(2,1));
-								contenuto1.add(contenutoVuoto);
-								contenuto1.add(campo_evento);
-								contenuto.setLayout(new GridLayout(eventi.size(),1));
-								contenuto.add(contenuto1);
+																
+								JPanel contenuto = new JPanel();
+								contenuto.add(campo_evento);
 								
-								group_evento.add(campo_evento);
-							}
-						}
+								
+								container.add(contenuto);
+								centroPnl.add(container);
+								nonIscritto =false;
+								
+									}
+								}
 						else {
-							JLabel nessunaoccorrenza = new JLabel("Nessun Evento nel sistema per la disciplina a cui sei iscritto");	
+							JLabel nessunaoccorrenza = new JLabel("Nessun Corso o Evento disponibile per "+disciplina.getNome().toUpperCase());	
 							nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-							contenutoVuoto.add(nessunaoccorrenza);
-							centroPnl.add(contenutoVuoto);	
-							ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
-							indietro.addActionListener(ascoltatoreBackHome);
-							indietro.setActionCommand(AscoltatoreBackHome.D2);
-							indietro.setFont(new Font("sansserif",Font.BOLD,20));
-							sudPnl.add(indietro);
+							container.add(new JLabel("                   "));
+							container.add(nessunaoccorrenza);
+							centroPnl.add(container);
 						}
+						
+					}
 				}
-				else { 
-					JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad una disciplina!");	
-					nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-					contenutoVuoto.add(nessunaoccorrenza);
-					centroPnl.add(contenutoVuoto);	
-					ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
-					indietro.addActionListener(ascoltatoreBackHome);
-					indietro.setActionCommand(AscoltatoreBackHome.D2);
-					indietro.setFont(new Font("sansserif",Font.BOLD,20));
-					sudPnl.add(indietro);
-				}	
-			}// chiude il for
+		
+			if(nonIscritto){
+				
+				JLabel nessunaoccorrenza = new JLabel("Non sei iscritto a nessuna Disciplina ! Iscriviti !");	
+				nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
+				noEventi.add(nessunaoccorrenza);
+				centroPnl.add(noEventi);
+		}
 			
 			JPanel contenutotasti = new JPanel(new FlowLayout());
 			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
@@ -144,27 +139,16 @@ public class AreaPrenotazioni extends JFrame{
 			contenutotasti.add(iscrizione);
 			distinta.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(distinta);
-			//iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato));
+			
 			
 			sudPnl.add(contenutotasti);
-		}
-		else { 
-			JLabel nessunaoccorrenza = new JLabel("Non sei abilitato a visualizzare gli eventi! Iscriviti prima ad una disciplina!");	
-			nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
-			contenutoVuoto.add(nessunaoccorrenza);
-			centroPnl.add(contenutoVuoto);	
-			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
-			indietro.addActionListener(ascoltatoreBackHome);
-			indietro.setActionCommand(AscoltatoreBackHome.D2);
-			indietro.setFont(new Font("sansserif",Font.BOLD,20));
-			sudPnl.add(indietro);
-		}
-		centroPnl.add(contenuto);
 		
+		
+				
 		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
-		this.getContentPane().add(centroPnl,BorderLayout.WEST);
+		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
 		this.getContentPane().add(sudPnl,BorderLayout.SOUTH);
 		this.pack();
 	

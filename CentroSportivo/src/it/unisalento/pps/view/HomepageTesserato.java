@@ -17,7 +17,7 @@ import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreAttivitaCentro;
 import it.unisalento.pps.listener.AscoltatoreDisciplinaTesserato;
-import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
+import it.unisalento.pps.listener.AscoltatorePrenotazioniEIscrizioniTesserato;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
 
@@ -61,7 +61,7 @@ public class HomepageTesserato extends JFrame {
 	
 	Utente utenteTesserato;	
 	AscoltatoreDisciplinaTesserato ascoltatoreDisciplina; 
-	AscoltatoreIscrizioniTesserato ascoltatoreIscrizioni;
+	AscoltatorePrenotazioniEIscrizioniTesserato ascoltatoreIscrizioni;
 	AscoltatoreAttivitaCentro ascoltatoreCorsiDisponibili;
 	ArrayList<Disciplina> discipline = new ArrayList<Disciplina>();
 	
@@ -76,8 +76,8 @@ public class HomepageTesserato extends JFrame {
 		bottone.add(vuoto1);
 		bottone.add(vuoto2);
 		bottone.add(vuoto21);
-		ascoltatoreIscrizioni = new AscoltatoreIscrizioniTesserato(this,tesserato);
-		iscrizionieventi.setActionCommand(AscoltatoreIscrizioniTesserato.D1);
+		ascoltatoreIscrizioni = new AscoltatorePrenotazioniEIscrizioniTesserato(this,tesserato);
+		iscrizionieventi.setActionCommand(AscoltatorePrenotazioniEIscrizioniTesserato.D1);
 		iscrizionieventi.addActionListener(ascoltatoreIscrizioni);
 		bottone.add(iscrizionieventi);
 		norddestra.add(bottone);

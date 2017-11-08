@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 import it.unisalento.pps.listener.AscoltatoreBackHome;
 import it.unisalento.pps.listener.AscoltatoreInfoCorsi;
-import it.unisalento.pps.listener.AscoltatoreIscrizioniTesserato;
+import it.unisalento.pps.listener.AscoltatorePrenotazioniEIscrizioniTesserato;
 import it.unisalento.pps.listener.AscoltatoreVediFeed;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Utente;
@@ -47,7 +47,7 @@ public class InfoDisciplinaTesserato extends JFrame{
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	AscoltatoreVediFeed ascoltatoreVediFeed;
 	AscoltatoreInfoCorsi ascoltatoreInfoCorsi;
-	AscoltatoreIscrizioniTesserato ascoltatoreIscrizioniTesserato;
+	AscoltatorePrenotazioniEIscrizioniTesserato ascoltatorePrenotazioniEIscrizioniTesserato;
 	Utente tesserato;
 	
 	public InfoDisciplinaTesserato(Disciplina disciplina,Utente tesserato) {
@@ -89,8 +89,8 @@ public class InfoDisciplinaTesserato extends JFrame{
 		ascoltatoreInfoCorsi = new AscoltatoreInfoCorsi (this, tesserato, disciplina);
 		infocorsi.addActionListener(ascoltatoreInfoCorsi);
 		sudPnl.add(infocorsi);
-		ascoltatoreIscrizioniTesserato = new AscoltatoreIscrizioniTesserato (this, tesserato, disciplina);
-		iscrivitidisciplina.addActionListener(ascoltatoreIscrizioniTesserato);
+		ascoltatorePrenotazioniEIscrizioniTesserato = new AscoltatorePrenotazioniEIscrizioniTesserato (this, tesserato, disciplina);
+		iscrivitidisciplina.addActionListener(ascoltatorePrenotazioniEIscrizioniTesserato);
 		feedback.setFont(new Font("sansserif",Font.BOLD,20));
 		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		infocorsi.setFont(new Font("sansserif",Font.BOLD,20));

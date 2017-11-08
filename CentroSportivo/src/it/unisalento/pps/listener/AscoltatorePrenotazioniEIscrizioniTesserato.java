@@ -13,20 +13,20 @@ import it.unisalento.pps.view.HomepageTesserato;
 import it.unisalento.pps.view.InfoDisciplinaTesserato;
 
 
-public class AscoltatoreIscrizioniTesserato implements ActionListener {
+public class AscoltatorePrenotazioniEIscrizioniTesserato implements ActionListener {
 	
 	private JFrame frame;
 	private Utente tesserato;
 	private Disciplina disciplina;
 	public final static String D1 = "D1";
 	
-	public AscoltatoreIscrizioniTesserato(HomepageTesserato frame, Utente tesserato) {
+	public AscoltatorePrenotazioniEIscrizioniTesserato(HomepageTesserato frame, Utente tesserato) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;
 	}
 	
-	public AscoltatoreIscrizioniTesserato(InfoDisciplinaTesserato frame, Utente tesserato, Disciplina disciplina) {
+	public AscoltatorePrenotazioniEIscrizioniTesserato(InfoDisciplinaTesserato frame, Utente tesserato, Disciplina disciplina) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;
