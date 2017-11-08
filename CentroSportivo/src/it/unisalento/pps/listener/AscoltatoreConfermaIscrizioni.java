@@ -42,9 +42,7 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 		JRadioButton carta = frame.carta;
 		JRadioButton paypal = frame.paypal;
 		JRadioButton contanti = frame.contanti;
-		
-		
-		//Utente gia iscritto a quella dfisciplina
+				
 		iscrizioniTesserato = IscrizioneBusiness.getInstance().getIscrizioniByIdTesserato(tesserato.getIdUtente());
 		for(int i =0; i<iscrizioniTesserato.size();i++) {
 			if(disciplina.getIdDisciplina() == iscrizioniTesserato.get(i).getIdIscrizione() ) {
@@ -64,7 +62,7 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 			else if(contanti.isSelected()){
 					tipoPagamento = 3;
 				}
-				System.out.println(frame.getSelectedButton());		
+						
 			livelli = LivelloDAO.getInstance().getLivelli();
 			
 			if(frame.getSelectedButton() != null && tipoPagamento !=0) {
