@@ -47,6 +47,10 @@ public class ElencoAutorizzazioni extends JFrame {
 		super("Area privata RESPONSABILE : "+ responsabile.getNome()+" "+responsabile.getCognome());
 		
 		
+		titolo.setText(" AUTORIZZAZIONI PENDENTI "); 
+		titolo.setFont(new Font("sansserif",Font.BOLD,20));
+		nordPnl.add(titolo);
+		
 		centroPnl.add(vuoto0);
 		centroPnl.add(vuoto1);
 		centroPnl.add(vuoto2);
@@ -66,13 +70,9 @@ public class ElencoAutorizzazioni extends JFrame {
 		centroPnl.add(vuoto4);
 		centroPnl.add(vuoto5);
 		
-		titolo.setText(" AUTORIZZAZIONI PENDENTI "); 
-		titolo.setFont(new Font("sansserif",Font.BOLD,20));
-		nordPnl.add(titolo);
-		
-		
 		ascoltatoreBackResp = new AscoltatoreBackResp(this, responsabile);
 		indietro.addActionListener(ascoltatoreBackResp);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		
 		

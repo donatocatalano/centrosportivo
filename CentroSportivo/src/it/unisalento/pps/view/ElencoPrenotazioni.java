@@ -100,6 +100,7 @@ public class ElencoPrenotazioni extends JFrame {
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		
 	

@@ -80,6 +80,8 @@ public class FormElencoLivelli extends JFrame {
 		ascoltatoreBackResp = new AscoltatoreBackResp(this, responsabile);
 		indietro.addActionListener(ascoltatoreBackResp);
 		sudPnl.add(indietro);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
+		nuovolivello.setFont(new Font("sansserif",Font.BOLD,20));
 		nuovolivello.addActionListener(new AscoltatoreNuovoLivello(this, responsabile));
 		sudPnl.add(nuovolivello);
 		

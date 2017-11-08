@@ -81,6 +81,7 @@ public class Feedback extends JFrame{
 		
 		
 		indietro.addActionListener(new AscoltatoreBackHome(this));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		
 		

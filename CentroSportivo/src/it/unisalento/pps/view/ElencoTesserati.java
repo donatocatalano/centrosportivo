@@ -87,6 +87,7 @@ public class ElencoTesserati extends JFrame {
 		
 		ascoltatoreBackResp = new AscoltatoreBackResp(this, responsabile);
 		indietro.addActionListener(ascoltatoreBackResp);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		
 		

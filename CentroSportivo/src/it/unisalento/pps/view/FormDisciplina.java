@@ -100,6 +100,8 @@ public class FormDisciplina extends JFrame {
 
 		indietro.addActionListener(new AscoltatoreBackResp(this, responsabile));
 		inserimento.addActionListener(new AscoltatoreConfermaDisciplina(this, responsabile));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
+		inserimento.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		sudPnl.add(inserimento);
 		

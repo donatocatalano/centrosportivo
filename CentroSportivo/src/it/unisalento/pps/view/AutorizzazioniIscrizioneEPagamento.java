@@ -103,6 +103,7 @@ public class AutorizzazioniIscrizioneEPagamento extends JFrame{
 			
 		ascoltatoreAutorizzazioni = new AscoltatoreAutorizzazioni(this, responsabile);
 		indietro.addActionListener(ascoltatoreAutorizzazioni);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		
 		

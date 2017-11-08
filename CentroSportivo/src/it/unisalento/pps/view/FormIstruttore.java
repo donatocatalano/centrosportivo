@@ -97,6 +97,8 @@ public class FormIstruttore extends JFrame {
 
 		indietro.addActionListener(new AscoltatoreBackResp(this, responsabile));
 		registrazione.addActionListener(new AscoltatoreConfermaIstruttore(this, responsabile));
+		registrazione.setFont(new Font("sansserif",Font.BOLD,20));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		sudPnl.add(registrazione);
 		

@@ -95,6 +95,7 @@ public class InfoCorsi extends JFrame {
 		ascoltatoreBackInfoDisciplina = new AscoltatoreBackInfoDisciplina(this,tesserato, disciplina);
 		indietro.addActionListener(ascoltatoreBackInfoDisciplina);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);		
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);

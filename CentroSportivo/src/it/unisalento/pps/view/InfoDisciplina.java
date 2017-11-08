@@ -75,6 +75,8 @@ public class InfoDisciplina extends JFrame{
 		indietro.addActionListener(new AscoltatoreBackHome(this));
 		ascoltatoreVedifeed= new AscoltatoreVediFeed (this, disciplina);
 		vedifeed.addActionListener(ascoltatoreVedifeed);
+		vedifeed.setFont(new Font("sansserif",Font.BOLD,20));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		sudPnl.add(vedifeed);
 		

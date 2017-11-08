@@ -119,6 +119,8 @@ public class FormRegistrazione extends JFrame {
 		indietro.addActionListener(new AscoltatoreBackHome(this));
 		registrazione.addActionListener(new AscoltatoreInvioRegistrazione(this));
 		sudPnl.add(indietro);
+		registrazione.setFont(new Font("sansserif",Font.BOLD,20));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(registrazione);
 		
 		

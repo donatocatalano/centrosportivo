@@ -102,10 +102,12 @@ public class ElencoCorsi extends JFrame {
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		ascoltatoreNuovoCorso = new AscoltatoreFormEvento (this, istruttore);
 		nuovocorso.addActionListener(ascoltatoreNuovoCorso);
 		nuovocorso.setActionCommand(AscoltatoreFormEvento.D1);
+		nuovocorso.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(nuovocorso);
 		
 		

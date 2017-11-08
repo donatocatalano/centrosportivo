@@ -137,6 +137,8 @@ public class FormEvento extends JFrame {
 
 		indietro.addActionListener(new AscoltatoreBackIst(this, istruttore));
 		inserimento.addActionListener(new AscoltatoreConfermaEvento(this, istruttore));
+		inserimento.setFont(new Font("sansserif",Font.BOLD,20));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		sudPnl.add(inserimento);
 		

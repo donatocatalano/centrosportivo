@@ -87,9 +87,11 @@ public class FeedbackTesserato extends JFrame{
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);	
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		ascoltatoreFeedback = new AscoltatoreFeedback(this, disciplina,tesserato);
 		feedback.addActionListener(ascoltatoreFeedback);
+		feedback.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(feedback);
 		
 		

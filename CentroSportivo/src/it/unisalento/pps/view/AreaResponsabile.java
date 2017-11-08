@@ -84,7 +84,8 @@ public class AreaResponsabile extends JFrame{
 		centroPnl.add(vuoto11);
 			  
 			
-		indietro.addActionListener(new AscoltatoreBackHome(this));			
+		indietro.addActionListener(new AscoltatoreBackHome(this));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 			
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);

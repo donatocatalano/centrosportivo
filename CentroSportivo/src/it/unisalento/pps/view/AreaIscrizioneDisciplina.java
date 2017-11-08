@@ -122,16 +122,17 @@ public class AreaIscrizioneDisciplina extends JFrame{
 			}
 			
 		}	
-		
+		centroPnl.add(contenutolivello);
 		 
 		ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 		indietro.addActionListener(ascoltatoreBackHome);
 		indietro.setActionCommand(AscoltatoreBackHome.D1);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		contenutotasti.add(indietro);
 		iscrizione.addActionListener(new AscoltatoreConfermaIscrizioni(this, tesserato,disciplina));
+		iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
 		contenutotasti.add(iscrizione);
 		contenutotasti.add(distinta);
-		centroPnl.add(contenutolivello);
 		sudPnl.add(contenutotasti);
 		
 		

@@ -133,6 +133,8 @@ public class FormCorso extends JFrame {
 
 		indietro.addActionListener(new AscoltatoreBackIst(this, istruttore));
 		inserimento.addActionListener(new AscoltatoreConfermaCorso(this, istruttore));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
+		inserimento.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		sudPnl.add(inserimento);
 		

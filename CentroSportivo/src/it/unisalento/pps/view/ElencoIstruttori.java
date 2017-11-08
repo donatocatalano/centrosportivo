@@ -86,9 +86,11 @@ public class ElencoIstruttori extends JFrame {
 		
 		ascoltatoreBackResp = new AscoltatoreBackResp(this, responsabile);
 		indietro.addActionListener(ascoltatoreBackResp);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		ascoltatoreNuovoIstruttore = new AscoltatoreFormIstruttore(this, responsabile);
 		nuovoistruttore.addActionListener(ascoltatoreNuovoIstruttore);
+		nuovoistruttore.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(nuovoistruttore);
 		
 		

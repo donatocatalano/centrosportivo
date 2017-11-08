@@ -98,9 +98,11 @@ public class ElencoEventi extends JFrame {
 		
 		ascoltatoreBackIst = new AscoltatoreBackIst(this, istruttore);
 		indietro.addActionListener(ascoltatoreBackIst);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		ascoltatoreNuovoEvento = new AscoltatoreFormEvento (this, istruttore);
 		nuovoevento.addActionListener(ascoltatoreNuovoEvento);
+		nuovoevento.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(nuovoevento);
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);

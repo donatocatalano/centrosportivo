@@ -90,11 +90,14 @@ public class CatalogoDiscipline extends JFrame {
 		
 		ascoltatoreBackResp = new AscoltatoreBackResp(this, responsabile);
 		indietro.addActionListener(ascoltatoreBackResp);
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		ascoltatoreNuovaDisciplina = new AscoltatoreFormDisciplina(this, responsabile, disciplina);
 		nuovadisciplina.addActionListener(ascoltatoreNuovaDisciplina);
+		nuovadisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(nuovadisciplina);
 		nuovolivello.addActionListener(new AscoltatoreLivelli(this, responsabile));
+		nuovolivello.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(nuovolivello);
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);

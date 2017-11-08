@@ -117,6 +117,7 @@ public class AreaPrenotazioni extends JFrame{
 							ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 							indietro.addActionListener(ascoltatoreBackHome);
 							indietro.setActionCommand(AscoltatoreBackHome.D2);
+							indietro.setFont(new Font("sansserif",Font.BOLD,20));
 							sudPnl.add(indietro);
 						}
 				}
@@ -128,6 +129,7 @@ public class AreaPrenotazioni extends JFrame{
 					ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 					indietro.addActionListener(ascoltatoreBackHome);
 					indietro.setActionCommand(AscoltatoreBackHome.D2);
+					indietro.setFont(new Font("sansserif",Font.BOLD,20));
 					sudPnl.add(indietro);
 				}	
 			}// chiude il for
@@ -136,6 +138,7 @@ public class AreaPrenotazioni extends JFrame{
 			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 			indietro.addActionListener(ascoltatoreBackHome);
 			indietro.setActionCommand(AscoltatoreBackHome.D1);
+			indietro.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(indietro);
 			contenutotasti.add(iscrizione);
 			contenutotasti.add(distinta);
@@ -151,6 +154,7 @@ public class AreaPrenotazioni extends JFrame{
 			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
 			indietro.addActionListener(ascoltatoreBackHome);
 			indietro.setActionCommand(AscoltatoreBackHome.D2);
+			indietro.setFont(new Font("sansserif",Font.BOLD,20));
 			sudPnl.add(indietro);
 		}
 		centroPnl.add(contenuto);

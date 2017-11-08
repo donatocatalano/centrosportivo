@@ -91,6 +91,10 @@ public class InfoDisciplinaTesserato extends JFrame{
 		sudPnl.add(infocorsi);
 		ascoltatoreIscrizioniTesserato = new AscoltatoreIscrizioniTesserato (this, tesserato, disciplina);
 		iscrivitidisciplina.addActionListener(ascoltatoreIscrizioniTesserato);
+		feedback.setFont(new Font("sansserif",Font.BOLD,20));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
+		infocorsi.setFont(new Font("sansserif",Font.BOLD,20));
+		iscrivitidisciplina.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(iscrivitidisciplina);
 		
 		

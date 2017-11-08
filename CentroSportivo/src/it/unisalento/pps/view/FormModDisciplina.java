@@ -110,6 +110,8 @@ public class FormModDisciplina extends JFrame {
 		ascoltatoreConfermaDisciplina = new AscoltatoreConfermaDisciplina(this, responsabile, disciplina);
 		inserimento.addActionListener(ascoltatoreConfermaDisciplina);
 		inserimento.setActionCommand(AscoltatoreBackHome.D1);	
+		inserimento.setFont(new Font("sansserif",Font.BOLD,20));
+		indietro.setFont(new Font("sansserif",Font.BOLD,20));
 		sudPnl.add(indietro);
 		sudPnl.add(inserimento);
 		
