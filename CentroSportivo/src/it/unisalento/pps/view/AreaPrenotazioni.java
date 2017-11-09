@@ -34,7 +34,7 @@ public class AreaPrenotazioni extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel();
-	private JPanel centroPnl=new JPanel(new GridLayout(2,1));
+	private JPanel centroPnl=new JPanel();
 	private JPanel sudPnl=new JPanel();
 	
 	private JPanel noEventi = new JPanel();
@@ -68,14 +68,17 @@ public class AreaPrenotazioni extends JFrame{
 		iscrizioni = IscrizioneBusiness.getInstance().getIscrizioniAutorizzate();
 		livelli = LivelloBusiness.getInstance().getLivelli();
 		
+		
 		Disciplina disciplina;
 		Spazio spazio;
 		TipoEvento tipoevento;
 		boolean nonIscritto = true;
-		
+		int count=0;
 		
 		for(int i=0;i<iscrizioni.size();i++) {
 				if(iscrizioni.get(i).getUtente()==tesserato.getIdUtente()){
+					count++;
+					
 					disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioni.get(i).getDisciplina());
 					eventi = EventoBusiness.getInstance().getEventiCorsiByIdDisciplina(disciplina.getIdDisciplina());
 					JPanel container = new JPanel();
@@ -128,6 +131,8 @@ public class AreaPrenotazioni extends JFrame{
 				noEventi.add(nessunaoccorrenza);
 				//centroPnl.add(noEventi);
 		}
+			
+			centroPnl.setLayout(new GridLayout(count,1));
 			
 			centroPnl.add(noEventi);
 			JPanel contenutotasti = new JPanel(new FlowLayout());

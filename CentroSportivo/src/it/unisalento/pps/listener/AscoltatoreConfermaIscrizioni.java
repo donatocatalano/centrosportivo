@@ -97,7 +97,7 @@ public class AscoltatoreConfermaIscrizioni implements ActionListener{
 			}
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Sei gia ISCRITTO a "+disciplina.getNome().toUpperCase());
+			JOptionPane.showMessageDialog(null, "Sei gia ISCRITTO a "+disciplina.getNome().toUpperCase()+" o ne hai gia fatto richiesta!");
 			}
 		}
 }
