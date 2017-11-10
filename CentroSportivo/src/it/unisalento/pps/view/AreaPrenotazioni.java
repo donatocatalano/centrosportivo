@@ -13,6 +13,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
@@ -21,6 +22,7 @@ import it.unisalento.pps.business.LivelloBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
+import it.unisalento.pps.listener.AscoltatorePrenotazioni;
 import it.unisalento.pps.model.Disciplina;
 import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Iscrizione;
@@ -51,10 +53,13 @@ public class AreaPrenotazioni extends JFrame{
 	JButton distinta = new JButton("STAMPA DISTINTA");
 		
 	AscoltatoreBackHome ascoltatoreBackHome; 
+	AscoltatorePrenotazioni ascoltatorePrenotazioni;
 	Istruttore istruttore;
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 	ArrayList<Iscrizione> iscrizioni = new ArrayList<Iscrizione>();
+	public JCheckBox campo_evento;
+	public JTextField gio;
 	
 	public AreaPrenotazioni(Utente tesserato) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
@@ -98,7 +103,7 @@ public class AreaPrenotazioni extends JFrame{
 								String mese_fine = eventi.get(j).getDataFine().toString().substring(5,7);
 								String anno_fine =eventi.get(j).getDataFine().toString().substring(0,4);
 			
-								JCheckBox campo_evento = new JCheckBox( tipoevento.getTipo().toUpperCase()+" di "+disciplina.getNome().toUpperCase()+ " dal  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"  al  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+" orario "+eventi.get(j).getTurno()+ " in  "+spazio.getNome().toUpperCase());	
+								campo_evento = new JCheckBox( tipoevento.getTipo().toUpperCase()+" di "+disciplina.getNome().toUpperCase()+ " dal  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"  al  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+" orario "+eventi.get(j).getTurno()+ " in  "+spazio.getNome().toUpperCase());	
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 																
@@ -137,6 +142,8 @@ public class AreaPrenotazioni extends JFrame{
 			indietro.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(indietro);
 			iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
+			ascoltatorePrenotazioni = new AscoltatorePrenotazioni(this,tesserato);
+			iscrizione.addActionListener(ascoltatorePrenotazioni);
 			contenutotasti.add(iscrizione);
 			distinta.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(distinta);
