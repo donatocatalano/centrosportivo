@@ -34,7 +34,7 @@ public class AreaPrenotazioni extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel();
-	private JPanel centroPnl=new JPanel();
+	private JPanel centroPnl=new JPanel();  
 	private JPanel sudPnl=new JPanel();
 	
 	private JPanel noEventi = new JPanel();
@@ -43,8 +43,7 @@ public class AreaPrenotazioni extends JFrame{
 	private JPanel titolo = new JPanel(new FlowLayout());
 	private JLabel scelta = new JLabel("SELEZIONA I CORSI E GLI EVENTI PER CUI TI VUOI PRENOTARE");
 	
-	//public JCheckBox campo_evento;
-	//ButtonGroup group_evento = new ButtonGroup();
+	
 	
 	
 	JButton indietro = new JButton("INDIETRO");
@@ -59,6 +58,7 @@ public class AreaPrenotazioni extends JFrame{
 	
 	public AreaPrenotazioni(Utente tesserato) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
+		//centroPnl.setLayout(new GridLayout(3,1));
 			
 		scelta.setFont(new Font("sansserif",Font.BOLD,30));
 		titolo.add(scelta);
@@ -81,12 +81,11 @@ public class AreaPrenotazioni extends JFrame{
 					
 					disciplina = DisciplinaBusiness.getInstance().getDisciplinaById(iscrizioni.get(i).getDisciplina());
 					eventi = EventoBusiness.getInstance().getEventiCorsiByIdDisciplina(disciplina.getIdDisciplina());
-					JPanel container = new JPanel();
+					JPanel contenuto = new JPanel(new GridLayout(eventi.size(),1));
 					 
 						if(eventi.size()>0) {    
 							
-							container.setLayout(new GridLayout(eventi.size()+1,1));
-							
+								
 							for(int j=0;j<eventi.size();j++) {					
 								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(j).getSpazio());
 								tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(j).getTipo());
@@ -103,18 +102,15 @@ public class AreaPrenotazioni extends JFrame{
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 				
 																
-								JPanel contenuto = new JPanel();
-								contenuto.add(campo_evento);
 								
-								
-								container.add(contenuto);
-								
-								nonIscritto =false;
-								
+								contenuto.add(campo_evento);								
+								nonIscritto =false;								
 									}
-							centroPnl.add(container);
+							
+							centroPnl.add(contenuto);
 								}
 						else {
+							
 							JLabel nessunaoccorrenza = new JLabel("Nessun Corso o Evento disponibile per "+disciplina.getNome().toUpperCase());	
 							nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 							noEventi.add(nessunaoccorrenza);
@@ -129,11 +125,10 @@ public class AreaPrenotazioni extends JFrame{
 				JLabel nessunaoccorrenza = new JLabel("Non sei iscritto a nessuna Disciplina ! Iscriviti !");	
 				nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 				noEventi.add(nessunaoccorrenza);
-				//centroPnl.add(noEventi);
+				
 		}
-			
-			centroPnl.setLayout(new GridLayout(count,1));
-			
+					
+			centroPnl.setLayout(new GridLayout(count+1,1));
 			centroPnl.add(noEventi);
 			JPanel contenutotasti = new JPanel(new FlowLayout());
 			ascoltatoreBackHome = new AscoltatoreBackHome(this,tesserato);
