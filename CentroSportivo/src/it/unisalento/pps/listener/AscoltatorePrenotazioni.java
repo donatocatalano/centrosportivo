@@ -4,27 +4,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JCheckBox;
+
+import javax.swing.*;
 
 import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.PrenotazioneBusiness;
 import it.unisalento.pps.model.*;
-import it.unisalento.pps.view.AreaIscrizioneDisciplina;
-import it.unisalento.pps.view.AreaIstruttore;
 import it.unisalento.pps.view.AreaPrenotazioni;
-import it.unisalento.pps.view.InfoDisciplinaTesserato;
+
 
 
 public class AscoltatorePrenotazioni implements ActionListener {
 	
 	private AreaPrenotazioni frame;
 	private Utente tesserato;
-	private Disciplina disciplina;
 	private ArrayList<Integer> idEventiSelezionati = new ArrayList<Integer>();
 	private ArrayList<Evento> eventiSelezionati = new ArrayList<Evento>();
-	public final static String D1 = "D1";
+	private ArrayList<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
+	
 	
 	
 	public AscoltatorePrenotazioni(AreaPrenotazioni frame, Utente tesserato,ArrayList<Integer> eventi) {
@@ -41,12 +38,13 @@ public class AscoltatorePrenotazioni implements ActionListener {
 		for(int i=0;i<idEventiSelezionati.size();i++) {
 			Evento evento = EventoBusiness.getInstance().getEventoById(idEventiSelezionati.get(i));
 			boolean ok= eventiSelezionati.add(evento);
-			if(ok) {
-				
+			for(int j=0;j<prenotazioni.size();j++) {
+			if(idEventiSelezionati.get(i) != prenotazioni.get(j).getIdPrenotazione()) {
+				// inserire controllo prenotazioni
 				prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneTesserato(tesserato.getIdUtente(),idEventiSelezionati.get(i));
 				
+				}
 			}
-			
 		}
 		if(prenotato) {
 			JOptionPane.showMessageDialog(null, "Richiesta effettuata procedi con la stampa della ricevuta !");
