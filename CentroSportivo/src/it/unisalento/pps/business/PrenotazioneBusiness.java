@@ -43,4 +43,9 @@ private static PrenotazioneBusiness instance;
 		return PrenotazioneDAO.getInstance().setPrenotazioneTesserato(idUtente,integer);
 		
 	}
+
+	public ArrayList<Prenotazione> getPrenotazioniByUtente(int idUtente) {
+		// TODO Auto-generated method stub
+		return PrenotazioneDAO.getInstance().getPrenotazioniByUtente(idUtente);
+	}
 }

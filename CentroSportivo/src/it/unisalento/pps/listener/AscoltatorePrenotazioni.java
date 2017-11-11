@@ -24,26 +24,29 @@ public class AscoltatorePrenotazioni implements ActionListener {
 	
 	
 	
-	public AscoltatorePrenotazioni(AreaPrenotazioni frame, Utente tesserato,ArrayList<Integer> eventi) {
+	public AscoltatorePrenotazioni(AreaPrenotazioni frame, Utente tesserato,ArrayList<Integer> ideventiselezionati) {
 		super();
 		this.frame = frame;
 		this.tesserato = tesserato;
-		this.idEventiSelezionati = eventi;
+		this.idEventiSelezionati = ideventiselezionati;
 	}
 	
 	
 
 	public void actionPerformed(ActionEvent e) throws IllegalArgumentException{
 		boolean prenotato=false;
+		prenotazioni = PrenotazioneBusiness.getInstance().getPrenotazioniByUtente(tesserato.getIdUtente());
+		//System.out.println(prenotazioni.size());
 		for(int i=0;i<idEventiSelezionati.size();i++) {
 			Evento evento = EventoBusiness.getInstance().getEventoById(idEventiSelezionati.get(i));
 			boolean ok= eventiSelezionati.add(evento);
 			for(int j=0;j<prenotazioni.size();j++) {
-			//if(idEventiSelezionati.get(i) != prenotazioni.get(j).getIdPrenotazione()) {
-				// inserire controllo prenotazioni
-				prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneTesserato(tesserato.getIdUtente(),idEventiSelezionati.get(i));
+				System.out.println(evento.getIdEvento());
+			if(evento.getIdEvento() != prenotazioni.get(j).getEvento()) {
+				System.out.println(prenotazioni.get(j).getEvento());
+				prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneTesserato(tesserato.getIdUtente(),evento.getIdEvento());
 				
-				//}
+				}
 			}
 		}
 		if(prenotato) {
@@ -52,7 +55,7 @@ public class AscoltatorePrenotazioni implements ActionListener {
 			frame.dispose();
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Non è stato possibile inviare richiesta.Riprova più tardi !");
+			JOptionPane.showMessageDialog(null, "Non è stato possibile inviare richiesta.Non sono state rilevate modifiche!");
 		}
 	}
 }

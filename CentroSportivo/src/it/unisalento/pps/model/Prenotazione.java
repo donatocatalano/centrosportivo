@@ -8,7 +8,7 @@ public class Prenotazione {
 	private int utente;
 	private int evento;
 	private Date dataPrenotazione;
-	private Boolean valida;
+	private int valida;
 
 	public Prenotazione() {
 	}
@@ -17,7 +17,7 @@ public class Prenotazione {
 		this.idPrenotazione = idPrenotazione;
 	}
 
-	public Prenotazione(int idPrenotazione, int utente, int evento, Date dataPrenotazione, Boolean valida) {
+	public Prenotazione(int idPrenotazione, int utente, int evento, Date dataPrenotazione, int valida) {
 		this.idPrenotazione = idPrenotazione;
 		this.utente = utente;
 		this.evento = evento;
@@ -70,11 +70,11 @@ public class Prenotazione {
 		this.dataPrenotazione = dataPrenotazione;
 	}
 	
-	public Boolean getValida() {
+	public int getValida() {
 		return this.valida;
 	}
 
-	public void setValida(Boolean valida) {
+	public void setValida(int valida) {
 		this.valida = valida;
 	}
 }

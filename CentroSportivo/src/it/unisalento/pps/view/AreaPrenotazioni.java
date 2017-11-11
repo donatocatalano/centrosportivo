@@ -115,17 +115,15 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 								campo_evento.addItemListener(this);
 								for(int k=0;k<prenotazioni.size();k++) {
-								if(eventi.get(j).getIdEvento() == prenotazioni.get(k).getEvento()) {
+								if(eventi.get(j).getIdEvento() == prenotazioni.get(k).getEvento() && prenotazioni.get(k).getUtente() == tesserato.getIdUtente()) {
 									campo_evento.setSelected(true);
 									idEventiSelezionati.add(eventi.get(j).getIdEvento());
+									
+										}
 								}
-									}
 								checkbox.add(campo_evento);
 								idEventiSelezionabili.add(eventi.get(j).getIdEvento());
-								
-				
-																
-								
+															
 								contenuto.add(campo_evento);								
 								nonIscritto =false;								
 									}
@@ -168,9 +166,9 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 			
 			
 			sudPnl.add(contenutotasti);
-			System.out.println(checkbox.size() + "   " +idEventiSelezionabili);
-			System.out.println(idEventiSelezionati.size());
-		
+			/*System.out.println(checkbox.size() + "   " +idEventiSelezionabili);
+			System.out.println(idEventiSelezionati.size());*/
+			 			
 		
 				
 		
@@ -200,7 +198,7 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 	        		 boolean si = idEventiSelezionati.add(idEventiSelezionabili.get(i));
 	           if (si)   {       
 	            	System.out.println(idEventiSelezionati.size());
-	            System.out.println(idEventiSelezionati.get(idEventiSelezionati.size()-1));
+	            
 	        		} 
 	            }
 	        
@@ -210,7 +208,7 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 	        		boolean no = idEventiSelezionati.remove(idEventiSelezionabili.get(i));
 	        		 if(no) {
 	        			 System.out.println(idEventiSelezionati.size());
-	        		 System.out.println(idEventiSelezionati.get(idEventiSelezionati.size()-1));
+	        		 
 	        		 }
 	        		 else {
 
