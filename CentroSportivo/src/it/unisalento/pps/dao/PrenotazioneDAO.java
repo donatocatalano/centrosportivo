@@ -96,4 +96,24 @@ public class PrenotazioneDAO {
 		prenotato = DbConnection.getInstance().eseguiAggiornamento("INSERT prenotazione(ID_Prenotazione,Utente,Evento,Data_Prenotazione,Valida) values ("+idPrenotazione+","+idUtente+","+idEvento+",curdate(),"+0+")");
 		return prenotato;
 	}
+
+	public ArrayList<Prenotazione> getPrenotazioniByUtente(int idUtente) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from prenotazione where Utente = "+idUtente);
+		
+		ArrayList<Prenotazione> prenotazioniByUtente = new ArrayList<Prenotazione>();
+		Prenotazione prenotazione;
+		for(int i=0;i<result.size();i++) {
+			
+			int anno = Integer.parseInt((result.get(i)[3].substring(0,4)));
+			int mese = Integer.parseInt((result.get(i)[3].substring(5,7)));
+			int giorno = Integer.parseInt((result.get(i)[3].substring(8,10)));
+			GregorianCalendar data = new GregorianCalendar(anno,mese-1,giorno);
+			long millisecondi = data.getTimeInMillis();
+			Date date = new Date(millisecondi);
+			
+			prenotazione = new Prenotazione(Integer.parseInt(result.get(i)[0]),Integer.parseInt(result.get(i)[1]),Integer.parseInt(result.get(i)[2]), date,Integer.parseInt(result.get(i)[4]));
+			prenotazioniByUtente.add(prenotazione);
+		}
+		return prenotazioniByUtente;
+	}
 }
