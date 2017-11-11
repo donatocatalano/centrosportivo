@@ -39,11 +39,11 @@ public class AscoltatorePrenotazioni implements ActionListener {
 			Evento evento = EventoBusiness.getInstance().getEventoById(idEventiSelezionati.get(i));
 			boolean ok= eventiSelezionati.add(evento);
 			for(int j=0;j<prenotazioni.size();j++) {
-			if(idEventiSelezionati.get(i) != prenotazioni.get(j).getIdPrenotazione()) {
+			//if(idEventiSelezionati.get(i) != prenotazioni.get(j).getIdPrenotazione()) {
 				// inserire controllo prenotazioni
 				prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneTesserato(tesserato.getIdUtente(),idEventiSelezionati.get(i));
 				
-				}
+				//}
 			}
 		}
 		if(prenotato) {
