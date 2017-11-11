@@ -35,21 +35,36 @@ public class AscoltatorePrenotazioni implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) throws IllegalArgumentException{
 		boolean prenotato=false;
+		boolean prenotazioneGiaPresente=false;
+		System.out.println(idEventiSelezionati);
 		prenotazioni = PrenotazioneBusiness.getInstance().getPrenotazioniByUtente(tesserato.getIdUtente());
-		//System.out.println(prenotazioni.size());
-		for(int i=0;i<idEventiSelezionati.size();i++) {
-			Evento evento = EventoBusiness.getInstance().getEventoById(idEventiSelezionati.get(i));
-			boolean ok= eventiSelezionati.add(evento);
-			for(int j=0;j<prenotazioni.size();j++) {
-				System.out.println(evento.getIdEvento());
-			if(evento.getIdEvento() != prenotazioni.get(j).getEvento()) {
-				System.out.println(prenotazioni.get(j).getEvento());
+		System.out.println("adesso : " +prenotazioni.size());
+		
+		if(prenotazioni.size()==0)
+		{
+			for(int i=0;i<idEventiSelezionati.size();i++) {
+				Evento evento = EventoBusiness.getInstance().getEventoById(idEventiSelezionati.get(i));
+				boolean ok= eventiSelezionati.add(evento);
 				prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneTesserato(tesserato.getIdUtente(),evento.getIdEvento());
-				
+												}
 				}
-			}
-		}
+		else if(prenotazioni.size() > 0) {
+			for(int j=0;j<idEventiSelezionati.size();j++) {
+				prenotazioneGiaPresente=false;
+				Evento evento = EventoBusiness.getInstance().getEventoById(idEventiSelezionati.get(j));
+				boolean ok= eventiSelezionati.add(evento);
+					for(int i=0;i<prenotazioni.size();i++) {
+									if(idEventiSelezionati.get(j) == prenotazioni.get(i).getEvento()) {
+											prenotazioneGiaPresente = true;
+																}
+														}
+					if(!prenotazioneGiaPresente) {
+						prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneTesserato(tesserato.getIdUtente(),idEventiSelezionati.get(j));
+					}
+											}
+								}
 		if(prenotato) {
+			
 			JOptionPane.showMessageDialog(null, "Richiesta effettuata procedi con la stampa della ricevuta !");
 			new AreaPrenotazioni(tesserato);
 			frame.dispose();

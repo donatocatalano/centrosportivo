@@ -166,8 +166,8 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 			
 			
 			sudPnl.add(contenutotasti);
-			/*System.out.println(checkbox.size() + "   " +idEventiSelezionabili);
-			System.out.println(idEventiSelezionati.size());*/
+			//System.out.println("nel frame"+checkbox.size() + "   " +idEventiSelezionabili);
+			System.out.println("nel frame idselezionati size = "+idEventiSelezionati.size());
 			 			
 		
 				
