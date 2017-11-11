@@ -66,7 +66,7 @@ public class PrenotazioneDAO {
 	}
 
 	public ArrayList<Prenotazione> getPrenotazioni() {
-ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from prenotazione ");
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from prenotazione ");
 		
 		ArrayList<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
 		Prenotazione prenotazione;
@@ -83,5 +83,17 @@ ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select * from
 			prenotazioni.add(prenotazione);
 		}
 		return prenotazioni;
+	}
+
+	public boolean setPrenotazioneTesserato(int idUtente, Integer idEvento) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select count(*) from prenotazione");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		int idUltimaPrenotazione = Integer.parseInt(tupla[0]);
+		int idPrenotazione= idUltimaPrenotazione+1;
+		
+		boolean prenotato = false;		
+		prenotato = DbConnection.getInstance().eseguiAggiornamento("INSERT prenotazione(ID_Prenotazione,Utente,Evento,Data_Prenotazione,Valida) values ("+idPrenotazione+","+idUtente+","+idEvento+",curdate(),"+0+")");
+		return prenotato;
 	}
 }

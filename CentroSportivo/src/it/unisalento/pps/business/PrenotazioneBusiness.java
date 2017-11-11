@@ -37,4 +37,10 @@ private static PrenotazioneBusiness instance;
 	public ArrayList<Prenotazione> getPrenotazioni() {
 		return PrenotazioneDAO.getInstance().getPrenotazioni();
 	}
+
+	public boolean setPrenotazioneTesserato(int idUtente, Integer integer) {
+		
+		return PrenotazioneDAO.getInstance().setPrenotazioneTesserato(idUtente,integer);
+		
+	}
 }

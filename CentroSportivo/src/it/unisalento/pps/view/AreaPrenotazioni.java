@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -19,6 +21,7 @@ import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
 import it.unisalento.pps.business.IscrizioneBusiness;
 import it.unisalento.pps.business.LivelloBusiness;
+import it.unisalento.pps.business.PrenotazioneBusiness;
 import it.unisalento.pps.business.SpazioBusiness;
 import it.unisalento.pps.business.TipoEventoBusiness;
 import it.unisalento.pps.listener.AscoltatoreBackHome;
@@ -28,11 +31,12 @@ import it.unisalento.pps.model.Evento;
 import it.unisalento.pps.model.Iscrizione;
 import it.unisalento.pps.model.Istruttore;
 import it.unisalento.pps.model.Livello;
+import it.unisalento.pps.model.Prenotazione;
 import it.unisalento.pps.model.Spazio;
 import it.unisalento.pps.model.TipoEvento;
 import it.unisalento.pps.model.Utente;
 
-public class AreaPrenotazioni extends JFrame{
+public class AreaPrenotazioni extends JFrame implements ItemListener{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel nordPnl=new JPanel();
@@ -43,7 +47,7 @@ public class AreaPrenotazioni extends JFrame{
 	
 	
 	private JPanel titolo = new JPanel(new FlowLayout());
-	private JLabel scelta = new JLabel("SELEZIONA I CORSI E GLI EVENTI PER CUI TI VUOI PRENOTARE");
+	private JLabel scelta = new JLabel("SELEZIONA I CORSI E GLI EVENTI PER CUI TI VUOI PRENOTARE. SE GIA' PRENOTATI COMPARE LA SPUNTA");
 	
 	
 	
@@ -55,16 +59,19 @@ public class AreaPrenotazioni extends JFrame{
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	AscoltatorePrenotazioni ascoltatorePrenotazioni;
 	Istruttore istruttore;
+	ArrayList<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
+	ArrayList<Integer> idEventiSelezionati = new ArrayList<Integer>();
 	ArrayList<Livello> livelli = new ArrayList<Livello>();
 	ArrayList<Iscrizione> iscrizioni = new ArrayList<Iscrizione>();
-	public JCheckBox campo_evento;
-	public JTextField gio;
+	JCheckBox campo_evento;
+	ArrayList<JCheckBox> checkbox = new ArrayList<JCheckBox>();
+	ArrayList<Integer> idEventiSelezionabili = new ArrayList<Integer>();
+	
 	
 	public AreaPrenotazioni(Utente tesserato) {
 		super(tesserato.getNome()+" "+tesserato.getCognome());
-		//centroPnl.setLayout(new GridLayout(3,1));
-			
+					
 		scelta.setFont(new Font("sansserif",Font.BOLD,30));
 		titolo.add(scelta);
 		nordPnl.add(titolo);
@@ -72,6 +79,7 @@ public class AreaPrenotazioni extends JFrame{
 		
 		iscrizioni = IscrizioneBusiness.getInstance().getIscrizioniAutorizzate();
 		livelli = LivelloBusiness.getInstance().getLivelli();
+		prenotazioni =PrenotazioneBusiness.getInstance().getPrenotazioni();
 		
 		
 		Disciplina disciplina;
@@ -105,6 +113,16 @@ public class AreaPrenotazioni extends JFrame{
 			
 								campo_evento = new JCheckBox( tipoevento.getTipo().toUpperCase()+" di "+disciplina.getNome().toUpperCase()+ " dal  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"  al  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+" orario "+eventi.get(j).getTurno()+ " in  "+spazio.getNome().toUpperCase());	
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
+								campo_evento.addItemListener(this);
+								for(int k=0;k<prenotazioni.size();k++) {
+								if(eventi.get(j).getIdEvento() == prenotazioni.get(k).getEvento()) {
+									campo_evento.setSelected(true);
+									idEventiSelezionati.add(eventi.get(j).getIdEvento());
+								}
+									}
+								checkbox.add(campo_evento);
+								idEventiSelezionabili.add(eventi.get(j).getIdEvento());
+								
 				
 																
 								
@@ -142,7 +160,7 @@ public class AreaPrenotazioni extends JFrame{
 			indietro.setFont(new Font("sansserif",Font.BOLD,20));
 			contenutotasti.add(indietro);
 			iscrizione.setFont(new Font("sansserif",Font.BOLD,20));
-			ascoltatorePrenotazioni = new AscoltatorePrenotazioni(this,tesserato);
+			ascoltatorePrenotazioni = new AscoltatorePrenotazioni(this,tesserato,idEventiSelezionati);
 			iscrizione.addActionListener(ascoltatorePrenotazioni);
 			contenutotasti.add(iscrizione);
 			distinta.setFont(new Font("sansserif",Font.BOLD,20));
@@ -150,6 +168,8 @@ public class AreaPrenotazioni extends JFrame{
 			
 			
 			sudPnl.add(contenutotasti);
+			System.out.println(checkbox.size() + "   " +idEventiSelezionabili);
+			System.out.println(idEventiSelezionati.size());
 		
 		
 				
@@ -168,6 +188,38 @@ public class AreaPrenotazioni extends JFrame{
 	
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		 Object source = e.getItemSelectable();
+	        for(int i=0;i<checkbox.size();i++) {
+	        if (source == checkbox.get(i)) {
+	        	 if (e.getStateChange() == ItemEvent.SELECTED ) {
+	        		 
+	        		 boolean si = idEventiSelezionati.add(idEventiSelezionabili.get(i));
+	           if (si)   {       
+	            	System.out.println(idEventiSelezionati.size());
+	            System.out.println(idEventiSelezionati.get(idEventiSelezionati.size()-1));
+	        		} 
+	            }
+	        
+
+	        	 else if (e.getStateChange() == ItemEvent.DESELECTED)
+	        	 	{
+	        		boolean no = idEventiSelezionati.remove(idEventiSelezionabili.get(i));
+	        		 if(no) {
+	        			 System.out.println(idEventiSelezionati.size());
+	        		 System.out.println(idEventiSelezionati.get(idEventiSelezionati.size()-1));
+	        		 }
+	        		 else {
+
+	        			 System.out.println("non cancella");
+	        		 }
+	        	 		}
+	        	 	}
+	        	}
+		
 	}
 }
 
