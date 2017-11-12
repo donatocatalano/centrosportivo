@@ -9,7 +9,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -17,24 +16,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import it.unisalento.pps.business.DisciplinaBusiness;
-import it.unisalento.pps.business.EventoBusiness;
-import it.unisalento.pps.business.IscrizioneBusiness;
-import it.unisalento.pps.business.LivelloBusiness;
-import it.unisalento.pps.business.PrenotazioneBusiness;
-import it.unisalento.pps.business.SpazioBusiness;
-import it.unisalento.pps.business.TipoEventoBusiness;
-import it.unisalento.pps.listener.AscoltatoreBackHome;
-import it.unisalento.pps.listener.AscoltatorePrenotazioni;
-import it.unisalento.pps.model.Disciplina;
-import it.unisalento.pps.model.Evento;
-import it.unisalento.pps.model.Iscrizione;
-import it.unisalento.pps.model.Istruttore;
-import it.unisalento.pps.model.Livello;
-import it.unisalento.pps.model.Prenotazione;
-import it.unisalento.pps.model.Spazio;
-import it.unisalento.pps.model.TipoEvento;
-import it.unisalento.pps.model.Utente;
+import it.unisalento.pps.business.*;
+import it.unisalento.pps.listener.*;
+import it.unisalento.pps.model.*;
+
 
 public class AreaPrenotazioni extends JFrame implements ItemListener{
 	
@@ -58,6 +43,8 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 		
 	AscoltatoreBackHome ascoltatoreBackHome; 
 	AscoltatorePrenotazioni ascoltatorePrenotazioni;
+	AscoltatoreStampa ascoltatoreStampa;
+	
 	Istruttore istruttore;
 	ArrayList<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
 	ArrayList<Evento> eventi = new ArrayList<Evento>();
@@ -162,6 +149,8 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 			iscrizione.addActionListener(ascoltatorePrenotazioni);
 			contenutotasti.add(iscrizione);
 			distinta.setFont(new Font("sansserif",Font.BOLD,20));
+			ascoltatoreStampa = new AscoltatoreStampa(this,tesserato,idEventiSelezionati);
+			distinta.addActionListener(ascoltatoreStampa);
 			contenutotasti.add(distinta);
 			
 			
