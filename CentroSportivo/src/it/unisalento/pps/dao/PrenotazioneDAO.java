@@ -116,4 +116,16 @@ public class PrenotazioneDAO {
 		}
 		return prenotazioniByUtente;
 	}
+
+	public boolean setPrenotazioneValidaTesserato(int idUtente, int idEvento) {
+		ArrayList<String[]> result=DbConnection.getInstance().eseguiQuery("select count(*) from prenotazione");
+		Iterator<String[]> iter = result.iterator();
+		String[] tupla = iter.next();
+		int idUltimaPrenotazione = Integer.parseInt(tupla[0]);
+		int idPrenotazione= idUltimaPrenotazione+1;
+		
+		boolean prenotato = false;		
+		prenotato = DbConnection.getInstance().eseguiAggiornamento("INSERT prenotazione(ID_Prenotazione,Utente,Evento,Data_Prenotazione,Valida) values ("+idPrenotazione+","+idUtente+","+idEvento+",curdate(),"+1+")");
+		return prenotato;
+	}
 }

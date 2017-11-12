@@ -36,16 +36,16 @@ public class AscoltatorePrenotazioni implements ActionListener {
 	public void actionPerformed(ActionEvent e) throws IllegalArgumentException{
 		boolean prenotato=false;
 		boolean prenotazioneGiaPresente=false;
-		System.out.println(idEventiSelezionati);
+		
 		prenotazioni = PrenotazioneBusiness.getInstance().getPrenotazioniByUtente(tesserato.getIdUtente());
-		System.out.println("adesso : " +prenotazioni.size());
+		
 		
 		if(prenotazioni.size()==0)
 		{
 			for(int i=0;i<idEventiSelezionati.size();i++) {
 				Evento evento = EventoBusiness.getInstance().getEventoById(idEventiSelezionati.get(i));
 				boolean ok= eventiSelezionati.add(evento);
-				prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneTesserato(tesserato.getIdUtente(),evento.getIdEvento());
+				prenotato=PrenotazioneBusiness.getInstance().setPrenotazioneValidaTesserato(tesserato.getIdUtente(),evento.getIdEvento());
 												}
 				}
 		else if(prenotazioni.size() > 0) {

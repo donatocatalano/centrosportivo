@@ -38,14 +38,19 @@ private static PrenotazioneBusiness instance;
 		return PrenotazioneDAO.getInstance().getPrenotazioni();
 	}
 
-	public boolean setPrenotazioneTesserato(int idUtente, Integer integer) {
+	public boolean setPrenotazioneTesserato(int idUtente, int idEvento) {
 		
-		return PrenotazioneDAO.getInstance().setPrenotazioneTesserato(idUtente,integer);
+		return PrenotazioneDAO.getInstance().setPrenotazioneTesserato(idUtente,idEvento);
 		
 	}
 
 	public ArrayList<Prenotazione> getPrenotazioniByUtente(int idUtente) {
-		// TODO Auto-generated method stub
+		
 		return PrenotazioneDAO.getInstance().getPrenotazioniByUtente(idUtente);
+	}
+
+	public boolean setPrenotazioneValidaTesserato(int idUtente, int idEvento) {
+		
+		return PrenotazioneDAO.getInstance().setPrenotazioneValidaTesserato(idUtente,idEvento);
 	}
 }

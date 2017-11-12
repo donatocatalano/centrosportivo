@@ -166,9 +166,7 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 			
 			
 			sudPnl.add(contenutotasti);
-			//System.out.println("nel frame"+checkbox.size() + "   " +idEventiSelezionabili);
-			System.out.println("nel frame idselezionati size = "+idEventiSelezionati.size());
-			 			
+			
 		
 				
 		
@@ -196,24 +194,24 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 	        	 if (e.getStateChange() == ItemEvent.SELECTED ) {
 	        		 
 	        		 boolean si = idEventiSelezionati.add(idEventiSelezionabili.get(i));
-	           if (si)   {       
+	           /*if (si)   {       
 	            	System.out.println(idEventiSelezionati.size());
 	            
-	        		} 
-	            }
-	        
+	        		} */
+	            } 
+	       
 
 	        	 else if (e.getStateChange() == ItemEvent.DESELECTED)
 	        	 	{
 	        		boolean no = idEventiSelezionati.remove(idEventiSelezionabili.get(i));
-	        		 if(no) {
+	        		/* if(no) {
 	        			 System.out.println(idEventiSelezionati.size());
 	        		 
 	        		 }
 	        		 else {
 
 	        			 System.out.println("non cancella");
-	        		 }
+	        		 }*/
 	        	 		}
 	        	 	}
 	        	}
