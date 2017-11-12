@@ -1,13 +1,19 @@
 package it.unisalento.pps.listener;
 
+import java.awt.Desktop;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
 import javax.swing.*;
+
 
 import it.unisalento.pps.business.DisciplinaBusiness;
 import it.unisalento.pps.business.EventoBusiness;
@@ -38,6 +44,8 @@ public class AscoltatoreStampa implements ActionListener {
 	}
 	
 	
+	
+	
 
 	public void actionPerformed(ActionEvent e) throws IllegalArgumentException{
 		
@@ -46,7 +54,12 @@ public class AscoltatoreStampa implements ActionListener {
 		Disciplina disciplina;
 		Spazio spazio;
 		TipoEvento tipo;
-		
+		 if (!Desktop.isDesktopSupported())
+		    {
+		      System.out.println ("Funzionalità Desktop Non supportata!");
+		      return;
+		    }
+		 Desktop d;
 		
 		if(prenotazioni.size()==0)
 		{
@@ -84,11 +97,35 @@ public class AscoltatoreStampa implements ActionListener {
 			
   			out.println("                 "+tipo.getTipo().toUpperCase()+" di " +disciplina.getNome().toUpperCase()+ "  inizia il :  " +giorno_inizio+ "/"+mese_inizio+ "/" +anno_inizio+"   orario :  " +eventiSelezionati.get(i).getTurno()+ "   termina il :  "+giorno_fine+ "/"+mese_fine+ "/" +anno_fine+"  LUOGO:  "+spazio.getNome()+"\n\n");
 			
-										}
-			
-		    
+										}	    
 		    	
-		        JOptionPane.showMessageDialog(null, "Prenotazione stampata su file.Premi ok per proseguire.");
+		        JOptionPane.showMessageDialog(null, "Prenotazione pronta per la stampa.Premi ok per proseguire.");
+		        try
+		        {
+		          
+		          d = Desktop.getDesktop();		          
+		          d.print(new File("Prenotazioni\\prenotazione.txt"));
+		        }
+		        catch (NullPointerException npe)
+		        {
+		          System.out.println (" Il valore specificato del parametro file è null! ");
+		        }
+		        catch (IllegalArgumentException iae)
+		        {
+		          System.out.println (" Il file specificato non esiste! ");
+		        }
+		        catch (UnsupportedOperationException uoe)
+		        {
+		          System.out.println (" La piattaforma non supporta l'azione di stampa! ");
+		        }
+		        catch (IOException ioe)
+		        {
+		          System.out.println (" Il file specificato non ha associato applicazione che supportano la stampa ");
+		        }
+		        catch (SecurityException se)
+		        {
+		          System.out.println (" Il security manager installato non consente l'accesso al file o alla stampante ");
+		        }	
 		     
 		         
         }
@@ -105,14 +142,5 @@ public class AscoltatoreStampa implements ActionListener {
 			out.close();
 		}
 	
-		/*if(prenotato) {
-			
-			JOptionPane.showMessageDialog(null, "Richiesta effettuata procedi con la stampa della ricevuta !");
-			new AreaPrenotazioni(tesserato);
-			frame.dispose();
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Non è stato possibile inviare richiesta.Non sono state rilevate modifiche!");
-		}*/
 	}
 }
