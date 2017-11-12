@@ -14,7 +14,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import it.unisalento.pps.business.*;
 import it.unisalento.pps.listener.*;
@@ -33,8 +32,6 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 	
 	private JPanel titolo = new JPanel(new FlowLayout());
 	private JLabel scelta = new JLabel("SELEZIONA I CORSI E GLI EVENTI PER CUI TI VUOI PRENOTARE. SE GIA' PRENOTATI COMPARE LA SPUNTA");
-	
-	
 	
 	
 	JButton indietro = new JButton("INDIETRO");
@@ -83,9 +80,7 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 					eventi = EventoBusiness.getInstance().getEventiCorsiByIdDisciplina(disciplina.getIdDisciplina());
 					JPanel contenuto = new JPanel(new GridLayout(eventi.size(),1));
 					 
-						if(eventi.size()>0) {    
-							
-								
+						if(eventi.size()>0) {    								
 							for(int j=0;j<eventi.size();j++) {					
 								spazio = SpazioBusiness.getInstance().getSpazioById(eventi.get(j).getSpazio());
 								tipoevento = TipoEventoBusiness.getInstance().getTipoEventoById(eventi.get(j).getTipo());
@@ -102,21 +97,20 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 								campo_evento.setFont(new Font("sansserif",Font.BOLD,20));
 								campo_evento.addItemListener(this);
 								for(int k=0;k<prenotazioni.size();k++) {
-								if(eventi.get(j).getIdEvento() == prenotazioni.get(k).getEvento() && prenotazioni.get(k).getUtente() == tesserato.getIdUtente()) {
-									campo_evento.setSelected(true);
-									idEventiSelezionati.add(eventi.get(j).getIdEvento());
-									
-										}
+									if(eventi.get(j).getIdEvento() == prenotazioni.get(k).getEvento() && prenotazioni.get(k).getUtente() == tesserato.getIdUtente()) {
+										campo_evento.setSelected(true);
+										idEventiSelezionati.add(eventi.get(j).getIdEvento());
+									}
 								}
 								checkbox.add(campo_evento);
 								idEventiSelezionabili.add(eventi.get(j).getIdEvento());
 															
 								contenuto.add(campo_evento);								
 								nonIscritto =false;								
-									}
+							}
 							
 							centroPnl.add(contenuto);
-								}
+						}
 						else {
 							
 							JLabel nessunaoccorrenza = new JLabel("Nessun Corso o Evento disponibile per "+disciplina.getNome().toUpperCase());	
@@ -125,16 +119,14 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 							
 						}
 						
-					}
 				}
+		}
 		
 			if(nonIscritto){
-				
 				JLabel nessunaoccorrenza = new JLabel("Non sei iscritto a nessuna Disciplina ! Iscriviti !");	
 				nessunaoccorrenza.setFont(new Font("sansserif",Font.BOLD,20));
 				noEventi.add(nessunaoccorrenza);
-				
-		}
+			}
 					
 			centroPnl.setLayout(new GridLayout(count+1,1));
 			centroPnl.add(noEventi);
@@ -156,9 +148,7 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 			
 			sudPnl.add(contenutotasti);
 			
-		
-				
-		
+			
 		
 		this.getContentPane().add(nordPnl,BorderLayout.NORTH);
 		this.getContentPane().add(centroPnl,BorderLayout.CENTER);
@@ -174,11 +164,11 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-
-	@Override
+	
+	
 	public void itemStateChanged(ItemEvent e) {
 		 Object source = e.getItemSelectable();
-	        for(int i=0;i<checkbox.size();i++) {
+		 for(int i=0;i<checkbox.size();i++) {
 	        if (source == checkbox.get(i)) {
 	        	 if (e.getStateChange() == ItemEvent.SELECTED ) {
 	        		 
@@ -190,8 +180,7 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 	            } 
 	       
 
-	        	 else if (e.getStateChange() == ItemEvent.DESELECTED)
-	        	 	{
+	        	 else if (e.getStateChange() == ItemEvent.DESELECTED){
 	        		boolean no = idEventiSelezionati.remove(idEventiSelezionabili.get(i));
 	        		/* if(no) {
 	        			 System.out.println(idEventiSelezionati.size());
@@ -201,10 +190,9 @@ public class AreaPrenotazioni extends JFrame implements ItemListener{
 
 	        			 System.out.println("non cancella");
 	        		 }*/
-	        	 		}
-	        	 	}
-	        	}
-		
+	        	 }
+	        }
+	    }
 	}
 }
 
